@@ -53,6 +53,10 @@
 
 D01 Fase 0 · D03 posició sobre titularitat de la marca · D04 rebuig Behike · D05 estructura (recomanada SL espanyola) · D06 calendari del trasllat a Andorra · D07 validació B3 · D08 nom definitiu · D09 pressupost màxim previ · D10 encaix legal del torcedor · D11 contraprestació d'Arnaldo · D12 proposta a inversors (import, trams, instrument) · D13 origen alternatiu d'ARNALDO com a pla B. Detall: `00_EXECUTIVE/Decision Matrix.xlsx` › «Decisiones pendientes».
 
+## Dades pendents al dossier
+
+`01_BRAND/ARNALDO Brand Dossier.pdf` té **13 marcadors grocs «[PENDIENTE · …]»**: el teu perfil, les dades acreditades d'Arnaldo i les decisions D12 i D13. S'omplen totes al bloc `DATOS` del principi de `_build/build_dossier.py`; en tornar a generar, el script avisa si en queda algun. **No s'ha d'enviar el dossier amb marcadors.**
+
 ## Límits d'aquest treball
 
 - L'entorn bloquejava la descàrrega directa de pàgines: les fonts s'han llegit a través d'extractes del cercador (totes amb data 10/10/2026).

@@ -19,6 +19,35 @@ CHROME = "/opt/pw-browsers/chromium-1194/chrome-linux/chrome"
 M = json.load(open(os.path.join(B, "metrics.json")))
 FECHA = "10/10/2026"
 
+# ---------------------------------------------------------------- datos pendientes del promotor
+# Rellenar con texto y volver a generar. Mientras valgan None, el PDF muestra un marcador visible
+# «[PENDIENTE · …]» y el script avisa al terminar: el dossier no debe enviarse con marcadores.
+DATOS = {
+    "promotor_nombre": None,            # nombre y apellidos tal como deben aparecer
+    "promotor_experiencia": None,       # 3–5 líneas: sector, cargos, años; experiencia en tabaco, distribución, lujo o importación
+    "promotor_dedicacion": None,        # completa / parcial (horas por semana)
+    "promotor_capital": None,           # aportación propia: Fase 0 (≤ 15.000 €) y posterior
+    "promotor_vinculo": None,           # relación con Arnaldo: desde cuándo y cómo
+    "arnaldo_apellidos": None,
+    "arnaldo_categoria": None,          # categoría y años de oficio, solo si están acreditados
+    "arnaldo_empresa": None,            # entidad o fábrica en la que trabaja
+    "d12_opcion": None,                 # A: sin inversores hasta el Go · B: inversor para el tramo 1 · C: socio estratégico
+    "d12_importe": None,                # importe aproximado a captar
+    "d12_participacion": None,          # % de la sociedad a ceder, o «a negociar»
+    "d12_instrumento": None,            # capital / préstamo participativo / a definir
+    "d13_plan_b": None,                 # Sí: ARNALDO con origen R. Dominicana o Nicaragua como plan B · No: solo vía B3
+}
+PENDIENTES = []
+
+
+def ph(key, label):
+    """Valor de DATOS o marcador visible de dato pendiente."""
+    v = DATOS.get(key)
+    if v:
+        return v
+    PENDIENTES.append(label)
+    return f'<span class="ph">[PENDIENTE · {label}]</span>'
+
 
 # ---------------------------------------------------------------- imágenes
 def img(name, maxw=2400):
@@ -130,6 +159,7 @@ ul.clean li:before{content:"";position:absolute;left:0;top:3.9mm;width:2mm;heigh
 .dark .num{color:var(--oro)}
 .swatch{height:30mm;border-radius:1mm;margin-bottom:2.5mm;border:1px solid rgba(0,0,0,.08)}
 .chip{display:inline-block;font-family:Cinzel;font-size:7pt;letter-spacing:.2em;border:1px solid var(--oro);color:var(--oro);padding:1mm 3mm;margin:0 2mm 2mm 0}
+.ph{display:inline-block;background:#FFF1B8;color:#7A4B00;border:1px dashed #C08A00;border-radius:1mm;padding:0 1.6mm;font-family:Inter;font-weight:600;font-size:.86em;letter-spacing:0}
 .verdict{font-family:Cinzel;font-weight:700;letter-spacing:.14em;font-size:13pt;color:var(--lacre)}
 """
 
@@ -658,7 +688,7 @@ def build():
   <li>Proyecto completo: {M['opt_need']}–{M['cons_need']} según escenario.</li></ul></div>
  <div><h3>Si la vía cubana no se abre</h3><ul class="clean">
   <li>Importación de marcas premium no cubanas (vía B3): contribución {M['b3_contrib']}/u a PVP 15 €, punto muerto ≈{M['b3_be']} u/año, 40–60 k€ de capital {T("HIPÓTESIS")}.</li>
-  <li>ARNALDO con origen alternativo (República Dominicana o Nicaragua): plan B pendiente de decisión.</li></ul></div>
+  <li>ARNALDO con origen alternativo (República Dominicana o Nicaragua): {ph('d13_plan_b', 'decisión D13: ¿plan B de origen?')}</li></ul></div>
 </div>
 <p class="small" style="margin-top:4mm">Fuente: 07_OPERATIONS/180-Day Execution Plan.xlsx (costes acumulados {T("HIPÓTESIS")}), Business Case y Premium Import Business Case.</p>
 </div>""", title="FASE 0")
@@ -679,7 +709,11 @@ def build():
  <div class="card"><h3>Instrumentos posibles</h3><p>Capital en la SL española o préstamo participativo (p. ej. ENISA) con el plan validado {T("HIPÓTESIS")}. La valoración se negocia después de la Fase 0, con hechos.</p></div>
  <div class="card"><h3>Protección del inversor</h3><p>Marca a nombre de la SL, licencia irrevocable de nombre y firma, liberación por hitos y opción de redirigir el capital a la vía B3 si Cuba no se abre.</p></div>
 </div>
-<p class="small" style="margin-top:4mm">Importes de los modelos del dossier. El importe a captar, el instrumento y la valoración son decisiones del promotor aún no tomadas.</p>
+<table style="margin-top:6mm"><thead><tr><th colspan="4">Decisión del promotor (D12)</th></tr></thead><tbody>
+<tr><td style="width:22%">Opción</td><td>{ph('d12_opcion', 'A sin inversores hasta el Go · B tramo 1 · C socio estratégico')}</td><td style="width:18%">Importe a captar</td><td>{ph('d12_importe', 'importe aproximado')}</td></tr>
+<tr><td>Participación a ceder</td><td>{ph('d12_participacion', '% o «a negociar»')}</td><td>Instrumento</td><td>{ph('d12_instrumento', 'capital / préstamo participativo')}</td></tr>
+</tbody></table>
+<p class="small" style="margin-top:3mm">Importes de los modelos del dossier. La valoración se negocia después de la Fase 0.</p>
 </div>""", title="PROPUESTA")
 
     # 19e · Equipo
@@ -687,8 +721,15 @@ def build():
 <div class="kick">Equipo y gobierno</div><h1>Quién lo hace</h1>
 <div class="grid2" style="gap:10mm;margin-top:2mm">
  <div>
-  <div class="card" style="margin-bottom:5mm"><h3>Promotor</h3><p>Dirección y desarrollo comercial; titular de la SL española. Su experiencia, dedicación y aportación de capital se incorporarán a esta página antes de presentar el dossier.</p></div>
-  <div class="card"><h3>Arnaldo, torcedor</h3><p>Nombre, firma y criterio de construcción, a través de la entidad autorizada y con permiso de su empleador. Su categoría y sus años de oficio solo se publicarán acreditados.</p></div>
+  <div class="card" style="margin-bottom:5mm"><h3>Promotor · {ph('promotor_nombre', 'nombre y apellidos')}</h3>
+   <p style="margin-bottom:1.5mm">Dirección y desarrollo comercial; titular de la SL española.</p>
+   <p style="margin-bottom:1.5mm"><strong>Experiencia:</strong> {ph('promotor_experiencia', 'sector, cargos y años')}</p>
+   <p style="margin-bottom:1.5mm"><strong>Dedicación:</strong> {ph('promotor_dedicacion', 'completa o parcial')} · <strong>Aportación:</strong> {ph('promotor_capital', 'capital propio')}</p>
+   <p style="margin:0"><strong>Relación con Arnaldo:</strong> {ph('promotor_vinculo', 'desde cuándo y cómo')}</p></div>
+  <div class="card"><h3>Arnaldo {ph('arnaldo_apellidos', 'apellidos')}, torcedor</h3>
+   <p style="margin-bottom:1.5mm">Nombre, firma y criterio de construcción, a través de la entidad autorizada y con permiso de su empleador.</p>
+   <p style="margin-bottom:1.5mm"><strong>Categoría y oficio (acreditados):</strong> {ph('arnaldo_categoria', 'solo con documento')}</p>
+   <p style="margin:0"><strong>Entidad en la que trabaja:</strong> {ph('arnaldo_empresa', 'razón social')}</p></div>
  </div>
  <div><h3>Asesores externos (por contratar en la Fase 0)</h3>
   <table><tbody>
@@ -753,6 +794,10 @@ def main():
     subprocess.run([CHROME, "--headless", "--no-sandbox", "--disable-gpu", "--no-pdf-header-footer",
                     f"--print-to-pdf={OUT}", "file://" + hp], check=True, capture_output=True)
     print(f"  -> {os.path.relpath(OUT, ROOT)} ({n} páginas)")
+    if PENDIENTES:
+        print(f"  AVISO: {len(PENDIENTES)} datos pendientes (marcadores visibles en el PDF). Rellenar DATOS en build_dossier.py:")
+        for p in PENDIENTES:
+            print("   -", p)
 
 
 if __name__ == "__main__":
