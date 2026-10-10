@@ -34,3 +34,41 @@ Regles comunes:
 4. Monogram "A" formed by a tobacco leaf and a cigar roller's chaveta blade, minimal luxury emblem, flat vector.
 5. Laurel-free emblem: oval medallion with crossed tobacco leaves and a small eight-pointed star, engraved line style, flat vector.
 6. Signature-style logo placeholder: elegant flowing handwritten "Arnaldo" with an underline flourish, flat vector. *(Només orientatiu: el definitiu ha de ser la signatura real d'Arnaldo.)*
+
+---
+
+# RUTA A v2 — «Grans Habanos» (Hoyo de Monterrey · Montecristo · Cohiba)
+
+*Afegit el 10/10/2026. Per enganxar a ChatGPT (imatges), Gemini, Ideogram, Higgsfield o Runway.*
+
+## Què agafem de cada referència i què NO (marques i aparença comercial protegides)
+
+| Referència | Codi que inspira | Traducció original ARNALDO | Prohibit copiar |
+|---|---|---|---|
+| **Hoyo de Monterrey** | Medalló oval victorià amb vinyeta gravada, filigrana d'or, vermell/or/crema | Medalló oval amb una vinyeta gravada de **les mans d'Arnaldo a la mesa de torcer** (o una casa de tabac), filigrana d'or | El jardí/font, «José Gener», la composició de la seva anella i la seva vista |
+| **Montecristo** | Emblema heràldic fort i simple, paleta molt reduïda, lectura a distància | Emblema de **dues chavetes creuades** (el ganivet del torcedor) sobre una fulla de tabac, dins d'un escut o cercle propi | El triangle, les espases, la flor de lis, la combinació marró/blanc/vermell en el seu ordre |
+| **Cohiba** | Patró geomètric potent al cos de l'anella, minimalisme, versió negra de luxe (Behike) | Banda de **trenat de yagua** (teixit de fulla de palma dels tercios) en or i negre; versió negra per a l'edició limitada | El quadriculat blanc i negre, el cap taíno, el groc Cohiba |
+
+Comuns a totes:
+- Ni «Habana», ni «Cuba», ni «Habano».
+- Cap escut d'Estat, medalla ni data.
+- La signatura real d'Arnaldo dins la cartel·la quan la tinguem.
+
+## Prompts
+
+**A2-1 · Anella principal (lacre i or, medalló)**
+Macro product photograph of a premium robusto cigar on dark walnut wearing an ornate classic cigar band in the grand Cuban tradition: deep oxblood-red field, wide antique-gold foil borders with fine engraved guilloché and beaded edges, a tall die-cut oval medallion in the centre framed by Victorian gold filigree scrollwork; inside the medallion a tiny engraved vignette of a cigar roller's hands at a wooden rolling table; across the medallion a white enamel ribbon with the name "ARNALDO" in bold engraved red serif capitals. Embossed relief, raking warm light, ultra-detailed paper and foil texture. No other text, no flags, no coats of arms, no medals.
+
+**A2-2 · Emblema de chavetes**
+Flat engraved emblem for a luxury cigar brand: two crossed cigar-roller's chaveta blades (curved crescent knives with wooden handles) over a single tobacco leaf, inside a round seal with a double gold rule and fine guilloché, the word "ARNALDO" in classic engraved serif capitals around the top of the seal. Antique gold and oxblood red on cream paper, intaglio line style. No swords, no fleur-de-lis, no triangle, no other text.
+
+**A2-3 · Edició negra (llegat de luxe)**
+Studio product photograph of a premium churchill cigar with a black cigar band: glossy black lacquer field with a repeating woven palm-leaf pattern in fine gold lines along the top and bottom borders, a slim central gold cartouche with "ARNALDO" in elegant engraved serif capitals and "Nº 3" below in small script. Dark velvet background, dramatic rim light, ultra-detailed foil. No other text, no checkerboard pattern, no portraits.
+
+**A2-4 · Vista de la tapa (estil Hoyo)**
+Overhead photograph of an open Spanish-cedar cigar box of ten robustos with oxblood-and-gold bands; inside the lid a richly lithographed label in oxblood, cream and antique gold: a large central oval medallion with a fine engraved scene of a tobacco curing barn among tobacco fields at dawn, framed by Victorian gold filigree and corner rosettes, "ARNALDO" above in large engraved serif capitals on a ribbon, "Pliego de autor" in copperplate script below. Gold-and-red edge trim paper on the box rim. Warm tungsten light. No other text, no flags, no coats of arms, no medals.
+
+**A2-5 · Les tres vitoles**
+Studio photograph of three premium cigars standing upright (robusto, toro, churchill) with matching bands from the same family: oxblood-and-gold with oval medallion (Nº 1), gold with crossed-chaveta emblem (Nº 2), black lacquer with woven gold border (Nº 3), each reading "ARNALDO". Black background, rim light. No other text.
+
+**Consell:** genera 3–4 variants de cada prompt i tria'n les millors per al dissenyador. Si el text surt deformat, afegeix «the text ARNALDO must be spelled exactly A-R-N-A-L-D-O» al final del prompt.
