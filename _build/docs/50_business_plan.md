@@ -45,7 +45,7 @@ Concentración: Habanos domina el premium; la distribución mayorista está conc
 
 # 5. Competencia y posicionamiento
 
-Competidores directos de ARNALDO Nº 1: Habanos clásicos de formato robusto (≈21–22 €) y marcas no cubanas de prestigio (12–20 €). ARNALDO se posiciona en el lujo cubano clásico con una identidad de **«Gran Habilitación»** —la gramática visual de las grandes marcas de Habanos (anilla con cartela, oro en relieve, guilloché, litografía de tapa) reinterpretada con elementos originales—, lotes numerados («pliegos») y colofón de trazabilidad; precio objetivo 24 € (Base) que exige superar en calidad percibida a referencias consolidadas. Matriz de posicionamiento: B 3,90 / C 3,35 / A 2,45 (`Decision Matrix.xlsx`).
+Competidores directos de ARNALDO Nº 1: Habanos clásicos de formato robusto (≈21–22 €) y marcas no cubanas de prestigio (12–20 €). ARNALDO se posiciona en el lujo cubano clásico con la **Ruta A v2** —la gramática visual de las grandes marcas de Habanos (anilla con cartela, oro en relieve, guilloché, litografía de tapa) traducida a elementos propios: medallón con las manos del torcedor, chavetas cruzadas y un patrón inspirado en la yagua; ver `01_BRAND/ARNALDO Brand Dossier.pdf`—, lotes numerados («pliegos») y colofón de trazabilidad; precio objetivo 24 € (Base) que exige superar en calidad percibida a referencias consolidadas. Matriz de posicionamiento: B 3,90 / C 3,35 / A 2,45 (`Decision Matrix.xlsx`).
 
 **Ventaja competitiva sostenible** (Fisher): baja mientras la producción dependa de un único fabricante estatal; se construye con (i) propiedad plena de la marca y del diseño, (ii) relación con estanqueros especialistas, (iii) habilitaciones y know-how regulatorio, (iv) consistencia documentada.
 
@@ -173,7 +173,7 @@ Los diez principales (registro completo con 28 riesgos y matriz regulatoria en `
 | Rechazo del canal a 24 € | Cartas de interés previas (C6) |
 | Calidad inconsistente | Ficha técnica, AQL, catas, reposición |
 | Bloqueo de suministro | Marca transferible a otro origen |
-| Sanciones / contrapartes | Screening UE/ONU/OFAC; nada en USD |
+| Sanciones / contrapartes | Dictamen de sanciones UE/EE. UU. antes del primer pago (C4); screening UE/ONU/OFAC; nada en USD |
 | Fraude (ofertas anómalas) | Protocolo de procedencia; NO-GO |
 
 # 18. Hoja de ruta
@@ -207,4 +207,4 @@ Ampliar a Nº 2 sólo si se cumplen todos durante 12 meses.
 
 Opciones realistas: (i) venta de la marca y la cartera de clientes a un distribuidor o fabricante premium; (ii) licencia de marca; (iii) cesión de la vía B3 a un distribuidor. Limitaciones: el embargo de EE.UU. reduce el universo de compradores de una marca cubana; el valor depende de la propiedad indiscutida de la marca y de la documentación. La valoración del modelo (5× EBITDA 2031) sólo es positiva en el escenario Optimista.
 
-Fuentes: Source Register (S01–S48, N01–N07), consulta 10/10/2026.
+Fuentes: Source Register (S01–S51, N01–N07), consulta 10/10/2026.

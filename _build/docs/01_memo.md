@@ -69,7 +69,7 @@ Contratar abogados (Cuba + España); cuestionario al torcedor; rechazo por escri
 | C1 | Autorización documentada de fabricación y exportación para marca de titularidad extranjera | Licencia / carta oficial |
 | C2 | Titularidad 100% de la marca aceptada (UE y Cuba) | Term sheet + OCPI |
 | C3 | FOB firme compatible con ≤ 5 USD a PVP 24 € (o PVP mayor validado) | Oferta firmada |
-| C4 | Canal de pago validado | Banco |
+| C4 | Canal de pago validado y dictamen de sanciones UE/EE. UU. sobre la contraparte | Banco + dictamen de abogado |
 | C5 | Distribuidor habilitado dispuesto | Carta de intención |
 | C6 | ≥ 10 expendedurías especialistas interesadas | Cartas |
 | C7 | Informe de registrabilidad favorable | Agente de marcas |
@@ -81,6 +81,7 @@ Contratar abogados (Cuba + España); cuestionario al torcedor; rechazo por escri
 - **Contradicciones revisadas**: la libertad de importación en España no contradice la exclusiva de Habanos (la exclusiva es contractual y de marca, no regulatoria); el agotamiento regional de la marca impide la importación paralela desde fuera del EEE.
 - **Capacidad de fabricar marca extranjera**: no verificada; es la cuestión central y se aborda en la Fase 0.
 - **Derechos comerciales e importación de Habanos**: NO-GO documentado.
+- **Sanciones**: la vía principal (V1) pasa por Habanos S.A., participada al 50% por un grupo cuyo accionista indirecto está sancionado por la UE (30/07/2026) y EE.UU. [VERIFICADO] (S21, S22). Antes de cualquier pago hace falta un dictamen de abogado de sanciones sobre la contraparte concreta y el flujo de pagos; se incorpora como evidencia de C4.
 - **Riesgo residual**: las normas cubanas de 2026 se conocen por índices y prensa; el texto íntegro no se ha leído.
 
 # Auditoría B — Financiera
@@ -103,6 +104,8 @@ Contratar abogados (Cuba + España); cuestionario al torcedor; rechazo por escri
 8. Retrasos de 10 meses consumen el capital antes del primer cobro (Estrés).
 9. Calidad irregular destruye la reputación en el primer año.
 10. El capital disponible (15–100 k€) es inferior a la necesidad real ({{opt_need}} – {{cons_need}}).
+
+**Coherencia de los escenarios con la demanda**: el único escenario con VAN positivo (Optimista) supone {{opt_units_2031}} unidades en 2031, que exigen ≈{{opt_pos_2031}} puntos de venta activos; la demanda accesible estimada de abajo arriba es de 1.600–6.000 u/año (40–150 puntos). Ese escenario requiere, por tanto, el doble de la demanda que el propio estudio considera accesible, a un PVP de 28 € superior al de los Habanos clásicos de referencia. Además, el modelo no retribuye al promotor: cada 10.000 €/año de remuneración eleva el punto muerto Base en ≈{{base_be_per10k}}.
 
 **El mejor argumento para no invertir**: aun resolviendo la barrera jurídica, la combinación de arancel del 26%, impuesto especial del 15,8% y canal del 14% obliga a vender una marca desconocida por encima del precio de los Habanos clásicos a los que pretende parecerse, con un único proveedor estatal que controla hoja, fábrica y exportación. El inversor asume riesgo país, regulatorio y comercial a la vez por un VAN negativo en tres de cuatro escenarios.
 

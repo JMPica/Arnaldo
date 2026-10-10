@@ -13,6 +13,20 @@ out: ["03_BUSINESS_CASE/Business Case.pdf"]
 
 La causa es estructural: con origen Cuba, el Estado (IVA + impuesto especial + arancel) se lleva ≈{{ct_state_pct}} del PVP y el canal (expendedor + distribuidor) ≈14%. Con un coste en destino de {{base_landed}} por unidad, la marca necesita PVP ≥ 25 € **y** FOB ≤ ≈5 USD para que el negocio funcione. La variable decisiva —el precio FOB— está [BLOQUEADO] hasta recibir una cotización formal.
 
+# Qué tiene que ser verdad para invertir más allá de la Fase 0
+
+| Condición | Umbral | Situación a 10/10/2026 |
+|---|---|---|
+| Precio FOB | ≤ ≈5 USD por unidad ({{ue25_fobmax}} es el máximo para un margen del 25% a PVP 25 €) | [BLOQUEADO] — sin cotización |
+| PVP aceptado por el canal | ≥ 25 € | [HIPÓTESIS] — sin cartas de interés |
+| Volumen | Por encima del punto muerto: ≈{{ue25_be}} u/año a 25 € y ≈{{ue30_be}} u/año a 30 € | [HIPÓTESIS] — demanda accesible estimada 1.600–6.000 u/año |
+| Vía legal y titularidad de la marca | C1 y C2 por escrito | [BLOQUEADO] |
+| Pagos y sanciones | Canal bancario + dictamen de sanciones (C4) | [BLOQUEADO] |
+
+**Escala del negocio.** A PVP 24 €, cada unidad deja a la marca {{base_rev_u}} de ingreso antes de impuesto especial. La demanda accesible estimada (1.600–6.000 u/año) equivale a **{{sam_rev_low}}–{{sam_rev_high}}** de ingresos anuales de la marca: es un negocio de nicho, cuyo atractivo para un inversor depende de la calidad del margen y de la propiedad del activo, no del volumen.
+
+**Origen alternativo.** Con origen República Dominicana y el mismo FOB, el coste en destino baja ≈{{ct_diff10k}} por cada 10.000 unidades (arancel 0% con prueba de origen [PROBABLE]), según `Customs and Tax Model.xlsx`. Es la principal palanca económica si la vía cubana no se abre, a costa de cambiar el posicionamiento (ver Business Plan §7).
+
 # Arquitectura del modelo
 
 - Archivo: `03_BUSINESS_CASE/Financial Model 2027–2031.xlsx` (17 pestañas exigidas + «Engine»).
@@ -90,7 +104,7 @@ Pedido piloto de 3.000 unidades (hoja «Working Capital»): el primer pago a Cub
 - Base: contribución 2030 {{base_contrib}} → punto muerto {{base_be}} frente a 5.000 unidades de demanda supuesta en 2030.
 - Optimista: {{opt_contrib}} → {{opt_be}}.
 - Conservador y Estrés: contribución negativa → no hay punto muerto alcanzable.
-- Gastos fijos Base: {{base_opex_2028}} (2028) y {{base_opex_2030}} (2030), **sin** remuneración del promotor.
+- Gastos fijos Base: {{base_opex_2028}} (2028) y {{base_opex_2030}} (2030), **sin** remuneración del promotor. Cada 10.000 €/año de remuneración añade ≈{{base_be_per10k}} al punto muerto Base.
 
 # Sensibilidad
 

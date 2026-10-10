@@ -102,6 +102,8 @@ dec = [
     ("D09", "Presupuesto máximo comprometido antes de la primera importación", "15–100 k€", "≤ 20 k€ hasta cumplir condiciones Go", "Resultado Fase 0 + cotización FOB", "Promotor", "Fin Fase 0", "D01–D03"),
     ("D11", "Contraprestación de Arnaldo por nombre y colaboración", "A royalty 2% / B equity 10% con vesting / C mixta", "B o C: equity con vesting alinea incentivos sin consumir caja", "Dictamen cubano sobre cobro legal; autorización del empleador", "Promotor + abogados", "Fase 0", "D02, D10"),
     ("D10", "Papel y retribución legal del torcedor", "Consultor vía entidad / empleado / socio", "Sólo a través de la entidad autorizada y con permiso de su empleador", "Normativa laboral cubana y autorización del empleador", "Abogado cubano", "Fase 0", "D02"),
+    ("D12", "Propuesta a inversores: importe, tramos e instrumento", "Sin inversores hasta el Go / tramos condicionados a C1–C8 / socio estratégico", "Tramos: Fase 0 con capital propio; capital externo sólo tras el Go y por hitos", "Resultado de la Fase 0; aportación del promotor; perfil de inversor buscado", "Promotor", "Antes de presentar a inversores", "D01, D09"),
+    ("D13", "Origen alternativo de ARNALDO (R. Dominicana / Nicaragua) si la vía cubana no se abre", "Sí / No / Sólo como plan B", "Plan B documentado: mejora el coste ≈2 €/u (arancel 0%), pero cambia el posicionamiento y el papel de Arnaldo", "Cotizaciones de fabricantes no cubanos; encaje legal de Arnaldo", "Promotor", "Comité Go/No-Go", "D01, D10"),
 ]
 table(ws, 4, ["ID", "Decisión", "Opciones", "Recomendación", "Información que falta", "Quién", "Plazo", "Depende de"], dec, [6, 44, 26, 48, 44, 22, 14, 12])
 
@@ -111,7 +113,7 @@ conds = [
     ("C1", "Documento oficial cubano que identifique la entidad autorizada a fabricar y exportar cigarros para una marca de titularidad extranjera", "Certificación / licencia / carta de Habanos S.A. o del organismo competente"),
     ("C2", "Confirmación escrita de que la marca puede ser 100% propiedad de la sociedad del promotor en Cuba y en la UE", "Cláusula aceptada en term sheet + búsqueda OCPI"),
     ("C3", "Cotización FOB firme por vitola y volumen, compatible con FOB ≤ 5 USD a PVP 24 € (o PVP superior validado)", "Oferta firmada con validez ≥ 90 días"),
-    ("C4", "Vía de pago verificada con banco español (y cubano) para el importe del primer pedido", "Carta/correo del banco"),
+    ("C4", "Vía de pago verificada con banco español (y cubano) para el importe del primer pedido y dictamen de sanciones UE/EE. UU. sobre la contraparte y el flujo de pagos", "Carta/correo del banco + dictamen de abogado de sanciones"),
     ("C5", "Distribuidor mayorista habilitado dispuesto a distribuir la marca (condiciones y tarifa)", "Carta de intención"),
     ("C6", "≥ 10 expendedurías especialistas con interés por escrito", "Cartas de interés B2B"),
     ("C7", "Informe de registrabilidad de la marca en clase 34 (UE y Cuba) sin oposiciones previsibles", "Informe de agente de marcas"),
@@ -337,7 +339,7 @@ tasks = [
     ("2.2", "F2 Marca y producto", "Solicitud de marca UE clase 34 (y 35 si procede)", "Agente de marcas", "2.1", 8, 1, 1100, "Medio", "Nº de solicitud", "—", "Ejecutable tras 2.1"),
     ("2.3", "F2 Marca y producto", "Ficha técnica con torcedor y fábrica (plantilla 01_BRAND)", "Torcedor + fábrica", "0.4", 9, 4, 0, "Medio", "Ficha completa firmada", "Datos completos", "Bloqueada"),
     ("2.4", "F2 Marca y producto", "Prototipos (3 ligas × 20 u) y cata ciega", "Fábrica", "2.3", 13, 6, 1500, "Alto", "Fichas de cata", "Puntuación ≥ umbral", "Bloqueada"),
-    ("2.5", "F2 Marca y producto", "Artes finales de anilla, caja y colofón con advertencias sanitarias", "Diseñador", "2.1", 10, 4, 3000, "Bajo", "Artes aprobadas por asesor regulatorio", "Conformidad RD 579/2017", "Ejecutable tras 2.1"),
+    ("2.5", "F2 Marca y producto", "Diseño profesional (Ruta A v2 con la firma real) y artes finales de anilla, caja y colofón con advertencias sanitarias; encargo de 4.000–15.000 €, se presupuesta el mínimo", "Diseñador", "0.8, 2.1, 2.6", 12, 6, 4000, "Medio", "Artes aprobadas por asesor regulatorio", "Conformidad RD 579/2017", "Bloqueada (tras el Go de la Fase 0)"),
     ("3.1", "F3 Propuestas y contratación", "Solicitud de cotización FOB formal", "Promotor", "0.8", 12, 3, 0, "Alto", "Oferta firmada", "Condición C3", "Bloqueada"),
     ("3.2", "F3 Propuestas y contratación", "Negociar term sheet no vinculante", "Abogados", "3.1", 15, 4, 2000, "Alto", "Term sheet firmado", "Cláusulas PI aceptadas", "Bloqueada"),
     ("3.3", "F3 Propuestas y contratación", "Contrato de fabricación y suministro", "Abogados", "3.2", 19, 4, 2500, "Alto", "Contrato firmado", "—", "Bloqueada"),

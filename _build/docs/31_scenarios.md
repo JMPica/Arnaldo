@@ -46,6 +46,18 @@ Ningún escenario lleva probabilidad asignada: no existen datos que la sustenten
 
 **Estrés.** El bloqueo del suministro desde 2029 deja la estructura sin producto: el stock se agota en 2029 y los gastos fijos continúan. Pérdida acumulada de {{stress_ni_cum}}. Muestra por qué el lote inicial debe ser pequeño y los gastos fijos, variables o cancelables.
 
+# Coherencia con la demanda y con la retribución del promotor
+
+| | Conservador | Base | Optimista |
+|---|---|---|---|
+| Unidades 2031 | {{cons_units_2031}} | {{base_units_2031}} | {{opt_units_2031}} |
+| Puntos de venta activos necesarios en 2031 (4 cajas de 10 u por punto y año) | {{cons_pos_2031}} | {{base_pos_2031}} | {{opt_pos_2031}} |
+| Unidades de punto muerto adicionales por cada 10.000 €/año de remuneración del promotor | {{cons_be_per10k}} | {{base_be_per10k}} | {{opt_be_per10k}} |
+
+**Lectura.** La demanda accesible estimada de abajo arriba (`Brand Strategy.pdf`) es de 1.600–6.000 u/año: 800–1.500 expendedurías relevantes × 5–10% que incorporan la marca × 4 cajas de 10 u, es decir, 40–150 puntos activos [HIPÓTESIS]. El escenario Base en 2031 ({{base_units_2031}} u, {{base_pos_2031}} puntos) supera ligeramente ese techo; el Optimista ({{opt_units_2031}} u, {{opt_pos_2031}} puntos) lo **duplica**, y además a un PVP de 28 €, superior al de los Habanos clásicos de referencia. El único escenario con VAN positivo descansa, por tanto, sobre una demanda que el propio estudio no considera accesible. Antes de comprometer capital más allá de la Fase 0 hay que demostrar con cartas de interés que la demanda supera las 6.000 u/año a ≥ 25 €.
+
+**Retribución.** Los resultados se muestran antes de retribuir al promotor. Cada 10.000 €/año de remuneración eleva el punto muerto en ≈{{base_be_per10k}} (Base) o ≈{{opt_be_per10k}} (Optimista); en Conservador y Estrés no existe punto muerto.
+
 # Disparadores para cambiar de escenario o de decisión
 
 | Señal observable | Lectura | Acción |

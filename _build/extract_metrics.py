@@ -39,6 +39,16 @@ for k in keys:
     v = g(k, "Punto muerto EBITDA 2030 (unidades)")
     out[f"{k}_be"] = es(v) + " u/año" if isinstance(v, (int, float)) else "no alcanzable (contribución unitaria negativa)"
     out[f"{k}_contrib"] = eur(g(k, "Contribución unitaria 2030 (€/u)"), 2)
+# Derivadas para inversores: puntos de venta, remuneración del promotor y mercado accesible en euros
+for k in keys:
+    u31 = g(k, "Unidades vendidas 2031")
+    out[f"{k}_pos_2031"] = es(-(-u31 // 40))  # redondeo hacia arriba; 4 cajas de 10 u por punto y año (Business Plan §14)
+    c = g(k, "Contribución unitaria 2030 (€/u)")
+    out[f"{k}_be_per10k"] = es(10000 / c) + " u/año" if isinstance(c, (int, float)) and c > 0 else "no aplicable (contribución negativa)"
+rev_u = g("base", "Ingresos de la marca 2027–2031 (antes de IEE)") / g("base", "Unidades vendidas 2027–2031")
+out["base_rev_u"] = eur(rev_u, 2)
+out["sam_rev_low"] = eur(1600 * rev_u)
+out["sam_rev_high"] = eur(6000 * rev_u)
 ue = wb["Unit Economics"]
 for j, p in enumerate([12, 15, 18, 20, 25, 30, 35]):
     col = 2 + j
@@ -56,8 +66,18 @@ for row in wc.iter_rows():
     if row[0].value and str(row[0].value).startswith("Meses entre el primer pago"):
         out["wc_months"] = es(row[1].value)
 it = wb["Import & Taxes"]
+SPLIT = {"IVA (Hacienda)": "vat", "Impuesto especial (Hacienda)": "iee", "Margen expendedor": "rm", "Tarifa distribuidor": "dist",
+         "Arancel (Hacienda UE)": "duty"}
 for row in it.iter_rows():
     lab = row[0].value
+    key = SPLIT.get(lab) or ("cif" if lab and lab.startswith("Fabricación, packaging") else None) \
+        or ("contrib" if lab and lab.startswith("Contribución de la marca") else None) \
+        or ("fiscal" if lab and lab.startswith("Marcas fiscales") else None) \
+        or ("merma" if lab and lab.startswith("Merma y muestras") else None) \
+        or ("royalty" if lab and lab.startswith("Royalty de nombre") else None)
+    if key and isinstance(row[2].value, (int, float)):
+        out[f"split_{key}_eur_raw"] = row[2].value
+        out[f"split_{key}_pct_raw"] = row[3].value
     if lab and "PAGO TOTAL EN FRONTERA" in lab: out["it_border"] = eur(row[2].value)
     if lab == "IVA (Hacienda)": out["split_vat"] = pct(row[3].value)
     if lab == "Impuesto especial (Hacienda)": out["split_iee"] = pct(row[3].value)

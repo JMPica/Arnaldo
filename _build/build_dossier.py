@@ -164,6 +164,43 @@ def fig(url, style):
     return f'<div class="figure" style="background-image:url(\'{url}\');{style}"></div>' if url else ""
 
 
+
+def unidad_svg(pvp=24.0):
+    """Barras horizontales: destino de cada euro del PVP (escenario Base, 2028). Gris = costes; lacre = marca.
+    Importes exactos del modelo, redondeados a céntimos por resto mayor para que sumen el PVP."""
+    g = lambda k: M[f"split_{k}_eur_raw"]
+    rows = [("Estado", "IVA", g("vat")), ("Estado", "Impuesto especial", g("iee")), ("Estado", "Arancel (origen Cuba)", g("duty")),
+            ("Canal", "Margen del expendedor", g("rm")), ("Canal", "Tarifa del distribuidor", g("dist")),
+            ("Producción", "Fabricación, packaging, QC, flete y seguro", g("cif")),
+            ("Producción", "Marcas fiscales, honorario, merma y muestras", g("fiscal") + g("merma") + g("royalty")),
+            ("Marca", "Contribución de la marca", g("contrib"))]
+    assert abs(sum(r[2] for r in rows) - pvp) < 1e-6, "el reparto no suma el PVP"
+    cents = [int(r[2] * 100) for r in rows]
+    for k in sorted(range(len(rows)), key=lambda k: rows[k][2] * 100 - cents[k], reverse=True)[:round(pvp * 100) - sum(cents)]:
+        cents[k] += 1
+    W, rh, x0, bw = 184, 8.2, 104, 50
+    H = rh * len(rows) + 4
+    mx = max(r[2] for r in rows)
+    out = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}mm" height="{H}mm" viewBox="0 0 {W} {H}">']
+    prev = None
+    for i, ((grp, lab, v), c) in enumerate(zip(rows, cents)):
+        y = 2 + i * rh
+        if grp != prev:
+            out.append(f'<text x="0" y="{y + 5:.1f}" font-family="Cinzel" font-weight="600" font-size="2.9" letter-spacing=".4" fill="#8E1B1B">{grp.upper()}</text>')
+            if i:
+                out.append(f'<line x1="0" y1="{y - .9:.1f}" x2="{W}" y2="{y - .9:.1f}" stroke="#D8CCB4" stroke-width=".25"/>')
+            prev = grp
+        out.append(f'<text x="28" y="{y + 5:.1f}" font-family="Inter" font-size="3.3" fill="#1E1915">{lab}</text>')
+        w = bw * v / mx
+        col = "#8E1B1B" if grp == "Marca" else "#A89C8B"
+        out.append(f'<path d="M{x0},{y + 1.4:.1f} h{w - 1:.2f} a1,1 0 0 1 1,1 v3.4 a1,1 0 0 1 -1,1 h{-(w - 1):.2f} z" fill="{col}"/>')
+        eur = f"{c // 100},{c % 100:02d}"
+        pc = f"{v / pvp * 100:.1f}".replace(".", ",")
+        out.append(f'<text x="{x0 + w + 2.5:.1f}" y="{y + 5:.1f}" font-family="Inter" font-size="3.3" font-weight="{600 if grp == "Marca" else 400}" fill="#1E1915">{eur} € · {pc} %</text>')
+    out.append("</svg>")
+    return "".join(out)
+
+
 # ---------------------------------------------------------------- vitolas a escala 1:1 (SVG en mm)
 def vitolas_svg():
     rows = [("Nº 1", "Robusto", 124, 124, "50", (50,), "lacre"), ("Nº 2", "Toro", 152, "150–156", "50–52", (50, 52), "oro"),
@@ -309,6 +346,29 @@ def build():
 </div>
 <p class="small" style="position:absolute;bottom:0">Fuentes: S19, S37, S38 {T("VERIFICADO")}/{T("PROBABLE")}. Precios de referencia a {FECHA}; pueden variar con cada publicación en el BOE.</p>
 </div>""", title="PRECIO Y COMPETENCIA")
+
+
+    # 6b · Economía de una unidad
+    _r = lambda *ks: f"{sum(M[f'split_{k}_eur_raw'] for k in ks) / 24 * 100:.1f}".replace(".", ",") + " %"
+    state_pct, canal_pct = _r("vat", "iee", "duty"), _r("rm", "dist")
+    add(f"""<div class="pad">
+<div class="kick">Economía de una unidad</div><h1>Dónde van los 24 € de un ARNALDO Nº 1</h1>
+<div style="display:grid;grid-template-columns:186mm 1fr;gap:8mm;margin-top:2mm">
+ <div>{unidad_svg()}</div>
+ <div>
+  <div class="card"><h3>Lo que queda a la marca</h3><div class="stat">{M['split_contrib_eur']}</div><p>por unidad antes de gastos fijos ({M['split_contrib']} del PVP), en el escenario Base (PVP 24 €, FOB 6 USD).</p></div>
+  <div class="card" style="margin-top:5mm"><h3>Por qué es tan poco</h3><p>Con origen Cuba, el Estado (IVA, impuesto especial y arancel) se lleva el {state_pct} del PVP y el canal el {canal_pct}. Con el mismo FOB y origen República Dominicana, el arancel baja a 0 % y el coste se reduce ≈{M['ct_diff10k']} por cada 10.000 unidades {T("PROBABLE")}.</p></div>
+ </div>
+</div>
+<table style="margin-top:4mm">
+<thead><tr><th>PVP</th><th>Contribución por unidad (costes Base)</th><th>Punto muerto EBITDA</th><th>FOB máximo para un margen del 25 %</th></tr></thead>
+<tbody>
+<tr><td>20 €</td><td>{M['ue20_contrib']}</td><td>{M['ue20_be']}</td><td>{M['ue20_fobmax']}</td></tr>
+<tr class="hl"><td>25 €</td><td>{M['ue25_contrib']}</td><td>{M['ue25_be']} u/año</td><td>{M['ue25_fobmax']}</td></tr>
+<tr><td>30 €</td><td>{M['ue30_contrib']}</td><td>{M['ue30_be']} u/año</td><td>{M['ue30_fobmax']}</td></tr>
+</tbody></table>
+<p class="small" style="margin-top:2mm">Fuente: Financial Model 2027–2031.xlsx (hojas «Import &amp; Taxes» y «Unit Economics») y Customs and Tax Model.xlsx. Escenario Base, 2028. FOB {T("BLOQUEADO")} hasta recibir una cotización formal.</p>
+</div>""", title="ECONOMÍA UNITARIA")
 
     # 7 · Posicionamiento
     add(f"""<div class="pad">
@@ -553,13 +613,55 @@ def build():
 <tr><td>2–4 del encargo</td><td>Tres rutas creativas sobre la Ruta A v2</td><td rowspan="3">4.000–15.000 € {T("HIPÓTESIS")}</td><td rowspan="3">Por encargar</td></tr>
 <tr><td>5–6 del encargo</td><td>Desarrollo de la ruta elegida: anillas Nº 1–3, vista, colofón</td></tr>
 <tr><td>7–8 del encargo</td><td>Artes finales, separaciones de tinta y foil, pruebas de imprenta</td></tr>
-<tr><td>Tras el informe</td><td>Solicitud de marca de la UE (clase 34) a nombre de la SL</td><td>850 € {T("PROBABLE")}</td><td>Pendiente</td></tr>
+<tr><td>Tras el informe</td><td>Solicitud de marca de la UE (clase 34) a nombre de la SL</td><td>≈1.100 € (tasa base de 850 € {T("PROBABLE")} + agente)</td><td>Pendiente</td></tr>
 </tbody></table>
 <div class="grid2" style="margin-top:7mm">
  <div class="card"><h3>Ya disponible</h3><p>Estrategia, naming, arquitectura de producto, brief creativo, ficha técnica editable y renders de exploración de la Ruta A v2 (este dossier).</p></div>
  <div class="card"><h3>Dentro del techo de la Fase 0</h3><p>El informe de marcas y la solicitud en la EUIPO están presupuestados dentro del techo de la Fase 0 (≤ 15.000 €). El diseño profesional se encarga cuando la Fase 0 confirme la vía legal.</p></div>
 </div>
 </div>""", title="HOJA DE RUTA")
+
+
+    # 19b · Escenarios
+    add(f"""<div class="pad">
+<div class="kick">Escenarios</div><h1>Qué tiene que ser verdad</h1>
+<table style="margin-top:2mm">
+<thead><tr><th style="width:28%"></th><th>Conservador</th><th>Base</th><th>Optimista</th><th>Estrés</th></tr></thead>
+<tbody>
+<tr><td>PVP / FOB</td><td>20 € / 7,0 USD</td><td>24 € / 6,0 USD</td><td>28 € / 5,0 USD</td><td>24 € / 7,5 USD</td></tr>
+<tr><td>Unidades en 2031</td><td>{M['cons_units_2031']}</td><td>{M['base_units_2031']}</td><td>{M['opt_units_2031']}</td><td>{M['stress_units_2031']}</td></tr>
+<tr><td>Puntos de venta activos necesarios en 2031</td><td>{M['cons_pos_2031']}</td><td>{M['base_pos_2031']}</td><td>{M['opt_pos_2031']}</td><td>—</td></tr>
+<tr><td>EBITDA 2031</td><td>{M['cons_ebitda_2031']}</td><td>{M['base_ebitda_2031']}</td><td>{M['opt_ebitda_2031']}</td><td>{M['stress_ebitda_2031']}</td></tr>
+<tr><td>Necesidad máxima de financiación</td><td>{M['cons_need']}</td><td>{M['base_need']}</td><td>{M['opt_need']}</td><td>{M['stress_need']}</td></tr>
+<tr class="hl"><td><strong>VAN al 18 %</strong></td><td>{M['cons_npv']}</td><td>{M['base_npv']}</td><td><strong>{M['opt_npv']}</strong></td><td>{M['stress_npv']}</td></tr>
+</tbody></table>
+<div class="grid3" style="margin-top:6mm">
+ <div class="card"><h3>Precio y coste</h3><p>FOB ≤ ≈5 USD por unidad y un PVP ≥ 25 € aceptado por escrito por las expendedurías especialistas.</p></div>
+ <div class="card"><h3>Demanda</h3><p>El Optimista necesita {M['opt_pos_2031']} puntos de venta activos: el doble de la demanda accesible estimada (1.600–6.000 u/año, 40–150 puntos) {T("HIPÓTESIS")}.</p></div>
+ <div class="card"><h3>Equipo</h3><p>El modelo no retribuye al promotor: cada 10.000 €/año de remuneración añade ≈{M['base_be_per10k']} al punto muerto Base.</p></div>
+</div>
+<p class="small" style="margin-top:4mm">Sin probabilidades asignadas. Solo el escenario Optimista tiene VAN positivo (TIR {M['opt_irr']}, con valor terminal de 5× EBITDA 2031), y su flujo de caja acumulado sigue siendo negativo en 2031. Fuente: Financial Model 2027–2031.xlsx, hoja «Scenarios»; detalle en Scenario Analysis.pdf.</p>
+</div>""", title="ESCENARIOS")
+
+    # 19c · Fase 0
+    add(f"""<div class="pad">
+<div class="kick">Lo que compra el primer euro</div><h1>Una opción barata antes de una apuesta cara</h1>
+<div class="grid3" style="margin-top:3mm">
+ <div class="card"><div class="stat">{M['plan_cost_30']}</div><h3>30 días</h3><p>Abogados en Cuba y España, identidad de la fábrica, consultas a CMT, TARIC, BOE y banco, encargo del informe de marcas.</p></div>
+ <div class="card"><div class="stat">{M['plan_cost_90']}</div><h3>90 días · comité Go/No-Go</h3><p>Capacidad legal de exportación, due diligence de la fábrica, dictamen de marca y de sanciones, solicitud EUIPO, 15 entrevistas a estanqueros.</p></div>
+ <div class="card"><div class="stat">{M['plan_cost_180']}</div><h3>180 días · solo con Go</h3><p>SL, diseño profesional, prototipos y catas, term sheet, habilitaciones, EU-CEG, cartas de interés y distribuidor.</p></div>
+</div>
+<div class="grid2" style="margin-top:7mm;gap:10mm">
+ <div><h3>Regla de capital</h3><ul class="clean">
+  <li>Fase 0: ≤ 15.000 €, con capital propio del promotor.</li>
+  <li>Pedido piloto (1.000–3.000 u): solo con C1–C8 cumplidas; un pedido de 3.000 u necesita {M['wc_peak']} de caja.</li>
+  <li>Proyecto completo: {M['opt_need']}–{M['cons_need']} según escenario.</li></ul></div>
+ <div><h3>Si la vía cubana no se abre</h3><ul class="clean">
+  <li>Importación de marcas premium no cubanas (vía B3): contribución {M['b3_contrib']}/u a PVP 15 €, punto muerto ≈{M['b3_be']} u/año, 40–60 k€ de capital {T("HIPÓTESIS")}.</li>
+  <li>ARNALDO con origen alternativo (República Dominicana o Nicaragua): plan B pendiente de decisión.</li></ul></div>
+</div>
+<p class="small" style="margin-top:4mm">Fuente: 07_OPERATIONS/180-Day Execution Plan.xlsx (costes acumulados {T("HIPÓTESIS")}), Business Case y Premium Import Business Case.</p>
+</div>""", title="FASE 0")
 
     # 20 · Estado y condiciones
     add(f"""<div class="pad">
@@ -571,7 +673,7 @@ def build():
 <tr><td class="num">C1</td><td>Autorización documentada de fabricación y exportación para una marca de titularidad extranjera</td><td>Licencia o carta oficial</td></tr>
 <tr><td class="num">C2</td><td>Titularidad del 100 % de la marca aceptada (UE y Cuba)</td><td>Term sheet + OCPI</td></tr>
 <tr><td class="num">C3</td><td>FOB firme compatible con ≤ 5 USD a PVP 24 € (o un PVP mayor validado)</td><td>Oferta firmada</td></tr>
-<tr><td class="num">C4</td><td>Canal de pago validado</td><td>Banco</td></tr>
+<tr><td class="num">C4</td><td>Canal de pago validado y dictamen de sanciones UE/EE. UU. sobre la contraparte</td><td>Banco + dictamen de abogado</td></tr>
 <tr><td class="num">C5</td><td>Distribuidor habilitado dispuesto</td><td>Carta de intención</td></tr>
 <tr><td class="num">C6</td><td>≥ 10 expendedurías especialistas interesadas</td><td>Cartas</td></tr>
 <tr><td class="num">C7</td><td>Informe de registrabilidad favorable</td><td>Agente de marcas</td></tr>

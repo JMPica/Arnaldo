@@ -16,7 +16,6 @@
 | Business case i escenaris | Fet | 03_BUSINESS_CASE/*.pdf |
 | Pla d'empresa 2027–2031 | Fet (DOCX + PDF) | 02_BUSINESS_PLAN |
 | Marca **ARNALDO** (nom del torcedor): estratègia, naming i riscos, brief creatiu per a dissenyador professional, wordmark provisional; identitats FOLIO v1/v2 arxivades | Fet — identitat definitiva pendent de signatura/retrat d'Arnaldo i dissenyador | 01_BRAND |
-| Dossier de marca per a inversors (21 pàg.): estratègia, gamma, Ruta A v2 amb renders revisats i retocats, protecció, full de ruta i condicions C1–C8 | Fet — v1.0; s'hi incorporen els renders pendents quan es generin | 01_BRAND/ARNALDO Brand Dossier.pdf |
 | Acord amb Arnaldo: cessió de nom, signatura i imatge + participació (royalty / equity) | Esborrany fet | 04_CUBA_LEGAL/Arnaldo Name & Participation Agreement.docx |
 | Projecte B (importació premium) i protocol d'autenticitat | Fet | 06_PREMIUM_IMPORT |
 | Pla 180 dies, riscos, operadors, SOP | Fet | 07_OPERATIONS |
@@ -39,6 +38,7 @@
 | 2 | Enviar per escrit el rebuig de l'oferta Behike (plantilla 7) | Setmana 1 | 0 € | Sí |
 | 3 | Reunió R1 amb el torcedor: identitat oficial de l'empresa | Setmanes 1–2 | 0 € | Sí |
 | 4 | Contractar advocat cubà habilitat + advocat espanyol | Setmanes 1–2 | ≈1.500 € | Sí |
+| 4b | Dictamen de sancions UE/EUA sobre la contrapart i el flux de pagaments (evidència de C4), dins de l'encàrrec d'advocats | Setmanes 2–6 | A pressupostar | Sí |
 | 5 | Encarregar informe de registrabilitat ARNALDO (+ cognom i signatura; reserves FOLIO/LUMBRE) | Setmanes 3–6 | ≈900 € | Sí |
 | 5b | Obtenir d'Arnaldo: consentiment escrit, autorització del seu ocupador, 15–20 signatures escanejades i (opcional) retrat | Setmanes 1–3 | 0 € | Sí |
 | 5c | Demanar 3 pressupostos a estudis de packaging premium amb el brief de 01_BRAND | Setmanes 2–4 | 0 € (encàrrec 4–15 k€) | Sí |
@@ -50,7 +50,7 @@
 
 ## Decisions pendents teves
 
-D01 Fase 0 · D03 posició sobre titularitat de la marca · D04 rebuig Behike · D05 estructura (recomanada SL espanyola) · D06 calendari del trasllat a Andorra · D07 validació B3 · D08 nom definitiu · D09 pressupost màxim previ · D10 encaix legal del torcedor. Detall: `00_EXECUTIVE/Decision Matrix.xlsx` › «Decisiones pendientes».
+D01 Fase 0 · D03 posició sobre titularitat de la marca · D04 rebuig Behike · D05 estructura (recomanada SL espanyola) · D06 calendari del trasllat a Andorra · D07 validació B3 · D08 nom definitiu · D09 pressupost màxim previ · D10 encaix legal del torcedor · D11 contraprestació d'Arnaldo · D12 proposta a inversors (import, trams, instrument) · D13 origen alternatiu d'ARNALDO com a pla B. Detall: `00_EXECUTIVE/Decision Matrix.xlsx` › «Decisiones pendientes».
 
 ## Límits d'aquest treball
 

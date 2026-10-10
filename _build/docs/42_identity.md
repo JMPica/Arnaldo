@@ -27,6 +27,14 @@ Conceptos generados con IA para orientar al diseñador. **No son artes finales**
 
 **Lectura**: la ruta A (cartela clásica + vista con las manos de Arnaldo) es la que mejor compite en el código Habanos; la ruta B sirve para una edición especial «Pliego de autor». Recomendación para el diseñador: desarrollar A como línea principal, integrando la firma real dentro de la cartela, y B como edición limitada.
 
+# Ruta A v2 «Grandes Habanos» (Qwen-Image, octubre de 2026)
+
+Segunda ronda de exploración, que eleva el listón con tres referencias de Habanos y traduce un código de cada una a un elemento propio de ARNALDO: el **medallón** con las manos del torcedor (Hoyo de Monterrey), las **chavetas cruzadas** (Montecristo) y un **patrón inspirado en la yagua** sobre laca negra para la edición limitada (Cohiba). La tabla de lo que se toma y lo que está prohibido copiar está en `01_BRAND/ARNALDO Brand Dossier.pdf` y en `Higgsfield Prompt Pack.md`.
+
+<figure><img src="file:///home/user/Arnaldo/PROYECTO_CIGARS_CUBA_2027/01_BRAND/renders/arnaldo-a2-1-anilla-medallon-ret.png" style="width:49%"> <img src="file:///home/user/Arnaldo/PROYECTO_CIGARS_CUBA_2027/01_BRAND/renders/arnaldo-a2-3-edicion-negra-ret.png" style="width:49%"><figcaption>Ruta A v2: anilla Nº 1 del medallón y anilla Nº 3 «edición negra». Renders retocados para corregir el texto; la viñeta muestra un torcedor genérico, no a Arnaldo.</figcaption></figure>
+
+**Recomendación actualizada**: desarrollar la Ruta A v2 como línea principal (Nº 1 medallón, Nº 2 chavetas, Nº 3 edición negra) e integrar la firma real de Arnaldo en la cartela. Estado de cada render y retoques: `01_BRAND/renders/README.md`.
+
 # Objetivo del encargo
 
 Crear una identidad y una habilitación completa que, puestas junto a las grandes marcas de Habanos en un humidor de expendeduría especialista, transmitan **el mismo nivel de prestigio**, con una diferencia propia: **la firma de un torcedor real**.
