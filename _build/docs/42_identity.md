@@ -1,140 +1,128 @@
 ---
 title: "FOLIO — Manual de identidad visual"
-subtitle: "Concepto gráfico, logotipo, monograma, paleta, tipografía, aplicaciones a anilla, caja, colofón y precinto, materiales y acabados"
+subtitle: "Versión 2 «Gran Habilitación»: la gramática de las grandes marcas de Habanos, reinterpretada con elementos originales"
 short: "Brand Identity Guidelines"
 kicker: "01 · BRAND"
 toc: true
 out: ["01_BRAND/Brand Identity Guidelines.pdf"]
 ---
 
-# Concepto gráfico
+# Concepto
 
-**Lujo silencioso con lógica de libro.** La identidad trata cada caja como una edición numerada: tipografía de imprenta clásica, mucho aire, un único filete bermellón —la *rubricación* de los libros antiguos— y oro viejo sólo en el estampado de la anilla. Ninguna ornamentación gratuita, ningún motivo cubano estereotipado, ningún elemento que recuerde a sellos oficiales o a la DO Habanos.
+<figure><img src="file://{JPG}/folio2-lockup-black.jpg" style="width:100%"><figcaption>Lockup principal sobre negro tabaco</figcaption></figure>
 
-## Tres direcciones creativas evaluadas
+**«Gran Habilitación».** En la tradición cubana, la *habilitación* es el conjunto de piezas impresas que visten un puro y su caja: anilla, vista (litografía del interior de la tapa), cubierta, filetes, papel de bordes y sellos. Las grandes marcas de Habanos construyen su prestigio con ese lenguaje: cartela central sobre la anilla, oro estampado y en relieve, fondos de guilloché, laureles, cintas con lema y litografías a varias tintas.
 
-<figure><img src="file://{ASSETS}/folio-creative-directions.svg" style="width:100%"><figcaption>D1 Colofón · D2 Cedro y laca · D3 Tierra</figcaption></figure>
+FOLIO adopta **esa gramática**, no sus elementos. Todo lo que aparece en este manual es original:
 
-| Dirección | Idea | Fortalezas | Debilidades | Decisión |
-|---|---|---|---|---|
-| **D1 · Colofón** | Tipografía de imprenta, marfil y tinta, filete bermellón, monograma «pliego» | Coherente con el nombre; legible en anilla de 20 mm; barata de producir (1 tinta + 1 stamping) | Exige impresión muy precisa | **Seleccionada** |
-| D2 · Cedro y laca | Fondo tabaco, oro, monograma circular, sans geométrica | Muy «lujo» inmediato | Código ya muy usado en el sector; dorados extensos encarecen | Se reutilizan sus materiales (cedro, oro viejo) |
-| D3 · Tierra | Terracota, barras modernistas, minúsculas | Contemporánea | Evoca la tierra roja de Vuelta Abajo: riesgo de asociación con IG protegidas; menos premium | Descartada |
+- **Emblema propio**: una hoja de tabaco y una pluma cruzadas —la *hoja* que es a la vez tabaco y página—, dentro de un medallón oval sobre lacre, con laurel, estrella y la cinta **SCRIPTA MANENT** («lo escrito permanece»), lema coherente con el sistema de pliegos y colofón.
+- **Sin** escudos de Estado, medallas de exposición, fechas de fundación, retratos, «Habana», «Cuba», «Habano» ni imitaciones del sello de garantía de Habanos o de la marca fiscal española.
+
+La versión 1 («Colofón», minimalista) se archiva en `01_BRAND/assets/_v1_descartada/` por decisión del promotor (10/10/2026).
+
+# Emblema
+
+<figure><img src="file://{JPG}/folio2-emblem-on-black.jpg" style="width:48%"><figcaption>Emblema completo con laurel y lema</figcaption></figure>
+
+| Elemento | Construcción | Significado |
+|---|---|---|
+| Medallón oval | Doble filete oro + perlado + fondo lacre con guilloché de hipotrocoides | Sello de calidad clásico |
+| Hoja y pluma cruzadas | Hoja de tabaco con nervaduras + pluma de escribir, ambas en oro con relieve | *Folio*: la hoja que se escribe; tabaco y documento |
+| Laurel | Dos ramas ascendentes de 10 pares de hojas | Distinción (genérico, sin alusión a premios) |
+| Estrella de ocho puntas | Remate superior | Punto de lectura vertical |
+| Cinta | Lacre con filo oro, texto SCRIPTA MANENT en Cinzel | Lema; refuerza pliego y colofón |
+
+**Versiones**: completa (con laurel y lema), reducida (sólo medallón, para anilla y cubierta), monocolor oro (stamping) y monocolor lacre (sello en seco). Tamaño mínimo de la versión completa: 22 mm de alto; reducida: 12 mm.
 
 # Logotipo
 
-<figure><img src="file://{ASSETS}/folio-lockup-vertical.svg" style="width:62%"><figcaption>Lockup principal vertical</figcaption></figure>
+<figure><img src="file://{JPG}/folio2-wordmark.jpg" style="width:80%"><figcaption>Wordmark FOLIO con rúbricas laterales</figcaption></figure>
 
-- **Wordmark**: FOLIO en Cormorant Garamond Medium, versalitas con espaciado +320 (0,32 em), convertido a trazados (archivos SVG en `01_BRAND/assets`).
-- **Descriptor**: «CIGARROS» en Inter Medium, espaciado +600, color Ceniza. No se añaden años ni lemas.
-- **Filete**: 1 pt bermellón, ancho = 60% del wordmark (vertical) o 100% (horizontal).
-- **Área de respeto**: altura de la «O» del wordmark en todos los lados.
-- **Tamaño mínimo**: wordmark 18 mm de ancho en impresión; 90 px en pantalla.
+- **Wordmark**: FOLIO en Cinzel Black, espaciado +140, oro con contorno tabaco y relieve; rúbricas laterales opcionales (se suprimen en la anilla).
+- **Firma**: «Pliego de autor» en Pinyon Script.
+- **Descriptor**: «CIGARROS HECHOS A MANO» en Cinzel Bold, espaciado +350.
+- **Área de respeto**: la altura de la «O» en todos los lados.
 
-<figure><img src="file://{ASSETS}/folio-lockup-horizontal.svg" style="width:80%"><figcaption>Lockup horizontal (documentación corporativa B2B)</figcaption></figure>
+<figure><img src="file://{JPG}/folio2-lockup-ivory.jpg" style="width:62%"><figcaption>Versión sobre marfil (documentación, colofón, papelería)</figcaption></figure>
 
-## Versiones
+# Paleta
 
-| Archivo | Uso |
-|---|---|
-| folio-wordmark-ink.svg | Fondos claros (marfil, blanco) |
-| folio-wordmark-ivory.svg | Fondos tinta |
-| folio-wordmark-gold.svg | Stamping oro viejo sobre tabaco o cedro |
-| folio-lockup-vertical.svg / -horizontal.svg | Papelería y documentación profesional |
-| folio-monogram-ink.svg / -gold.svg | Sello, lacre, cabezal de anilla, sellos en seco |
+<figure><img src="file://{JPG}/folio2-palette.jpg" style="width:100%"></figure>
 
-**Usos prohibidos**: deformar, cambiar el espaciado, añadir sombras o degradados, combinar con escudos, banderas, palmas, mapas o la palabra «Habano», colocar sobre fotografías de consumo.
-
-# Monograma «pliego»
-
-<figure><img src="file://{ASSETS}/folio-monogram-ink.svg" style="width:28%"><figcaption>Una hoja con la esquina doblada —el pliego— y la F de FOLIO</figcaption></figure>
-
-Se usa en el cabezal de la anilla, en el sello en seco de la caja, en el colofón y como icono en documentos. Grosor de trazo: 1,8% del lado. En stamping, lado mínimo 9 mm.
-
-# Paleta cromática
-
-<figure><img src="file://{ASSETS}/folio-palette.svg" style="width:100%"></figure>
-
-| Color | HEX | Uso | Referencia de impresión |
+| Color | HEX | Uso | Impresión |
 |---|---|---|---|
-| Tinta | #1B1A17 | Texto, wordmark, panel central de la anilla | Negro enriquecido; validar en prueba |
-| Marfil | #F2EDE3 | Papel de anilla, colofón, interior | Papel algodón natural (no estucado blanco) |
-| Tabaco | #5A3E2B | Fondos secundarios, cintas | Pantone a definir con imprenta |
-| Bermellón | #A23B2A | Filete de rubricación, precinto de marca | Pantone a definir con imprenta |
-| Oro viejo | #B08D57 | Sólo stamping (anilla, sello en seco) | Foil oro mate/viejo |
-| Cedro | #C9A27E | Color natural de la caja (no se imprime) | Madera de cedro |
-| Ceniza | #8C877E | Textos secundarios | — |
+| Lacre | #8E1B1B | Campos de anilla, vista, cintas | Pantone a fijar con imprenta |
+| Lacre profundo | #5E0F0F | Sombras, colas de cinta | — |
+| Negro tabaco | #14100D | Cartela de OCTAVO, placas | Negro enriquecido |
+| Oro | degradado #7A5A1C → #FFF2C2 → #8A6620 | Siempre como **foil** (estampado) | Foil oro brillante + relieve seco |
+| Marfil litografía | #F4EBD8 | Campo de IMPERIAL, colofón, vista | Papel verjurado o estucado mate |
+| Cedro / Hoja | #A86F42 / #7A4E2E | Materiales naturales (no se imprimen) | — |
 
-Las equivalencias Pantone/CMYK deben fijarse con la imprenta sobre el papel real [HIPÓTESIS]; los HEX son la referencia de pantalla.
+El degradado de oro sólo representa el foil en pantalla; en imprenta el oro es estampación metálica, nunca cuatricromía.
 
 # Tipografía y licencias
 
-| Familia | Uso | Licencia | Verificación |
-|---|---|---|---|
-| **Cormorant Garamond** (300–600, cursiva) | Wordmark, titulares, colofón | SIL Open Font License 1.1 — uso comercial, incrustación y conversión a trazados permitidos; no se vende la fuente por separado | [VERIFICADO] archivo de licencia incluido en el paquete (`_build/fonts/OFL-CormorantGaramond.txt`) |
-| **Inter** (300–600) | Descriptor, textos técnicos, documentos | SIL Open Font License 1.1 | [VERIFICADO] (`_build/fonts/OFL-Inter.txt`) |
+| Familia | Uso | Licencia |
+|---|---|---|
+| Cinzel (400–900) | Wordmark, rotulación de anilla, lema | SIL OFL 1.1 [VERIFICADO] |
+| Playfair Display (400–900, cursiva) | Numerales «Nº I/II/III», titulares editoriales | SIL OFL 1.1 [VERIFICADO] |
+| Pinyon Script | Firma «Pliego de autor», monograma F de los medallones laterales | SIL OFL 1.1 [VERIFICADO] |
+| IM Fell English | Texto del colofón (estética de imprenta antigua) | SIL OFL 1.1 [VERIFICADO] |
+| Inter | Textos técnicos y regulatorios | SIL OFL 1.1 [VERIFICADO] |
 
-Los logotipos entregados están **convertidos a trazados**: no requieren instalar las fuentes. La OFL prohíbe usar el nombre reservado de la fuente para una versión modificada; no se modifican las fuentes.
+Archivos de licencia en `_build/fonts/OFL-*.txt`. Los artes entregados tienen el texto **convertido a trazados**.
 
-# Aplicaciones de producto
+# Anillas por vitola
 
-## Anilla
+<figure><img src="file://{JPG}/folio2-band-octavo.jpg" style="width:100%"><figcaption>OCTAVO (Robusto) — campo lacre, cartela negra</figcaption></figure>
+<figure><img src="file://{JPG}/folio2-band-cuarto.jpg" style="width:100%"><figcaption>CUARTO (Toro) — campo negro, cartela lacre</figcaption></figure>
+<figure><img src="file://{JPG}/folio2-band-imperial.jpg" style="width:100%"><figcaption>IMPERIAL (Churchill, edición limitada) — campo marfil, cartela lacre</figcaption></figure>
 
-<figure><img src="file://{ASSETS}/folio-band-flat.svg" style="width:100%"><figcaption>Desarrollo plano (≈210 × 22 mm para cepo 50; ajustar al cepo real)</figcaption></figure>
+Anatomía de la anilla (desarrollo plano, ~90 × 17 mm para cepo 50; ajustar al cepo real con la fábrica):
 
-- Papel de algodón marfil 120–150 g; panel central tinta con wordmark marfil; filetes y monograma en stamping oro viejo; relieve seco suave en el wordmark.
-- **Pie de anilla**: «PLIEGO Nº 001» (numeración de lote).
-- La anilla **no** lleva «Habana», «Cuba» ni escudos; el origen, si procede, figura sólo en la caja conforme al dictamen de la Fase 0.
+1. **Cartela central** troquelada que sobresale del cuerpo: filete oro, fondo con guilloché, «PLIEGO», wordmark FOLIO en relieve y numeral de vitola (Nº I, II, III).
+2. **Cuerpo**: campo de color con ondas de guilloché, cantos de oro con perlado.
+3. **Medallones laterales** con la F caligráfica.
+4. **Rotulación lateral**: «HECHO A MANO» / nombre de vitola, entre filetes.
+5. **Remates** con volutas.
 
-## Caja de 10 unidades
+Producción: papel estucado 90–110 g, 2 tintas planas (lacre/negro) + foil oro + relieve seco en cartela y wordmark + troquel.
 
-<figure><img src="file://{ASSETS}/folio-box-lid-mockup.svg" style="width:62%"><figcaption>Tapa: etiqueta marfil con lockup; zona reservada a la advertencia sanitaria</figcaption></figure>
+<figure><img src="file://{JPG}/folio2-cigars-mockup.jpg" style="width:70%"><figcaption>Las tres vitolas: la anilla rodea el cigarro y deja ver la cartela de frente</figcaption></figure>
 
-- Cedro macizo natural, bisagra de latón envejecido, cierre de muesca.
-- Etiqueta de tapa en marfil con monograma, wordmark, filete y «10 CIGARROS · OCTAVO».
-- **Zona de advertencia sanitaria** reservada desde el diseño: texto y superficie exactos según RD 579/2017 (pendiente de validación del porcentaje) [BLOQUEADO hasta revisión regulatoria]; marca fiscal e identificador único bajo la envoltura transparente si la hay.
-- Base: datos del importador/titular, lote, código de trazabilidad; «Hecho en Cuba» sólo si el dictamen lo autoriza.
+# Vista (litografía interior de la tapa)
 
-## Colofón numerado
+<figure><img src="file://{JPG}/folio2-vista-litho.jpg" style="width:100%"><figcaption>Vista: placa con wordmark, óvalo con rayos y guilloché, emblema, cartelas laterales, cinta con lema y firma</figcaption></figure>
 
-<figure><img src="file://{ASSETS}/folio-colophon-card.svg" style="width:38%"><figcaption>Tarjeta interior 90 × 120 mm</figcaption></figure>
+Equivalente a las litografías clásicas del interior de la tapa: se imprime en offset (lacre, negro, crema) con foil oro en placa, marco, cuerdas y medallones de esquina, y relieve en el emblema.
 
-Documento de trazabilidad (no promocional): pliego, vitola, fecha de torcido, fábrica, nº de caja / total, control de calidad. Vincula la caja con el registro de pliego y la factura de exportación.
+# Caja
 
-## Precinto de marca (no fiscal)
+<figure><img src="file://{JPG}/folio2-box-open-mockup.jpg" style="width:72%"><figcaption>Caja abierta: vista en la tapa, filete oro/lacre en el borde, papel de cedro y 10 OCTAVO con la cartela hacia arriba</figcaption></figure>
 
-<figure><img src="file://{ASSETS}/folio-brand-seal.svg" style="width:100%"><figcaption>Banda marfil/bermellón con microtexto y numeración</figcaption></figure>
+<figure><img src="file://{JPG}/folio2-box-top.jpg" style="width:72%"><figcaption>Cubierta exterior: cedro, filetes oro en cantos, etiqueta negra con emblema y wordmark, zona de advertencia sanitaria reservada</figcaption></figure>
 
-Diseñado para **no** confundirse con el sello de garantía de Habanos (verde/blanco con escudo) ni con la marca fiscal española. Admisible como elemento de marca; no sustituye a ningún elemento legal [PROBABLE].
+- **Advertencia sanitaria**: zona reservada desde el diseño; texto y superficie exactos según RD 579/2017 [BLOQUEADO hasta revisión regulatoria]. Marca fiscal e identificador único en la unidad de envasado.
+- **Origen**: «Hecho en Cuba» sólo en base de caja y únicamente si el dictamen de la Fase 0 lo permite.
 
-## Embalaje secundario
+# Sello de pliego y colofón
 
-Retractilado mínimo; cartón exterior kraft sin impresión de consumo, con etiqueta logística (lote, cajas, peso, condiciones 16–18 °C / 65–70% HR).
+<figure><img src="file://{JPG}/folio2-pliego-seal.jpg" style="width:100%"><figcaption>Sello de pliego (de marca, no fiscal): lacre con guilloché, numeración de caja</figcaption></figure>
 
-# Guía de materiales y acabados
+<figure><img src="file://{JPG}/folio2-colophon.jpg" style="width:36%"><figcaption>Colofón numerado en IM Fell: documento de trazabilidad, no promocional</figcaption></figure>
 
-| Elemento | Material | Acabado | Tolerancia / control |
-|---|---|---|---|
-| Anilla | Papel algodón marfil 120–150 g | Stamping oro viejo, relieve seco | Registro ±0,2 mm; prueba de color |
-| Pie de anilla | Mismo papel | Impresión 1 tinta + numeración | Numeración secuencial verificada |
-| Caja | Cedro macizo | Natural, sin barniz interior | Sin olores ajenos; humedad de madera controlada |
-| Etiqueta de tapa | Papel algodón | Impresión tinta + filete bermellón | — |
-| Colofón | Cartulina algodón 300 g | Impresión tinta, numeración | — |
-| Precinto | Papel de seguridad (opcional) | Microtexto bermellón, numeración | — |
+El sello de pliego es deliberadamente distinto del sello de garantía de Habanos (no usa verde ni escudo) y no sustituye a ningún elemento legal.
 
-# Identidad corporativa
-
-Papelería B2B (carta, ficha técnica, lista de precios profesional) con lockup horizontal, Inter para texto y Cormorant para títulos; firma de correo sin imágenes de producto ni mensajes promocionales.
-
-# Auditoría de diseño (control de calidad)
+# Auditoría de diseño
 
 | Control | Resultado |
 |---|---|
-| Coherencia visual entre piezas | Mismo sistema: marfil/tinta/bermellón/oro, monograma, tipografías |
-| Legibilidad en anilla (cepo 50) | Wordmark ≈ 9 mm de alto en panel de 20 mm: legible |
-| Aplicabilidad industrial | 1 tinta + 1 foil en anilla; etiqueta de tapa en 2 tintas: coste contenido |
-| Elementos protegidos de terceros | Ninguno: sin escudos, sin «Habano», sin sello verde/blanco, sin geografía cubana |
-| Licencias tipográficas | OFL 1.1 verificadas |
-| Normativa | Espacio de advertencia reservado; ningún material de consumo; pendiente validar % exactos |
+| Inspiración Habanos sin copia | Gramática compartida (cartela, oro, guilloché, vista); emblema, lema, rotulación y ornamentos originales |
+| Elementos protegidos o engañosos | Ninguno: sin escudos de Estado, medallas, fechas, retratos, «Habana/Cuba/Habano», sello verde/blanco |
+| Coherencia | Paleta de 4 colores + foil; mismo emblema en vista, cubierta, colofón y lockups |
+| Legibilidad en anilla | Wordmark ≈ 3–4 mm de alto en cartela de 17 mm: legible con relieve |
+| Aplicabilidad industrial | Anilla: 2 tintas + foil + relieve + troquel; vista: offset + foil; costes a cotizar |
+| Licencias | Cinco familias OFL 1.1 verificadas |
+| Normativa | Zona de advertencia reservada; sin material de consumo |
 
-Archivos editables: `01_BRAND/assets/*.svg` (vector, texto en trazados) y versiones PNG.
+Archivos: `01_BRAND/assets/folio2-*.svg` (vectorial, editable) y `.png`.

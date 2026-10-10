@@ -110,7 +110,7 @@ Contratar abogados (Cuba + España); cuestionario al torcedor; rechazo por escri
 
 # Auditoría D — Diseño
 
-Sistema coherente (marfil, tinta, bermellón, oro viejo; Cormorant Garamond + Inter, ambas OFL 1.1 verificadas); logotipos convertidos a trazados; anilla legible en cepo 50 con 1 tinta + 1 foil; zona de advertencia sanitaria reservada; sin escudos, sin «Habano», sin imitación del sello de garantía de Habanos ni de la marca fiscal; ningún material de consumo. Pendiente: validar porcentajes exactos de advertencia y pruebas de color con imprenta.
+Identidad v2 «Gran Habilitación» (decisión del promotor, 10/10/2026): lacre, negro tabaco, marfil y oro en relieve; Cinzel, Playfair Display, Pinyon Script, IM Fell e Inter, todas OFL 1.1 verificadas; emblema original (hoja de tabaco y pluma, laurel, lema «Scripta manent»), anilla con cartela central, litografía de tapa, guilloché generado; texto convertido a trazados; anilla imprimible en 2 tintas + foil + relieve; zona de advertencia sanitaria reservada; sin escudos de Estado, sin medallas ni fechas de fundación inventadas, sin «Habano»/«Cuba»/«Habana», sin imitación del sello de garantía de Habanos ni de la marca fiscal; ningún material de consumo. Pendiente: validar porcentajes exactos de advertencia y pruebas de color con imprenta.
 
 # Mapa del dossier
 

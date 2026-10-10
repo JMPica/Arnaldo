@@ -14,7 +14,8 @@ Els fitxers es generen a partir de `_build/` (Python + LibreOffice + pandoc + Ch
 cd _build
 bash make_xlsx.sh                       # XLSX amb fórmules, recalculats
 python3 extract_metrics.py ../PROYECTO_CIGARS_CUBA_2027 metrics.json
-python3 brand_assets.py ../PROYECTO_CIGARS_CUBA_2027/01_BRAND/assets
+python3 brand_v2.py ../PROYECTO_CIGARS_CUBA_2027/01_BRAND/assets   # identidad v2 «Gran Habilitación»
+bash shot_svgs.sh ../PROYECTO_CIGARS_CUBA_2027/01_BRAND/assets "folio2-*.svg"   # + JPG en _build/.cache_jpg para el PDF
 python3 render_docs.py                  # PDF, DOCX i MD a partir de docs/*.md
 ```
 

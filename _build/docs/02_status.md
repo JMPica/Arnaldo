@@ -19,7 +19,7 @@ out: ["00_EXECUTIVE/Project Status & Next Actions.md"]
 | Model financer 2027–2031 (4 escenaris, 18 pestanyes, fórmules) | Fet — 0 errors, balanç quadrat | 03_BUSINESS_CASE/Financial Model 2027–2031.xlsx |
 | Business case i escenaris | Fet | 03_BUSINESS_CASE/*.pdf |
 | Pla d'empresa 2027–2031 | Fet (DOCX + PDF) | 02_BUSINESS_PLAN |
-| Marca FOLIO: estratègia, naming, identitat, actius vectorials | Fet | 01_BRAND |
+| Marca FOLIO: estratègia, naming, identitat v2 «Gran Habilitació» (inspirada en la gramàtica de les grans marques de Habanos), anelles per vitola, litografia de tapa, caixa i mockups | Fet | 01_BRAND |
 | Projecte B (importació premium) i protocol d'autenticitat | Fet | 06_PREMIUM_IMPORT |
 | Pla 180 dies, riscos, operadors, SOP | Fet | 07_OPERATIONS |
 | Plantilles de correu, agendes, sol·licituds d'informació | Fet — **cap enviat** | 08_COMMUNICATIONS |

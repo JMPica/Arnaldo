@@ -10,7 +10,7 @@ out: ["01_BRAND/Brand Strategy.pdf"]
 # Síntesis
 
 - **Nombre seleccionado: FOLIO** (reservas: LUMBRE, VELADA). En español *hoja* designa a la vez la hoja de tabaco y la página de un libro; *folio* procede del latín *folium*, hoja. La marca toma del mundo del libro su sistema: vitolas con nombres de formatos bibliográficos (OCTAVO, CUARTO, IMPERIAL), lotes llamados **pliegos** y un **colofón** numerado en cada caja que funciona como documento de trazabilidad.
-- **Posicionamiento seleccionado: B — Contemporary Cuban Luxury**, con la numeración por pliegos tomada de C. Ganó la matriz ponderada (ver `00_EXECUTIVE/Decision Matrix.xlsx`). El modelo financiero obliga a un PVP ≥ 24 €; ese precio sólo es defendible con un producto excepcional y una identidad de lujo silencioso, no con relato heredado.
+- **Posicionamiento: B — Contemporary Cuban Luxury** en lo comercial (ganó la matriz ponderada, `00_EXECUTIVE/Decision Matrix.xlsx`), con numeración por pliegos tomada de C. **Expresión visual: «Gran Habilitación»** (decisión del promotor, 10/10/2026): la identidad adopta la gramática de las grandes marcas de Habanos —anilla con cartela central, oro en relieve, guilloché, litografía interior de tapa, filetes— para competir en el mismo código que el comprador de puro premium reconoce, con elementos 100% originales. El PVP ≥ 24 € que exige el modelo encaja con este código visual.
 - **Autenticidad**: FOLIO no inventa familias, fundaciones, años ni tradiciones. Lo único que afirma es verificable: producto hecho a mano, lote numerado, ficha técnica documentada. El origen cubano sólo podrá declararse si la Fase 0 lo autoriza.
 - **Uso**: este dossier documenta el proyecto y prepara registro y producción. **No** es un plan de publicidad al consumidor, prohibida por la Ley 28/2005.
 
@@ -97,14 +97,14 @@ Prohibición de publicidad (sólo comunicación profesional); circulante elevado
 
 Criterios y pesos: diferenciación 20%, coherencia productiva 15%, viabilidad reguladora 15%, potencial con profesionales 15%, coste de desarrollo 5%, potencial de precio 15%, escalabilidad 10%, dependencia del fabricante 5% (editable en el XLSX).
 
-**Elección: B**, con dos elementos de C: numeración por **pliegos** y ediciones IMPERIAL limitadas. Justificación: diferencia frente al código visual barroco del sector, no depende de relatos no verificables, admite precio alto y permite escalar a nuevas vitolas.
+**Elección: B**, con dos elementos de C: numeración por **pliegos** y ediciones IMPERIAL limitadas, y con la **expresión visual clásica de A** sin su relato: se adopta el lenguaje gráfico de la habilitación cubana (que el consumidor asocia a calidad) pero no se inventa ninguna herencia, fecha, familia ni medalla. Justificación: el código clásico legitima el precio de 24 € frente a los Habanos de referencia; la autenticidad se protege con hechos verificables (pliego, colofón, ficha técnica).
 
 ## Plataforma de marca
 
 - **Propósito** (interno): hacer de cada caja un objeto documentado, como un libro numerado.
 - **Promesa al profesional**: consistencia verificable lote a lote, ficha técnica completa, trazabilidad de pliego.
-- **Personalidad**: precisa, sobria, culta, discreta.
-- **Lo que FOLIO no hace**: no imita sellos de Habanos, no usa iconografía cubana estereotipada, no inventa fechas ni familias, no hace publicidad al consumidor.
+- **Personalidad**: clásica, culta, precisa, generosa en el detalle (oro, relieve, guilloché), sin estridencias.
+- **Lo que FOLIO no hace**: no imita anillas, sellos ni elementos de seguridad de Habanos, no usa escudos de Estado ni medallas de exposición, no inventa fechas ni familias, no usa «Habano», «Cuba» ni «Habana» en la marca, no hace publicidad al consumidor.
 
 # Naming
 

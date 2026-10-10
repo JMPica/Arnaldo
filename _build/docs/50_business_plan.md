@@ -45,13 +45,13 @@ Concentración: Habanos domina el premium; la distribución mayorista está conc
 
 # 5. Competencia y posicionamiento
 
-Competidores directos de FOLIO OCTAVO: Habanos clásicos de formato robusto (≈21–22 €) y marcas no cubanas de prestigio (12–20 €). FOLIO se posiciona como **Contemporary Cuban Luxury**: identidad de lujo silencioso, lotes numerados («pliegos»), colofón de trazabilidad; precio objetivo 24 € (Base) que exige superar en calidad percibida a referencias consolidadas. Matriz de posicionamiento: B 3,90 / C 3,35 / A 2,45 (`Decision Matrix.xlsx`).
+Competidores directos de FOLIO OCTAVO: Habanos clásicos de formato robusto (≈21–22 €) y marcas no cubanas de prestigio (12–20 €). FOLIO se posiciona en el lujo cubano clásico con una identidad de **«Gran Habilitación»** —la gramática visual de las grandes marcas de Habanos (anilla con cartela, oro en relieve, guilloché, litografía de tapa) reinterpretada con elementos originales—, lotes numerados («pliegos») y colofón de trazabilidad; precio objetivo 24 € (Base) que exige superar en calidad percibida a referencias consolidadas. Matriz de posicionamiento: B 3,90 / C 3,35 / A 2,45 (`Decision Matrix.xlsx`).
 
 **Ventaja competitiva sostenible** (Fisher): baja mientras la producción dependa de un único fabricante estatal; se construye con (i) propiedad plena de la marca y del diseño, (ii) relación con estanqueros especialistas, (iii) habilitaciones y know-how regulatorio, (iv) consistencia documentada.
 
 # 6. Propuesta de valor y producto
 
-Para el estanquero especialista: una referencia diferenciada, consistente y documentada (ficha técnica, pliego, colofón), con rotación apoyada por catas técnicas profesionales. Para el consumidor adulto (sin comunicación directa): un objeto de lujo silencioso y numerado. Producto de lanzamiento: **OCTAVO** (Robusto ≈124 × 50). Extensiones: CUARTO (2029), IMPERIAL (2030, limitada). Detalle: `Product Architecture.pdf`.
+Para el estanquero especialista: una referencia diferenciada, consistente y documentada (ficha técnica, pliego, colofón), con rotación apoyada por catas técnicas profesionales. Para el consumidor adulto (sin comunicación directa): un objeto de habilitación clásica, numerado y documentado. Producto de lanzamiento: **OCTAVO** (Robusto ≈124 × 50). Extensiones: CUARTO (2029), IMPERIAL (2030, limitada). Detalle: `Product Architecture.pdf`.
 
 # 7. Producción subcontratada en Cuba
 
