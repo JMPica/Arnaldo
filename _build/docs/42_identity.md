@@ -15,6 +15,18 @@ La marca pasa a llamarse **ARNALDO**, por el torcedor que participa en el proyec
 
 <figure><img src="file://{ASSETS}/arnaldo-wordmark-provisional-black.svg" style="width:70%"><figcaption>Wordmark PROVISIONAL, sólo para documentos internos hasta disponer de la firma y del diseño profesional</figcaption></figure>
 
+# Renders de exploración (Runway, 10/10/2026)
+
+Conceptos generados con IA para orientar al diseñador. **No son artes finales**: la tipografía, la firma y los detalles los inventa el modelo y contienen errores (p.ej. una firma ficticia y letras deformadas en las anillas pequeñas). La firma definitiva será siempre la real de Arnaldo.
+
+<figure><img src="file:///home/user/Arnaldo/PROYECTO_CIGARS_CUBA_2027/01_BRAND/renders/arnaldo-render-anilla-clasica.png" style="width:100%"><figcaption>Ruta A «Habilitación clásica»: campo lacre, cartela negra lacada, oro y guilloché. La firma bajo el nombre es inventada por la IA y debe sustituirse.</figcaption></figure>
+
+<figure><img src="file:///home/user/Arnaldo/PROYECTO_CIGARS_CUBA_2027/01_BRAND/renders/arnaldo-render-caja-abierta-vista.jpg" style="width:100%"><figcaption>Ruta A aplicada a la caja: vista litográfica con las manos del torcedor grabadas, ARNALDO y «Pliego de autor». Hay errores de texto en las anillas pequeñas.</figcaption></figure>
+
+<figure><img src="file:///home/user/Arnaldo/PROYECTO_CIGARS_CUBA_2027/01_BRAND/renders/arnaldo-render-anilla-firma-a.jpg" style="width:49%"> <img src="file:///home/user/Arnaldo/PROYECTO_CIGARS_CUBA_2027/01_BRAND/renders/arnaldo-render-anilla-firma-b.jpg" style="width:49%"><figcaption>Ruta B «Firma»: anilla marfil con la firma en foil lacre y filetes oro. Más contemporánea; depende por completo de la firma real.</figcaption></figure>
+
+**Lectura**: la ruta A (cartela clásica + vista con las manos de Arnaldo) es la que mejor compite en el código Habanos; la ruta B sirve para una edición especial «Pliego de autor». Recomendación para el diseñador: desarrollar A como línea principal, integrando la firma real dentro de la cartela, y B como edición limitada.
+
 # Objetivo del encargo
 
 Crear una identidad y una habilitación completa que, puestas junto a las grandes marcas de Habanos en un humidor de expendeduría especialista, transmitan **el mismo nivel de prestigio**, con una diferencia propia: **la firma de un torcedor real**.
