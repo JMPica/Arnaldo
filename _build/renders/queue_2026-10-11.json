@@ -1,5 +1,11 @@
 [
  {
+  "id": "arnaldo-a2-12-anilla-medallon-manos",
+  "ratio": "4:3",
+  "prompt": "Macro product photograph of a premium robusto cigar on dark walnut wearing an ornate classic cigar band: deep oxblood-red field, wide antique-gold foil borders with fine engraved guilloché and beaded edges, a tall die-cut oval medallion framed by Victorian gold filigree; inside the medallion a fine engraved vignette showing only a cigar roller's two hands and forearms rolling a cigar on a wooden table, with no head, no face and no person visible; across the medallion a white enamel ribbon with the name \"ARNALDO\" in bold engraved red serif capitals. Embossed relief, raking warm light, ultra-detailed paper and foil texture. No other text.",
+  "negative": "face, head, portrait, person, watermark, misspelled text, extra text, dots between letters, flags, coat of arms, medals, blurry, low resolution"
+ },
+ {
   "id": "arnaldo-a2-6-anilla-n2-oro",
   "ratio": "4:3",
   "prompt": "Macro product photograph of a premium toro cigar on dark walnut, the cigar filling the frame vertically, wearing an ornate classic cigar band in polished antique gold foil: embossed gold field with fine engraved guilloché and beaded edges, a central round seal with a double gold rule containing a small engraved emblem in oxblood red: two crossed half-moon tobacco knives over a single tobacco leaf. Above the seal, the word \"ARNALDO\" in engraved oxblood-red serif capitals. Below the seal, \"Nº 2\" in small oxblood script. Those are the only words on the band. Raking warm light, black background, shallow depth of field, ultra-detailed foil and paper texture.",

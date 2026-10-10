@@ -20,6 +20,7 @@ out: ["00_EXECUTIVE/Project Status & Next Actions.md"]
 | Business case i escenaris | Fet | 03_BUSINESS_CASE/*.pdf |
 | Pla d'empresa 2027–2031 | Fet (DOCX + PDF) | 02_BUSINESS_PLAN |
 | Marca **ARNALDO** (nom del torcedor): estratègia, naming i riscos, brief creatiu per a dissenyador professional, wordmark provisional; identitats FOLIO v1/v2 arxivades | Fet — identitat definitiva pendent de signatura/retrat d'Arnaldo i dissenyador | 01_BRAND |
+| Preguntes difícils d'inversor (25) amb respostes, verificació de xifres clau i auditoria independent del model (9/9) | Fet | 00_EXECUTIVE/Investor Q&A.pdf |
 | Acord amb Arnaldo: cessió de nom, signatura i imatge + participació (royalty / equity) | Esborrany fet | 04_CUBA_LEGAL/Arnaldo Name & Participation Agreement.docx |
 | Projecte B (importació premium) i protocol d'autenticitat | Fet | 06_PREMIUM_IMPORT |
 | Pla 180 dies, riscos, operadors, SOP | Fet | 07_OPERATIONS |
@@ -30,7 +31,7 @@ out: ["00_EXECUTIVE/Project Status & Next Actions.md"]
 
 - Escenari Base (PVP 24 €, FOB 6 USD): contribució {{base_contrib}}/u, punt mort {{base_be}}, necessitat de finançament {{base_need}}, VAN {{base_npv}}.
 - Escenari Optimista (PVP 28 €, FOB 5 USD): VAN {{opt_npv}}, TIR {{opt_irr}}, necessitat {{opt_need}}.
-- L'Estat s'endú ≈{{ct_state_pct}} del PVP amb origen Cuba (IVA + impost especial + aranzel 26%).
+- L'Estat s'endú ≈{{state_pct_base}} del PVP amb origen Cuba (IVA + impost especial + aranzel 26%).
 - Via B3 (importació no cubana): contribució {{b3_contrib}}/u a PVP 15 €; punt mort ≈{{b3_be}} u/any.
 - Behike 56: preu ofert = {{bh_ratio}} del PVP oficial ({{bh_box}}/caixa).
 

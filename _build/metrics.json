@@ -145,6 +145,7 @@
  "split_contrib_pct_raw": 0.0728225249303655,
  "split_contrib": "7,3 %",
  "split_contrib_eur": "1,75 €",
+ "state_pct_base": "41,5 %",
  "base_fob_eur": "5,22 €",
  "base_pack": "1,65 €",
  "base_duty_u": "2,00 €",
@@ -172,5 +173,11 @@
  "ct_state_pct": "41,4 %",
  "plan_cost_30": "2.000 €",
  "plan_cost_90": "12.100 €",
- "plan_cost_180": "25.100 €"
+ "plan_cost_180": "25.100 €",
+ "audit_base_npv_no_tv": "-120.973 €",
+ "audit_base_pv_tv": "0 €",
+ "audit_opt_npv_no_tv": "-82.913 €",
+ "audit_opt_pv_tv": "93.666 €",
+ "audit_checks": "9/9",
+ "audit_ok": "OK"
 }

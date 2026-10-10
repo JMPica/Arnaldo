@@ -114,6 +114,12 @@ SOURCES = [
      "Marca con nombre de un veguero propiedad de Habanos S.A.: precedente de titularidad estatal de una marca de nombre propio.", "VERIFICADO"),
     ("S51", "Justia — marcas de GRYSON NV (ARLONDO)", "https://trademark.justia.com/owners/gryson-naamloze-vennootschap-1326237", "Secundaria",
      "Marca de tabaco ARLONDO: analizar riesgo de confusión con ARNALDO.", "PROBABLE"),
+    ("S52", "The Objective — «Los estancos descienden un 3% en diez años» (17/02/2025)", "https://theobjective.com/sociedad/2025-02-17/estancos-diez-anos-fumadores-diarios-9/", "Secundaria (cita datos oficiales)",
+     "12.858 licencias de expendeduría en 2024 (13.287 en 2015). Otra cifra de 16.049 (prensa, 2023) no es coherente con el resto y no se usa.", "PROBABLE"),
+    ("S53", "Halfwheel — Habanos S.A. reports $827 million in revenue for 2024", "https://halfwheel.com/habanos-s-a-reports-827-million-in-revenue-for-2024-a-14-7-percent-increase/447655/", "Secundaria",
+     "Confirma 827 M USD en 2024; calcula +14,7% frente al +16% que comunica la compañía. Mercados: China, España, Suiza, Reino Unido, Alemania; Europa 54%.", "VERIFICADO"),
+    ("S54", "Diario de Cuba / Cigars-Connect / Nicotine Insider — Tabacalera bajo supervisión del Tesoro tras las sanciones UE a Chen Zhi (ago.–sep. 2026)", "https://www.cigars-connect.com/en/tabacalera-placed-under-spanish-treasury-oversight-following-eu-sanctions-against-chen-zhi/", "Secundaria (varias fuentes coincidentes)",
+     "UE sanciona a Chen Zhi y Prince Holding Group (30/07/2026); Chen Zhi controlaba indirectamente el 57,1% de Allied Cigar; Tabacalera (controla ITI Cigars, 50% de Habanos S.A.) opera con cuentas bloqueadas y necesita autorización del Tesoro para pagar; su CEO comunicó que la empresa está sujeta a las sanciones. Las autoridades no lo han confirmado públicamente.", "PROBABLE"),
     # Normas citadas por conocimiento jurídico del equipo, no releídas en línea en esta sesión
     ("N01", "Ley Orgánica 12/1995 de Represión del Contrabando (mod. LO 6/2011)", "https://www.boe.es/buscar/act.php?id=BOE-A-1995-26836", "Norma (no releída hoy)",
      "Delito de contrabando en labores de tabaco a partir de 15.000 € de valor; por debajo, infracción administrativa.", "PROBABLE"),

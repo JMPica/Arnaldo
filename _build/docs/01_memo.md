@@ -27,7 +27,7 @@ Que la operación entraría en la red de una compañía que comercializa sus pro
 En la UE, sí, con una condición previa: ARNALDO es el nombre de una persona real, por lo que hace falta su **consentimiento escrito** y una licencia de nombre, firma e imagen a favor de la SL. Con ello, la SL puede registrar ARNALDO en EUIPO (clase 34) independientemente de Cuba, tras informe de registrabilidad (la búsqueda preliminar no halló colisiones en tabaco, pero no es un informe oficial). En Cuba, registro en OCPI vía agente oficial; el riesgo es que la contraparte exija titularidad. Condición no negociable C2 [PROBABLE].
 
 **5. ¿Barreras para importar y distribuir en España?**
-Habilitación CMT como fabricante/titular (≤15 días hábiles), EU-CEG, trazabilidad y marcas fiscales (obligatorias en cigarros desde 20/05/2024), etiquetado RD 579/2017, PVP publicado en BOE, distribuidor habilitado, venta sólo en ≈13.000 expendedurías, publicidad prohibida [VERIFICADO] (S16–S18, S26–S29). Fiscalmente, con origen Cuba el Estado se lleva ≈{{ct_state_pct}} del PVP (IVA 21%, IEE 15,8%, arancel 26% [PROBABLE]).
+Habilitación CMT como fabricante/titular (≤15 días hábiles), EU-CEG, trazabilidad y marcas fiscales (obligatorias en cigarros desde 20/05/2024), etiquetado RD 579/2017, PVP publicado en BOE, distribuidor habilitado, venta sólo en ≈13.000 expendedurías, publicidad prohibida [VERIFICADO] (S16–S18, S26–S29). Fiscalmente, con origen Cuba el Estado se lleva ≈{{state_pct_base}} del PVP (IVA 21%, IEE 15,8%, arancel 26% [PROBABLE]).
 
 **6. ¿Qué capital sería necesario?**
 Fase 0 + marca + estudios: ≈15 k€. Proyecto A completo: necesidad máxima de financiación de {{opt_need}} (Optimista) a {{cons_need}} (Conservador); Base {{base_need}}. Ningún nivel de capital entre 15 y 100 k€ cubre el proyecto completo. Vía B3 (importación no cubana): 40–60 k€.
@@ -81,7 +81,7 @@ Contratar abogados (Cuba + España); cuestionario al torcedor; rechazo por escri
 - **Contradicciones revisadas**: la libertad de importación en España no contradice la exclusiva de Habanos (la exclusiva es contractual y de marca, no regulatoria); el agotamiento regional de la marca impide la importación paralela desde fuera del EEE.
 - **Capacidad de fabricar marca extranjera**: no verificada; es la cuestión central y se aborda en la Fase 0.
 - **Derechos comerciales e importación de Habanos**: NO-GO documentado.
-- **Sanciones**: la vía principal (V1) pasa por Habanos S.A., participada al 50% por un grupo cuyo accionista indirecto está sancionado por la UE (30/07/2026) y EE.UU. [VERIFICADO] (S21, S22). Antes de cualquier pago hace falta un dictamen de abogado de sanciones sobre la contraparte concreta y el flujo de pagos; se incorpora como evidencia de C4.
+- **Sanciones**: la vía principal (V1) pasa por Habanos S.A., participada al 50% por un grupo cuyo accionista indirecto está sancionado por la UE (30/07/2026) y EE.UU. [VERIFICADO] (S21, S22). Chen Zhi controlaba indirectamente el 57,1% de Allied Cigar, y Tabacalera opera bajo supervisión del Tesoro y ha comunicado que está sujeta a las sanciones [PROBABLE] (S54). Antes de cualquier pago hace falta un dictamen de abogado de sanciones sobre la contraparte concreta y el flujo de pagos; se incorpora como evidencia de C4.
 - **Riesgo residual**: las normas cubanas de 2026 se conocen por índices y prensa; el texto íntegro no se ha leído.
 
 # Auditoría B — Financiera
@@ -119,8 +119,8 @@ La marca pasa a **ARNALDO** (nombre del torcedor). Las identidades FOLIO v1 y v2
 
 | Carpeta | Contenido clave |
 |---|---|
-| 00_EXECUTIVE | Este memorándum · Decision Matrix.xlsx · Project Status & Next Actions.md |
-| 01_BRAND | Brand Strategy · Brand Identity Guidelines · Product Architecture · Naming xlsx · Technical Spec xlsx · assets (SVG/PNG) |
+| 00_EXECUTIVE | Este memorándum · Investor Q&A (preguntas difíciles con respuestas) · Decision Matrix.xlsx · Project Status & Next Actions.md |
+| 01_BRAND | ARNALDO Brand Dossier (para inversores) · Brand Strategy · Brand Identity Guidelines · Product Architecture · Naming xlsx · Technical Spec xlsx · assets (SVG/PNG) |
 | 02_BUSINESS_PLAN | Business Plan 2027–2031 (DOCX + PDF) |
 | 03_BUSINESS_CASE | Business Case · Scenario Analysis · Financial Model 2027–2031.xlsx |
 | 04_CUBA_LEGAL | Cuba Legal Feasibility · Due Diligence · Export Authorization Questions · Term Sheet |

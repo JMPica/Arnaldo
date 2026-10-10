@@ -11,7 +11,7 @@ out: ["03_BUSINESS_CASE/Business Case.pdf"]
 
 > Con los supuestos actuales —ninguno de ellos confirmado por cotización— **la marca propia fabricada en Cuba no es rentable en el escenario Base**: la contribución por unidad a PVP 24 € es de sólo {{base_contrib}}, el punto muerto exige {{base_be}} y la necesidad máxima de financiación alcanza {{base_need}}. Sólo el escenario Optimista (PVP 28 €, FOB 5 USD, 12.000 u en 2031) genera VAN positivo ({{opt_npv}}) y TIR {{opt_irr}}, y aun así requiere {{opt_need}} de financiación.
 
-La causa es estructural: con origen Cuba, el Estado (IVA + impuesto especial + arancel) se lleva ≈{{ct_state_pct}} del PVP y el canal (expendedor + distribuidor) ≈14%. Con un coste en destino de {{base_landed}} por unidad, la marca necesita PVP ≥ 25 € **y** FOB ≤ ≈5 USD para que el negocio funcione. La variable decisiva —el precio FOB— está [BLOQUEADO] hasta recibir una cotización formal.
+La causa es estructural: con origen Cuba, el Estado (IVA + impuesto especial + arancel) se lleva ≈{{state_pct_base}} del PVP y el canal (expendedor + distribuidor) ≈14%. Con un coste en destino de {{base_landed}} por unidad, la marca necesita PVP ≥ 25 € **y** FOB ≤ ≈5 USD para que el negocio funcione. La variable decisiva —el precio FOB— está [BLOQUEADO] hasta recibir una cotización formal.
 
 # Qué tiene que ser verdad para invertir más allá de la Fase 0
 

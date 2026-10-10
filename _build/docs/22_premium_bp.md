@@ -19,10 +19,10 @@ out: ["06_PREMIUM_IMPORT/Premium Cigars Import Business Plan.pdf"]
 
 | Indicador | Dato | Estado |
 |---|---|---|
-| Ventas de Habanos S.A. 2024 | 827 M USD (+16%); Europa 54%; España 2º mercado mundial | [VERIFICADO] (S24) |
+| Ventas de Habanos S.A. 2024 | 827 M USD (+16% según la compañía; +14,7% según Halfwheel); Europa 54%; España 2º mercado mundial | [VERIFICADO] (S24, S53) |
 | Cuota de Habanos en puro premium (declarada por la compañía) | Hasta ~70% en volumen y ~80% en valor del mercado premium (dato propio, cita incompleta) | [PROBABLE] (S24) |
 | Cigarros vendidos en España (todas las gamas) ene-oct 2025 | 460,8 M u (+6,65%); el informe no separa el premium hecho a mano | [VERIFICADO] (S25) |
-| Canal minorista | ≈13.000 expendedurías | [VERIFICADO] (S26) |
+| Canal minorista | ≈13.000 expendedurías (12.858 licencias en 2024) | [VERIFICADO] (S26) / [PROBABLE] (S52) |
 | Precios de referencia 2026 | Partagás Serie D No. 4 ≈21,20 €; Montecristo No. 2 21,80 €; R&J Churchills 24,80 €; Davidoff Puro Dominicano Short Robusto 15,50 €; Padrón 2000 11,90 €; Padrón 1926 80th 42 € | [PROBABLE]/[VERIFICADO] (S37, S38) |
 | BHK 56 | 262,50 €/u en expendeduría (mar-2026) | [PROBABLE] (S19) |
 

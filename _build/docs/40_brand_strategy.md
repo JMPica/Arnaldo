@@ -20,7 +20,7 @@ out: ["01_BRAND/Brand Strategy.pdf"]
 
 | Ámbito | Dato | Lectura | Estado |
 |---|---|---|---|
-| Mundo (Habanos) | Habanos S.A. facturó 827 M USD en 2024 (+16%); Europa 54% de sus ventas | El crecimiento es sobre todo **precio** (Cohiba duplicó precios en 2022; subidas sucesivas de Behike) | [VERIFICADO] (S24, S20) |
+| Mundo (Habanos) | Habanos S.A. facturó 827 M USD en 2024 (+16% según la compañía; +14,7% según Halfwheel); Europa 54% de sus ventas | El crecimiento es sobre todo **precio** (Cohiba duplicó precios en 2022; subidas sucesivas de Behike) | [VERIFICADO] (S24, S53, S20) |
 | España (Habanos) | 2º mercado mundial de Habanos en 2024, tras China | Mercado maduro y de alto valor para el puro cubano | [VERIFICADO] (S24) |
 | España (total cigarros) | 460,8 M unidades ene-oct 2025 (+6,65% interanual) | Incluye cigarros mecanizados y cigarritos: **no** mide el premium hecho a mano | [VERIFICADO] (S25) |
 | Cuba (oferta) | Objetivo 2025: >70 M puros para exportación; campaña 2025-26 con 11.426 ha frente a >14.000 ha objetivo | Oferta de hoja limitada: competencia interna por capa y por capacidad | [PROBABLE] (S46, S47) |
@@ -60,7 +60,7 @@ No se han localizado estudios públicos recientes y fiables sobre el perfil del 
 
 ## Canales autorizados
 
-Fabricante/importador habilitado → distribuidor mayorista habilitado → expendedurías (≈13.000) → consumidor; puntos de venta con recargo (hostelería) se abastecen en expendedurías [VERIFICADO] (S16, S17, S26). Venta online al consumidor y venta a distancia transfronteriza: prohibidas.
+Fabricante/importador habilitado → distribuidor mayorista habilitado → expendedurías (≈13.000; 12.858 licencias en 2024, S52) → consumidor; puntos de venta con recargo (hostelería) se abastecen en expendedurías [VERIFICADO] (S16, S17, S26). Venta online al consumidor y venta a distancia transfronteriza: prohibidas.
 
 ## Competencia y estructura (Porter)
 

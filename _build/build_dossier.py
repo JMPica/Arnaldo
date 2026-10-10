@@ -315,17 +315,17 @@ def build():
     add(f"""<div class="pad">
 <div class="kick">Mercado</div><h1>Un mercado de alto valor, que crece por precio</h1>
 <div class="grid4" style="margin-top:7mm">
- <div class="card"><div class="stat">827<span style="font-size:15pt"> M USD</span></div><p>Facturación de Habanos S.A. en 2024 (+16 %) {T("VERIFICADO")}</p></div>
+ <div class="card"><div class="stat">827<span style="font-size:15pt"> M USD</span></div><p>Facturación de Habanos S.A. en 2024 (+16 % según la compañía; +14,7 % según otras fuentes) {T("VERIFICADO")}</p></div>
  <div class="card"><div class="stat">54 %</div><p>Peso de Europa en las ventas de Habanos {T("VERIFICADO")}</p></div>
  <div class="card"><div class="stat">2.º</div><p>Puesto de España entre los mercados mundiales de Habanos en 2024, tras China {T("VERIFICADO")}</p></div>
- <div class="card"><div class="stat">≈13.000</div><p>Expendedurías: la red minorista autorizada en España {T("VERIFICADO")}</p></div>
+ <div class="card"><div class="stat">≈13.000</div><p>Expendedurías, la red minorista autorizada en España (12.858 licencias en 2024) {T("PROBABLE")}</p></div>
 </div>
 <div class="grid2" style="margin-top:10mm">
  <div><h3>Lectura</h3><p>El crecimiento del segmento premium es sobre todo de <strong>precio</strong> (Cohiba duplicó precios en 2022). El consumidor está acostumbrado a pagar más por los formatos clásicos, pero compara con referencias consolidadas a precios conocidos.</p>
  <p>En 2026 la red de distribución de Habanos en Europa está afectada por sanciones, lo que genera riesgo de desabastecimiento puntual del puro cubano {T("VERIFICADO")}.</p></div>
  <div><h3>Lo que no sabemos (y cómo lo cerraremos)</h3><p>No existe un dato público fiable del valor del puro premium hecho a mano en España separado del resto de cigarros. La demanda accesible se estima de abajo arriba en <strong>1.600–6.000 unidades/año</strong> {T("HIPÓTESIS")} y se validará con 15 entrevistas a estanqueros especialistas.</p></div>
 </div>
-<p class="small" style="position:absolute;bottom:0">Fuentes: S20, S21, S24, S16–S17 (09_RESEARCH/Source Register.xlsx, consulta {FECHA}). Criterios de las etiquetas: 09_RESEARCH/Evidence &amp; Assumptions Log.xlsx.</p>
+<p class="small" style="position:absolute;bottom:0">Fuentes: S20, S21, S24, S53, S16–S17, S26, S52 (09_RESEARCH/Source Register.xlsx, consulta {FECHA}). Criterios de las etiquetas: 09_RESEARCH/Evidence &amp; Assumptions Log.xlsx.</p>
 </div>""", title="MERCADO")
 
     # 6 · Precio y competencia
@@ -367,7 +367,7 @@ def build():
 <tr class="hl"><td>25 €</td><td>{M['ue25_contrib']}</td><td>{M['ue25_be']} u/año</td><td>{M['ue25_fobmax']}</td></tr>
 <tr><td>30 €</td><td>{M['ue30_contrib']}</td><td>{M['ue30_be']} u/año</td><td>{M['ue30_fobmax']}</td></tr>
 </tbody></table>
-<p class="small" style="margin-top:2mm">Fuente: Financial Model 2027–2031.xlsx (hojas «Import &amp; Taxes» y «Unit Economics») y Customs and Tax Model.xlsx. Escenario Base, 2028. FOB {T("BLOQUEADO")} hasta recibir una cotización formal.</p>
+<p class="small" style="margin-top:2mm">Fuente: Financial Model 2027–2031.xlsx (hojas «Import &amp; Taxes» y «Unit Economics») y Customs and Tax Model.xlsx. Escenario Base, 2028. IVA 21 % e impuesto especial 15,8 % {T("VERIFICADO")}; arancel 26 % y margen del expendedor 9 % {T("PROBABLE")}, a confirmar en TARIC y BOE (Q10, Q11); FOB {T("BLOQUEADO")} hasta recibir una cotización formal.</p>
 </div>""", title="ECONOMÍA UNITARIA")
 
     # 7 · Posicionamiento
@@ -662,6 +662,47 @@ def build():
 </div>
 <p class="small" style="margin-top:4mm">Fuente: 07_OPERATIONS/180-Day Execution Plan.xlsx (costes acumulados {T("HIPÓTESIS")}), Business Case y Premium Import Business Case.</p>
 </div>""", title="FASE 0")
+
+
+    # 19d · Propuesta por tramos
+    add(f"""<div class="pad">
+<div class="kick">Propuesta de inversión · recomendación pendiente de decisión (D12)</div><h1>Capital por tramos, liberado por hechos</h1>
+<table style="margin-top:2mm">
+<thead><tr><th style="width:16%">Tramo</th><th style="width:16%">Importe</th><th style="width:22%">Quién aporta</th><th style="width:26%">Qué compra</th><th>Se libera solo si…</th></tr></thead>
+<tbody>
+<tr class="hl"><td><strong>0 · Fase 0</strong></td><td>≤ 15.000 € ({M['plan_cost_90']} previstos a 90 días)</td><td>Promotor, con capital propio</td><td>Vía legal, titularidad de la marca, sanciones, registrabilidad, 15 entrevistas</td><td>Aprobación del promotor (D01)</td></tr>
+<tr><td><strong>1 · Piloto</strong></td><td>Necesidad de caja de un pedido de 3.000 u: {M['wc_peak']}, más gastos fijos</td><td>Promotor e inversor(es)</td><td>SL, diseño profesional, habilitaciones, EU-CEG, pedido piloto</td><td>C1–C8 cumplidas y documentadas</td></tr>
+<tr><td><strong>2 · Escalado</strong></td><td>Hasta la necesidad máxima: {M['opt_need']}–{M['cons_need']}</td><td>Inversor(es) o financiación</td><td>Segundo pedido, extensión Nº 2 y red de puntos de venta</td><td>KPIs del Business Plan durante 12 meses: contribución ≥ 4 €/u, ≥ 4 cajas por punto y año, rechazo ≤ 3 %, ≥ 40 puntos activos</td></tr>
+</tbody></table>
+<div class="grid3" style="margin-top:7mm">
+ <div class="card"><h3>Qué no se pide</h3><p>Ningún capital externo antes del Go de la Fase 0. Ningún anticipo a fábrica sin las ocho condiciones.</p></div>
+ <div class="card"><h3>Instrumentos posibles</h3><p>Capital en la SL española o préstamo participativo (p. ej. ENISA) con el plan validado {T("HIPÓTESIS")}. La valoración se negocia después de la Fase 0, con hechos.</p></div>
+ <div class="card"><h3>Protección del inversor</h3><p>Marca a nombre de la SL, licencia irrevocable de nombre y firma, liberación por hitos y opción de redirigir el capital a la vía B3 si Cuba no se abre.</p></div>
+</div>
+<p class="small" style="margin-top:4mm">Importes de los modelos del dossier. El importe a captar, el instrumento y la valoración son decisiones del promotor aún no tomadas.</p>
+</div>""", title="PROPUESTA")
+
+    # 19e · Equipo
+    add(f"""<div class="pad">
+<div class="kick">Equipo y gobierno</div><h1>Quién lo hace</h1>
+<div class="grid2" style="gap:10mm;margin-top:2mm">
+ <div>
+  <div class="card" style="margin-bottom:5mm"><h3>Promotor</h3><p>Dirección y desarrollo comercial; titular de la SL española. Su experiencia, dedicación y aportación de capital se incorporarán a esta página antes de presentar el dossier.</p></div>
+  <div class="card"><h3>Arnaldo, torcedor</h3><p>Nombre, firma y criterio de construcción, a través de la entidad autorizada y con permiso de su empleador. Su categoría y sus años de oficio solo se publicarán acreditados.</p></div>
+ </div>
+ <div><h3>Asesores externos (por contratar en la Fase 0)</h3>
+  <table><tbody>
+  <tr><td>Abogado cubano habilitado</td><td>Vía legal, due diligence de la fábrica, contratos</td></tr>
+  <tr><td>Abogado español de comercio exterior</td><td>Contratos, sanciones UE/EE. UU.</td></tr>
+  <tr><td>Asesor fiscal España–Andorra</td><td>Residencia, estructura, retribución</td></tr>
+  <tr><td>Agente de marcas</td><td>Registrabilidad y registro en la UE y en Cuba</td></tr>
+  <tr><td>Asesor regulatorio</td><td>CMT, EU-CEG, trazabilidad, PVP en el BOE</td></tr>
+  <tr><td>Operador logístico habilitado</td><td>Depósito fiscal y distribución</td></tr>
+  <tr><td>Estudio de packaging premium</td><td>Identidad definitiva (tras el Go)</td></tr>
+  </tbody></table></div>
+</div>
+<p class="small" style="margin-top:5mm">Gobierno: comité Go/No-Go con acta en la semana 11; ninguna comunicación externa ni pago sin aprobación del promotor; screening de sanciones de cada contraparte (SOP-01).</p>
+</div>""", title="EQUIPO")
 
     # 20 · Estado y condiciones
     add(f"""<div class="pad">

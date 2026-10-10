@@ -86,6 +86,7 @@ for row in it.iter_rows():
     if lab == "Arancel (Hacienda UE)": out["split_duty"] = pct(row[3].value)
     if lab and lab.startswith("Fabricación, packaging"): out["split_cif"] = pct(row[3].value)
     if lab and lab.startswith("Contribución de la marca"): out["split_contrib"] = pct(row[3].value); out["split_contrib_eur"] = eur(row[2].value, 2)
+out["state_pct_base"] = pct(sum(out[f"split_{k}_pct_raw"] for k in ("vat", "iee", "duty")))
 pc = wb["Engine"]
 # base landed 2028 (col I) row of landed_u
 for row in pc.iter_rows(min_row=5):

@@ -14,7 +14,7 @@ out: ["02_BUSINESS_PLAN/Business Plan 2027–2031.pdf", "02_BUSINESS_PLAN/Busine
 **Qué se ha encontrado.**
 
 1. **Barrera jurídica cubana** [BLOQUEADO]: Tabacuba conserva el monopolio de compra de hoja y Habanos S.A. la comercialización y exportación de puros premium; las reformas de 2026 (DL 133/2026, DL 128/2026, Medida 58) no abren la exportación privada de puros. No consta un programa vigente de fabricación para marcas de titularidad extranjera.
-2. **Barrera económica**: con origen Cuba, el Estado se lleva ≈{{ct_state_pct}} del PVP (IVA, impuesto especial 15,8%, arancel 26%) y el canal ≈14%. Con un coste en destino de {{base_landed}}/u, el escenario Base (PVP 24 €, FOB 6 USD) deja {{base_contrib}}/u de contribución, pierde dinero todos los años y necesita {{base_need}} de financiación.
+2. **Barrera económica**: con origen Cuba, el Estado se lleva ≈{{state_pct_base}} del PVP (IVA, impuesto especial 15,8%, arancel 26%) y el canal ≈14%. Con un coste en destino de {{base_landed}}/u, el escenario Base (PVP 24 €, FOB 6 USD) deja {{base_contrib}}/u de contribución, pierde dinero todos los años y necesita {{base_need}} de financiación.
 3. **Habanos no es importable** por un tercero (exclusiva de Tabacalera S.L.U., hoy con cuentas bloqueadas por sanciones UE a su accionista indirecto). La oferta de Behike 56 a 50 €/caja ({{bh_ratio}} del PVP oficial) es un NO-GO absoluto.
 4. **Vía accesible**: importador-distribuidor habilitado de marcas premium no cubanas (contribución {{b3_contrib}}/u a PVP 15 €, arancel 0% con origen preferente).
 
