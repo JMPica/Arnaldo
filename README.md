@@ -16,6 +16,7 @@ bash make_xlsx.sh                       # XLSX amb fórmules, recalculats
 python3 extract_metrics.py ../PROYECTO_CIGARS_CUBA_2027 metrics.json
 # Identitat: ARNALDO provisional (brief per a dissenyador a 01_BRAND). Les versions FOLIO v1/v2 (brand_assets.py, brand_v2.py) queden arxivades.
 python3 render_docs.py                  # PDF, DOCX i MD a partir de docs/*.md
+python3 build_dossier.py                # 01_BRAND/ARNALDO Brand Dossier.pdf (dossier de marca per a inversors)
 ```
 
 Les xifres dels documents s'injecten des dels models (`metrics.json`), de manera que canviar un supòsit i regenerar manté la coherència.

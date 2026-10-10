@@ -16,6 +16,7 @@
 | Business case i escenaris | Fet | 03_BUSINESS_CASE/*.pdf |
 | Pla d'empresa 2027–2031 | Fet (DOCX + PDF) | 02_BUSINESS_PLAN |
 | Marca **ARNALDO** (nom del torcedor): estratègia, naming i riscos, brief creatiu per a dissenyador professional, wordmark provisional; identitats FOLIO v1/v2 arxivades | Fet — identitat definitiva pendent de signatura/retrat d'Arnaldo i dissenyador | 01_BRAND |
+| Dossier de marca per a inversors (21 pàg.): estratègia, gamma, Ruta A v2 amb renders revisats i retocats, protecció, full de ruta i condicions C1–C8 | Fet — v1.0; s'hi incorporen els renders pendents quan es generin | 01_BRAND/ARNALDO Brand Dossier.pdf |
 | Acord amb Arnaldo: cessió de nom, signatura i imatge + participació (royalty / equity) | Esborrany fet | 04_CUBA_LEGAL/Arnaldo Name & Participation Agreement.docx |
 | Projecte B (importació premium) i protocol d'autenticitat | Fet | 06_PREMIUM_IMPORT |
 | Pla 180 dies, riscos, operadors, SOP | Fet | 07_OPERATIONS |

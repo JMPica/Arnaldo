@@ -1,0 +1,38 @@
+[
+ {
+  "id": "arnaldo-a2-6-anilla-n2-oro",
+  "ratio": "4:3",
+  "prompt": "Macro product photograph of a premium toro cigar on dark walnut, the cigar filling the frame vertically, wearing an ornate classic cigar band in polished antique gold foil: embossed gold field with fine engraved guilloché and beaded edges, a central round seal with a double gold rule containing a small engraved emblem in oxblood red: two crossed half-moon tobacco knives over a single tobacco leaf. Above the seal, the word \"ARNALDO\" in engraved oxblood-red serif capitals. Below the seal, \"Nº 2\" in small oxblood script. Those are the only words on the band. Raking warm light, black background, shallow depth of field, ultra-detailed foil and paper texture.",
+  "negative": "watermark, misspelled text, extra text, gibberish letters, flags, coat of arms, medals, blurry, low resolution, swords, daggers, kitchen knives, checkerboard"
+ },
+ {
+  "id": "arnaldo-a2-7-emblema-chavetas",
+  "ratio": "1:1",
+  "prompt": "Flat engraved emblem for a luxury cigar brand, printed in antique gold and oxblood red on cream cotton paper, intaglio line style, perfectly centred and symmetrical. A round seal with a double gold rule and a fine guilloché ring. Inside, a single upright tobacco leaf with engraved veins, and crossed behind it two cigar-roller's chavetas: each chaveta is a flat half-moon steel blade, rounded edge outward, with a short round wooden knob handle. Along the top inner edge of the seal, the single word \"ARNALDO\" in engraved serif capitals following the curve. No other text, letters or numbers anywhere.",
+  "negative": "watermark, misspelled text, extra text, gibberish letters, flags, coat of arms, medals, blurry, low resolution, swords, daggers, kitchen knives, cigar, fleur-de-lis, triangle, crown, laurel"
+ },
+ {
+  "id": "arnaldo-a2-8-vista-casa-tabaco",
+  "ratio": "4:3",
+  "prompt": "Overhead photograph of an open Spanish-cedar cigar box; inside the lid a richly lithographed label in oxblood, cream and antique gold: a large central oval medallion with a fine engraved scene of a traditional tobacco curing house with a steep thatched palm-leaf roof among rows of tobacco plants at dawn, framed by Victorian gold filigree and corner rosettes, \"ARNALDO\" above in large engraved serif capitals on a ribbon, \"Pliego de autor\" in copperplate script below. The robustos in the box wear oxblood-and-gold bands showing only a plain gold oval medallion, with no lettering on the bands. Warm tungsten light.",
+  "negative": "watermark, misspelled text, extra text, gibberish letters, flags, coat of arms, medals, blurry, low resolution, wooden barn, american barn, red barn"
+ },
+ {
+  "id": "arnaldo-a2-9-tres-vitolas",
+  "ratio": "16:9",
+  "prompt": "Studio photograph of three premium hand-rolled cigars lying side by side on black velvet, parallel, heads aligned on the left: a short robusto at the top, a medium toro in the middle, a long churchill at the bottom. Each wears a band from the same family, with no lettering at all: the robusto an oxblood-red band with an oval gold filigree medallion, the toro a polished gold band with a round seal, the churchill a glossy black lacquer band with narrow woven gold borders. Dramatic rim light, ultra-detailed wrapper leaf texture.",
+  "negative": "watermark, misspelled text, extra text, gibberish letters, flags, coat of arms, medals, blurry, low resolution, letters, words, text, numbers, checkerboard, bones"
+ },
+ {
+  "id": "arnaldo-a2-10-manos-torcedor",
+  "ratio": "4:3",
+  "prompt": "Documentary close-up photograph of a cigar roller's hands at a worn wooden rolling table, cutting a dark tobacco wrapper leaf with a half-moon chaveta blade, a few finished cigars and loose tobacco leaves beside, soft natural side light from a window, shallow depth of field, warm tones. Only hands and forearms are visible, no face.",
+  "negative": "face, head, text, letters, watermark, logo, blurry, low resolution, extra fingers, deformed hands"
+ },
+ {
+  "id": "arnaldo-a2-11-humidor",
+  "ratio": "16:9",
+  "prompt": "Interior of a premium tobacconist's walk-in humidor: Spanish-cedar shelving with neatly stacked closed cigar boxes in natural wood, warm soft ambient light, a hygrometer on the wall, quiet luxury, photorealistic. The boxes are plain and unbranded, with no labels and no lettering.",
+  "negative": "text, letters, logos, labels, brand names, watermark, blurry, low resolution, people"
+ }
+]
