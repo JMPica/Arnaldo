@@ -1,6 +1,6 @@
 ---
 title: "Plan de empresa 2027–2031"
-subtitle: "FOLIO — marca propia de cigarros premium y vía de importación premium, con decisión por fases"
+subtitle: "ARNALDO — marca propia de cigarros premium y vía de importación premium, con decisión por fases"
 short: "Business Plan 2027–2031"
 kicker: "02 · BUSINESS PLAN"
 toc: true
@@ -9,7 +9,7 @@ out: ["02_BUSINESS_PLAN/Business Plan 2027–2031.pdf", "02_BUSINESS_PLAN/Busine
 
 # 1. Resumen ejecutivo
 
-**Qué se propone.** Crear FOLIO, una marca premium de cigarros hechos a mano, fabricada —si la Fase 0 lo confirma— en Cuba por una entidad autorizada con la colaboración técnica de un torcedor, e importada y distribuida en España por canales habilitados. En paralelo se evalúa la importación y distribución de cigarros premium de terceros.
+**Qué se propone.** Crear **ARNALDO**, una marca premium de cigarros hechos a mano que lleva el nombre —y, con su consentimiento, la firma— de Arnaldo, el torcedor cubano que participa en el proyecto; fabricada —si la Fase 0 lo confirma— en Cuba por una entidad autorizada con su colaboración técnica, e importada y distribuida en España por canales habilitados. En paralelo se evalúa la importación y distribución de cigarros premium de terceros.
 
 **Qué se ha encontrado.**
 
@@ -24,7 +24,7 @@ out: ["02_BUSINESS_PLAN/Business Plan 2027–2031.pdf", "02_BUSINESS_PLAN/Busine
 
 | Línea | Actividad | Rol de la sociedad | Estado |
 |---|---|---|---|
-| A — Marca propia | Diseño, especificación, registro y comercialización B2B de FOLIO | Titular de marca, habilitada como fabricante ante el CMT; producción encargada a entidad autorizada | [BLOQUEADO] por Fase 0 |
+| A — Marca propia | Diseño, especificación, registro y comercialización B2B de ARNALDO | Titular de marca, habilitada como fabricante ante el CMT; producción encargada a entidad autorizada | [BLOQUEADO] por Fase 0 |
 | B3 — Importación premium | Importación y distribución de marcas no cubanas con exclusiva para España | Importador-titular en España de las referencias; distribución vía operador habilitado | Validación |
 | B1 — Habanos | Importación directa | — | NO-GO |
 
@@ -45,26 +45,26 @@ Concentración: Habanos domina el premium; la distribución mayorista está conc
 
 # 5. Competencia y posicionamiento
 
-Competidores directos de FOLIO OCTAVO: Habanos clásicos de formato robusto (≈21–22 €) y marcas no cubanas de prestigio (12–20 €). FOLIO se posiciona en el lujo cubano clásico con una identidad de **«Gran Habilitación»** —la gramática visual de las grandes marcas de Habanos (anilla con cartela, oro en relieve, guilloché, litografía de tapa) reinterpretada con elementos originales—, lotes numerados («pliegos») y colofón de trazabilidad; precio objetivo 24 € (Base) que exige superar en calidad percibida a referencias consolidadas. Matriz de posicionamiento: B 3,90 / C 3,35 / A 2,45 (`Decision Matrix.xlsx`).
+Competidores directos de ARNALDO Nº 1: Habanos clásicos de formato robusto (≈21–22 €) y marcas no cubanas de prestigio (12–20 €). ARNALDO se posiciona en el lujo cubano clásico con una identidad de **«Gran Habilitación»** —la gramática visual de las grandes marcas de Habanos (anilla con cartela, oro en relieve, guilloché, litografía de tapa) reinterpretada con elementos originales—, lotes numerados («pliegos») y colofón de trazabilidad; precio objetivo 24 € (Base) que exige superar en calidad percibida a referencias consolidadas. Matriz de posicionamiento: B 3,90 / C 3,35 / A 2,45 (`Decision Matrix.xlsx`).
 
 **Ventaja competitiva sostenible** (Fisher): baja mientras la producción dependa de un único fabricante estatal; se construye con (i) propiedad plena de la marca y del diseño, (ii) relación con estanqueros especialistas, (iii) habilitaciones y know-how regulatorio, (iv) consistencia documentada.
 
 # 6. Propuesta de valor y producto
 
-Para el estanquero especialista: una referencia diferenciada, consistente y documentada (ficha técnica, pliego, colofón), con rotación apoyada por catas técnicas profesionales. Para el consumidor adulto (sin comunicación directa): un objeto de habilitación clásica, numerado y documentado. Producto de lanzamiento: **OCTAVO** (Robusto ≈124 × 50). Extensiones: CUARTO (2029), IMPERIAL (2030, limitada). Detalle: `Product Architecture.pdf`.
+Para el estanquero especialista: una referencia diferenciada, consistente y documentada (ficha técnica, pliego, colofón), con rotación apoyada por catas técnicas profesionales. Para el consumidor adulto (sin comunicación directa): un objeto de habilitación clásica, numerado y documentado. Producto de lanzamiento: **Nº 1** (Robusto ≈124 × 50). Extensiones: Nº 2 (2029), Nº 3 (2030, limitada). Detalle: `Product Architecture.pdf`.
 
 # 7. Producción subcontratada en Cuba
 
 | Elemento | Planteamiento |
 |---|---|
 | Contraparte | Entidad cubana autorizada a fabricar y exportar (por identificar documentalmente) |
-| Torcedor | Colaborador técnico a través de la entidad, con permiso del empleador |
+| Torcedor (Arnaldo) | Da nombre a la marca y colabora técnicamente a través de la entidad, con permiso del empleador; participación económica según `Arnaldo Name & Participation Agreement.docx` |
 | Contrato | Fabricación por encargo + compraventa internacional; FCA/FOB; inspección previa; reposición si rechazo > 3% |
 | Pagos | 30% al pedido / 70% contra documentos o carta de crédito (objetivo); el modelo usa 50% de anticipo (conservador) |
 | Plazos | 4–6 meses pedido→llegada (Base 5); Estrés 10 |
 | Riesgos | Autorización, titularidad de marca, hoja, energía/logística, pagos, sanciones |
 
-Si la Fase 0 es negativa, alternativas: (a) **FOLIO con origen República Dominicana o Nicaragua** (arancel 0% con prueba de origen, fabricantes que ya exportan a la UE; el posicionamiento dejaría de ser «cubano» y el torcedor podría participar sólo si puede viajar y contratar legalmente) [HIPÓTESIS]; (b) concentrarse en B3.
+Si la Fase 0 es negativa, alternativas: (a) **ARNALDO con origen República Dominicana o Nicaragua** (arancel 0% con prueba de origen, fabricantes que ya exportan a la UE; el posicionamiento dejaría de ser «cubano» y el torcedor podría participar sólo si puede viajar y contratar legalmente) [HIPÓTESIS]; (b) concentrarse en B3.
 
 # 8. Estructura societaria
 
@@ -91,9 +91,11 @@ Puntuaciones del `Decision Matrix.xlsx` (pesos: cumplimiento 20%, riesgo fiscal 
 
 # 9. Propiedad intelectual y contratación
 
-- Marca **FOLIO** a nombre de la SL: EUIPO (clase 34) antes de compartir con terceros; Cuba (OCPI) vía agente oficial; reservas LUMBRE y VELADA.
+- Marca **ARNALDO** a nombre de la SL: EUIPO (clase 34) antes de compartir con terceros; Cuba (OCPI) vía agente oficial; reservas FOLIO y LUMBRE.
+- **Nombre, firma e imagen de Arnaldo**: consentimiento escrito previo al registro (marca con nombre de persona) y licencia exclusiva, irrevocable, transferible y mundial a la SL; cláusulas de salida, conflicto y fallecimiento. Precedentes a evitar: Davidoff (disputa con Cubatabaco por la titularidad) y Vegas Robaina (marca con el nombre de un veguero, propiedad de Habanos S.A. desde 1997).
+- **Participación de Arnaldo**: recomendada en forma de participación en la SL (referencia: 10% con *vesting* a 4 años); un royalty del 2% sobre ingresos haría negativo el VAN incluso en el escenario Optimista (−4.561 €). Todo ello por vía legal y con autorización de su empleador. Detalle: `04_CUBA_LEGAL/Arnaldo Name & Participation Agreement.docx`.
 - Diseños: cesión total del diseñador a la SL; registro de diseño UE de la anilla y caja si el coste lo justifica.
-- Contrato de fabricación: titularidad exclusiva de la marca, licencia de uso limitada a la producción contratada, confidencialidad de la ficha técnica, prohibición de producir FOLIO o imitaciones para terceros, devolución/destrucción de anillas y materiales sobrantes. Cláusulas en `Contract Term Sheet.docx`.
+- Contrato de fabricación: titularidad exclusiva de la marca, licencia de uso limitada a la producción contratada, confidencialidad de la ficha técnica, prohibición de producir ARNALDO o imitaciones para terceros, devolución/destrucción de anillas y materiales sobrantes. Cláusulas en `Contract Term Sheet.docx`.
 - Contrato de distribución: no exclusivo/exclusivo según operador, tarifa, plazos de pago, reporting, depósito fiscal, devolución de stock en caso de resolución.
 
 # 10. Importación y operativa aduanera
@@ -183,7 +185,7 @@ Los diez principales (registro completo con 28 riesgos y matriz regulatoria en `
 | T3 2027 | Prototipos y catas, term sheet, contrato, habilitaciones, EU-CEG |
 | T4 2027 | Artes finales, trazabilidad, marcas fiscales, solicitud PVP |
 | 2028 | Pedido piloto (si C1–C8), primeras ventas tras BOE |
-| 2029–2031 | Extensiones CUARTO e IMPERIAL según KPIs |
+| 2029–2031 | Extensiones Nº 2 e Nº 3 según KPIs |
 
 Plan de 180 días detallado: `07_OPERATIONS/180-Day Execution Plan.xlsx` (coste estimado {{plan_cost_180}}).
 
@@ -199,7 +201,7 @@ Plan de 180 días detallado: `07_OPERATIONS/180-Day Execution Plan.xlsx` (coste 
 | Días de cobro | ≤ 45 |
 | Puntos activos | ≥ 40 al cierre de 2028 |
 
-Ampliar a CUARTO sólo si se cumplen todos durante 12 meses.
+Ampliar a Nº 2 sólo si se cumplen todos durante 12 meses.
 
 # 20. Estrategia de salida
 

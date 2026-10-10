@@ -7,7 +7,7 @@ html{font-family:Inter,sans-serif;font-size:9.4pt;line-height:1.5;color:var(--in
 body{margin:0}
 .runhead{display:none}
 .cover{height:296mm;overflow:hidden;box-sizing:border-box;padding:28mm 24mm;background:var(--ivory);page-break-after:always;break-inside:avoid;display:block;position:relative}
-.cover .mono svg{width:30mm;height:34mm}
+.cover .mono svg{width:62mm;height:20mm}
 .cover-top{display:flex;align-items:center;gap:8mm}
 .kicker{font-size:8pt;letter-spacing:.32em;color:var(--ash);text-transform:uppercase}
 .ctitle{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:34pt;line-height:1.08;margin:48mm 0 6mm;color:var(--ink);border:0}

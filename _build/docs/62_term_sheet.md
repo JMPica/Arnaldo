@@ -10,9 +10,9 @@ out: ["04_CUBA_LEGAL/Contract Term Sheet.docx"]
 |---|---|
 | Partes | [SL española] («el Cliente») y [entidad cubana autorizada] («el Fabricante»); en su caso [exportador de registro] |
 | Carácter | No vinculante salvo Confidencialidad, Exclusividad de negociación (60 días) y Ley/foro de este term sheet |
-| Objeto | Fabricación de cigarros totalmente hechos a mano de la marca FOLIO según Ficha Técnica, y su venta y exportación al Cliente |
+| Objeto | Fabricación de cigarros totalmente hechos a mano de la marca ARNALDO según Ficha Técnica, y su venta y exportación al Cliente |
 | Condiciones previas | (i) Licencias de fabricación y exportación aportadas; (ii) aceptación de la titularidad de la marca; (iii) autorización del empleador del torcedor; (iv) vía bancaria validada; (v) screening de sanciones sin incidencias |
-| Producto inicial | OCTAVO (Robusto ≈124 × 50), cajas de cedro de 10 u |
+| Producto inicial | Nº 1 (Robusto ≈124 × 50), cajas de cedro de 10 u |
 | Volumen | Pedido piloto 1.000–3.000 u; previsión no vinculante 2.000–6.500 u/año |
 | Precio | [__] EUR/u FCA [La Habana aeropuerto] o FOB [Mariel], con/sin packaging; validez 12 meses; revisión anual con preaviso de 90 días |
 | Pago | 30% al pedido; 70% contra documentos de embarque o carta de crédito documentaria irrevocable; en EUR; ningún pago a terceros |
@@ -23,7 +23,7 @@ out: ["04_CUBA_LEGAL/Contract Term Sheet.docx"]
 | Packaging | Anillas, colofones y precintos suministrados por el Cliente o fabricados según artes del Cliente; custodia y destrucción certificada de sobrantes |
 | Torcedor | Participa como colaborador técnico designado por el Fabricante, con su autorización; retribución incluida en el precio |
 | Propiedad intelectual | Ver Parte III (titularidad exclusiva del Cliente) |
-| Exclusividad | El Fabricante no produce FOLIO ni imitaciones para terceros; el Cliente es exclusivo mundial de la marca |
+| Exclusividad | El Fabricante no produce ARNALDO ni imitaciones para terceros; el Cliente es exclusivo mundial de la marca |
 | Confidencialidad | Bilateral, 5 años tras terminación |
 | Cumplimiento | Garantías de licencias, anticorrupción, sanciones; ningún pago en USD ni a través de bancos de EE.UU. |
 | Duración | 3 años, renovable; resolución por incumplimiento, por pérdida de licencias o por imposibilidad de pago |
@@ -52,7 +52,7 @@ Anexos: Ficha Técnica; muestra patrón; plan de QC; listado de licencias; model
 
 # Parte III — Cláusulas de propiedad intelectual (texto base)
 
-**Titularidad.** «La marca FOLIO, sus variantes, los nombres OCTAVO, CUARTO, IMPERIAL y PLIEGO, el monograma, los diseños de anilla, caja, colofón y precinto, el manual de identidad y la Ficha Técnica (en adelante, los "Activos del Cliente") son y serán propiedad exclusiva del Cliente. Nada en este contrato transmite al Fabricante derecho alguno sobre los Activos del Cliente.»
+**Titularidad.** «La marca ARNALDO, sus variantes, las denominaciones de vitola, el término PLIEGO, el monograma, los diseños de anilla, caja, colofón y precinto, el manual de identidad y la Ficha Técnica (en adelante, los "Activos del Cliente") son y serán propiedad exclusiva del Cliente. Nada en este contrato transmite al Fabricante derecho alguno sobre los Activos del Cliente.»
 
 **Licencia limitada.** «El Cliente concede al Fabricante una licencia no exclusiva, intransferible y gratuita, limitada a la aplicación de los Activos del Cliente sobre los productos fabricados para el Cliente y durante la vigencia del contrato, que se extinguirá automáticamente a su terminación.»
 

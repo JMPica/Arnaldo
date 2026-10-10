@@ -108,6 +108,12 @@ SOURCES = [
      "Campaña 2025-26: 11.426 ha plantadas frente a objetivo de >14.000 ha (restricción de oferta de hoja).", "PROBABLE"),
     ("S48", "Moncloa.com (20/08/2026) — revisión de la fiscalidad del tabaco en la UE", "https://www.moncloa.com/2026/08/20/impuestos-tabaco-ue-subida-139-3418041", "Secundaria",
      "La revisión de la Directiva sigue en el Consejo en agosto de 2026.", "PROBABLE"),
+    ("S49", "Habanos / Cigars-Connect — fallecimiento de Arnaldo Vichot, ex maestro ligador de Partagás (24/02/2026)", "https://www.habanos.com/en/news/heartfelt-condolences/", "Primaria + secundaria",
+     "Posible asociación del nombre ARNALDO con una figura conocida del sector; no se halló marca de puros «Arnaldo».", "VERIFICADO"),
+    ("S50", "Habanos — marca Vegas Robaina (creada en 1997)", "https://www.habanos.com/en/the-habanos-brands-academia/vegas-robaina-brand/", "Primaria",
+     "Marca con nombre de un veguero propiedad de Habanos S.A.: precedente de titularidad estatal de una marca de nombre propio.", "VERIFICADO"),
+    ("S51", "Justia — marcas de GRYSON NV (ARLONDO)", "https://trademark.justia.com/owners/gryson-naamloze-vennootschap-1326237", "Secundaria",
+     "Marca de tabaco ARLONDO: analizar riesgo de confusión con ARNALDO.", "PROBABLE"),
     # Normas citadas por conocimiento jurídico del equipo, no releídas en línea en esta sesión
     ("N01", "Ley Orgánica 12/1995 de Represión del Contrabando (mod. LO 6/2011)", "https://www.boe.es/buscar/act.php?id=BOE-A-1995-26836", "Norma (no releída hoy)",
      "Delito de contrabando en labores de tabaco a partir de 15.000 € de valor; por debajo, infracción administrativa.", "PROBABLE"),

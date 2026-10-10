@@ -1,5 +1,5 @@
 ---
-title: "Arquitectura de producto FOLIO"
+title: "Arquitectura de producto ARNALDO"
 subtitle: "Vitola inicial, extensiones, parámetros de calidad medibles, documentación de liga, conservación, control de pliegos y papel del torcedor"
 short: "Product Architecture"
 kicker: "01 · BRAND"
@@ -15,15 +15,15 @@ out: ["01_BRAND/Product Architecture.pdf"]
 
 # Gama propuesta
 
-| Nombre FOLIO | Vitola de referencia | Dimensiones orientativas | Calendario | Complejidad de fabricación |
+| Nombre ARNALDO | Vitola de referencia | Dimensiones orientativas | Calendario | Complejidad de fabricación |
 |---|---|---|---|---|
-| **OCTAVO** | Robusto | ≈124 mm × cepo 50 | Lanzamiento (2028, sólo si C1–C8) | Media: formato versátil, consumo de capa moderado, tiro estable |
-| CUARTO | Toro / Gordito | ≈150–156 mm × 50–52 | Extensión 2029 | Media-alta: cepos grandes tienden a irregularidades de tiro y combustión |
-| IMPERIAL | Churchill (Julieta No. 2) | ≈178 mm × 47 | Edición limitada 2030 | Alta: capa larga sin defectos, menor rendimiento de capa, torcedores de máxima categoría |
+| **Nº 1** | Robusto | ≈124 mm × cepo 50 | Lanzamiento (2028, sólo si C1–C8) | Media: formato versátil, consumo de capa moderado, tiro estable |
+| Nº 2 | Toro / Gordito | ≈150–156 mm × 50–52 | Extensión 2029 | Media-alta: cepos grandes tienden a irregularidades de tiro y combustión |
+| Nº 3 | Churchill (Julieta No. 2) | ≈178 mm × 47 | Edición limitada 2030 | Alta: capa larga sin defectos, menor rendimiento de capa, torcedores de máxima categoría |
 
 Las dimensiones son referencias habituales del sector [PROBABLE]; la «vitola de galera» exacta la fija la fábrica.
 
-**Por qué OCTAVO primero**: es el formato con mayor rotación en expendedurías especialistas y el más comparable con referencias de precio conocidas (p.ej. Partagás Serie D No. 4, ≈21,20 € en 2026) [PROBABLE] (S37), lo que permite medir la aceptación del precio de forma limpia.
+**Por qué Nº 1 primero**: es el formato con mayor rotación en expendedurías especialistas y el más comparable con referencias de precio conocidas (p.ej. Partagás Serie D No. 4, ≈21,20 € en 2026) [PROBABLE] (S37), lo que permite medir la aceptación del precio de forma limpia.
 
 # Parámetros de calidad medibles
 

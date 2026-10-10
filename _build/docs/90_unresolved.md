@@ -31,9 +31,11 @@ Cada pregunta indica su impacto, quién puede resolverla y el documento preparad
 | Q14 | Coste unitario de marcas fiscales e identificadores únicos | FNMT / emisor de identificadores |
 | Q15 | Tarifa, mínimos y depósito fiscal de distribuidores habilitados | Distribuidores |
 | Q16 | Aceptación de una marca cubana no-Habanos a 24–28 € por expendedurías especialistas | 15 entrevistas |
-| Q17 | Disponibilidad de FOLIO / LUMBRE / VELADA en EUIPO, OEPM, OCPI | Agente de marcas |
+| Q17 | Disponibilidad de ARNALDO (reservas FOLIO / LUMBRE) en EUIPO, OEPM, OCPI | Agente de marcas |
 | Q18 | Residencia fiscal del promotor en 2027 y de la SL si se administra desde Andorra; tipos de retención del CDI | Asesor fiscal |
 | Q19 | Situación de Tabacuba como titular de fábricas y de Habanos tras las sanciones y la salida de BAT de Brascuba | Seguimiento de prensa / abogado |
+| Q21 | Apellido de Arnaldo, consentimiento escrito y autorización de su empleador para el uso de su nombre y su colaboración | Arnaldo / abogado cubano |
+| Q22 | Forma legal de pagar royalty o dar participación a un trabajador residente en Cuba | Abogado cubano + asesor fiscal |
 | Q20 | Régimen andorrano de importación y venta de tabaco (si se valorara el mercado de Andorra) | Asesor andorrano |
 
 ## Datos de mercado no disponibles públicamente

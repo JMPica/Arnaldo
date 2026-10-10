@@ -1,6 +1,6 @@
 ---
-title: "Estrategia de marca FOLIO"
-subtitle: "Investigación de mercado, posicionamiento, naming y arquitectura de marca para una marca premium de cigarros"
+title: "Estrategia de marca ARNALDO"
+subtitle: "Investigación de mercado, posicionamiento, naming y arquitectura de una marca premium con el nombre de su torcedor"
 short: "Brand Strategy"
 kicker: "01 · BRAND"
 toc: true
@@ -9,10 +9,10 @@ out: ["01_BRAND/Brand Strategy.pdf"]
 
 # Síntesis
 
-- **Nombre seleccionado: FOLIO** (reservas: LUMBRE, VELADA). En español *hoja* designa a la vez la hoja de tabaco y la página de un libro; *folio* procede del latín *folium*, hoja. La marca toma del mundo del libro su sistema: vitolas con nombres de formatos bibliográficos (OCTAVO, CUARTO, IMPERIAL), lotes llamados **pliegos** y un **colofón** numerado en cada caja que funciona como documento de trazabilidad.
-- **Posicionamiento: B — Contemporary Cuban Luxury** en lo comercial (ganó la matriz ponderada, `00_EXECUTIVE/Decision Matrix.xlsx`), con numeración por pliegos tomada de C. **Expresión visual: «Gran Habilitación»** (decisión del promotor, 10/10/2026): la identidad adopta la gramática de las grandes marcas de Habanos —anilla con cartela central, oro en relieve, guilloché, litografía interior de tapa, filetes— para competir en el mismo código que el comprador de puro premium reconoce, con elementos 100% originales. El PVP ≥ 24 € que exige el modelo encaja con este código visual.
-- **Autenticidad**: FOLIO no inventa familias, fundaciones, años ni tradiciones. Lo único que afirma es verificable: producto hecho a mano, lote numerado, ficha técnica documentada. El origen cubano sólo podrá declararse si la Fase 0 lo autoriza.
-- **Uso**: este dossier documenta el proyecto y prepara registro y producción. **No** es un plan de publicidad al consumidor, prohibida por la Ley 28/2005.
+- **Nombre: ARNALDO** (decisión del promotor, 10/10/2026), el nombre del torcedor cubano que participa en el proyecto. Sustituye a FOLIO, que queda como **reserva** junto a LUMBRE. Es la mejor respuesta a la regla de autenticidad del proyecto: no hay que inventar ninguna historia, porque la persona existe.
+- **Condiciones**: consentimiento escrito de Arnaldo, autorización de su empleador, licencia irrevocable y transferible de nombre, firma e imagen a favor de la SL, y registro de la marca **a nombre de la SL** (nunca de una entidad cubana). Ver `04_CUBA_LEGAL/Arnaldo Name & Participation Agreement.docx`.
+- **Posicionamiento: B — Contemporary Cuban Luxury** en lo comercial (ganó la matriz ponderada), con lotes numerados por pliegos (de C). La expresión visual debe apoyarse en **lo auténtico**: la firma manuscrita de Arnaldo como logotipo, un retrato grabado si él lo autoriza, y una habilitación clásica de alto nivel ejecutada por un diseñador especializado (`01_BRAND/Brand Identity Guidelines.pdf` = brief creativo).
+- **Uso**: documentación del proyecto, registro y producción. **No** es un plan de publicidad al consumidor (Ley 28/2005).
 
 # Investigación de mercado
 
@@ -43,7 +43,7 @@ El mercado premium crece en valor más que en unidades: el motor ha sido el prec
 | 25–50 € | Padrón 1926 80th 42 € | Ultra-premium no cubano y gamas altas cubanas |
 | > 50 € | Cohiba Behike BHK 56: 262,50 € | Colección y lujo extremo |
 
-Fuentes: S19, S37, S38 [VERIFICADO/PROBABLE]. FOLIO, a 24 € (Base), se situaría **por encima** de los Habanos clásicos de formato equivalente: el reto comercial central.
+Fuentes: S19, S37, S38 [VERIFICADO/PROBABLE]. ARNALDO, a 24 € (Base), se situaría **por encima** de los Habanos clásicos de formato equivalente: el reto comercial central.
 
 ## Peso del origen cubano
 
@@ -97,50 +97,50 @@ Prohibición de publicidad (sólo comunicación profesional); circulante elevado
 
 Criterios y pesos: diferenciación 20%, coherencia productiva 15%, viabilidad reguladora 15%, potencial con profesionales 15%, coste de desarrollo 5%, potencial de precio 15%, escalabilidad 10%, dependencia del fabricante 5% (editable en el XLSX).
 
-**Elección: B**, con dos elementos de C: numeración por **pliegos** y ediciones IMPERIAL limitadas, y con la **expresión visual clásica de A** sin su relato: se adopta el lenguaje gráfico de la habilitación cubana (que el consumidor asocia a calidad) pero no se inventa ninguna herencia, fecha, familia ni medalla. Justificación: el código clásico legitima el precio de 24 € frente a los Habanos de referencia; la autenticidad se protege con hechos verificables (pliego, colofón, ficha técnica).
+**Elección: B**, con dos elementos de C: numeración por **pliegos** y ediciones Nº 3 limitadas, y con la **expresión visual clásica de A** sin su relato: se adopta el lenguaje gráfico de la habilitación cubana (que el consumidor asocia a calidad) pero no se inventa ninguna herencia, fecha, familia ni medalla. Justificación: el código clásico legitima el precio de 24 € frente a los Habanos de referencia; la autenticidad se protege con hechos verificables (pliego, colofón, ficha técnica).
 
 ## Plataforma de marca
 
-- **Propósito** (interno): hacer de cada caja un objeto documentado, como un libro numerado.
-- **Promesa al profesional**: consistencia verificable lote a lote, ficha técnica completa, trazabilidad de pliego.
-- **Personalidad**: clásica, culta, precisa, generosa en el detalle (oro, relieve, guilloché), sin estridencias.
-- **Lo que FOLIO no hace**: no imita anillas, sellos ni elementos de seguridad de Habanos, no usa escudos de Estado ni medallas de exposición, no inventa fechas ni familias, no usa «Habano», «Cuba» ni «Habana» en la marca, no hace publicidad al consumidor.
+- **Propósito** (interno): que cada caja lleve la firma de quien la hizo.
+- **Promesa al profesional**: un torcedor real detrás de cada pliego; consistencia verificable, ficha técnica y trazabilidad.
+- **Personalidad**: clásica, honesta, artesanal, precisa.
+- **Lo que ARNALDO no hace**: no atribuye a Arnaldo méritos, años, premios o declaraciones que no haya acreditado; no sugiere vínculo con otras personas del sector; no imita anillas, sellos ni elementos de seguridad de Habanos; no usa «Habano», «Cuba» ni «Habana» en la marca; no hace publicidad al consumidor.
 
 # Naming
 
-## Proceso
+## Decisión
 
-21 nombres generados y evaluados con siete criterios ponderados (singularidad, memorabilidad, pronunciación internacional, adecuación premium, riesgo fonético/cultural, colisión con marcas de tabaco, compatibilidad con DO y normativa publicitaria). Detalle en `Naming & Trademark Research.xlsx`.
+El promotor ha elegido **ARNALDO**, nombre del torcedor. El sistema de producto se mantiene: lotes llamados **pliegos**, **colofón** numerado en cada caja (ahora rubricado por Arnaldo cuando el contrato lo permita) y la expresión «**Pliego de autor**», que con un autor real gana todo su sentido.
 
-## Resultados relevantes de la búsqueda preliminar (web, 10/10/2026)
+## Análisis del nombre ARNALDO
 
-| Nombre | Hallazgo | Decisión |
+| Criterio | Valoración | Comentario |
 |---|---|---|
-| YAGUA | Marca de J.C. Newman (Nicaragua) | Excluido |
-| EL LECTOR | Vitola de La Galera | Excluido |
-| ESCOGIDA | Hoyo de Monterrey Escogidos; La Aurora Escogidos | Excluido |
-| CUJE | «El Cuje» en directorio de marcas | Descartado |
-| TERCIO, CAPOTE, TAPADO | Términos genéricos del oficio | Descartados (descriptivos) |
-| Habana / Cuba / Vuelta Abajo | Protegidos como IG para puros | Prohibidos |
-| **FOLIO, LUMBRE, VELADA** | Sin colisiones halladas en tabaco | **Finalistas** |
+| Autenticidad | Muy alta | Persona real, oficio real |
+| Memorabilidad y pronunciación | Alta | Tres sílabas, fácil en español, inglés, francés, italiano y alemán |
+| Adecuación premium | Alta | Tradición de marcas con nombre propio en el puro cubano |
+| Distintividad registral | Media | Nombre de pila: reforzar con apellido y con la **firma** como marca figurativa |
+| Colisiones halladas (web, 10/10/2026) | Ninguna marca de puros «Arnaldo» | Marca de tabaco similar **ARLONDO** (Gryson) a analizar [PROBABLE] (S51) |
+| Asociaciones | A vigilar | Arnaldo Vichot, histórico maestro ligador de Partagás, falleció en febrero de 2026 [VERIFICADO] (S49): no sugerir vínculo |
+| Riesgo de titularidad | Alto si se fabrica dentro de Habanos | Precedentes: Vegas Robaina (nombre de un veguero, marca de Habanos S.A. desde 1997) [VERIFICADO] (S50) y Davidoff (disputa por la titularidad) [PROBABLE] (S10) |
+| Riesgo de persona clave | Medio | Licencia irrevocable y transferible; cláusulas de salida y fallecimiento |
 
-> **Advertencia.** Es una búsqueda preliminar en fuentes del sector. No se pudieron consultar directamente EUIPO, OEPM ni OCPI (acceso bloqueado en el entorno). No se afirma disponibilidad: se requiere informe de registrabilidad de un agente de marcas antes de producir.
+> **Advertencia.** Búsqueda preliminar en fuentes web. No se consultaron EUIPO, OEPM ni OCPI directamente: hace falta un informe de registrabilidad de agente antes de producir.
 
-## Finalistas
+## Nombres de reserva
 
-| | FOLIO (seleccionado) | LUMBRE (reserva 1) | VELADA (reserva 2) |
-|---|---|---|---|
-| Significado | Hoja / página (lat. *folium*) | Fuego, luz | Reunión nocturna |
-| Fuerza | Sistema completo (pliego, colofón, octavo); 5 letras; universal | Sensorial, español | Ritual de sobremesa |
-| Debilidad | Palabra común en otros sectores (registrable en clase 34 si no hay anterioridades) | Pronunciación para anglófonos | Palabra común; distintividad menor |
-| Pronunciación | /ˈfo.ljo/; natural en ES, EN, FR, IT, DE | /ˈlum.bɾe/ | /beˈla.da/ |
-| Dominio (informativo) | Variantes con sufijo; sin comprobar | Sin comprobar | Sin comprobar |
+| | FOLIO (reserva 1) | LUMBRE (reserva 2) |
+|---|---|---|
+| Significado | Hoja / página (lat. *folium*) | Fuego, luz |
+| Cuándo usarlo | Si Arnaldo o su empleador no autorizan el uso del nombre, o si el informe de registrabilidad es desfavorable | Ídem |
+
+21 nombres evaluados con criterios ponderados en `Naming & Trademark Research.xlsx` (excluidos YAGUA, EL LECTOR, ESCOGIDA por colisión; prohibidos los que evocan «Habana», «Cuba» o «Vuelta Abajo»).
 
 ## Arquitectura de marca
 
-- **Marca madre**: FOLIO.
-- **Vitolas** (formatos de libro): OCTAVO (Robusto, lanzamiento), CUARTO (Toro, extensión), IMPERIAL (Churchill, edición limitada).
-- **Lotes**: PLIEGO Nº 001, 002…; cada caja numerada «nº X de N» en el colofón.
-- **Ediciones especiales** (sólo si C1–C8 y consistencia demostrada): «Pliego de autor» con firma del torcedor cuando el contrato y su empleador lo permitan.
+- **Marca madre**: ARNALDO (wordmark + firma manuscrita de Arnaldo como sello).
+- **Vitolas**: **ARNALDO Nº 1** (Robusto, lanzamiento), **Nº 2** (Toro, extensión), **Nº 3** (Churchill, edición limitada).
+- **Lotes**: PLIEGO Nº 001, 002…; colofón «nº X de N» por caja.
+- **Ediciones especiales** (sólo con C1–C8 y consistencia demostrada): «Pliego de autor», firmadas por Arnaldo caja a caja si el contrato y su empleador lo permiten.
 
-Fuentes: S13, S16–S26, S37–S41, S46, S47 (consulta 10/10/2026).
+Fuentes: S10, S13, S16–S26, S37–S41, S46, S47, S49–S51 (consulta 10/10/2026).

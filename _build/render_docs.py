@@ -95,7 +95,7 @@ def render(md_path):
             html_body = subprocess.run(["pandoc", src, "-f", "markdown+pipe_tables+grid_tables+raw_html", "-t", "html5"] + (["--toc", "-s", "--template", os.path.join(B, "toc_only.html")] if meta.get("toc") else []),
                                        check=True, capture_output=True, text=True).stdout
             html_body = badges(html_body)
-            mono = open(os.path.join(ASSETS, "folio2-emblem.svg")).read() if meta.get("brand_mark", True) else ""
+            mono = open(os.path.join(ASSETS, "arnaldo-wordmark-provisional-ivory.svg")).read() if meta.get("brand_mark", True) else ""
             cover = f"""<section class="cover"><div class="cover-top"><div class="mono">{mono}</div>
 <div class="kicker">{meta.get('kicker','PROYECTO CIGARS CUBA 2027')}</div></div>
 <h1 class="ctitle">{meta['title']}</h1><p class="csub">{meta.get('subtitle','')}</p>

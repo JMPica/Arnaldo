@@ -1,128 +1,103 @@
 ---
-title: "FOLIO — Manual de identidad visual"
-subtitle: "Versión 2 «Gran Habilitación»: la gramática de las grandes marcas de Habanos, reinterpretada con elementos originales"
+title: "ARNALDO — Brief creativo e identidad provisional"
+subtitle: "Encargo para un diseñador especializado en habilitación de tabaco: objetivos, materiales de Arnaldo, entregables, restricciones legales y de producción, herramientas y calendario"
 short: "Brand Identity Guidelines"
 kicker: "01 · BRAND"
 toc: true
 out: ["01_BRAND/Brand Identity Guidelines.pdf"]
 ---
 
-# Concepto
+# Situación
 
-<figure><img src="file://{JPG}/folio2-lockup-black.jpg" style="width:100%"><figcaption>Lockup principal sobre negro tabaco</figcaption></figure>
+La marca pasa a llamarse **ARNALDO**, por el torcedor que participa en el proyecto. Las dos identidades anteriores (FOLIO v1 «Colofón» y FOLIO v2 «Gran Habilitación») se archivan en `01_BRAND/assets/_v1_descartada/` y `_v2_descartada/`: el promotor considera que no alcanzan el nivel de las grandes marcas.
 
-**«Gran Habilitación».** En la tradición cubana, la *habilitación* es el conjunto de piezas impresas que visten un puro y su caja: anilla, vista (litografía del interior de la tapa), cubierta, filetes, papel de bordes y sellos. Las grandes marcas de Habanos construyen su prestigio con ese lenguaje: cartela central sobre la anilla, oro estampado y en relieve, fondos de guilloché, laureles, cintas con lema y litografías a varias tintas.
+**Diagnóstico.** El nivel de una anilla de Habanos no sale de añadir ornamento por código: sale de (1) un **activo auténtico** —un nombre, una firma, un rostro—, (2) **dibujo y grabado hechos a mano** por especialistas y (3) **producción real**: litografía, estampación en oro, relieve y troquel. Este documento es el encargo para conseguirlo.
 
-FOLIO adopta **esa gramática**, no sus elementos. Todo lo que aparece en este manual es original:
+<figure><img src="file://{ASSETS}/arnaldo-wordmark-provisional-black.svg" style="width:70%"><figcaption>Wordmark PROVISIONAL, sólo para documentos internos hasta disponer de la firma y del diseño profesional</figcaption></figure>
 
-- **Emblema propio**: una hoja de tabaco y una pluma cruzadas —la *hoja* que es a la vez tabaco y página—, dentro de un medallón oval sobre lacre, con laurel, estrella y la cinta **SCRIPTA MANENT** («lo escrito permanece»), lema coherente con el sistema de pliegos y colofón.
-- **Sin** escudos de Estado, medallas de exposición, fechas de fundación, retratos, «Habana», «Cuba», «Habano» ni imitaciones del sello de garantía de Habanos o de la marca fiscal española.
+# Objetivo del encargo
 
-La versión 1 («Colofón», minimalista) se archiva en `01_BRAND/assets/_v1_descartada/` por decisión del promotor (10/10/2026).
+Crear una identidad y una habilitación completa que, puestas junto a las grandes marcas de Habanos en un humidor de expendeduría especialista, transmitan **el mismo nivel de prestigio**, con una diferencia propia: **la firma de un torcedor real**.
 
-# Emblema
-
-<figure><img src="file://{JPG}/folio2-emblem-on-black.jpg" style="width:48%"><figcaption>Emblema completo con laurel y lema</figcaption></figure>
-
-| Elemento | Construcción | Significado |
-|---|---|---|
-| Medallón oval | Doble filete oro + perlado + fondo lacre con guilloché de hipotrocoides | Sello de calidad clásico |
-| Hoja y pluma cruzadas | Hoja de tabaco con nervaduras + pluma de escribir, ambas en oro con relieve | *Folio*: la hoja que se escribe; tabaco y documento |
-| Laurel | Dos ramas ascendentes de 10 pares de hojas | Distinción (genérico, sin alusión a premios) |
-| Estrella de ocho puntas | Remate superior | Punto de lectura vertical |
-| Cinta | Lacre con filo oro, texto SCRIPTA MANENT en Cinzel | Lema; refuerza pliego y colofón |
-
-**Versiones**: completa (con laurel y lema), reducida (sólo medallón, para anilla y cubierta), monocolor oro (stamping) y monocolor lacre (sello en seco). Tamaño mínimo de la versión completa: 22 mm de alto; reducida: 12 mm.
-
-# Logotipo
-
-<figure><img src="file://{JPG}/folio2-wordmark.jpg" style="width:80%"><figcaption>Wordmark FOLIO con rúbricas laterales</figcaption></figure>
-
-- **Wordmark**: FOLIO en Cinzel Black, espaciado +140, oro con contorno tabaco y relieve; rúbricas laterales opcionales (se suprimen en la anilla).
-- **Firma**: «Pliego de autor» en Pinyon Script.
-- **Descriptor**: «CIGARROS HECHOS A MANO» en Cinzel Bold, espaciado +350.
-- **Área de respeto**: la altura de la «O» en todos los lados.
-
-<figure><img src="file://{JPG}/folio2-lockup-ivory.jpg" style="width:62%"><figcaption>Versión sobre marfil (documentación, colofón, papelería)</figcaption></figure>
-
-# Paleta
-
-<figure><img src="file://{JPG}/folio2-palette.jpg" style="width:100%"></figure>
-
-| Color | HEX | Uso | Impresión |
-|---|---|---|---|
-| Lacre | #8E1B1B | Campos de anilla, vista, cintas | Pantone a fijar con imprenta |
-| Lacre profundo | #5E0F0F | Sombras, colas de cinta | — |
-| Negro tabaco | #14100D | Cartela de OCTAVO, placas | Negro enriquecido |
-| Oro | degradado #7A5A1C → #FFF2C2 → #8A6620 | Siempre como **foil** (estampado) | Foil oro brillante + relieve seco |
-| Marfil litografía | #F4EBD8 | Campo de IMPERIAL, colofón, vista | Papel verjurado o estucado mate |
-| Cedro / Hoja | #A86F42 / #7A4E2E | Materiales naturales (no se imprimen) | — |
-
-El degradado de oro sólo representa el foil en pantalla; en imprenta el oro es estampación metálica, nunca cuatricromía.
-
-# Tipografía y licencias
-
-| Familia | Uso | Licencia |
-|---|---|---|
-| Cinzel (400–900) | Wordmark, rotulación de anilla, lema | SIL OFL 1.1 [VERIFICADO] |
-| Playfair Display (400–900, cursiva) | Numerales «Nº I/II/III», titulares editoriales | SIL OFL 1.1 [VERIFICADO] |
-| Pinyon Script | Firma «Pliego de autor», monograma F de los medallones laterales | SIL OFL 1.1 [VERIFICADO] |
-| IM Fell English | Texto del colofón (estética de imprenta antigua) | SIL OFL 1.1 [VERIFICADO] |
-| Inter | Textos técnicos y regulatorios | SIL OFL 1.1 [VERIFICADO] |
-
-Archivos de licencia en `_build/fonts/OFL-*.txt`. Los artes entregados tienen el texto **convertido a trazados**.
-
-# Anillas por vitola
-
-<figure><img src="file://{JPG}/folio2-band-octavo.jpg" style="width:100%"><figcaption>OCTAVO (Robusto) — campo lacre, cartela negra</figcaption></figure>
-<figure><img src="file://{JPG}/folio2-band-cuarto.jpg" style="width:100%"><figcaption>CUARTO (Toro) — campo negro, cartela lacre</figcaption></figure>
-<figure><img src="file://{JPG}/folio2-band-imperial.jpg" style="width:100%"><figcaption>IMPERIAL (Churchill, edición limitada) — campo marfil, cartela lacre</figcaption></figure>
-
-Anatomía de la anilla (desarrollo plano, ~90 × 17 mm para cepo 50; ajustar al cepo real con la fábrica):
-
-1. **Cartela central** troquelada que sobresale del cuerpo: filete oro, fondo con guilloché, «PLIEGO», wordmark FOLIO en relieve y numeral de vitola (Nº I, II, III).
-2. **Cuerpo**: campo de color con ondas de guilloché, cantos de oro con perlado.
-3. **Medallones laterales** con la F caligráfica.
-4. **Rotulación lateral**: «HECHO A MANO» / nombre de vitola, entre filetes.
-5. **Remates** con volutas.
-
-Producción: papel estucado 90–110 g, 2 tintas planas (lacre/negro) + foil oro + relieve seco en cartela y wordmark + troquel.
-
-<figure><img src="file://{JPG}/folio2-cigars-mockup.jpg" style="width:70%"><figcaption>Las tres vitolas: la anilla rodea el cigarro y deja ver la cartela de frente</figcaption></figure>
-
-# Vista (litografía interior de la tapa)
-
-<figure><img src="file://{JPG}/folio2-vista-litho.jpg" style="width:100%"><figcaption>Vista: placa con wordmark, óvalo con rayos y guilloché, emblema, cartelas laterales, cinta con lema y firma</figcaption></figure>
-
-Equivalente a las litografías clásicas del interior de la tapa: se imprime en offset (lacre, negro, crema) con foil oro en placa, marco, cuerdas y medallones de esquina, y relieve en el emblema.
-
-# Caja
-
-<figure><img src="file://{JPG}/folio2-box-open-mockup.jpg" style="width:72%"><figcaption>Caja abierta: vista en la tapa, filete oro/lacre en el borde, papel de cedro y 10 OCTAVO con la cartela hacia arriba</figcaption></figure>
-
-<figure><img src="file://{JPG}/folio2-box-top.jpg" style="width:72%"><figcaption>Cubierta exterior: cedro, filetes oro en cantos, etiqueta negra con emblema y wordmark, zona de advertencia sanitaria reservada</figcaption></figure>
-
-- **Advertencia sanitaria**: zona reservada desde el diseño; texto y superficie exactos según RD 579/2017 [BLOQUEADO hasta revisión regulatoria]. Marca fiscal e identificador único en la unidad de envasado.
-- **Origen**: «Hecho en Cuba» sólo en base de caja y únicamente si el dictamen de la Fase 0 lo permite.
-
-# Sello de pliego y colofón
-
-<figure><img src="file://{JPG}/folio2-pliego-seal.jpg" style="width:100%"><figcaption>Sello de pliego (de marca, no fiscal): lacre con guilloché, numeración de caja</figcaption></figure>
-
-<figure><img src="file://{JPG}/folio2-colophon.jpg" style="width:36%"><figcaption>Colofón numerado en IM Fell: documento de trazabilidad, no promocional</figcaption></figure>
-
-El sello de pliego es deliberadamente distinto del sello de garantía de Habanos (no usa verde ni escudo) y no sustituye a ningún elemento legal.
-
-# Auditoría de diseño
-
-| Control | Resultado |
+| Debe transmitir | No debe transmitir |
 |---|---|
-| Inspiración Habanos sin copia | Gramática compartida (cartela, oro, guilloché, vista); emblema, lema, rotulación y ornamentos originales |
-| Elementos protegidos o engañosos | Ninguno: sin escudos de Estado, medallas, fechas, retratos, «Habana/Cuba/Habano», sello verde/blanco |
-| Coherencia | Paleta de 4 colores + foil; mismo emblema en vista, cubierta, colofón y lockups |
-| Legibilidad en anilla | Wordmark ≈ 3–4 mm de alto en cartela de 17 mm: legible con relieve |
-| Aplicabilidad industrial | Anilla: 2 tintas + foil + relieve + troquel; vista: offset + foil; costes a cotizar |
-| Licencias | Cinco familias OFL 1.1 verificadas |
-| Normativa | Zona de advertencia reservada; sin material de consumo |
+| Oficio, autoría, autenticidad cubana del producto (si la Fase 0 lo permite) | Herencia inventada, fechas o familias ficticias |
+| Lujo clásico: oro, relieve, litografía, color profundo | Imitación de marcas o sellos de Habanos |
+| Precisión y consistencia (pliegos numerados) | Estética barata de «souvenir cubano» |
 
-Archivos: `01_BRAND/assets/folio2-*.svg` (vectorial, editable) y `.png`.
+# La pieza central: Arnaldo
+
+**Lo que necesitamos de Arnaldo** (con su consentimiento escrito, ver `Arnaldo Name & Participation Agreement.docx`):
+
+1. **Firma**: 15–20 firmas en papel blanco liso, con rotulador o pluma negra de punta media, a tamaño natural y ampliado; escaneo o foto plana a 600 ppp con buena luz. El diseñador escogerá y vectorizará la mejor, **sin** redibujarla de forma que deje de ser suya.
+2. **Retrato** (opcional, sólo si él quiere): 3–5 fotografías de rostro y de manos trabajando en la mesa de torcer, luz lateral natural, alta resolución. Servirán para un **retrato grabado** (técnica de buril / grabado de billete) en la vista de la caja.
+3. **Datos verificables** para el colofón: nombre completo, categoría de torcedor y años de oficio **acreditados**. Nada que no pueda probarse.
+4. **Su opinión**: qué quiere y qué no quiere que aparezca. Él tiene derecho de veto sobre su firma e imagen.
+
+# Entregables
+
+| # | Pieza | Especificación |
+|---|---|---|
+| 1 | Logotipo | Wordmark ARNALDO dibujado a medida (no tipografía de catálogo) + firma vectorizada como sello; versiones horizontal, vertical, monocolor y para foil |
+| 2 | Monograma | «A» o rúbrica de la firma para cabezal de anilla, sello en seco y lacre |
+| 3 | Anilla Nº 1 | Desarrollo a cepo real (≈90 × 17–20 mm), cartela troquelada, 2 tintas planas + foil + relieve seco |
+| 4 | Variantes de anilla | Nº 2 y Nº 3 (edición limitada) |
+| 5 | Pie de anilla | «Pliego Nº» con numeración |
+| 6 | Vista | Litografía del interior de la tapa (≈ 200 × 120 mm), con retrato grabado si se autoriza |
+| 7 | Cubierta y filetes | Etiqueta exterior, filetes de cantos, papel de bordes |
+| 8 | Colofón | Tarjeta numerada para rubricar |
+| 9 | Sello de pliego | Banda de cierre de marca (no fiscal) |
+| 10 | Manual de identidad | Construcción, colores Pantone, acabados, usos prohibidos |
+| 11 | Artes finales | AI/PDF-X vectoriales, troqueles, separación de tintas y foil, pruebas de color |
+| 12 | Renders | 3 renders fotorrealistas de producto para la documentación profesional (no publicitaria) |
+
+# Referencias y límites
+
+**Estudiar la gramática** de la habilitación cubana clásica: cartela central sobre la anilla, oro estampado y en relieve, fondos de guilloché, litografías a varias tintas en el interior de la tapa, filetes y papel de bordes.
+
+**Prohibido** (legal y reputacional):
+
+- Copiar o imitar anillas, logotipos, vistas, sellos de garantía u hologramas de Habanos o de otras marcas.
+- Escudos de Estado, banderas, medallas de exposición, fechas de fundación, retratos de terceros.
+- «Habana», «Habano», «Cuba», «Vuelta Abajo» o derivados como elementos de marca (protegidos como indicaciones geográficas para puros). La mención de origen, si procede, sólo en la base de la caja según el dictamen de la Fase 0.
+- Cualquier sugerencia de vínculo con otras personas del sector (p.ej. Arnaldo Vichot).
+- Materiales de publicidad al consumidor (Ley 28/2005).
+
+**Obligatorio en el envase**: zona de advertencia sanitaria conforme al RD 579/2017 (texto y superficie a validar), marca fiscal e identificador único de trazabilidad en la unidad de envasado.
+
+# Producción (para que el diseño sea fabricable)
+
+| Pieza | Proceso | Notas |
+|---|---|---|
+| Anilla | Offset o tipografía + foil + relieve seco + troquel | Papel estucado 90–110 g; tiradas mínimas habituales de miles de unidades |
+| Vista y cubierta | Offset/litografía + foil | Papel estucado mate o verjurado |
+| Caja | Cedro, bisagra, cierre | Fabricación en Cuba (con la fábrica) o España |
+| Colofón | Impresión + numeración | Cartulina de algodón |
+
+Coste estimado del diseño profesional: **4.000–15.000 €** según el estudio y el número de rondas [HIPÓTESIS]; producción de habilitación a cotizar con imprenta especializada.
+
+# Herramientas y proceso propuesto
+
+| Fase | Herramienta | Uso | Estado |
+|---|---|---|---|
+| Exploración rápida | **Higgsfield** / **Runway** (ya conectados) | Moodboards y renders fotorrealistas de conceptos (caja, anilla sobre puro, vista) para decidir dirección antes de pagar al diseñador | Consumen créditos: requieren autorización del promotor |
+| Diseño vectorial profesional | **Adobe** (conector disponible en claude.ai: Illustrator/Firefly y gestión de activos) | Vectorización de la firma, artes finales, separaciones | Por conectar |
+| Colaboración con el diseñador | **Figma** o **Canva** (conectores disponibles) | Revisión de propuestas, comentarios, versiones | Por conectar |
+| Diseño definitivo | Diseñador/estudio especializado en packaging de tabaco, vinos o destilados premium + grabador para el retrato | Calidad de nivel Habanos | Por seleccionar (3 presupuestos) |
+
+**Calendario orientativo**: semana 1 materiales de Arnaldo y moodboard · semanas 2–4 tres rutas creativas · semanas 5–6 desarrollo de la ruta elegida · semanas 7–8 artes finales y pruebas de imprenta. Debe coincidir con el informe de registrabilidad (la firma se registra también como marca figurativa).
+
+# Criterios para elegir la propuesta ganadora
+
+1. ¿Resiste la comparación con un Habanos de referencia en el mismo humidor?
+2. ¿La firma de Arnaldo es protagonista y es inequívocamente suya?
+3. ¿Es legible a 17–20 mm de alto en la anilla?
+4. ¿Es fabricable con 2 tintas + foil + relieve a coste razonable?
+5. ¿Está libre de cualquier elemento de terceros o prohibido?
+6. ¿Funciona en las tres vitolas y en el colofón?
+
+# Identidad provisional (uso interno)
+
+<figure><img src="file://{ASSETS}/arnaldo-wordmark-provisional-ivory.svg" style="width:70%"><figcaption>Versión provisional sobre marfil. No usar en producto.</figcaption></figure>
+
+Tipografías de uso interno (SIL OFL 1.1, verificadas): Cinzel, Playfair Display, IM Fell English, Cormorant Garamond, Inter. El diseñador puede proponer otras con licencia comercial verificada.

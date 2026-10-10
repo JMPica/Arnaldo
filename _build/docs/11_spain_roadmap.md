@@ -43,7 +43,7 @@ Una misma sociedad puede reunir varias figuras; las obligaciones se acumulan.
 
 | Figura | Obligaciones | Quién en el proyecto |
 |---|---|---|
-| **Titular de la marca / fabricante** (aunque fabrique un tercero) | Habilitación CMT como fabricante; notificación EU-CEG; conformidad de etiquetado; solicitud de PVP al CMT para su publicación; obligaciones de información al CMT; responsabilidad sobre el producto puesto en el mercado. | SL española (FOLIO) |
+| **Titular de la marca / fabricante** (aunque fabrique un tercero) | Habilitación CMT como fabricante; notificación EU-CEG; conformidad de etiquetado; solicitud de PVP al CMT para su publicación; obligaciones de información al CMT; responsabilidad sobre el producto puesto en el mercado. | SL española (ARNALDO) |
 | **Importador** | EORI; DUA; arancel e IVA de importación; IEE (al importar, o suspensión en depósito fiscal / destinatario registrado); marcas fiscales; registro de operador e instalación en trazabilidad; prueba de origen. | SL española o depositario autorizado contratado |
 | **Distribuidor mayorista** | Habilitación CMT como distribuidor; neutralidad frente a expendedurías; información mensual (10 primeros días) y anual de ventas; comunicación de condiciones generales. | Operador habilitado subcontratado (p.ej. Logista u otro del listado CMT) |
 | **Expendedor** | Venta al PVP publicado; margen legal; prohibiciones de promoción. | Clientes (expendedurías) |

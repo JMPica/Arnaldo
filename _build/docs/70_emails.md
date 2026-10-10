@@ -103,6 +103,6 @@ Atentamente, [Nombre]
 
 Estimados señores:
 
-Solicitamos presupuesto para un informe de registrabilidad de las denominaciones FOLIO, LUMBRE y VELADA en clase 34 (y 35) en EUIPO, OEPM y, a través de agente oficial, OCPI (Cuba), así como la posterior presentación de la solicitud de marca de la UE de la denominación seleccionada.
+Solicitamos presupuesto para un informe de registrabilidad de las denominaciones ARNALDO (y, como reserva, FOLIO y LUMBRE) en clase 34 (y 35) en EUIPO, OEPM y, a través de agente oficial, OCPI (Cuba), así como la posterior presentación de la solicitud de marca de la UE de la denominación seleccionada.
 
 Atentamente, [Nombre]

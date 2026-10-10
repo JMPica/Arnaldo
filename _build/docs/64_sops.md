@@ -61,7 +61,7 @@ Aplicar `Import Checklist.docx` fases B–D. Ningún envío en equipaje, postal 
 
 | Evento | Señal | Respuesta inmediata (0–7 días) | Respuesta estructural |
 |---|---|---|---|
-| **Bloqueo jurídico en Cuba** (pérdida de licencia, cambio normativo) | Comunicación oficial o de la fábrica | Suspender pedidos y pagos; preservar stock y documentos | Activar marca FOLIO con otro origen (R. Dominicana/Nicaragua) tras rediseñar la comunicación de origen; o concentrar en B3 |
+| **Bloqueo jurídico en Cuba** (pérdida de licencia, cambio normativo) | Comunicación oficial o de la fábrica | Suspender pedidos y pagos; preservar stock y documentos | Activar marca ARNALDO con otro origen (R. Dominicana/Nicaragua) tras rediseñar la comunicación de origen; o concentrar en B3 |
 | **Bloqueo de pagos** | Rechazo/retención bancaria | Detener envío de fondos; consultar banco y abogado | Carta de crédito con banco alternativo; nunca canales opacos |
 | **Retraso de producción > 8 semanas** | Hito incumplido | Penalización contractual; información al distribuidor | Reducir tamaño de pedidos; stock de seguridad |
 | **Pliego defectuoso** | Informe de inspección | Rechazo y reposición | Revisión de Ficha Técnica; inspector independiente |

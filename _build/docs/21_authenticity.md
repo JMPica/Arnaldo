@@ -63,7 +63,7 @@ No se calcula ningún «margen de arbitraje»: sin procedencia, autenticidad, di
 
 **Ninguno** de estos elementos es suficiente por sí solo: los falsificadores imitan sellos y cajas. La única prueba robusta es la cadena documental desde el fabricante y la verificación del código.
 
-# Protocolo propio de FOLIO (marca)
+# Protocolo propio de ARNALDO (marca)
 
 - **Colofón numerado** por caja (pliego, fecha de torcido, nº de caja / total del pliego) vinculado al registro de pliego y a la factura de exportación.
 - **Precinto de marca** (no fiscal) con numeración y microtexto, diseñado para no confundirse con el sello de Habanos (paleta marfil/bermellón; sin verde ni escudo).

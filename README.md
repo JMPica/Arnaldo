@@ -1,6 +1,6 @@
 # PROYECTO CIGARS CUBA 2027
 
-Dossier d'inversió per a una marca pròpia de cigars (FOLIO) fabricada a Cuba i per a la importació premium a Espanya. Data de tall: 10/10/2026.
+Dossier d'inversió per a una marca pròpia de cigars (ARNALDO, nom del torcedor; abans FOLIO) fabricada a Cuba i per a la importació premium a Espanya. Data de tall: 10/10/2026.
 
 - **Comença per:** `PROYECTO_CIGARS_CUBA_2027/00_EXECUTIVE/Executive Investment Memorandum.pdf` i `Project Status & Next Actions.md`.
 - **Decisió:** CONDITIONAL GO només per a la Fase 0 (verificació jurídica a Cuba) i la validació comercial; NO-GO a qualsevol compromís de capital fins a complir les condicions C1–C8.
@@ -14,8 +14,7 @@ Els fitxers es generen a partir de `_build/` (Python + LibreOffice + pandoc + Ch
 cd _build
 bash make_xlsx.sh                       # XLSX amb fórmules, recalculats
 python3 extract_metrics.py ../PROYECTO_CIGARS_CUBA_2027 metrics.json
-python3 brand_v2.py ../PROYECTO_CIGARS_CUBA_2027/01_BRAND/assets   # identidad v2 «Gran Habilitación»
-bash shot_svgs.sh ../PROYECTO_CIGARS_CUBA_2027/01_BRAND/assets "folio2-*.svg"   # + JPG en _build/.cache_jpg para el PDF
+# Identitat: ARNALDO provisional (brief per a dissenyador a 01_BRAND). Les versions FOLIO v1/v2 (brand_assets.py, brand_v2.py) queden arxivades.
 python3 render_docs.py                  # PDF, DOCX i MD a partir de docs/*.md
 ```
 

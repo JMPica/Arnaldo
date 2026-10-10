@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Financial Model 2027–2031 (Proyecto A — marca propia FOLIO).
+"""Financial Model 2027–2031 (Proyecto A — marca propia ARNALDO).
 
 Arquitectura: un único motor de cálculo (hoja 'Engine') calcula los 4 escenarios
 en bloques paralelos con las MISMAS fórmulas. Las hojas de presentación
@@ -37,7 +37,7 @@ def q(sheet):
 
 # ---------------------------------------------------------------- Assumptions
 A = ws_["Assumptions"]
-title(A, "Supuestos del modelo — Proyecto A (marca propia FOLIO)",
+title(A, "Supuestos del modelo — Proyecto A (marca propia ARNALDO)",
       "Todos los valores en azul son editables. Estados: VERIFICADO / PROBABLE / HIPÓTESIS / BLOQUEADO. Fuentes en 'Sources & Validation'. Fecha de corte: 10/10/2026.")
 legend(A, 3, 3)
 put(A, "A4", "Escenario seleccionado (1=Conservador, 2=Base, 3=Optimista, 4=Estrés)")
@@ -71,6 +71,8 @@ general = [
     ("dpo", "Pago a proveedores de gastos generales", "días", 30, NUM, "HIPÓTESIS", ""),
     ("iee_at_import", "IEE pagado al importar (1) o diferido en depósito fiscal (0)", "1/0", 1, "0", "HIPÓTESIS", "Conservador = 1"),
     ("vat_lag", "Fracción anual de IVA pendiente a cierre (liquidación trimestral)", "fracción", 0.25, NUM2, "HIPÓTESIS", ""),
+    ("royalty", "Royalty a Arnaldo por nombre/firma (% ingresos de la marca antes de IEE)", "%", 0.0, PCT, "HIPÓTESIS", "0% = opción B (sólo equity, recomendada). Opción A: 2% → VAN Optimista −4.561 € y TIR 16,4% (cálculo 10/10/2026)"),
+    ("arnaldo_equity", "Participación de Arnaldo en la SL (opción B, con vesting)", "%", 0.10, PCT, "HIPÓTESIS", "Acuerdo con Arnaldo; reparto de valor, no coste"),
     ("tax_rate", "Impuesto sobre Sociedades (España)", "%", 0.25, PCT, "PROBABLE", "N04 (15% nueva creación no aplicado: conservador)"),
     ("interest_rate", "Coste de la financiación ajena (déficit de caja)", "%", 0.07, PCT, "HIPÓTESIS", "Póliza / préstamo socio"),
     ("min_cash", "Caja mínima operativa", "€", 5000, EUR, "HIPÓTESIS", ""),
@@ -102,7 +104,7 @@ scen_params = [
     ("pack_factor", "Factor sobre coste de packaging base ('Product Cost')", "x", [1.10, 1.00, 0.90, 1.20], NUM2, "HIPÓTESIS", ""),
     ("qc", "Control de calidad en origen (inspección, catas, laboratorio)", "€/u", [0.30, 0.25, 0.20, 0.35], EUR2, "HIPÓTESIS", ""),
     ("freight", "Flete internacional + manipulación hasta almacén", "€/u", [0.70, 0.55, 0.40, 0.90], EUR2, "HIPÓTESIS", "Aéreo en lotes pequeños"),
-    ("torcedor_fee", "Honorario técnico del torcedor (pagado vía entidad autorizada)", "€/u", [0.40, 0.35, 0.30, 0.40], EUR2, "BLOQUEADO", "Forma legal de pago sin confirmar"),
+    ("torcedor_fee", "Honorario técnico de Arnaldo (pagado vía entidad autorizada)", "€/u", [0.40, 0.35, 0.30, 0.40], EUR2, "BLOQUEADO", "Forma legal de pago sin confirmar"),
     ("dist_fee", "Tarifa del distribuidor mayorista habilitado", "% PVP", [0.06, 0.05, 0.045, 0.06], PCT, "HIPÓTESIS", "Negociable; no regulada"),
     ("merma", "Merma y rechazos post-importación", "% compras", [0.05, 0.03, 0.02, 0.08], PCT, "HIPÓTESIS", ""),
     ("muestras", "Muestras profesionales (sujetas a impuestos)", "% ventas", [0.04, 0.03, 0.025, 0.04], PCT, "HIPÓTESIS", "Sólo B2B: sin promoción al consumidor"),
@@ -269,7 +271,7 @@ rows = [
     ("landed_u", "Coste en destino (sin IEE ni IVA)", EUR2, "{r:cif_u}+{r:duty_u}+{g:fiscal_marks}+{s:torcedor_fee}"),
     ("iee_u", "Impuesto especial por unidad", EUR2, "MAX({g:iee_rate}*{r:pvp},{g:iee_min}/1000)"),
     ("unit_contrib", "Contribución por unidad vendida", EUR2,
-     "{r:pvp}/(1+{g:vat})-{r:pvp}*({g:retail_margin}+{s:dist_fee})-{r:k}*({r:iee_u}+{r:landed_u})"),
+     "({r:pvp}/(1+{g:vat})-{r:pvp}*({g:retail_margin}+{s:dist_fee}))*(1-{g:royalty})-{r:k}*({r:iee_u}+{r:landed_u})"),
     ("_sec", "CUENTA DE RESULTADOS (€)"),
     ("rev_pvp", "Ventas a PVP (consumidor, IVA incl.) — informativo", EUR, "{r:sold}*{r:pvp}"),
     ("rev_gross", "Ventas a PVP sin IVA", EUR, "{r:sold}*{r:pvp}/(1+{g:vat})"),
@@ -280,7 +282,8 @@ rows = [
     ("net_rev_iee", "Ingresos netos de impuestos", EUR, "{r:net_rev}-{r:iee_exp}"),
     ("cogs", "(-) Coste de ventas (incl. merma y muestras)", EUR, "{r:consumed}*{r:landed_u}"),
     ("customs_fees", "(-) Gastos de despacho aduanero", EUR, "IF({r:purchased}>0,{g:shipments}*{g:customs_fee},0)"),
-    ("gross_margin", "Margen bruto", EUR, "{r:net_rev_iee}-{r:cogs}-{r:customs_fees}"),
+    ("royalty", "(-) Royalty de nombre a Arnaldo", EUR, "{r:net_rev}*{g:royalty}"),
+    ("gross_margin", "Margen bruto", EUR, "{r:net_rev_iee}-{r:cogs}-{r:customs_fees}-{r:royalty}"),
     ("opex", "(-) Gastos fijos", EUR, "{opex}*{s:opex_factor}"),
     ("ebitda", "EBITDA", EUR, "{r:gross_margin}-{r:opex}"),
     ("capex", "CAPEX intangible", EUR, "{capex}"),
@@ -482,6 +485,7 @@ split = [("IVA (Hacienda)", f"={SELREF('pvp',1)}*{G['vat']}/(1+{G['vat']})"),
          ("Fabricación, packaging, QC, flete, seguro", f"={SELREF('cif_u',1)}"),
          ("Marcas fiscales + honorario técnico", f"={SELREF('landed_u',1)}-{SELREF('cif_u',1)}-{SELREF('duty_u',1)}"),
          ("Merma y muestras (coste + IEE)", f"=({SELREF('k',1)}-1)*({SELREF('iee_u',1)}+{SELREF('landed_u',1)})"),
+         ("Royalty de nombre a Arnaldo", f"=({SELREF('pvp',1)}/(1+{G['vat']})-{SELREF('pvp',1)}*({G['retail_margin']}+{S['dist_fee_sel']}))*{G['royalty']}"),
          ("Contribución de la marca (antes de gastos fijos)", f"={SELREF('unit_contrib',1)}")]
 for lab, f in split:
     put(IT, f"A{r}", lab)
@@ -512,11 +516,11 @@ lines = [
     ("Ingreso de la marca neto de IEE", "={c}10-{c}7"),
     ("Coste en destino (sin IEE)", "=" + SELREF("landed_u", 1)),
     ("Merma y muestras (coste + IEE)", "=(" + k + "-1)*({c}7+{c}12)"),
-    ("CONTRIBUCIÓN por unidad", "={c}11-{c}12-{c}13"),
+    ("CONTRIBUCIÓN por unidad (tras royalty Arnaldo)", "={c}11-{c}12-{c}13-{c}10*" + G["royalty"]),
     ("Margen de contribución sobre ingreso neto de IEE", "=IF({c}11<>0,{c}14/{c}11,0)"),
     ("Contribución sobre PVP", "={c}14/{c}5"),
     ("Punto muerto EBITDA 2030 (unidades/año)", "=IF({c}14>0,(" + SELREF("opex", 3) + "+" + G["shipments"] + "*" + G["customs_fee"] + ")/{c}14,\"no viable\")"),
-    ("FOB máximo (USD) para contribución ≥ 25% del ingreso neto", "=MAX(0,(({c}11*0.75-{c}7*(" + k + "-1))/" + k + "-(" + SELREF("landed_u", 1) + "-" + SELREF("fob_eur", 1) + "*(1+" + G["insurance"] + ")*(1+" + G["duty"] + ")))/((1+" + G["insurance"] + ")*(1+" + G["duty"] + "))*" + G["fx"] + ")"),
+    ("FOB máximo (USD) para contribución ≥ 25% del ingreso neto", "=MAX(0,(({c}11*0.75-{c}10*" + G["royalty"] + "-{c}7*(" + k + "-1))/" + k + "-(" + SELREF("landed_u", 1) + "-" + SELREF("fob_eur", 1) + "*(1+" + G["insurance"] + ")*(1+" + G["duty"] + ")))/((1+" + G["insurance"] + ")*(1+" + G["duty"] + "))*" + G["fx"] + ")"),
 ]
 for n, (lab, f) in enumerate(lines):
     rr = 6 + n
@@ -559,6 +563,7 @@ statement(PL, 5, [
     ("Ingresos netos de impuestos", "net_rev_iee", EUR, "out"),
     ("(-) Coste de ventas", "cogs", EUR, "calc"),
     ("(-) Despachos aduaneros", "customs_fees", EUR, "calc"),
+    ("(-) Royalty de nombre a Arnaldo", "royalty", EUR, "calc"),
     ("MARGEN BRUTO", "gross_margin", EUR, "out"),
     ("(-) Gastos fijos", "opex", EUR, "calc"),
     ("EBITDA", "ebitda", EUR, "out"),
@@ -573,11 +578,11 @@ r = 26
 put(PL, f"A{r}", "Margen bruto / ingresos netos de impuestos")
 for i in range(NY):
     c = L(2 + i)
-    put(PL, f"{c}{r}", f"=IF({c}13<>0,{c}16/{c}13,0)", "calc", PCT)
+    put(PL, f"{c}{r}", f"=IF({c}13<>0,{c}17/{c}13,0)", "calc", PCT)
 put(PL, f"A{r+1}", "Margen EBITDA / ingresos de la marca")
 for i in range(NY):
     c = L(2 + i)
-    put(PL, f"{c}{r+1}", f"=IF({c}11<>0,{c}18/{c}11,0)", "calc", PCT)
+    put(PL, f"{c}{r+1}", f"=IF({c}11<>0,{c}19/{c}11,0)", "calc", PCT)
 widths(PL, {"A": 62, "B": 14, "C": 14, "D": 14, "E": 14, "F": 14})
 
 # ---------------------------------------------------------------- Cash Flow
@@ -787,7 +792,10 @@ put(IR, "A25", "Inversión máxima acumulada (mínimo del FCF acumulado)")
 put(IR, "B25", "=MIN(B15:F15)", "out", EUR)
 put(IR, "A26", "Múltiplo de la inversión (VA flujos positivos / VA flujos negativos)")
 put(IR, "B26", '=IFERROR(SUMIF(B14:F14,">0")/-SUMIF(B14:F14,"<0"),"n/a")', "out", X)
-put(IR, "A28", "Advertencia: con 5 años de horizonte y valor terminal por múltiplo, la TIR es muy sensible al EBITDA de 2031. Ver 'Scenarios' y 'Sensitivity Analysis'.", "note")
+put(IR, "A27", "Valor atribuible a Arnaldo por su participación (equity × VAN positivo)")
+put(IR, "B27", f"=MAX(0,B21)*{G['arnaldo_equity']}", "out", EUR)
+put(IR, "C27", "=\"Royalties 2027-2031: \"&TEXT(" + "+".join(SELREF('royalty', i) for i in range(NY)) + ",\"#,##0\")&\" €\"", "note")
+put(IR, "A29", "Advertencia: con 5 años de horizonte y valor terminal por múltiplo, la TIR es muy sensible al EBITDA de 2031. Ver 'Scenarios' y 'Sensitivity Analysis'.", "note")
 widths(IR, {"A": 58, "B": 14, "C": 14, "D": 14, "E": 14, "F": 14})
 
 # ---------------------------------------------------------------- Scenarios
@@ -896,7 +904,7 @@ def ebitda_expr(U="$B$4", P="$B$5", FOB="$B$6", FX="$B$7", D="$B$8", M="$B$9"):
     k = f"(1/(1-{M})+{S['muestras_sel']})"
     landed = f"({FOB}/{FX}*(1+{G['insurance']})*(1+{G['duty']})+$B$10)"
     iee = f"MAX({G['iee_rate']}*{P},{G['iee_min']}/1000)"
-    contrib = f"({P}/(1+{G['vat']})-{P}*({G['retail_margin']}+{D})-{k}*({iee}+{landed}))"
+    contrib = f"(({P}/(1+{G['vat']})-{P}*({G['retail_margin']}+{D}))*(1-{G['royalty']})-{k}*({iee}+{landed}))"
     return f"{U}*{contrib}-$B$11"
 
 
@@ -969,7 +977,7 @@ widths(SA, {"A": 56, "B": 16, "C": 16, "D": 16, "E": 16, "F": 16, "G": 14, "H": 
 
 # ---------------------------------------------------------------- Dashboard
 D = ws_["Dashboard"]
-title(D, "FOLIO — Modelo financiero 2027–2031 · Dashboard ejecutivo",
+title(D, "ARNALDO — Modelo financiero 2027–2031 · Dashboard ejecutivo",
       "Proyecto A (marca propia fabricada en Cuba). Condicionado a la confirmación jurídica de la Fase 0. Fecha de corte 10/10/2026.")
 put(D, "A4", "Escenario activo (cambiar en Assumptions!C4)")
 put(D, "B4", "=Assumptions!$D$4", "out")

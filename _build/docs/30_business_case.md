@@ -1,5 +1,5 @@
 ---
-title: "Business Case — Marca propia FOLIO"
+title: "Business Case — Marca propia ARNALDO"
 subtitle: "Economía unitaria, necesidades de capital, rentabilidad y punto muerto 2027–2031, construidos desde cero y auditables en el modelo XLSX"
 short: "Business Case"
 kicker: "03 · BUSINESS CASE"

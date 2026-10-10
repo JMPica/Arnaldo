@@ -98,8 +98,9 @@ dec = [
     ("D05", "Estructura societaria", "Opciones 1–5", "Opción 2 (SL española + operador habilitado)", "Asesoría fiscal España-Andorra sobre residencia y dirección efectiva", "Promotor + asesor fiscal", "Antes de constituir", "D01"),
     ("D06", "Momento y forma del traslado a Andorra", "—", "Planificar con asesor; no condicionar la estructura a ahorro fiscal", "Fecha prevista, actividad en Andorra, patrimonio", "Promotor", "T1 2027", "—"),
     ("D07", "Lanzar en paralelo la vía B3 (importación no cubana)", "Sí / No / Más tarde", "Sí, sólo validación comercial sin capital (cartas de interés)", "Lista de fabricantes sin distribución en España", "Promotor", "Mes 2", "—"),
-    ("D08", "Nombre de marca definitivo", "FOLIO / LUMBRE / VELADA", "FOLIO, tras informe de registrabilidad", "Búsqueda EUIPO/OEPM/OCPI por agente", "Promotor + agente de marcas", "Mes 2", "D01"),
+    ("D08", "Nombre de marca definitivo", "ARNALDO / FOLIO / LUMBRE", "ARNALDO (decidido por el promotor 10/10/2026), condicionado a consentimiento de Arnaldo e informe de registrabilidad", "Búsqueda EUIPO/OEPM/OCPI por agente", "Promotor + agente de marcas", "Mes 2", "D01"),
     ("D09", "Presupuesto máximo comprometido antes de la primera importación", "15–100 k€", "≤ 20 k€ hasta cumplir condiciones Go", "Resultado Fase 0 + cotización FOB", "Promotor", "Fin Fase 0", "D01–D03"),
+    ("D11", "Contraprestación de Arnaldo por nombre y colaboración", "A royalty 2% / B equity 10% con vesting / C mixta", "B o C: equity con vesting alinea incentivos sin consumir caja", "Dictamen cubano sobre cobro legal; autorización del empleador", "Promotor + abogados", "Fase 0", "D02, D10"),
     ("D10", "Papel y retribución legal del torcedor", "Consultor vía entidad / empleado / socio", "Sólo a través de la entidad autorizada y con permiso de su empleador", "Normativa laboral cubana y autorización del empleador", "Abogado cubano", "Fase 0", "D02"),
 ]
 table(ws, 4, ["ID", "Decisión", "Opciones", "Recomendación", "Información que falta", "Quién", "Plazo", "Depende de"], dec, [6, 44, 26, 48, 44, 22, 14, 12])
@@ -141,9 +142,10 @@ title(ws, "Naming & Trademark Research — búsqueda PRELIMINAR (no es informe d
 crit = [("Singularidad", 0.15), ("Memorabilidad", 0.15), ("Pronunciación internacional", 0.10), ("Adecuación premium", 0.15),
         ("Riesgo fonético/cultural (5 = bajo)", 0.10), ("Colisión tabaco (5 = ninguna hallada)", 0.20), ("Compatibilidad DO/publicidad (5 = sin problemas)", 0.15)]
 names = [
-    ("FOLIO", "Latín folium = hoja; en español 'hoja' es a la vez hoja de tabaco y página. Formatos bibliográficos (folio, cuarto, octavo) dan nombres de vitola.", [4, 5, 5, 5, 5, 4, 5], "Ninguna hallada en web (S—búsqueda 'Folio cigar')", "FINALISTA — SELECCIONADO"),
-    ("LUMBRE", "Fuego, luz; palabra española poco usada en marcas de tabaco.", [4, 4, 3, 4, 4, 4, 5], "Ninguna hallada", "FINALISTA — reserva 1"),
-    ("VELADA", "Reunión nocturna; ritual de sobremesa.", [3, 4, 4, 4, 4, 4, 4], "Ninguna hallada", "FINALISTA — reserva 2"),
+    ("ARNALDO", "Nombre del torcedor que participa en el proyecto: autenticidad real, firma como logotipo; requiere consentimiento escrito y licencia de nombre/imagen.", [3, 5, 5, 5, 4, 4, 5], "Ninguna marca de puros hallada; posible asociación con Arnaldo Vichot (ex maestro ligador de Partagás, †2026); marca de tabaco similar ARLONDO (Gryson)", "SELECCIONADO por el promotor — condicionado"),
+    ("FOLIO", "Latín folium = hoja; en español 'hoja' es a la vez hoja de tabaco y página. Formatos bibliográficos (folio, cuarto, octavo) dan nombres de vitola.", [4, 5, 5, 5, 5, 4, 5], "Ninguna hallada en web (S—búsqueda 'Folio cigar')", "FINALISTA — reserva 1"),
+    ("LUMBRE", "Fuego, luz; palabra española poco usada en marcas de tabaco.", [4, 4, 3, 4, 4, 4, 5], "Ninguna hallada", "FINALISTA — reserva 2"),
+    ("VELADA", "Reunión nocturna; ritual de sobremesa.", [3, 4, 4, 4, 4, 4, 4], "Ninguna hallada", "Finalista descartado"),
     ("VERSO", "Verso / reverso de la página.", [3, 4, 5, 3, 4, 4, 5], "Ninguna hallada", "Descartado: menos distintivo"),
     ("COLOFÓN", "Nota final de un libro impreso; idea de 'firma' del lote.", [5, 3, 2, 4, 3, 3, 5], "No buscado", "Usado como nombre del documento interior"),
     ("CÁLAMO", "Caña de escritura; literario.", [4, 3, 2, 4, 3, 3, 5], "No buscado", "Descartado: pronunciación"),
@@ -169,21 +171,23 @@ for i, (_, w) in enumerate(crit):
 put(ws, "B3", "Pesos →")
 for n, (nm, concept, s, coll, st) in enumerate(names):
     r = 5 + n
-    put(ws, f"A{r}", nm, "out" if "FINALISTA" in st else "calc")
+    put(ws, f"A{r}", nm, "out" if ("FINALISTA" in st or "SELECCIONADO" in st) else "calc")
     put(ws, f"B{r}", concept)
     ws[f"B{r}"].alignment = WRAP
     for i, v in enumerate(s):
         put(ws, f"{L(3+i)}{r}", v, "input", "0")
     put(ws, f"J{r}", f"=SUMPRODUCT($C$3:$I$3,C{r}:I{r})", "out", "0.00")
     put(ws, f"K{r}", coll)
-    put(ws, f"L{r}", st, "flag" if st.startswith(("EXCLUIDO", "PROHIBIDO")) else ("out" if "FINALISTA" in st else "calc"))
+    put(ws, f"L{r}", st, "flag" if st.startswith(("EXCLUIDO", "PROHIBIDO")) else ("out" if ("FINALISTA" in st or "SELECCIONADO" in st) else "calc"))
     ws[f"K{r}"].alignment = WRAP
 widths(ws, {"A": 26, "B": 60, "C": 11, "D": 11, "E": 11, "F": 11, "G": 11, "H": 11, "I": 11, "J": 12, "K": 50, "L": 30})
 ws.freeze_panes = "B5"
 
 ws = wb.create_sheet("Registro y dominios")
 title(ws, "Plan de verificación de registrabilidad y dominios (informativo)", "Los dominios NO se usarán como canal de venta de tabaco (prohibido). Sólo información corporativa B2B.")
-plan = [("FOLIO", "EUIPO (clase 34, 35)", "Búsqueda idéntica y similar (FOLIO, FOLIUM, PHOLIO) + TMview", "PENDIENTE", "Agente de marcas"),
+plan = [("ARNALDO", "EUIPO (clase 34, 35)", "Idéntica y similar (ARNALDO, ARNALDO + apellido, ARLONDO, ARNAUD…) + firma como marca figurativa", "PENDIENTE", "Agente de marcas"),
+        ("ARNALDO", "OEPM / OCPI / WIPO", "Nacional, Cuba (vía agente) e internacional; consentimiento de Arnaldo adjunto", "PENDIENTE", "Agente de marcas"),
+        ("FOLIO", "EUIPO (clase 34, 35)", "Búsqueda idéntica y similar (FOLIO, FOLIUM, PHOLIO) + TMview", "PENDIENTE", "Agente de marcas"),
         ("FOLIO", "OEPM (clase 34)", "Búsqueda nacional + nombres comerciales", "PENDIENTE", "Agente de marcas"),
         ("FOLIO", "OCPI Cuba (clase 34)", "Vía Agente Oficial cubano (S42)", "PENDIENTE / BLOQUEADO hasta Fase 0", "Abogado cubano"),
         ("FOLIO", "WIPO Global Brand Database", "Marcas internacionales (Madrid) con efecto en UE", "PENDIENTE", "Agente de marcas"),
@@ -199,10 +203,10 @@ wb.save(P("01_BRAND", "Naming & Trademark Research.xlsx"))
 wb = Workbook()
 ws = wb.active
 ws.title = "Ficha técnica vitola"
-title(ws, "FOLIO — Ficha técnica editable de vitola (a completar con el torcedor y la fábrica)",
+title(ws, "ARNALDO — Ficha técnica editable de vitola (a completar con el torcedor y la fábrica)",
       "No contiene recetas ni ligas inventadas. Campos 'Valor' en azul = a rellenar. Rangos marcados 'orientativo' deben validarse con la fábrica.")
 spec = [
-    ("Identificación", "Nombre de vitola comercial", "OCTAVO (inicial)", "Marca"),
+    ("Identificación", "Nombre de vitola comercial", "ARNALDO Nº 1 (inicial)", "Marca"),
     ("Identificación", "Vitola de galera (denominación de fábrica)", "Robusto (a confirmar por la fábrica)", "Fábrica"),
     ("Identificación", "Código interno", "FOL-OCT-01", "Marca"),
     ("Dimensiones", "Longitud (mm) y tolerancia", "124 mm ±2 mm (orientativo para Robusto)", "Fábrica"),
@@ -224,7 +228,7 @@ spec = [
     ("Conservación", "Condiciones de almacén: temperatura / humedad relativa", "16–18 °C / 65–70 % HR (orientativo de industria)", "Logística"),
     ("Conservación", "Tratamiento antiplagas (Lasioderma) previo a expedición", "Congelación controlada: protocolo a acordar", "Fábrica"),
     ("Conservación", "Reposo/estabilización tras torcido y antes de embalar (días)", "", "Fábrica"),
-    ("Embalaje", "Unidades por caja / tipo de caja / anilla / pie de anilla", "10 u · cedro · anilla FOLIO + pie 'Pliego Nº'", "Marca"),
+    ("Embalaje", "Unidades por caja / tipo de caja / anilla / pie de anilla", "10 u · cedro · anilla ARNALDO (firma) + pie 'Pliego Nº'", "Marca"),
     ("Embalaje", "Colofón numerado incluido", "Sí", "Marca"),
     ("Trazabilidad", "Nº de pliego (lote) y fecha de torcido", "", "Fábrica"),
     ("Trazabilidad", "Identificador del torcedor (si el contrato lo permite)", "", "Fábrica / abogado"),
@@ -247,10 +251,10 @@ ws.freeze_panes = "A5"
 
 ws = wb.create_sheet("Arquitectura vitolas")
 title(ws, "Arquitectura preliminar de producto", "Una vitola de lanzamiento; extensiones sólo tras validar consistencia y venta.")
-arch = [("OCTAVO", "Robusto", "≈124 × 50 (orientativo)", "Lanzamiento 2028", "Formato más versátil del segmento; tiempo de fumada medio; menor consumo de capa que Churchill", "Media"),
-        ("CUARTO", "Toro / Gordito", "≈150–156 × 50–52 (a definir)", "Extensión 2029 (si C1–C8)", "Más capa por unidad; mayor riesgo de tiro irregular en cepos grandes", "Media-alta"),
-        ("IMPERIAL", "Churchill (Julieta No. 2)", "≈178 × 47 (orientativo)", "Edición limitada 2030", "Exige capa larga sin defectos; rendimiento de capa menor; torcedores de categoría superior", "Alta")]
-table(ws, 4, ["Nombre FOLIO", "Vitola de referencia", "Dimensiones mm × cepo", "Calendario", "Diferencias de fabricación", "Complejidad"], arch, [14, 24, 26, 24, 70, 14])
+arch = [("Nº 1", "Robusto", "≈124 × 50 (orientativo)", "Lanzamiento 2028", "Formato más versátil del segmento; tiempo de fumada medio; menor consumo de capa que Churchill", "Media"),
+        ("Nº 2", "Toro / Gordito", "≈150–156 × 50–52 (a definir)", "Extensión 2029 (si C1–C8)", "Más capa por unidad; mayor riesgo de tiro irregular en cepos grandes", "Media-alta"),
+        ("Nº 3", "Churchill (Julieta No. 2)", "≈178 × 47 (orientativo)", "Edición limitada 2030", "Exige capa larga sin defectos; rendimiento de capa menor; torcedores de categoría superior", "Alta")]
+table(ws, 4, ["Nombre ARNALDO", "Vitola de referencia", "Dimensiones mm × cepo", "Calendario", "Diferencias de fabricación", "Complejidad"], arch, [14, 24, 26, 24, 70, 14])
 
 ws = wb.create_sheet("Plan QC por pliego")
 title(ws, "Plan de control de calidad por pliego (lote)", "Muestreo según ISO 2859-1; criterios propuestos para negociar en el contrato.")
@@ -319,6 +323,8 @@ tasks = [
     ("0.4", "F0 Viabilidad Cuba", "Due diligence documental de la fábrica (Cuestionario DD) y verificación en Gaceta Oficial de licencias", "Abogado cubano", "0.3", 5, 5, 3500, "Alto", "Informe jurídico Cuba", "Condiciones C1 y C2", "Bloqueada"),
     ("0.5", "F0 Viabilidad Cuba", "Consulta a MINCEX sobre si un operador privado o cooperativa puede exportar tabaco torcido tras DL 133/2026 y Res. MINCEX 2026", "Abogado cubano", "0.1", 3, 6, 1000, "Alto", "Respuesta / dictamen", "Confirma o descarta vías alternativas", "Bloqueada"),
     ("0.6", "F0 Viabilidad Cuba", "Dictamen sobre propiedad de la marca y uso de 'Hecho en Cuba' / DO Habanos", "Abogado cubano + agente marcas", "0.4", 8, 3, 1500, "Alto", "Dictamen escrito", "Condición C2", "Bloqueada"),
+    ("0.9", "F0 Viabilidad Cuba", "Arnaldo: consentimiento escrito al uso de su nombre/firma, autorización de su empleador, firmas escaneadas y retrato opcional", "Promotor + abogado cubano", "0.2", 1, 3, 0, "Alto", "Consentimiento firmado + materiales", "Sin consentimiento → usar reserva FOLIO", "Ejecutable ahora"),
+    ("2.6", "F2 Marca y producto", "Brief creativo a 3 estudios de packaging premium y selección", "Promotor", "0.9", 2, 4, 0, "Medio", "3 presupuestos", "Encargo ≤ 15 k€", "Ejecutable ahora"),
     ("0.7", "F0 Viabilidad Cuba", "Rechazo formal de la oferta Behike 56 (plantilla en 08_COMMUNICATIONS)", "Promotor", "—", 1, 1, 0, "Alto", "Correo enviado/archivado", "—", "Ejecutable ahora (requiere aprobación)"),
     ("0.8", "F0 Viabilidad Cuba", "Comité de decisión Fase 0", "Promotor", "0.3–0.6", 11, 1, 0, "—", "Acta con decisión", "Go si C1+C2; si no, activar plan alternativo", "Bloqueada"),
     ("1.1", "F1 España y estructura", "Dictamen fiscal España–Andorra (residencia, dirección efectiva, retribución)", "Asesor fiscal", "D06", 2, 4, 1500, "Medio", "Dictamen", "Estructura elegida", "Ejecutable ahora"),
@@ -327,7 +333,7 @@ tasks = [
     ("1.4", "F1 España y estructura", "Verificar margen expendedor vigente (texto consolidado Ley 13/1998) y precio BOE", "Asesor regulatorio", "—", 2, 1, 0, "Bajo", "Extracto BOE", "—", "Ejecutable ahora"),
     ("1.5", "F1 España y estructura", "Consulta bancaria: viabilidad de pagos a Cuba (transferencia / carta de crédito)", "Promotor", "—", 3, 3, 0, "Alto", "Respuesta del banco", "Condición C4", "Ejecutable ahora"),
     ("1.6", "F1 España y estructura", "Constituir SL (sólo tras Go Fase 0)", "Gestoría", "0.8, 1.1", 12, 3, 900, "Bajo", "Escritura + NIF", "—", "Bloqueada"),
-    ("2.1", "F2 Marca y producto", "Encargar informe de registrabilidad FOLIO / LUMBRE / VELADA (EUIPO, OEPM, OCPI)", "Agente de marcas", "D08", 3, 4, 900, "Medio", "Informe", "Condición C7", "Ejecutable ahora"),
+    ("2.1", "F2 Marca y producto", "Encargar informe de registrabilidad ARNALDO (+ apellido y firma) y reservas FOLIO / LUMBRE (EUIPO, OEPM, OCPI)", "Agente de marcas", "D08", 3, 4, 900, "Medio", "Informe", "Condición C7", "Ejecutable ahora"),
     ("2.2", "F2 Marca y producto", "Solicitud de marca UE clase 34 (y 35 si procede)", "Agente de marcas", "2.1", 8, 1, 1100, "Medio", "Nº de solicitud", "—", "Ejecutable tras 2.1"),
     ("2.3", "F2 Marca y producto", "Ficha técnica con torcedor y fábrica (plantilla 01_BRAND)", "Torcedor + fábrica", "0.4", 9, 4, 0, "Medio", "Ficha completa firmada", "Datos completos", "Bloqueada"),
     ("2.4", "F2 Marca y producto", "Prototipos (3 ligas × 20 u) y cata ciega", "Fábrica", "2.3", 13, 6, 1500, "Alto", "Fichas de cata", "Puntuación ≥ umbral", "Bloqueada"),
@@ -423,7 +429,10 @@ risks = [
     ("R19", "Operativo", "A", "Retrasos de producción/transporte (10+ meses)", "Energía, logística cubana", 4, 3, "Promotor", "Hitos de pago ligados a entrega; stock de seguridad", "Seguimiento"),
     ("R20", "Fraude", "B", "Oferta de Behike u otros Habanos a precio anómalo (falsificación/desvío)", "Precio ≈2% del PVP", 5, 5, "Promotor", "NO-GO absoluto; protocolo de procedencia", "—"),
     ("R21", "Penal/aduanero", "B", "Contrabando por importar sin DUA o en equipaje con fines comerciales", "Umbral penal 15.000 € tabaco (N01)", 2, 5, "Promotor", "Sólo importaciones declaradas y habilitadas", "—"),
-    ("R22", "Marca", "A", "Oposición o colisión de la marca FOLIO en clase 34", "Búsqueda preliminar no oficial", 2, 4, "Agente de marcas", "Informe de registrabilidad; reservas LUMBRE/VELADA", "Informe"),
+    ("R29", "Marca / persona", "A", "Arnaldo retira su colaboración, fallece o entra en conflicto: la marca lleva su nombre", "Marca de nombre propio", 2, 5, "Abogado", "Licencia de nombre/firma irrevocable y transferible; cláusulas leaver y fallecimiento; derecho de recompra", "Cambio de actitud / situación laboral"),
+    ("R30", "Marca / persona", "A", "El empleador de Arnaldo o una entidad cubana reclama la marca o su nombre (precedentes Davidoff y Vegas Robaina)", "Fabricación dentro del sistema estatal", 3, 5, "Abogado cubano", "Registro previo UE y Cuba a nombre de la SL; autorización escrita del empleador; cláusula de titularidad en contrato de fabricación", "Borrador de contrato"),
+    ("R31", "Marca", "A", "Asociación con Arnaldo Vichot (ex maestro ligador de Partagás) o confusión con ARLONDO", "Nombre de pila común", 2, 3, "Agente de marcas", "Registrar con apellido y firma; no sugerir vínculo", "Informe de registrabilidad"),
+    ("R22", "Marca", "A", "Oposición o colisión de la marca ARNALDO en clase 34", "Búsqueda preliminar no oficial", 2, 4, "Agente de marcas", "Informe de registrabilidad; reservas LUMBRE/VELADA", "Informe"),
     ("R23", "Fiscal", "C", "Recalificación de estructura andorrana (dirección efectiva, EP, vinculadas)", "Traslado del promotor", 3, 4, "Asesor fiscal", "Sustancia real; precios de transferencia; preferir SL española", "Dictamen"),
     ("R24", "Fiscal", "C", "Residencia fiscal del promotor en transición 2027 (doble residencia)", "Cambio de domicilio a mitad de año", 3, 3, "Asesor fiscal", "Certificado de residencia; CDI España–Andorra (S34)", "Certificado"),
     ("R25", "Divisa", "A", "Apreciación del USD frente al EUR", "Precio en USD", 3, 3, "Promotor", "Precio en EUR si es posible; cobertura", "Contrato"),
@@ -458,7 +467,7 @@ reg = [
     ("Cuba", "Tabacuba: comprador exclusivo de hoja; dirige la actividad", "Acceso a hoja sólo vía sistema estatal", "PROBABLE (S05, S46)", "DD fábrica"),
     ("Cuba", "DL 133/2026: mipymes pueden importar/exportar con autorización MINCEX", "Posible vía privada, pero producción de tabaco históricamente prohibida a mipymes (S44)", "VERIFICADO (norma) / BLOQUEADO (aplicación al tabaco)", "Consulta MINCEX"),
     ("Cuba", "Res. 98/2022 MINAG: exportación de tabaco torcido", "Fuera de canales autorizados = exportación ilegal", "PROBABLE (S09)", "Obtener texto en Gaceta"),
-    ("Cuba", "DL 203/1999 de marcas; registro OCPI vía agente oficial", "Necesario registrar FOLIO en Cuba", "PROBABLE (S42)", "Agente oficial"),
+    ("Cuba", "DL 203/1999 de marcas; registro OCPI vía agente oficial", "Necesario registrar ARNALDO (a nombre de la SL) en Cuba", "PROBABLE (S42)", "Agente oficial"),
     ("Cuba", "DL 128/2026 (Ley 118 inversión extranjera)", "Empresa mixta = inversión desproporcionada para 15–100 k€", "VERIFICADO (S07)", "—"),
     ("UE", "Directiva 2014/40/UE (TPD): ingredientes, advertencias, trazabilidad, venta a distancia", "Obligaciones de titular/importador", "PROBABLE (N03)", "Asesor regulatorio"),
     ("UE", "Reg. Ejec. 2018/574 trazabilidad (cigarros desde 20/05/2024)", "Identificadores únicos y elementos de seguridad", "VERIFICADO (S28)", "Alta en sistema"),
@@ -491,14 +500,14 @@ ops = [
     ("Corporación Habanos / Cubatabaco", "Cuba", "Titular de marcas cubanas (p.ej. Cohiba)", "No verificada", "S13", "Vía abogado", "Política de titularidad de marcas fabricadas en Cuba", "¿Exige registro a su nombre?", "Riesgo de pérdida de la marca", "Existencia VERIFICADA (secundaria)"),
     ("MINCEX — Ministerio del Comercio Exterior y la Inversión Extranjera", "Cuba", "Autorización de comercio exterior (DL 133/2026); inversión extranjera", "mincex.gob.cu (portal VUCE vuceregulaciones.mincex.gob.cu)", "S03, S04", "Portal de trámites VUCE", "Dictamen sobre exportación de tabaco por operadores no estatales", "¿El tabaco torcido está en la lista de productos no comerciables directamente?", "Respuesta lenta; discrecionalidad", "Existencia VERIFICADA"),
     ("Gaceta Oficial de la República de Cuba", "Cuba", "Publicación de normas", "gacetaoficial.gob.cu", "S03", "Web", "Textos oficiales (DL 133/2026, Res. 98/2022)", "—", "—", "VERIFICADA"),
-    ("OCPI — Oficina Cubana de la Propiedad Industrial", "Cuba", "Registro de marcas", "No verificada en esta sesión", "S42", "Vía Agente Oficial", "Registro FOLIO clase 34 en Cuba", "Búsqueda de anterioridades; plazos y tasas", "Requiere agente", "Existencia PROBABLE"),
+    ("OCPI — Oficina Cubana de la Propiedad Industrial", "Cuba", "Registro de marcas", "No verificada en esta sesión", "S42", "Vía Agente Oficial", "Registro ARNALDO clase 34 en Cuba", "Búsqueda de anterioridades; plazos y tasas", "Requiere agente", "Existencia PROBABLE"),
     ("Bufetes cubanos habilitados para clientes extranjeros (p.ej. Bufete Internacional; Consultoría Jurídica Internacional)", "Cuba", "Representación legal y de propiedad industrial de extranjeros", "No verificada", "S42 (secundaria)", "Por recomendación de la Embajada/Oficina Comercial", "Due diligence y dictámenes", "Honorarios, experiencia en tabaco, conflictos", "Independencia frente a entidades estatales", "PROBABLE — verificar"),
     ("Oficina Económica y Comercial de España en La Habana (ICEX)", "España/Cuba", "Apoyo a empresas españolas; información de mercado", "icex.es (red de Oficinas)", "Conocimiento general", "Canal oficial ICEX", "Contactos verificados de abogados, transitarios y operadores", "¿Experiencia de empresas españolas con fabricación tabacalera por encargo?", "—", "Existencia PROBABLE; contacto PENDIENTE"),
     ("Comisionado para el Mercado de Tabacos (CMT)", "España", "Habilitaciones, precios BOE, estadísticas", "hacienda.gob.es (Áreas temáticas › CMTabacos)", "S17, S18, S25", "Sede electrónica / correo institucional de la web", "Habilitación fabricante/titular e importador; publicación de PVP", "Requisitos documentales; plazos; marcas fiscales", "—", "VERIFICADA"),
     ("AEAT — Aduanas e Impuestos Especiales", "España", "DUA, EORI, IEE, depósitos fiscales", "sede.agenciatributaria.gob.es", "S14", "Sede electrónica", "EORI; régimen de IEE; destinatario registrado/depósito", "¿Depósito fiscal propio o de tercero?", "—", "VERIFICADA"),
     ("Ministerio de Sanidad — EU-CEG", "España/UE", "Notificación de ingredientes; etiquetado", "sanidad.gob.es", "S29", "Web", "Alta en EU-CEG; plazos", "Plazo previo a comercialización; tasas", "—", "VERIFICADA"),
     ("FNMT-Real Casa de la Moneda", "España", "Elementos de autenticación de marcas fiscales", "fnmt.es", "S27", "Web", "Precintas y costes", "Coste por unidad; plazos", "—", "Existencia VERIFICADA; papel de emisor UI PENDIENTE"),
-    ("EUIPO / OEPM", "UE / España", "Registro de marcas", "euipo.europa.eu / oepm.es", "N05", "Online", "Registro FOLIO", "—", "—", "VERIFICADA"),
+    ("EUIPO / OEPM", "UE / España", "Registro de marcas", "euipo.europa.eu / oepm.es", "N05", "Online", "Registro ARNALDO", "—", "—", "VERIFICADA"),
     ("Compañía de Distribución Integral Logista", "España", "Distribución mayorista de labores de tabaco a expendedurías", "logista.com", "S26 (secundaria de prensa)", "Área comercial de la web", "Distribución y depósito fiscal", "Tarifa, mínimos, requisitos de alta de una marca nueva", "Poder de negociación", "Existencia VERIFICADA; condiciones PENDIENTES"),
     ("Tabacalera S.L.U.", "España", "Distribuidor exclusivo de Habanos (salvo Canarias)", "No verificada", "S21, S23", "—", "Ninguna (Proyecto B no accesible)", "—", "Sujeta a sanciones UE indirectas (2026)", "VERIFICADA (secundaria) — NO CONTACTAR comercialmente sin screening"),
     ("Listado de distribuidores habilitados del CMT", "España", "Alternativas a Logista", "hacienda.gob.es (CMT)", "S17", "Consulta CMT", "Identificar 3 distribuidores para marcas premium", "—", "—", "PENDIENTE"),
@@ -550,6 +559,9 @@ ev = [
     ("E22", "Coste de packaging 18 €/caja de 10", "HIPÓTESIS", "—", "Medio", "Cotización"),
     ("E23", "Preferencia arancelaria 0% para R. Dominicana y Centroamérica", "PROBABLE", "S33", "Alto (B3)", "TARIC"),
     ("E24", "Impuesto de Sociedades Andorra 10%", "HIPÓTESIS", "N07", "Bajo", "Asesor andorrano"),
+    ("E26", "No se halló marca de puros «Arnaldo» en búsqueda web preliminar", "PROBABLE", "S49", "Alto", "Informe de registrabilidad"),
+    ("E27", "Vegas Robaina (nombre de veguero) es marca de Habanos S.A. desde 1997", "VERIFICADO", "S50", "Alto", "—"),
+    ("E28", "Arnaldo consiente el uso de su nombre y su empleador lo autoriza", "BLOQUEADO", "—", "Crítico", "Reunión R1 + abogado cubano"),
     ("E25", "Oferta Behike 56 a 50 €/caja", "HIPÓTESIS (no verificada; tratada como señal de alerta)", "Promotor", "Crítico", "No verificar comprando"),
 ]
 header(ws, 4, ["ID", "Afirmación", "Clasificación", "Fuente", "Impacto en decisión", "Próximo paso de verificación"])
