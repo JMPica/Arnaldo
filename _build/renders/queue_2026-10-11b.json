@@ -1,0 +1,20 @@
+[
+ {
+  "id": "arnaldo-a2-13-emblema-chaveta",
+  "ratio": "1:1",
+  "prompt": "Flat engraved emblem for a luxury cigar brand, intaglio line style, antique gold and oxblood red on cream cotton paper, centred and symmetrical. A round seal with a double gold rule and a fine guilloché ring. Inside, a single upright tobacco leaf with engraved veins resting on a chaveta, the cigar roller's knife: a flat steel blade shaped like a wide half-disc (a semicircle), its curved edge sharp at the bottom and a short rounded wooden grip along the straight top edge, like an ulu knife, lying horizontally below the leaf. Along the top inner edge of the seal, the single word \"ARNALDO\" in engraved serif capitals following the curve. No other text, letters or numbers anywhere.",
+  "negative": "watermark, misspelled text, extra text, gibberish letters, flags, coat of arms, medals, blurry, low resolution, sickle, hammer, crossed blades, swords, daggers, kitchen knives, scythe, crescent moon, star, fleur-de-lis, crown"
+ },
+ {
+  "id": "arnaldo-a2-14-anilla-n2-chaveta",
+  "ratio": "4:3",
+  "prompt": "Macro product photograph of a premium toro cigar on dark walnut, the cigar filling the frame vertically, wearing an ornate classic cigar band in polished antique gold foil with fine engraved guilloché and beaded edges. A central round seal in oxblood red shows a small gold engraving of a tobacco leaf resting on a chaveta, the cigar roller's knife: a flat steel blade shaped like a wide half-disc (a semicircle), its curved edge sharp at the bottom and a short rounded wooden grip along the straight top edge, like an ulu knife. Above the seal, the word \"ARNALDO\" in engraved oxblood-red serif capitals following the arc. Below the seal, \"Nº 2\" in small oxblood script. Those are the only words on the band. Raking warm light, black background, shallow depth of field.",
+  "negative": "watermark, misspelled text, extra text, gibberish letters, flags, coat of arms, medals, blurry, low resolution, sickle, hammer, crossed blades, swords, daggers, scythe, checkerboard"
+ },
+ {
+  "id": "arnaldo-a2-15-anilla-medallon-manos",
+  "ratio": "4:3",
+  "prompt": "Macro product photograph of a premium robusto cigar on dark walnut wearing an ornate classic cigar band: deep oxblood-red field, wide antique-gold foil borders with fine engraved guilloché and beaded edges, a tall die-cut oval medallion framed by Victorian gold filigree. Inside the medallion, an extreme close-up engraving of two hands seen from above, rolling a cigar leaf on a wooden board; the engraving is cropped at the wrists, so no arms, shoulders, body, head or face appear. Across the medallion a white enamel ribbon with the name \"ARNALDO\" in bold engraved red serif capitals. Raking warm light, ultra-detailed foil texture. No other text.",
+  "negative": "face, head, portrait, person, man, body, shoulders, apron, watermark, misspelled text, extra text, gibberish letters, flags, coat of arms, medals, blurry, low resolution"
+ }
+]
