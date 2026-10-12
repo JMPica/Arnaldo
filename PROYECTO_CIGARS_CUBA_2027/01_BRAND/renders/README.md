@@ -39,7 +39,7 @@ Generats el 10/10/2026 amb l'Space `mcp-tools/Qwen-Image` (16 passos, guidance 4
 
 Retoc i revisió: cada imatge s'ha revisat lletra per lletra; al dossier només hi van les marcades ✅.
 
-**Cua**: sense renders pendents per al dossier. Opcionals si cal més endavant: tres vitoles juntes, mans del torcedor i humidor (els intents de l'11/10 tenien pseudotext o anelles que recordaven Habanos).
+**Cua** (`_build/renders/queue_2026-10-12-v3.json`): Ruta A v3 «Casa cubana clàssica» — A3-1 anella de la casa, A3-2 variant amb signatura, A3-3 doble anella «Pliego de autor», A3-4 caixa de cedre amb la marca a foc, A3-5 caixa oberta amb vista. El dossier recull les versions revisades `arnaldo-a3-…-ret.png`. Les imatges de la fulla i la chaveta (A2-6, A2-7, A2-13, A2-14) queden fora del dossier per decisió del promotor.
 
 Dossier per a inversors: `../ARNALDO Brand Dossier.pdf` (`_build/build_dossier.py`).
 

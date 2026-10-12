@@ -76,11 +76,14 @@ def img_crop(name, box, tag):
     return "file://" + dst
 
 
-I_N1 = img("arnaldo-a2-15-anilla-medallon-manos-ret.png") or img("arnaldo-a2-1-anilla-medallon-ret.png")
+I_CASA = img("arnaldo-a3-1-anilla-casa-ret.png")          # Ruta A v3: anilla de la casa
+I_FIRMA = img("arnaldo-a3-2-anilla-firma-ret.png")        # Ruta A v3: variante con firma caligráfica
+I_DOBLE = img("arnaldo-a3-3-doble-anilla-ret.png")        # Ruta A v3: anilla + segunda anilla «Pliego de autor»
+I_CAJA = img("arnaldo-a3-4-caja-fuego-ret.png")           # Ruta A v3: caja de cedro con la marca a fuego
+I_MEDALLON = img("arnaldo-a2-15-anilla-medallon-manos-ret.png") or img("arnaldo-a2-1-anilla-medallon-ret.png")
+I_N1 = I_CASA or I_MEDALLON
 I_N3 = img("arnaldo-a2-3-edicion-negra-ret.png")
 I_VISTA = img("arnaldo-a2-8-vista-casa-tabaco-ret.png") or img("arnaldo-a2-4-caja-vista-pano.png")
-I_N2 = img("arnaldo-a2-6-anilla-n2-oro-ret.png")
-I_EMBLEMA = img("arnaldo-a2-7-emblema-chavetas-ret.png")
 I_GAMA = img("arnaldo-a2-9-tres-vitolas-ret.png")
 I_MANOS = img("arnaldo-a2-10-manos-torcedor-ret.png")
 I_HUMIDOR = img("arnaldo-a2-11-humidor-ret.png")
@@ -468,50 +471,76 @@ def build():
 
     # 10 · Dirección creativa
     add(f"""<div class="pad">
-<div class="kick">Dirección creativa · Ruta A v2</div><h1>El nivel de las grandes marcas, sin copiar a ninguna</h1>
-<p style="max-width:230mm">Tres referencias de Habanos marcan el listón de calidad. De cada una se traduce un <strong>código</strong> a un elemento propio de ARNALDO, y se excluye expresamente todo lo que constituye su marca o su aspecto comercial protegido.</p>
-<table style="margin-top:3mm">
-<thead><tr><th style="width:15%">Referencia</th><th style="width:25%">Código que inspira</th><th style="width:33%">Traducción original ARNALDO</th><th>Prohibido copiar</th></tr></thead>
+<div class="kick">Dirección creativa · Ruta A v3 «Casa cubana clásica»</div><h1>La gramática de las grandes casas</h1>
+<p style="max-width:240mm">ARNALDO no inventa un lenguaje: adopta los códigos que comparten las marcas de Habanos desde el siglo XIX y los llena con un contenido propio y verificable. Nada se copia de una anilla o una caja concretas.</p>
+<table style="margin-top:2mm;font-size:8.3pt">
+<thead><tr><th style="width:22%">Código de la tradición</th><th style="width:24%">Dónde se ve</th><th style="width:31%">Cómo lo usa ARNALDO</th><th>Límite</th></tr></thead>
 <tbody>
-<tr><td><strong>Hoyo de Monterrey</strong></td><td>Medallón oval victoriano con viñeta grabada; filigrana de oro; rojo, oro y crema</td><td>Medallón oval con una viñeta grabada de <strong>las manos de Arnaldo en la mesa de torcer</strong> (o una casa de tabaco) y filigrana de oro</td><td>El jardín y la fuente, «José Gener», la composición de su anilla y su vista</td></tr>
-<tr><td><strong>Montecristo</strong></td><td>Emblema heráldico fuerte y simple; paleta reducida; lectura a distancia</td><td>Emblema de <strong>la chaveta</strong> (la cuchilla de media luna del torcedor) bajo una hoja de tabaco, en un sello propio; sin hojas cruzadas, para evitar cualquier parecido con una hoz</td><td>El triángulo, las espadas, la flor de lis y su combinación de colores</td></tr>
-<tr><td><strong>Cohiba</strong></td><td>Patrón geométrico potente; minimalismo; versión negra de lujo (Behike)</td><td>Banda con un <strong>patrón inspirado en la yagua</strong> (la vaina de la palma real que envuelve los tercios de tabaco), en oro y negro, para la edición limitada</td><td>El damero blanco y negro, la cabeza taína y el amarillo Cohiba</td></tr>
+<tr><td><strong>La firma del fabricante</strong></td><td>El origen de la anilla: Gustave Bock firmaba las suyas en el siglo XIX (S55)</td><td>La firma real de Arnaldo, en oro sobre lacre, dentro de la cartela</td><td>Solo la suya, vectorizada sin redibujarla</td></tr>
+<tr><td><strong>Campo de color, oro y relieve</strong></td><td>Anillas clásicas: campo de color, oro estampado, perlado y guilloché</td><td>Lacre y oro viejo, con perlado y guilloché propios</td><td>Sin reproducir la composición de ninguna anilla</td></tr>
+<tr><td><strong>Cartela central troquelada</strong></td><td>La pieza que sobresale de la anilla y lleva el nombre</td><td>Cartela de bordes festoneados con ARNALDO como protagonista</td><td>Sin escudos ni medallas</td></tr>
+<tr><td><strong>Retrato en medallón</strong></td><td>Bolívar lleva la imagen de su epónimo (S58)</td><td>Retrato grabado de Arnaldo si lo autoriza; mientras, sus manos</td><td>Sin retratos de terceros</td></tr>
+<tr><td><strong>Segunda anilla de serie</strong></td><td>Ediciones y series actuales añaden una segunda anilla</td><td>«PLIEGO DE AUTOR» en negro y oro</td><td>Sin «Habana» ni años</td></tr>
+<tr><td><strong>Habilitación de la caja</strong></td><td>Vista, bofetón, larguero y costero, aplicados a mano (S56, S57)</td><td>Vista con la casa de tabaco, larguero con ARNALDO, costero con el número de vitola</td><td>Sin sello de garantía, medallas ni escudos</td></tr>
+<tr><td><strong>Caja de cedro natural</strong></td><td>Presentación clásica en cedro</td><td>ARNALDO marcado a fuego en la tapa</td><td>—</td></tr>
 </tbody></table>
-<div class="grid3" style="margin-top:5mm;gap:6mm">
- <div><div style="height:30mm;background:url('{C_MEDALLON}') center/cover;border-radius:1mm"></div><p class="small" style="margin-top:1.5mm">Medallón con las manos del torcedor · Nº 1</p></div>
- <div>{('<div style="height:30mm;background:url(' + chr(39) + I_EMBLEMA + chr(39) + ') center/cover;border-radius:1mm"></div>') if I_EMBLEMA else '<div style="height:30mm;border:1px dashed #C9A24A;border-radius:1mm;display:flex;align-items:center;justify-content:center;font-family:Cinzel;font-size:7.5pt;letter-spacing:.2em;color:#8A8073;text-align:center;padding:0 6mm">EMBLEMA DE CHAVETAS<br>EN DESARROLLO</div>'}<p class="small" style="margin-top:1.5mm">Hoja de tabaco sobre la chaveta · emblema</p></div>
- <div><div style="height:30mm;background:url('{C_YAGUA}') center/cover;border-radius:1mm"></div><p class="small" style="margin-top:1.5mm">Patrón de yagua en oro sobre laca negra · Nº 3</p></div>
+<div class="grid3" style="margin-top:4mm;gap:6mm">
+ <div>{('<div style="height:30mm;background:url(' + chr(39) + I_CASA + chr(39) + ') center/cover;border-radius:1mm"></div>') if I_CASA else '<div style="height:30mm;border:1px dashed #C9A24A;border-radius:1mm;display:flex;align-items:center;justify-content:center;font-family:Cinzel;font-size:7.5pt;letter-spacing:.2em;color:#8A8073;text-align:center;padding:0 6mm">ANILLA DE LA CASA<br>EN DESARROLLO</div>'}<p class="small" style="margin-top:1.5mm">Anilla de la casa · Nº 1</p></div>
+ <div>{('<div style="height:30mm;background:url(' + chr(39) + I_FIRMA + chr(39) + ') center/cover;border-radius:1mm"></div>') if I_FIRMA else '<div style="height:30mm;border:1px dashed #C9A24A;border-radius:1mm;display:flex;align-items:center;justify-content:center;font-family:Cinzel;font-size:7.5pt;letter-spacing:.2em;color:#8A8073;text-align:center;padding:0 6mm">VARIANTE CON FIRMA<br>EN DESARROLLO</div>'}<p class="small" style="margin-top:1.5mm">Variante con la firma (caligrafía provisional)</p></div>
+ <div>{('<div style="height:30mm;background:url(' + chr(39) + I_CAJA + chr(39) + ') center/cover;border-radius:1mm"></div>') if I_CAJA else '<div style="height:30mm;border:1px dashed #C9A24A;border-radius:1mm;display:flex;align-items:center;justify-content:center;font-family:Cinzel;font-size:7.5pt;letter-spacing:.2em;color:#8A8073;text-align:center;padding:0 6mm">CAJA CON LA MARCA A FUEGO<br>EN DESARROLLO</div>'}<p class="small" style="margin-top:1.5mm">Caja de cedro con la marca a fuego</p></div>
 </div>
-<p class="small" style="margin-top:3mm">Comunes a todas: ni «Habana», ni «Cuba», ni «Habano»; sin escudos de Estado, medallas ni fechas. La firma real de Arnaldo irá dentro de la cartela. Las marcas citadas pertenecen a sus titulares y se mencionan solo como referencia de nivel.</p>
+<p class="small" style="margin-top:2mm">Ni «Habana», ni «Cuba», ni «Habano»; sin escudos de Estado, medallas ni fechas. Las marcas citadas pertenecen a sus titulares y se mencionan solo como referencia.</p>
 </div>""", title="DIRECCIÓN CREATIVA")
 
     # 11 · Anilla Nº 1
-    add(f"""
-{fig(I_N1, "left:0;top:0;width:178mm;height:210mm;background-position:50% 50%")}
-<div style="position:absolute;left:192mm;right:16mm;top:24mm">
- <div class="kick">Habilitación · Nº 1 Robusto</div><h1 style="font-size:26pt">La anilla del medallón</h1>
+    if I_CASA:
+        N1_TXT = """<div class="kick">Habilitación · Nº 1 Robusto</div><h1 style="font-size:26pt">La anilla de la casa</h1>
+ <ul class="clean" style="margin-top:3mm">
+  <li>Campo lacre con bordes de oro estampado y perlado en relieve.</li>
+  <li>Cartela central troquelada que sobresale de la anilla.</li>
+  <li><strong>ARNALDO</strong> como protagonista, en capitales de oro.</li>
+  <li>En el arte final, la firma real de Arnaldo dentro de la cartela.</li></ul>
+ <p class="small" style="margin-top:5mm">Producción prevista: offset o tipografía + foil + relieve seco + troquel, a cepo real (≈90 × 17–20 mm).</p>
+ <p class="cap">Render conceptual generado con IA (Qwen-Image).</p>"""
+    else:
+        N1_TXT = """<div class="kick">Habilitación · Nº 1 Robusto</div><h1 style="font-size:26pt">La anilla del medallón</h1>
  <ul class="clean" style="margin-top:3mm">
   <li>Campo lacre con filetes de oro estampado y guilloché.</li>
   <li>Medallón oval troquelado con filigrana victoriana.</li>
   <li>Viñeta grabada: las manos del torcedor en la mesa de torcer.</li>
   <li>Cinta esmaltada con <strong>ARNALDO</strong> en capitales grabadas.</li></ul>
  <p class="small" style="margin-top:5mm">En el arte final, la viñeta reproducirá las manos de Arnaldo y la cartela incorporará su firma real. Producción prevista: offset o tipografía + foil + relieve seco + troquel, a cepo real (≈90 × 17–20 mm).</p>
- <p class="cap">Render conceptual generado con IA (Qwen-Image). Las manos son ilustrativas, no las de Arnaldo.</p>
+ <p class="cap">Render conceptual generado con IA (Qwen-Image). Las manos son ilustrativas, no las de Arnaldo.</p>"""
+    add(f"""
+{fig(I_N1, "left:0;top:0;width:178mm;height:210mm;background-position:50% 50%")}
+<div style="position:absolute;left:192mm;right:16mm;top:24mm">
+ {N1_TXT}
 </div>""", dark=True, title="ANILLA Nº 1", left="192mm")
 
-    # 12 · Nº 2 (si existe el render) y Nº 3
-    if I_N2:
+    # 12 · Doble anilla y caja (Ruta A v3, si existen los renders) y Nº 3
+    if I_DOBLE:
         add(f"""
-{fig(I_N2, "left:0;top:0;width:178mm;height:210mm")}
+{fig(I_DOBLE, "left:0;top:0;width:178mm;height:210mm")}
 <div style="position:absolute;left:192mm;right:16mm;top:24mm">
- <div class="kick">Habilitación · Nº 2 Toro</div><h1 style="font-size:26pt">La anilla de oro</h1>
+ <div class="kick">Habilitación · Segunda anilla</div><h1 style="font-size:26pt">Pliego de autor</h1>
  <ul class="clean" style="margin-top:3mm">
-  <li>Campo de oro con guilloché y bordes perlados.</li>
-  <li>Sello central lacre con una hoja de tabaco grabada en oro.</li>
-  <li><strong>ARNALDO</strong> en lacre y «Nº 2» en oro.</li>
-  <li>Junto al puro, la chaveta: la cuchilla de media luna del torcedor.</li></ul>
+  <li>Anilla de la casa, igual en toda la gama.</li>
+  <li>Segunda anilla negra y oro con «PLIEGO DE AUTOR», como las series y ediciones de las grandes casas.</li>
+  <li>La vitola (Nº 1, Nº 2, Nº 3) se indica en el costero de la caja.</li></ul>
  <p class="cap" style="margin-top:6mm">Render conceptual generado con IA (Qwen-Image).</p>
-</div>""", dark=True, title="ANILLA Nº 2", left="192mm")
+</div>""", dark=True, title="SEGUNDA ANILLA", left="192mm")
+    if I_CAJA:
+        add(f"""
+{fig(I_CAJA, "left:0;top:0;width:178mm;height:210mm")}
+<div style="position:absolute;left:192mm;right:16mm;top:24mm">
+ <div class="kick">Habilitación · Caja</div><h1 style="font-size:26pt">Cedro y fuego</h1>
+ <ul class="clean" style="margin-top:3mm">
+  <li>Caja de cedro natural con ARNALDO marcado a fuego en la tapa.</li>
+  <li>Papel de bordes lacre y oro; larguero con el nombre y costero con la vitola.</li>
+  <li>Dentro, la vista litográfica y el colofón numerado.</li></ul>
+ <p class="small" style="margin-top:5mm">Zona reservada para la advertencia sanitaria, la marca fiscal y el identificador único, conforme al RD 579/2017.</p>
+ <p class="cap">Render conceptual generado con IA (Qwen-Image).</p>
+</div>""", dark=True, title="CAJA", left="192mm")
 
     add(f"""
 {fig(I_N3, "left:0;top:0;width:178mm;height:210mm;background-position:50% 50%")}
@@ -554,12 +583,11 @@ def build():
     sw = [("#8E1B1B", "Lacre", "Campo de la anilla Nº 1, sellos"), ("#14100D", "Negro laca", "Edición Nº 3, fondos"),
           ("#C9A24A", "Oro viejo", "Foil, filetes, guilloché"), ("#F4EBD8", "Marfil", "Papel de la vista, cintas")]
     sws = "".join(f'<div><div class="swatch" style="background:{c}"></div><h3 style="color:#1E1915">{nme}</h3><p class="small" style="margin:0">{c} · {use}</p></div>' for c, nme, use in sw)
-    emb = (f'<div style="position:absolute;right:18mm;bottom:20mm;width:62mm;height:62mm;background:url(\'{I_EMBLEMA}\') center/cover;border-radius:50%"></div>'
-           if I_EMBLEMA else "")
+    emb = ""
     add(f"""<div class="pad">
 <div class="kick">Sistema visual</div><h1>Paleta y tipografía</h1>
 <div class="grid4" style="margin-top:5mm">{sws}</div>
-<div class="grid2" style="margin-top:9mm;gap:12mm;{'margin-right:70mm' if I_EMBLEMA else ''}">
+<div class="grid2" style="margin-top:9mm;gap:12mm;">
  <div><h3>Wordmark provisional</h3>
   <div style="background:#14100D;padding:6mm 6mm;text-align:center">{wordmark(13, 82)}</div>
   <p class="small" style="margin-top:2mm">Uso interno. El definitivo lo dibujará a medida un diseñador especializado e incorporará la firma real de Arnaldo.</p></div>

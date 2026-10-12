@@ -33,7 +33,23 @@ Segunda ronda de exploración, que eleva el listón con tres referencias de Haba
 
 <figure><img src="file:///home/user/Arnaldo/PROYECTO_CIGARS_CUBA_2027/01_BRAND/renders/arnaldo-a2-15-anilla-medallon-manos-ret.png" style="width:49%"> <img src="file:///home/user/Arnaldo/PROYECTO_CIGARS_CUBA_2027/01_BRAND/renders/arnaldo-a2-3-edicion-negra-ret.png" style="width:49%"><figcaption>Ruta A v2: anilla Nº 1 del medallón y anilla Nº 3 «edición negra». La viñeta de la Nº 1 muestra solo unas manos genéricas, no las de Arnaldo; la Nº 3 está retocada para corregir el texto.</figcaption></figure>
 
-**Recomendación actualizada**: desarrollar la Ruta A v2 como línea principal (Nº 1 medallón, Nº 2 chaveta, Nº 3 edición negra) e integrar la firma real de Arnaldo en la cartela. Estado de cada render y retoques: `01_BRAND/renders/README.md`.
+**Nota (12/10/2026)**: la v2 queda como exploración; la recomendación pasa a la Ruta A v3 (abajo). Estado de cada render y retoques: `01_BRAND/renders/README.md`.
+
+# Ruta A v3 «Casa cubana clásica» (12/10/2026) — recomendada
+
+El promotor descarta los emblemas de hoja y chaveta de la v2: la marca debe parecerse más a las casas de Habanos actuales y tradicionales. La v3 adopta la **gramática común** de esas casas y la llena con contenido propio:
+
+| Código de la tradición | Uso en ARNALDO |
+|---|---|
+| La firma del fabricante (la anilla nació como firma: Gustave Bock, siglo XIX) [PROBABLE] (S55) | La firma real de Arnaldo, en oro sobre lacre, dentro de la cartela |
+| Campo de color, oro estampado, perlado y guilloché | Lacre y oro viejo, con ornamento propio |
+| Cartela central troquelada que sobresale | Cartela festoneada con ARNALDO como protagonista |
+| Retrato en medallón (p. ej. Bolívar) [PROBABLE] (S58) | Retrato grabado de Arnaldo si lo autoriza; mientras, sus manos |
+| Segunda anilla de serie | «PLIEGO DE AUTOR» en negro y oro |
+| Habilitación de la caja: vista, bofetón, larguero, costero [VERIFICADO] (S56) / [PROBABLE] (S57) | Vista con la casa de tabaco, larguero con ARNALDO, costero con la vitola |
+| Caja de cedro natural | ARNALDO marcado a fuego en la tapa |
+
+Se mantienen los límites: nada de «Habana», «Cuba» o «Habano», escudos, medallas, fechas, sellos de garantía ni la composición concreta de ninguna anilla. Prompts en `Higgsfield Prompt Pack.md` (Ruta A v3) y estado de los renders en `01_BRAND/renders/README.md`.
 
 # Objetivo del encargo
 

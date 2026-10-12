@@ -72,3 +72,35 @@ Overhead photograph of an open Spanish-cedar cigar box of ten robustos with oxbl
 Studio photograph of three premium cigars standing upright (robusto, toro, churchill) with matching bands from the same family: oxblood-and-gold with oval medallion (Nº 1), gold with crossed-chaveta emblem (Nº 2), black lacquer with woven gold border (Nº 3), each reading "ARNALDO". Black background, rim light. No other text.
 
 **Consell:** genera 3–4 variants de cada prompt i tria'n les millors per al dissenyador. Si el text surt deformat, afegeix «the text ARNALDO must be spelled exactly A-R-N-A-L-D-O» al final del prompt.
+
+---
+
+# RUTA A v3 — «Casa cubana clàssica» (12/10/2026, recomanada)
+
+*El promotor descarta la fulla i la chaveta de la v2. La v3 adopta la gramàtica comuna de les cases de Habanos (anella lacre i or amb cartel·la troquelada, perlat, segona anella de sèrie, caixa de cedre amb la marca a foc) i hi posa el nom i la signatura reals d'Arnaldo. Els límits de la v2 es mantenen.*
+
+**A3-1 · Anella de la casa**
+Macro product photograph of a premium robusto cigar on dark walnut wearing an ornate classic Cuban-style cigar band in the grand nineteenth-century tradition: deep red lacquered field, wide antique-gold foil borders embossed with a row of tiny raised gold pearls, fine gold guilloché on the side panels with small gold rosettes, and a tall die-cut central gold cartouche with scalloped edges that rises above and below the band. Inside the cartouche, on a red ground, the name "ARNALDO" in large bold engraved gold serif capitals with a fine black outline, perfectly centred. That is the only text on the band. Embossed relief, raking warm light, ultra-detailed paper and foil texture, black background.
+
+*Negative:* watermark, misspelled text, extra text, gibberish letters, flags, coat of arms, medals, crown, fleur-de-lis, laurel, tobacco leaf, knife, sickle, blurry, low resolution
+
+**A3-2 · Variant amb signatura (cal·ligrafia provisional)**
+Macro product photograph of a premium robusto cigar on dark walnut wearing an ornate classic Cuban-style cigar band in the grand nineteenth-century tradition: deep red lacquered field, wide antique-gold foil borders embossed with a row of tiny raised gold pearls, fine gold guilloché on the side panels with small gold rosettes, and a tall die-cut central gold cartouche with scalloped edges that rises above and below the band. Inside the cartouche, on a red ground, the name "Arnaldo" written as an elegant flowing hand signature in raised gold foil, with a single underline flourish. That is the only text on the band. Embossed relief, raking warm light, ultra-detailed paper and foil texture, black background.
+
+*Negative:* watermark, misspelled text, extra text, gibberish letters, flags, coat of arms, medals, crown, fleur-de-lis, laurel, tobacco leaf, knife, sickle, blurry, low resolution
+
+**A3-3 · Doble anella «Pliego de autor»**
+Macro product photograph of a premium robusto cigar on dark walnut wearing two bands. The upper band is an ornate classic Cuban-style cigar band in the grand nineteenth-century tradition: deep red lacquered field, wide antique-gold foil borders embossed with a row of tiny raised gold pearls, fine gold guilloché on the side panels with small gold rosettes, and a tall die-cut central gold cartouche with scalloped edges that rises above and below the band, with "ARNALDO" in large bold engraved gold serif capitals inside the cartouche. Just below it, a narrow second band in glossy black with thin gold borders and the words "PLIEGO DE AUTOR" in small gold serif capitals. No other text. Raking warm light, black background.
+
+*Negative:* watermark, misspelled text, extra text, gibberish letters, flags, coat of arms, medals, crown, fleur-de-lis, laurel, tobacco leaf, knife, sickle, blurry, low resolution
+
+**A3-4 · Caixa de cedre amb la marca a foc**
+Three-quarter studio photograph of a closed natural Spanish-cedar cigar box with a brass hinge and clasp, the word "ARNALDO" hot-branded (burnt) deeply into the centre of the lid in classic serif capitals, a thin red-and-gold paper edging strip along the lid rim. No paper labels on the lid, no other text. Warm tungsten light, dark background, ultra-detailed wood grain.
+
+*Negative:* watermark, misspelled text, extra text, gibberish letters, flags, coat of arms, medals, crown, fleur-de-lis, laurel, tobacco leaf, knife, sickle, blurry, low resolution, paper label on lid, sticker
+
+**A3-5 · Caixa oberta amb vista**
+Overhead photograph of an open Spanish-cedar cigar box of 25 robustos in neat rows, each wearing a red-and-gold band with a gold central cartouche showing a small plain gold oval with no lettering. A decorative printed paper leaf folded back over the cigars at one end, cream with a fine red and gold border. Inside the lid a lithographed label: a large central oval with an engraved scene of a traditional thatched-roof tobacco curing house among tobacco fields with royal palms, framed by gold filigree, "ARNALDO" above on a ribbon in engraved serif capitals. Warm light.
+
+*Negative:* watermark, misspelled text, extra text, gibberish letters, flags, coat of arms, medals, crown, fleur-de-lis, laurel, tobacco leaf, knife, sickle, blurry, low resolution, lettering on the cigar bands
+
