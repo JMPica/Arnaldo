@@ -76,7 +76,7 @@ def img_crop(name, box, tag):
     return "file://" + dst
 
 
-I_N1 = img("arnaldo-a2-1-anilla-medallon-ret.png")
+I_N1 = img("arnaldo-a2-15-anilla-medallon-manos-ret.png") or img("arnaldo-a2-1-anilla-medallon-ret.png")
 I_N3 = img("arnaldo-a2-3-edicion-negra-ret.png")
 I_VISTA = img("arnaldo-a2-8-vista-casa-tabaco-ret.png") or img("arnaldo-a2-4-caja-vista-pano.png")
 I_N2 = img("arnaldo-a2-6-anilla-n2-oro-ret.png")
@@ -84,7 +84,8 @@ I_EMBLEMA = img("arnaldo-a2-7-emblema-chavetas-ret.png")
 I_GAMA = img("arnaldo-a2-9-tres-vitolas-ret.png")
 I_MANOS = img("arnaldo-a2-10-manos-torcedor-ret.png")
 I_HUMIDOR = img("arnaldo-a2-11-humidor-ret.png")
-C_MEDALLON = img_crop("arnaldo-a2-1-anilla-medallon-ret.png", (430, 150, 1050, 700), "medallon")
+C_MEDALLON = (img_crop("arnaldo-a2-15-anilla-medallon-manos-ret.png", (380, 180, 1100, 720), "medallon")
+              or img_crop("arnaldo-a2-1-anilla-medallon-ret.png", (430, 150, 1050, 700), "medallon"))
 C_YAGUA = img_crop("arnaldo-a2-3-edicion-negra-ret.png", (380, 70, 1060, 250), "yagua")
 
 
@@ -473,12 +474,12 @@ def build():
 <thead><tr><th style="width:15%">Referencia</th><th style="width:25%">Código que inspira</th><th style="width:33%">Traducción original ARNALDO</th><th>Prohibido copiar</th></tr></thead>
 <tbody>
 <tr><td><strong>Hoyo de Monterrey</strong></td><td>Medallón oval victoriano con viñeta grabada; filigrana de oro; rojo, oro y crema</td><td>Medallón oval con una viñeta grabada de <strong>las manos de Arnaldo en la mesa de torcer</strong> (o una casa de tabaco) y filigrana de oro</td><td>El jardín y la fuente, «José Gener», la composición de su anilla y su vista</td></tr>
-<tr><td><strong>Montecristo</strong></td><td>Emblema heráldico fuerte y simple; paleta reducida; lectura a distancia</td><td>Emblema de <strong>dos chavetas cruzadas</strong> (la cuchilla del torcedor) sobre una hoja de tabaco, en un sello propio</td><td>El triángulo, las espadas, la flor de lis y su combinación de colores</td></tr>
+<tr><td><strong>Montecristo</strong></td><td>Emblema heráldico fuerte y simple; paleta reducida; lectura a distancia</td><td>Emblema de <strong>la chaveta</strong> (la cuchilla de media luna del torcedor) bajo una hoja de tabaco, en un sello propio; sin hojas cruzadas, para evitar cualquier parecido con una hoz</td><td>El triángulo, las espadas, la flor de lis y su combinación de colores</td></tr>
 <tr><td><strong>Cohiba</strong></td><td>Patrón geométrico potente; minimalismo; versión negra de lujo (Behike)</td><td>Banda con un <strong>patrón inspirado en la yagua</strong> (la vaina de la palma real que envuelve los tercios de tabaco), en oro y negro, para la edición limitada</td><td>El damero blanco y negro, la cabeza taína y el amarillo Cohiba</td></tr>
 </tbody></table>
 <div class="grid3" style="margin-top:5mm;gap:6mm">
- <div><div style="height:30mm;background:url('{C_MEDALLON}') center/cover;border-radius:1mm"></div><p class="small" style="margin-top:1.5mm">Medallón con viñeta del torcedor · Nº 1</p></div>
- <div>{('<div style="height:30mm;background:url(' + chr(39) + I_EMBLEMA + chr(39) + ') center/cover;border-radius:1mm"></div>') if I_EMBLEMA else '<div style="height:30mm;border:1px dashed #C9A24A;border-radius:1mm;display:flex;align-items:center;justify-content:center;font-family:Cinzel;font-size:7.5pt;letter-spacing:.2em;color:#8A8073;text-align:center;padding:0 6mm">EMBLEMA DE CHAVETAS<br>EN DESARROLLO</div>'}<p class="small" style="margin-top:1.5mm">Chavetas cruzadas sobre hoja de tabaco · Nº 2</p></div>
+ <div><div style="height:30mm;background:url('{C_MEDALLON}') center/cover;border-radius:1mm"></div><p class="small" style="margin-top:1.5mm">Medallón con las manos del torcedor · Nº 1</p></div>
+ <div>{('<div style="height:30mm;background:url(' + chr(39) + I_EMBLEMA + chr(39) + ') center/cover;border-radius:1mm"></div>') if I_EMBLEMA else '<div style="height:30mm;border:1px dashed #C9A24A;border-radius:1mm;display:flex;align-items:center;justify-content:center;font-family:Cinzel;font-size:7.5pt;letter-spacing:.2em;color:#8A8073;text-align:center;padding:0 6mm">EMBLEMA DE CHAVETAS<br>EN DESARROLLO</div>'}<p class="small" style="margin-top:1.5mm">Hoja de tabaco sobre la chaveta · emblema</p></div>
  <div><div style="height:30mm;background:url('{C_YAGUA}') center/cover;border-radius:1mm"></div><p class="small" style="margin-top:1.5mm">Patrón de yagua en oro sobre laca negra · Nº 3</p></div>
 </div>
 <p class="small" style="margin-top:3mm">Comunes a todas: ni «Habana», ni «Cuba», ni «Habano»; sin escudos de Estado, medallas ni fechas. La firma real de Arnaldo irá dentro de la cartela. Las marcas citadas pertenecen a sus titulares y se mencionan solo como referencia de nivel.</p>
@@ -492,10 +493,10 @@ def build():
  <ul class="clean" style="margin-top:3mm">
   <li>Campo lacre con filetes de oro estampado y guilloché.</li>
   <li>Medallón oval troquelado con filigrana victoriana.</li>
-  <li>Viñeta grabada del torcedor en la mesa de torcer.</li>
+  <li>Viñeta grabada: las manos del torcedor en la mesa de torcer.</li>
   <li>Cinta esmaltada con <strong>ARNALDO</strong> en capitales grabadas.</li></ul>
  <p class="small" style="margin-top:5mm">En el arte final, la viñeta reproducirá las manos de Arnaldo y la cartela incorporará su firma real. Producción prevista: offset o tipografía + foil + relieve seco + troquel, a cepo real (≈90 × 17–20 mm).</p>
- <p class="cap">Render conceptual generado con IA (Qwen-Image). Retocado para corregir el espaciado del nombre.</p>
+ <p class="cap">Render conceptual generado con IA (Qwen-Image). Las manos son ilustrativas, no las de Arnaldo.</p>
 </div>""", dark=True, title="ANILLA Nº 1", left="192mm")
 
     # 12 · Nº 2 (si existe el render) y Nº 3
@@ -503,11 +504,12 @@ def build():
         add(f"""
 {fig(I_N2, "left:0;top:0;width:178mm;height:210mm")}
 <div style="position:absolute;left:192mm;right:16mm;top:24mm">
- <div class="kick">Habilitación · Nº 2 Toro</div><h1 style="font-size:26pt">La anilla de las chavetas</h1>
+ <div class="kick">Habilitación · Nº 2 Toro</div><h1 style="font-size:26pt">La anilla de oro</h1>
  <ul class="clean" style="margin-top:3mm">
   <li>Campo de oro con guilloché y bordes perlados.</li>
-  <li>Sello central con dos chavetas cruzadas sobre una hoja de tabaco.</li>
-  <li><strong>ARNALDO</strong> y «Nº 2» en tinta lacre.</li></ul>
+  <li>Sello central lacre con una hoja de tabaco grabada en oro.</li>
+  <li><strong>ARNALDO</strong> en lacre y «Nº 2» en oro.</li>
+  <li>Junto al puro, la chaveta: la cuchilla de media luna del torcedor.</li></ul>
  <p class="cap" style="margin-top:6mm">Render conceptual generado con IA (Qwen-Image).</p>
 </div>""", dark=True, title="ANILLA Nº 2", left="192mm")
 

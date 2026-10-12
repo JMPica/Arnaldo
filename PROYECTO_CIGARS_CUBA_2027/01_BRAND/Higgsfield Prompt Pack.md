@@ -46,7 +46,7 @@ Regles comunes:
 | Referència | Codi que inspira | Traducció original ARNALDO | Prohibit copiar |
 |---|---|---|---|
 | **Hoyo de Monterrey** | Medalló oval victorià amb vinyeta gravada, filigrana d'or, vermell/or/crema | Medalló oval amb una vinyeta gravada de **les mans d'Arnaldo a la mesa de torcer** (o una casa de tabac), filigrana d'or | El jardí/font, «José Gener», la composició de la seva anella i la seva vista |
-| **Montecristo** | Emblema heràldic fort i simple, paleta molt reduïda, lectura a distància | Emblema de **dues chavetes creuades** (el ganivet del torcedor) sobre una fulla de tabac, dins d'un escut o cercle propi | El triangle, les espases, la flor de lis, la combinació marró/blanc/vermell en el seu ordre |
+| **Montecristo** | Emblema heràldic fort i simple, paleta molt reduïda, lectura a distància | Emblema de **la chaveta** (el ganivet de mitja lluna del torcedor) sota una fulla de tabac, dins d'un cercle propi. *Actualitzat el 12/10/2026: sense fulles creuades, perquè als renders semblaven falçs.* | El triangle, les espases, la flor de lis, la combinació marró/blanc/vermell en el seu ordre |
 | **Cohiba** | Patró geomètric potent al cos de l'anella, minimalisme, versió negra de luxe (Behike) | Banda de **trenat de yagua** (teixit de fulla de palma dels tercios) en or i negre; versió negra per a l'edició limitada | El quadriculat blanc i negre, el cap taíno, el groc Cohiba |
 
 Comuns a totes:

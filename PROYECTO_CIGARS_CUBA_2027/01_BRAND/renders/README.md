@@ -15,7 +15,7 @@ Generats el 10/10/2026 amb l'Space `mcp-tools/Qwen-Image` (16 passos, guidance 4
 | Fitxer | Prompt | Estat | Notes |
 |---|---|---|---|
 | arnaldo-a2-1-anilla-medallon.png | A2-1 | Original | El nom surt «ARNA·L·DO», amb punts de més |
-| **arnaldo-a2-1-anilla-medallon-ret.png** | A2-1 | ✅ Al dossier | Punts eliminats i lletres reespaiades (`_build/renders/fix_a21_ribbon.py`). La vinyeta mostra un torcedor genèric, no Arnaldo |
+| arnaldo-a2-1-anilla-medallon-ret.png | A2-1 | Substituït per A2-15 | Punts eliminats i lletres reespaiades (`_build/renders/fix_a21_ribbon.py`). La vinyeta mostra un torcedor genèric, no Arnaldo |
 | arnaldo-a2-2-emblema-chavetas.png | A2-2 | ❌ Descartat | Text inventat, «-R-N-A-L-D-», ganivets de cuina |
 | arnaldo-a2-2-emblema-chavetas-v2.png | A2-2 (prompt ajustat) | ❌ Descartat | Text inventat («CHAI… EITS») i concepte confús (puro + mànec); el retoc no queda net. Es regenera (A2-7) |
 | arnaldo-a2-3-edicion-negra.png | A2-3 | Original | Quadriculat (codi Cohiba prohibit) i guionet de més a «Nº- 3» |
@@ -33,9 +33,13 @@ Generats el 10/10/2026 amb l'Space `mcp-tools/Qwen-Image` (16 passos, guidance 4
 | arnaldo-a2-10-manos-torcedor.png | A2-10 (11/10) | ❌ Descartat | Ganivet impossible; anelles de colors que recorden marques de Habanos |
 | arnaldo-a2-11-humidor.png | A2-11 (11/10) | ❌ Descartat | Etiquetes amb pseudotext i anelles que recorden Habanos |
 
+| **arnaldo-a2-15-anilla-medallon-manos-ret.png** (= -s1) | A2-15 (12/10) | ✅ Al dossier (Nº 1) | Només mans, sense cara; «ARNALDO» net. Substitueix A2-1-ret. La variant -s2 mostra el tors (no s'usa) |
+| **arnaldo-a2-6-anilla-n2-oro-ret.png** (= A2-14-s1) | A2-14 (12/10) | ✅ Al dossier (Nº 2) | Segell lacre amb una fulla de tabac; «ARNALDO» i «Nº 2» correctes; chaveta real al costat del puro. La variant -s2 té un objecte ambigu al segell |
+| **arnaldo-a2-7-emblema-chavetas-ret.png** (= A2-13-s2) | A2-13 (12/10) | ✅ Al dossier (emblema) | Fulla de tabac sobre una chaveta de mitja lluna, sense fulles creuades. La variant -s1 barreja un puro i un ganivet (no s'usa) |
+
 Retoc i revisió: cada imatge s'ha revisat lletra per lletra; al dossier només hi van les marcades ✅.
 
-**Cua pendent** (`_build/renders/queue_2026-10-11b.json`, quota ZeroGPU esgotada l'11/10): A2-13 emblema amb una chaveta tipus *ulu* sota la fulla (sense fulles creuades), A2-14 anella Nº 2 amb aquest emblema, A2-15 medalló amb només les mans. Generar amb `python3 -I _build/renders/gen_qwen.py _build/renders/queue_2026-10-11b.json PROYECTO_CIGARS_CUBA_2027/01_BRAND/renders --seeds=2`. El dossier les incorpora automàticament quan hi ha la versió `-ret.png` revisada.
+**Cua**: sense renders pendents per al dossier. Opcionals si cal més endavant: tres vitoles juntes, mans del torcedor i humidor (els intents de l'11/10 tenien pseudotext o anelles que recordaven Habanos).
 
 Dossier per a inversors: `../ARNALDO Brand Dossier.pdf` (`_build/build_dossier.py`).
 
