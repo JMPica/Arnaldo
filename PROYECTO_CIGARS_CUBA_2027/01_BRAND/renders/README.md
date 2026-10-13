@@ -46,19 +46,21 @@ Generats el 10/10/2026 amb l'Space `mcp-tools/Qwen-Image` (16 passos, guidance 4
 Retoc i revisió: cada imatge s'ha revisat lletra per lletra; al dossier només hi van les marcades ✅.
 
 
-## Ruta A v4 · «Montecristo × Hoyo de Monterrey» (13/10/2026)
+## Disseny de la casa · l'anella clàssica (13/10/2026)
 
-Els renders de la v3 no arriben al nivell buscat i el promotor demana centrar-se en Montecristo i Hoyo de Monterrey. Canvi de mètode: **l'art amb text és vectorial** (`_build/brand_v4.py` → `../assets/v4/`, text convertit a traçats, sense errors possibles) i **la IA només genera fotografies sense text**, sobre les quals es compon l'art.
+El promotor tria l'anella clàssica com a disseny de la casa i demana mantenir-la. La Ruta A v4 (anella marfil amb monograma «A», `../assets/_v4_descartada/`) queda descartada.
 
 | Fitxer | Origen | Estat | Notes |
 |---|---|---|---|
-| **arnaldo-v4-caja-marca-fuego.png** | A3-4 + marca a foc v4 | ✅ Al dossier (caixa) | Marca generada esborrada amb veta real; emblema i ARNALDO vectorials gravats amb homografia al pla de la tapa (`_build/renders/mock_v4_caja.py`) |
-| ../assets/v4/arnaldo-v4-anilla-n1/-n2/-n3-negra | Vectorial | ✅ Al dossier | Anelles Nº 1 (marfil i lacre), Nº 2 (marfil i negre), Nº 3 (negra i lacre) |
-| ../assets/v4/arnaldo-v4-anilla-pliego, -emblema, -vista, -marca-fuego | Vectorial | ✅ Al dossier | Segona anella, monograma, vista i marca a foc |
+| arnaldo-render-anilla-clasica.png | Runway · Nano Banana Pro (10/10) | Original | Disseny triat. La signatura diu «Arnald Jonato» (inventada per la IA) |
+| **arnaldo-render-anilla-clasica-ret.png** | Retoc | ✅ Al dossier (portada i Nº 1) | Signatura inventada esborrada sobre la laca i substituïda per «Arnaldo» en cal·ligrafia provisional (`_build/renders/fix_clasica_firma.py`); la resta, intacta |
+| **arnaldo-caja-marca-fuego.png** | A3-4 + marca a foc | ✅ Al dossier (caixa) | Marca generada esborrada amb veta real; ARNALDO i la signatura vectorials gravats amb homografia (`_build/renders/mock_caja_fuego.py`) |
+| ../assets/clasica/arnaldo-anilla-n1/-n2/-n3-negra | Vectorial | ✅ Al dossier | L'anella redibuixada: banda lacre (Nº 1), marfil (Nº 2) i negra (Nº 3) |
+| ../assets/clasica/arnaldo-anilla-pliego, -medallon, -vista, -marca-fuego | Vectorial | ✅ Al dossier | Segona anella, oval, vista i marca a foc (`_build/brand_clasica.py`) |
 
 Les imatges de la v3 (A3-1, A3-4-ret, A3-5-ret) i de la v2 ja no surten al dossier; es conserven com a exploració.
 
-**Cua** (`_build/renders/queue_2026-10-14-v4.json`, programada el 14/10 a les 15:45 UTC): fotos sense text (puro dret amb anella llisa, tres vitoles, caixa clavada, caixa oberta amb la tapa interior en blanc, vinyeta gravada) per compondre-hi l'art vectorial.
+**Cua** (`_build/renders/queue_2026-10-14-v4.json`, programada el 14/10 a les 15:45 UTC): fotos sense text (puro dret amb anella llisa, tres vitoles, caixa clavada, caixa oberta amb la tapa interior en blanc, vinyeta gravada) per compondre-hi l'anella de la casa.
 
 Dossier per a inversors: `../ARNALDO Brand Dossier.pdf` (`_build/build_dossier.py`).
 

@@ -51,26 +51,28 @@ El promotor descarta los emblemas de hoja y chaveta de la v2: la marca debe pare
 
 Se mantienen los límites: nada de «Habana», «Cuba» o «Habano», escudos, medallas, fechas, sellos de garantía ni la composición concreta de ninguna anilla. Prompts en `Higgsfield Prompt Pack.md` (Ruta A v3) y estado de los renders en `01_BRAND/renders/README.md`.
 
-**Nota (13/10/2026)**: los renders de la v3 no alcanzan el nivel buscado; la recomendación pasa a la Ruta A v4 (abajo).
+**Nota (13/10/2026)**: los renders de la v3 no alcanzan el nivel buscado. Una Ruta A v4 vectorial (anilla marfil con monograma «A») se descartó el mismo día: el promotor elige la **anilla clásica** como diseño de la casa (abajo).
 
-# Ruta A v4 «Montecristo × Hoyo de Monterrey» (13/10/2026) — recomendada
+# Diseño de la casa: la anilla clásica (13/10/2026) — elegido por el promotor
 
-El promotor pide centrar la marca en **Montecristo** y **Hoyo de Monterrey**. La v4 toma de cada una su forma de construir la habilitación, no sus elementos:
+El promotor elige como referencia definitiva el render «anilla clásica» de la primera exploración y pide mantenerlo: **banda lacre con cantos de oro perlados, óvalo central troquelado de laca negra enmarcado en oro con guilloché, ARNALDO en capitales romanas de oro y la firma debajo**. Sin monograma ni emblema: la firma hace de signo.
 
-| Código | Hoyo de Monterrey | Montecristo | ARNALDO v4 | Lo que no se toma |
+| Código | Hoyo de Monterrey | Montecristo | ARNALDO | Lo que no se toma |
 |---|---|---|---|---|
-| Campo de la anilla | Dominante blanca [PROBABLE] (S59) | Campo oscuro con filigrana de oro y bordes blancos [PROBABLE] (S60) | Marfil con filigrana de oro en ondas; versión negra para la Nº 3 | El marrón de Montecristo y su orden de colores |
-| Centro | Logotipo rojo central con el nombre en blanco (S59) | Emblema en relieve de oro (S60) | Medallón oval lacre troquelado con ARNALDO en marfil | Su logotipo y la composición de su anilla |
-| Emblema | — | Un solo signo fuerte: espadas y flor de lis [PROBABLE] (S61) | Monograma «A» en un óvalo perlado, encima del medallón | Triángulo, espadas, flor de lis, coronas |
-| Nombre | Letras blancas sobre rojo | Romanas gruesas, lectura a distancia | Playfair Display 900 (provisional); definitivo dibujado a medida | Sus tipografías |
+| Centro | Logotipo rojo central con el nombre en blanco [PROBABLE] (S59) | Emblema en relieve de oro [PROBABLE] (S60) | Óvalo de laca negra con marco de oro en guilloché | Su logotipo y la composición de su anilla |
+| Nombre | Letras blancas sobre rojo | Romanas gruesas, lectura a distancia | ARNALDO en capitales romanas de oro, en arco (Cinzel, provisional) | Sus tipografías |
+| Signo | — | Un solo signo: espadas y flor de lis [PROBABLE] (S61) | La firma de Arnaldo (la anilla nació como firma del fabricante [PROBABLE] (S55)) | Triángulo, espadas, flor de lis, coronas |
+| Campo y paleta | Dominante blanca (S59) | Campo oscuro con filigrana de oro (S60) | Lacre (Nº 1), marfil (Nº 2), negro laca (Nº 3), con oro | El marrón de Montecristo y su orden de colores |
 | Segunda anilla | «Epicure» en su línea (S59) | — | «PLIEGO DE AUTOR», lacre y oro | «Habana», años, medallas |
-| Caja | Vista con escena grabada en óvalo | Cedro con la marca, sobria | Cedro con la marca a fuego; vista marfil y lacre con óvalo central | Jardín y fuente, «José Gener» |
+| Caja | Vista con escena grabada en óvalo | Cedro con la marca, sobria | Cedro con ARNALDO y la firma a fuego; vista con el óvalo de la casa | Jardín y fuente, «José Gener» |
 
-**Método sin errores de texto.** Las anillas (Nº 1 marfil y lacre, Nº 2 marfil y negro, Nº 3 negra y lacre), la segunda anilla, el emblema, la vista y la marca a fuego son **arte vectorial** (`_build/brand_v4.py` → `01_BRAND/assets/v4/`) con el texto convertido a trazados desde fuentes SIL OFL 1.1. La IA solo genera **fotografías sin texto** (puro con anilla lisa, caja sin marcar, viñeta grabada), y el arte se compone encima: deformación cilíndrica en el puro y homografía en tapas y vistas (`_build/renders/mock_v4_caja.py`).
+**Firma.** El render original llevaba una firma inventada por la IA con un apellido («Arnald Jonato»); se ha sustituido por «Arnaldo» en caligrafía provisional (`_build/renders/fix_clasica_firma.py`). En el arte final irá la firma real de Arnaldo vectorizada, con su consentimiento.
 
-<figure><img src="file:///home/user/Arnaldo/PROYECTO_CIGARS_CUBA_2027/01_BRAND/assets/v4/arnaldo-v4-anilla-n1.png" style="width:100%"><figcaption>Ruta A v4: anilla Nº 1 (arte vectorial provisional).</figcaption></figure>
+**Arte vectorial.** La anilla (Nº 1, Nº 2, Nº 3), la segunda anilla, el óvalo, la vista y la marca a fuego están redibujados en vectorial (`_build/brand_clasica.py` → `01_BRAND/assets/clasica/`), con el texto convertido a trazados desde fuentes SIL OFL 1.1. La IA solo genera fotografías sin texto, sobre las que se compone ese arte (`_build/renders/mock_caja_fuego.py`).
 
-<figure><img src="file:///home/user/Arnaldo/PROYECTO_CIGARS_CUBA_2027/01_BRAND/renders/arnaldo-v4-caja-marca-fuego.png" style="width:60%"><figcaption>Maqueta: caja de cedro con la marca v4 grabada a fuego en el plano de la tapa.</figcaption></figure>
+<figure><img src="file:///home/user/Arnaldo/PROYECTO_CIGARS_CUBA_2027/01_BRAND/renders/arnaldo-render-anilla-clasica-ret.png" style="width:70%"><figcaption>La anilla clásica, diseño de la casa (render conceptual con la firma retocada).</figcaption></figure>
+
+<figure><img src="file:///home/user/Arnaldo/PROYECTO_CIGARS_CUBA_2027/01_BRAND/assets/clasica/arnaldo-anilla-n1.png" style="width:100%"><figcaption>La anilla redibujada en vectorial (arte provisional).</figcaption></figure>
 
 # Objetivo del encargo
 

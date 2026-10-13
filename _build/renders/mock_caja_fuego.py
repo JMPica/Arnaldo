@@ -1,5 +1,5 @@
-# Maqueta v4: sobre la caja de cedro A3-4 se borra la marca generada y se graba a fuego la marca v4
-# (emblema + ARNALDO + PLIEGO DE AUTOR, arte vectorial) proyectada en el plano de la tapa (homografía).
+# Maqueta: sobre la caja de cedro A3-4 se borra la marca generada y se graba a fuego la marca de la casa
+# (ARNALDO entre filetes + firma provisional, arte vectorial) proyectada en el plano de la tapa (homografía).
 import sys, os, numpy as np, cv2
 from PIL import Image
 src, stamp, dst = sys.argv[1:4]
@@ -21,7 +21,7 @@ wood = im.astype(float) * (1 - feather) + grain * feather
 quad = np.float32([[30, 398], [1098, 222], [1372, 512], [238, 716]])
 unit = np.float32([[0, 0], [1, 0], [1, 1], [0, 1]])
 Hm = cv2.getPerspectiveTransform(unit, quad)
-st = np.array(Image.open(stamp).convert("RGBA")).astype(np.float32)[:645, :, 3] / 255.0  # sin la línea pequeña (ilegible a este tamaño)
+st = np.array(Image.open(stamp).convert("RGBA")).astype(np.float32)[..., 3] / 255.0
 sh, sw = st.shape
 u0, u1 = 0.28, 0.72                       # ancho del sello en la tapa
 vspan = (u1 - u0) * 2.5 * sh / sw        # proporción aparente de la tapa calibrada con las letras del render
