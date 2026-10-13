@@ -75,7 +75,7 @@ Studio photograph of three premium cigars standing upright (robusto, toro, churc
 
 ---
 
-# RUTA A v3 — «Casa cubana clàssica» (12/10/2026, recomanada)
+# RUTA A v3 — «Casa cubana clàssica» (12/10/2026, substituïda per la v4)
 
 *El promotor descarta la fulla i la chaveta de la v2. La v3 adopta la gramàtica comuna de les cases de Habanos (anella lacre i or amb cartel·la troquelada, perlat, segona anella de sèrie, caixa de cedre amb la marca a foc) i hi posa el nom i la signatura reals d'Arnaldo. Els límits de la v2 es mantenen.*
 
@@ -104,3 +104,31 @@ Overhead photograph of an open Spanish-cedar cigar box of 25 robustos in neat ro
 
 *Negative:* watermark, misspelled text, extra text, gibberish letters, flags, coat of arms, medals, crown, fleur-de-lis, laurel, tobacco leaf, knife, sickle, blurry, low resolution, lettering on the cigar bands
 
+# RUTA A v4 — «Montecristo × Hoyo de Monterrey» (13/10/2026, recomanada)
+
+*Els renders de la v3 no arriben al nivell buscat. La v4 se centra en Montecristo i Hoyo de Monterrey (taula de codis al dossier, pàgina «Dirección creativa»). Canvi de mètode: l'art amb text (anelles, vista, marca a foc) és vectorial (`_build/brand_v4.py`) i la IA només fa **fotografies sense text**, sobre les quals es compon l'art. Així no hi pot haver errors de lletra.*
+
+**V4-P1 · Puro dret amb anella llisa (per compondre-hi l'anella Nº 1)** · format 3:4
+Studio product photograph of one premium Cuban-style robusto cigar standing perfectly upright and centered, seen straight-on at eye level, rich colorado-maduro wrapper with fine veins and a slight oily sheen, neat triple-cap head at the top. Around the upper third of the cigar sits a wide plain band of smooth unprinted ivory paper with nothing printed on it: no text, no logo, no ornament, completely blank. Warm raking light from the left, deep black background, crisp focus, 100mm macro lens, high-end catalogue photography.
+
+*Negative:* text, letters, words, logo, monogram, print on band, pattern on band, label, stamp, watermark, signature, numbers, flags, coat of arms, medals, crown, fleur-de-lis, tobacco leaf on band, knife, sickle, blurry, low resolution, cartoon, illustration
+
+**V4-P3 · Caixa de cedre clavada, tapa sense marca (per gravar-hi la marca a foc)** · format 4:3
+Product photograph of a traditional nailed Spanish-cedar cigar box in the classic Cuban style (boite nature), closed, seen from the front at a 35-degree elevated angle, pale natural cedar with straight grain, small brass nails along the edges, a thin plain ivory paper strip sealing the front edge, completely plain unmarked lid with nothing printed or burned on it. Warm low-key light, black background, realistic, sharp, high-end catalogue photography.
+
+*Negative:* text, letters, words, logo, monogram, print on band, pattern on band, label, stamp, watermark, signature, numbers, flags, coat of arms, medals, crown, fleur-de-lis, tobacco leaf on band, knife, sickle, blurry, low resolution, cartoon, illustration, clasp, latch, hinge, varnish, lacquer
+
+**V4-P5 · Vinyeta gravada sense text (per a l'oval de la vista)** · format 4:3
+Antique nineteenth-century steel engraving, a single oval vignette of fine cross-hatched line work printed in one sepia-brown ink on cream paper: a Cuban tobacco plantation at dawn, neat rows of tobacco plants in the foreground, a palm-thatched tobacco curing house in the middle distance, tall royal palms and soft hills behind, rays of the rising sun in the sky. Classic banknote and cigar-box lithography engraving style, highly detailed, no frame, plain cream margins.
+
+*Negative:* text, letters, words, numbers, signature, watermark, frame, border, color, flags, people, fountain, garden, barn, blurry, low resolution
+
+**V4-P2 · Tres vitoles amb anelles llises (gamma)** · format 4:3
+Studio product photograph of three premium Cuban-style cigars standing perfectly upright side by side on a dark walnut surface, seen straight-on at eye level: a short robusto on the left, a longer toro in the middle and a long slender churchill on the right, all with colorado wrappers and neat triple caps. Each wears a wide plain band of smooth unprinted ivory paper in its upper third, completely blank with nothing printed. Warm raking light, black background, crisp focus, high-end catalogue photography.
+
+*Negative:* text, letters, words, logo, monogram, print on band, pattern on band, label, stamp, watermark, signature, numbers, flags, coat of arms, medals, crown, fleur-de-lis, tobacco leaf on band, knife, sickle, blurry, low resolution, cartoon, illustration
+
+**V4-P4 · Caixa oberta amb la tapa interior en blanc (per a la vista)** · format 4:3
+Overhead photograph at a 60-degree angle of an open traditional Spanish-cedar cigar box holding ten robusto cigars in one neat row, each cigar wearing a plain unprinted ivory paper band with nothing printed on it. The inside of the raised lid is covered with a completely blank smooth ivory paper sheet edged by a thin gold border, nothing printed on it. Thin gold-and-ivory edge paper along the box rim. Warm tungsten light, dark background, realistic, sharp, high-end catalogue photography.
+
+*Negative:* text, letters, words, logo, monogram, print on band, pattern on band, label, stamp, watermark, signature, numbers, flags, coat of arms, medals, crown, fleur-de-lis, tobacco leaf on band, knife, sickle, blurry, low resolution, cartoon, illustration

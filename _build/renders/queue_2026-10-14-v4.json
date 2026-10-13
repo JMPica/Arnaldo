@@ -1,0 +1,32 @@
+[
+ {
+  "id": "arnaldo-v4-p1-puro-anilla-lisa",
+  "ratio": "3:4",
+  "prompt": "Studio product photograph of one premium Cuban-style robusto cigar standing perfectly upright and centered, seen straight-on at eye level, rich colorado-maduro wrapper with fine veins and a slight oily sheen, neat triple-cap head at the top. Around the upper third of the cigar sits a wide plain band of smooth unprinted ivory paper with nothing printed on it: no text, no logo, no ornament, completely blank. Warm raking light from the left, deep black background, crisp focus, 100mm macro lens, high-end catalogue photography.",
+  "negative": "text, letters, words, logo, monogram, print on band, pattern on band, label, stamp, watermark, signature, numbers, flags, coat of arms, medals, crown, fleur-de-lis, tobacco leaf on band, knife, sickle, blurry, low resolution, cartoon, illustration"
+ },
+ {
+  "id": "arnaldo-v4-p3-caja-clavada",
+  "ratio": "4:3",
+  "prompt": "Product photograph of a traditional nailed Spanish-cedar cigar box in the classic Cuban style (boite nature), closed, seen from the front at a 35-degree elevated angle, pale natural cedar with straight grain, small brass nails along the edges, a thin plain ivory paper strip sealing the front edge, completely plain unmarked lid with nothing printed or burned on it. Warm low-key light, black background, realistic, sharp, high-end catalogue photography.",
+  "negative": "text, letters, words, logo, monogram, print on band, pattern on band, label, stamp, watermark, signature, numbers, flags, coat of arms, medals, crown, fleur-de-lis, tobacco leaf on band, knife, sickle, blurry, low resolution, cartoon, illustration, clasp, latch, hinge, varnish, lacquer"
+ },
+ {
+  "id": "arnaldo-v4-p5-vineta-grabada",
+  "ratio": "4:3",
+  "prompt": "Antique nineteenth-century steel engraving, a single oval vignette of fine cross-hatched line work printed in one sepia-brown ink on cream paper: a Cuban tobacco plantation at dawn, neat rows of tobacco plants in the foreground, a palm-thatched tobacco curing house in the middle distance, tall royal palms and soft hills behind, rays of the rising sun in the sky. Classic banknote and cigar-box lithography engraving style, highly detailed, no frame, plain cream margins.",
+  "negative": "text, letters, words, numbers, signature, watermark, frame, border, color, flags, people, fountain, garden, barn, blurry, low resolution"
+ },
+ {
+  "id": "arnaldo-v4-p2-tres-vitolas-lisas",
+  "ratio": "4:3",
+  "prompt": "Studio product photograph of three premium Cuban-style cigars standing perfectly upright side by side on a dark walnut surface, seen straight-on at eye level: a short robusto on the left, a longer toro in the middle and a long slender churchill on the right, all with colorado wrappers and neat triple caps. Each wears a wide plain band of smooth unprinted ivory paper in its upper third, completely blank with nothing printed. Warm raking light, black background, crisp focus, high-end catalogue photography.",
+  "negative": "text, letters, words, logo, monogram, print on band, pattern on band, label, stamp, watermark, signature, numbers, flags, coat of arms, medals, crown, fleur-de-lis, tobacco leaf on band, knife, sickle, blurry, low resolution, cartoon, illustration"
+ },
+ {
+  "id": "arnaldo-v4-p4-caja-abierta-lisa",
+  "ratio": "4:3",
+  "prompt": "Overhead photograph at a 60-degree angle of an open traditional Spanish-cedar cigar box holding ten robusto cigars in one neat row, each cigar wearing a plain unprinted ivory paper band with nothing printed on it. The inside of the raised lid is covered with a completely blank smooth ivory paper sheet edged by a thin gold border, nothing printed on it. Thin gold-and-ivory edge paper along the box rim. Warm tungsten light, dark background, realistic, sharp, high-end catalogue photography.",
+  "negative": "text, letters, words, logo, monogram, print on band, pattern on band, label, stamp, watermark, signature, numbers, flags, coat of arms, medals, crown, fleur-de-lis, tobacco leaf on band, knife, sickle, blurry, low resolution, cartoon, illustration"
+ }
+]

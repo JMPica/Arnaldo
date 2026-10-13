@@ -126,6 +126,12 @@ SOURCES = [
      "Vista (imagen superior que celebra la marca), bofetón o filete (hoja protectora decorada), larguero (tira de los lados largos con la marca) y costero (tira de los lados cortos con la vitola).", "PROBABLE"),
     ("S58", "Cigar Aficionado — Habanos S.A. (ficha de la compañía)", "https://www.cigaraficionado.com/company/habanos-s-a", "Secundaria",
      "Bolívar (creada en 1902): la imagen de su epónimo, Simón Bolívar, forma parte de la marca.", "PROBABLE"),
+    ("S59", "Cigar Aficionado — How to spot a fake Hoyo de Monterrey", "https://www.cigaraficionado.com/article/how-to-spot-a-fake-hoyo-de-monterrey", "Secundaria",
+     "Anilla estándar de Hoyo de Monterrey: mayoritariamente blanca, con un logotipo rojo central y el nombre en letras blancas; la línea Epicure añade una segunda anilla.", "PROBABLE"),
+    ("S60", "Simply Cigars — Montecristo 80th anniversary", "https://www.simplycigars.co.uk/guide/montecristo-80th-anniversary-cubas-best-selling-brand-1907/", "Secundaria",
+     "Anilla de Montecristo: campo marrón con filigrana de oro y bordes blancos; la flor de lis central va en relieve de oro desde 2013.", "PROBABLE"),
+    ("S61", "JJ Fox — 1935, the year of Montecristo", "https://jjfox.co.uk/blog/cigar-brands/1935-the-year-of-montecristo", "Secundaria",
+     "Montecristo nace en 1935 (Alonso Menéndez, fábrica Particulares); su emblema es un triángulo de espadas en torno a una flor de lis.", "PROBABLE"),
     ("S54", "Diario de Cuba / Cigars-Connect / Nicotine Insider — Tabacalera bajo supervisión del Tesoro tras las sanciones UE a Chen Zhi (ago.–sep. 2026)", "https://www.cigars-connect.com/en/tabacalera-placed-under-spanish-treasury-oversight-following-eu-sanctions-against-chen-zhi/", "Secundaria (varias fuentes coincidentes)",
      "UE sanciona a Chen Zhi y Prince Holding Group (30/07/2026); Chen Zhi controlaba indirectamente el 57,1% de Allied Cigar; Tabacalera (controla ITI Cigars, 50% de Habanos S.A.) opera con cuentas bloqueadas y necesita autorización del Tesoro para pagar; su CEO comunicó que la empresa está sujeta a las sanciones. Las autoridades no lo han confirmado públicamente.", "PROBABLE"),
     # Normas citadas por conocimiento jurídico del equipo, no releídas en línea en esta sesión

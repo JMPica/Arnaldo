@@ -35,7 +35,7 @@ Segunda ronda de exploración, que eleva el listón con tres referencias de Haba
 
 **Nota (12/10/2026)**: la v2 queda como exploración; la recomendación pasa a la Ruta A v3 (abajo). Estado de cada render y retoques: `01_BRAND/renders/README.md`.
 
-# Ruta A v3 «Casa cubana clásica» (12/10/2026) — recomendada
+# Ruta A v3 «Casa cubana clásica» (12/10/2026)
 
 El promotor descarta los emblemas de hoja y chaveta de la v2: la marca debe parecerse más a las casas de Habanos actuales y tradicionales. La v3 adopta la **gramática común** de esas casas y la llena con contenido propio:
 
@@ -50,6 +50,27 @@ El promotor descarta los emblemas de hoja y chaveta de la v2: la marca debe pare
 | Caja de cedro natural | ARNALDO marcado a fuego en la tapa |
 
 Se mantienen los límites: nada de «Habana», «Cuba» o «Habano», escudos, medallas, fechas, sellos de garantía ni la composición concreta de ninguna anilla. Prompts en `Higgsfield Prompt Pack.md` (Ruta A v3) y estado de los renders en `01_BRAND/renders/README.md`.
+
+**Nota (13/10/2026)**: los renders de la v3 no alcanzan el nivel buscado; la recomendación pasa a la Ruta A v4 (abajo).
+
+# Ruta A v4 «Montecristo × Hoyo de Monterrey» (13/10/2026) — recomendada
+
+El promotor pide centrar la marca en **Montecristo** y **Hoyo de Monterrey**. La v4 toma de cada una su forma de construir la habilitación, no sus elementos:
+
+| Código | Hoyo de Monterrey | Montecristo | ARNALDO v4 | Lo que no se toma |
+|---|---|---|---|---|
+| Campo de la anilla | Dominante blanca [PROBABLE] (S59) | Campo oscuro con filigrana de oro y bordes blancos [PROBABLE] (S60) | Marfil con filigrana de oro en ondas; versión negra para la Nº 3 | El marrón de Montecristo y su orden de colores |
+| Centro | Logotipo rojo central con el nombre en blanco (S59) | Emblema en relieve de oro (S60) | Medallón oval lacre troquelado con ARNALDO en marfil | Su logotipo y la composición de su anilla |
+| Emblema | — | Un solo signo fuerte: espadas y flor de lis [PROBABLE] (S61) | Monograma «A» en un óvalo perlado, encima del medallón | Triángulo, espadas, flor de lis, coronas |
+| Nombre | Letras blancas sobre rojo | Romanas gruesas, lectura a distancia | Playfair Display 900 (provisional); definitivo dibujado a medida | Sus tipografías |
+| Segunda anilla | «Epicure» en su línea (S59) | — | «PLIEGO DE AUTOR», lacre y oro | «Habana», años, medallas |
+| Caja | Vista con escena grabada en óvalo | Cedro con la marca, sobria | Cedro con la marca a fuego; vista marfil y lacre con óvalo central | Jardín y fuente, «José Gener» |
+
+**Método sin errores de texto.** Las anillas (Nº 1 marfil y lacre, Nº 2 marfil y negro, Nº 3 negra y lacre), la segunda anilla, el emblema, la vista y la marca a fuego son **arte vectorial** (`_build/brand_v4.py` → `01_BRAND/assets/v4/`) con el texto convertido a trazados desde fuentes SIL OFL 1.1. La IA solo genera **fotografías sin texto** (puro con anilla lisa, caja sin marcar, viñeta grabada), y el arte se compone encima: deformación cilíndrica en el puro y homografía en tapas y vistas (`_build/renders/mock_v4_caja.py`).
+
+<figure><img src="file:///home/user/Arnaldo/PROYECTO_CIGARS_CUBA_2027/01_BRAND/assets/v4/arnaldo-v4-anilla-n1.png" style="width:100%"><figcaption>Ruta A v4: anilla Nº 1 (arte vectorial provisional).</figcaption></figure>
+
+<figure><img src="file:///home/user/Arnaldo/PROYECTO_CIGARS_CUBA_2027/01_BRAND/renders/arnaldo-v4-caja-marca-fuego.png" style="width:60%"><figcaption>Maqueta: caja de cedro con la marca v4 grabada a fuego en el plano de la tapa.</figcaption></figure>
 
 # Objetivo del encargo
 

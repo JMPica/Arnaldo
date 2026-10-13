@@ -76,21 +76,26 @@ def img_crop(name, box, tag):
     return "file://" + dst
 
 
-I_CASA = img("arnaldo-a3-1-anilla-casa-ret.png")          # Ruta A v3: anilla de la casa
-I_FIRMA = img("arnaldo-a3-2-anilla-firma-ret.png")        # Ruta A v3: variante con firma caligráfica
-I_DOBLE = img("arnaldo-a3-3-doble-anilla-ret.png")        # Ruta A v3: anilla + segunda anilla «Pliego de autor»
-I_CAJA = img("arnaldo-a3-4-caja-fuego-ret.png")           # Ruta A v3: caja de cedro con la marca a fuego
-I_MEDALLON = img("arnaldo-a2-15-anilla-medallon-manos-ret.png") or img("arnaldo-a2-1-anilla-medallon-ret.png")
-I_N1 = I_CASA or I_MEDALLON
-I_N3 = img("arnaldo-a2-3-edicion-negra-ret.png")
-I_VISTA = (img("arnaldo-a3-5-caja-abierta-casa-ret.png") or img("arnaldo-a2-8-vista-casa-tabaco-ret.png")
-           or img("arnaldo-a2-4-caja-vista-pano.png"))
-I_GAMA = img("arnaldo-a2-9-tres-vitolas-ret.png")
+V4 = os.path.join(ROOT, "01_BRAND", "assets", "v4")
+
+
+def art(name):
+    """Arte final vectorial de la Ruta A v4 (SVG, se imprime como vector); None si no existe."""
+    p = os.path.join(V4, name)
+    return "file://" + p if os.path.exists(p) else None
+
+
+# Ruta A v4 «Montecristo × Hoyo de Monterrey»: arte vectorial (texto en trazados, sin errores posibles)
+A_N1, A_N2, A_N3 = art("arnaldo-v4-anilla-n1.svg"), art("arnaldo-v4-anilla-n2.svg"), art("arnaldo-v4-anilla-n3-negra.svg")
+A_PLIEGO, A_EMBLEMA = art("arnaldo-v4-anilla-pliego.svg"), art("arnaldo-v4-emblema.svg")
+A_VISTA, A_FUEGO = art("arnaldo-v4-vista.svg"), art("arnaldo-v4-marca-fuego.svg")
+# Maquetas fotográficas: foto sin texto (IA) + arte vectorial compuesto encima
+I_CAJA = img("arnaldo-v4-caja-marca-fuego.png")
+I_PURO = img("arnaldo-v4-puro-anilla.png")
+I_GAMA = img("arnaldo-v4-tres-vitolas.png")
+I_ABIERTA = img("arnaldo-v4-caja-abierta.png")
 I_MANOS = img("arnaldo-a2-10-manos-torcedor-ret.png")
 I_HUMIDOR = img("arnaldo-a2-11-humidor-ret.png")
-C_MEDALLON = (img_crop("arnaldo-a2-15-anilla-medallon-manos-ret.png", (380, 180, 1100, 720), "medallon")
-              or img_crop("arnaldo-a2-1-anilla-medallon-ret.png", (430, 150, 1050, 700), "medallon"))
-C_YAGUA = img_crop("arnaldo-a2-3-edicion-negra-ret.png", (380, 70, 1060, 250), "yagua")
 
 
 # ---------------------------------------------------------------- tipografías
@@ -99,7 +104,8 @@ def fontfaces():
     fams = [("Cinzel", "cinzel-latin-{w}-normal.woff2", (400, 600, 700), ("normal",)),
             ("Cormorant Garamond", "cormorant-garamond-latin-{w}-{s}.woff2", (300, 400, 500, 600), ("normal", "italic")),
             ("Inter", "inter-latin-{w}-normal.woff2", (300, 400, 500, 600), ("normal",)),
-            ("Pinyon Script", "pinyon-script-latin-{w}-normal.woff2", (400,), ("normal",))]
+            ("Pinyon Script", "pinyon-script-latin-{w}-normal.woff2", (400,), ("normal",)),
+            ("Playfair Display", "playfair-display-latin-{w}-{s}.woff2", (400, 700, 900), ("normal", "italic"))]
     for fam, pat, ws, sts in fams:
         for w in ws:
             for s in sts:
@@ -186,13 +192,17 @@ def page(body, n, dark=False, title="", left="18mm", right="18mm"):
 
 
 def wordmark(h_mm, w_mm):
-    """Wordmark provisional como SVG (texto Cinzel con degradado oro): se imprime sin artefactos."""
+    """Wordmark provisional como SVG (Playfair Display 900, como en las anillas v4, con degradado oro)."""
     return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{w_mm}mm" height="{h_mm}mm" viewBox="0 0 1000 160">'
             '<defs><linearGradient id="wmg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8A6620"/>'
             '<stop offset=".25" stop-color="#E9CF7E"/><stop offset=".45" stop-color="#FFF2C2"/><stop offset=".62" stop-color="#D1AB52"/>'
             '<stop offset=".85" stop-color="#8A6620"/><stop offset="1" stop-color="#C8A04A"/></linearGradient></defs>'
-            '<text x="500" y="126" text-anchor="middle" font-family="Cinzel" font-weight="600" font-size="138" letter-spacing="30" '
+            '<text x="500" y="128" text-anchor="middle" font-family="Playfair Display" font-weight="900" font-size="146" letter-spacing="14" '
             'fill="url(#wmg)">ARNALDO</text></svg>')
+
+
+def artimg(url, style):
+    return f'<img src="{url}" style="position:absolute;{style}">' if url else ""
 
 
 def fig(url, style):
@@ -238,7 +248,7 @@ def unidad_svg(pvp=24.0):
 
 # ---------------------------------------------------------------- vitolas a escala 1:1 (SVG en mm)
 def vitolas_svg():
-    rows = [("Nº 1", "Robusto", 124, 124, "50", (50,), "lacre"), ("Nº 2", "Toro", 152, "150–156", "50–52", (50, 52), "oro"),
+    rows = [("Nº 1", "Robusto", 124, 124, "50", (50,), "marfil"), ("Nº 2", "Toro", 152, "150–156", "50–52", (50, 52), "marfil2"),
             ("Nº 3", "Churchill", 178, 178, "47", (47,), "negro")]
     W, H = 255, 84
     s = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}mm" height="{H}mm" viewBox="0 0 {W} {H}">',
@@ -255,9 +265,9 @@ def vitolas_svg():
         s.append(f'<text x="0" y="{cy + 4.4:.2f}" font-family="Cormorant Garamond" font-style="italic" font-size="4.6" fill="#3A2E25">{name}</text>')
         s.append(f'<path d="M{x0 + r:.2f},{y:.2f} H{x0 + L:.2f} V{y + d:.2f} H{x0 + r:.2f} A{r:.2f},{r:.2f} 0 0 1 {x0 + r:.2f},{y:.2f} Z" fill="url(#tob)"/>')
         bx, bw = x0 + 16, 15
-        fill = {"lacre": "#8E1B1B", "oro": "url(#g)", "negro": "#14100D"}[band]
+        fill = {"marfil": "#F4EBD8", "marfil2": "#F4EBD8", "negro": "#14100D"}[band]   # campo de la anilla v4
         s.append(f'<rect x="{bx}" y="{y:.2f}" width="{bw}" height="{d:.2f}" fill="{fill}" stroke="url(#g)" stroke-width=".7"/>')
-        s.append(f'<ellipse cx="{bx + bw / 2}" cy="{cy:.2f}" rx="3.6" ry="{r * .62:.2f}" fill="{"#8E1B1B" if band == "oro" else "#C9A24A"}"/>')
+        s.append(f'<ellipse cx="{bx + bw / 2}" cy="{cy:.2f}" rx="3.6" ry="{r * .62:.2f}" fill="{"#14100D" if band == "marfil2" else "#8E1B1B"}" stroke="url(#g)" stroke-width=".6"/>')   # medallón v4
         ly = y + d + 3
         for x1, x2, y1, y2 in ((x0, x0 + L, ly, ly), (x0, x0, ly - 1.2, ly + 1.2), (x0 + L, x0 + L, ly - 1.2, ly + 1.2)):
             s.append(f'<line x1="{x1}" y1="{y1:.2f}" x2="{x2}" y2="{y2:.2f}" stroke="#8A8073" stroke-width=".25"/>')
@@ -281,7 +291,9 @@ def build():
 
     # 1 · Portada
     add(f"""
-{fig(I_N1, "right:0;top:0;width:150mm;height:210mm;background-position:52% 50%")}
+{fig(I_PURO, "right:0;top:0;width:150mm;height:210mm;background-position:50% 50%") if I_PURO else
+   '<div style="position:absolute;right:0;top:0;width:150mm;height:210mm;background:radial-gradient(ellipse at 50% 45%,#3A2E26 0%,#14100D 70%)"></div>'
+   + artimg(A_N1, "right:7mm;top:80mm;width:136mm") + artimg(A_PLIEGO, "right:7mm;top:113mm;width:136mm")}
 <div style="position:absolute;right:150mm;top:0;width:40mm;height:210mm;background:linear-gradient(90deg,rgba(20,16,13,0) 0%,rgba(20,16,13,0) 100%)"></div>
 <div style="position:absolute;left:20mm;top:22mm;width:118mm">
  <div class="kick">Dossier de marca · Para inversores</div>
@@ -292,7 +304,7 @@ def build():
 </div>
 <div style="position:absolute;left:20mm;bottom:16mm;width:115mm" class="small">
  Versión 1.0 · Fecha de corte {FECHA} · Confidencial.<br>
- Documento de trabajo preparado con fuentes públicas. Las imágenes son conceptos generados con IA, no artes finales.
+ Documento de trabajo preparado con fuentes públicas. Anillas, vista y marca: arte vectorial provisional; fotografías: conceptos generados con IA. No son artes finales.
  No es material publicitario dirigido al consumidor. Requiere revisión jurídica y fiscal profesional antes de su difusión.
 </div>""", dark=True)
 
@@ -313,7 +325,8 @@ def build():
 
     # 3 · La idea
     add(f"""
-{fig(I_VISTA, "right:0;top:0;width:150mm;height:210mm;background-position:46% 50%")}
+<div style="position:absolute;right:0;top:0;width:150mm;height:210mm;background:radial-gradient(ellipse at 50% 45%,#3A2E26 0%,#14100D 70%)"></div>
+{artimg(A_VISTA, "right:9mm;top:64mm;width:132mm")}
 <div style="position:absolute;left:20mm;top:30mm;width:112mm">
  <div class="kick">La idea</div>
  <div class="quote" style="font-size:31pt">«Que cada caja lleve la firma de quien la hizo.»</div>
@@ -321,7 +334,7 @@ def build():
  <p class="lead" style="font-size:14pt">Las grandes marcas del puro se construyeron con un nombre, un oficio y una habilitación de primer nivel. ARNALDO parte de un activo que no se puede copiar: <strong>un torcedor real</strong>.</p>
  <p class="small" style="font-size:8.6pt">Cada lote es un <em>pliego</em> numerado; cada caja lleva un colofón «nº X de N» que, cuando el contrato lo permita, rubricará Arnaldo. «Pliego de autor»: con un autor real, la expresión cobra todo su sentido.</p>
 </div>
-<div style="position:absolute;left:20mm;bottom:16mm;width:112mm" class="cap">Imagen: concepto de vista (interior de la tapa) generado con IA. No es un arte final.</div>""", dark=True, title="LA IDEA", left="20mm", right="160mm")
+<div style="position:absolute;left:20mm;bottom:16mm;width:112mm" class="cap">Imagen: vista (interior de la tapa), arte vectorial provisional. No es un arte final.</div>""", dark=True, title="LA IDEA", left="20mm", right="160mm")
 
     # 4 · Arnaldo
     manos = fig(I_MANOS, "right:0;top:0;width:110mm;height:210mm")
@@ -471,100 +484,89 @@ def build():
 </div>""", title="NOMBRE")
 
     # 10 · Dirección creativa
+    DK = 'position:absolute;left:0;top:0;width:178mm;height:210mm;background:radial-gradient(ellipse at 50% 45%,#3A2E26 0%,#14100D 72%)'
+    th = lambda url, h, alt: (f'<div style="height:{h};background:#14100D url(' + chr(39) + url + chr(39) + ') center/contain no-repeat;border-radius:1mm"></div>') if url else f'<div style="height:{h};border:1px dashed #C9A24A;border-radius:1mm;display:flex;align-items:center;justify-content:center;font-family:Cinzel;font-size:7.5pt;letter-spacing:.2em;color:#8A8073;text-align:center;padding:0 6mm">{alt}<br>EN DESARROLLO</div>'
+    thc = lambda url, h, alt: (f'<div style="height:{h};background:url(' + chr(39) + url + chr(39) + ') center/cover;border-radius:1mm"></div>') if url else th(None, h, alt)
     add(f"""<div class="pad">
-<div class="kick">Dirección creativa · Ruta A v3 «Casa cubana clásica»</div><h1>La gramática de las grandes casas</h1>
-<p style="max-width:240mm">ARNALDO no inventa un lenguaje: adopta los códigos que comparten las marcas de Habanos desde el siglo XIX y los llena con un contenido propio y verificable. Nada se copia de una anilla o una caja concretas.</p>
-<table style="margin-top:2mm;font-size:8.3pt">
-<thead><tr><th style="width:22%">Código de la tradición</th><th style="width:24%">Dónde se ve</th><th style="width:31%">Cómo lo usa ARNALDO</th><th>Límite</th></tr></thead>
+<div class="kick">Dirección creativa · Ruta A v4 «Montecristo × Hoyo de Monterrey»</div><h1>Dos casas como referencia</h1>
+<p style="max-width:245mm">ARNALDO toma de las dos marcas de Habanos de referencia del proyecto su forma de construir una anilla y una caja, no sus elementos. De Hoyo de Monterrey, una anilla blanca con un medallón rojo y una segunda anilla de línea. De Montecristo, un solo emblema, un nombre en romanas gruesas que se lee a distancia y una paleta corta.</p>
+<table style="margin-top:2mm;font-size:8.2pt">
+<thead><tr><th style="width:17%">Código</th><th style="width:22%">Hoyo de Monterrey</th><th style="width:22%">Montecristo</th><th style="width:24%">ARNALDO v4</th><th>Lo que no se toma</th></tr></thead>
 <tbody>
-<tr><td><strong>La firma del fabricante</strong></td><td>El origen de la anilla: Gustave Bock firmaba las suyas en el siglo XIX (S55)</td><td>La firma real de Arnaldo, en oro sobre lacre, dentro de la cartela</td><td>Solo la suya, vectorizada sin redibujarla</td></tr>
-<tr><td><strong>Campo de color, oro y relieve</strong></td><td>Anillas clásicas: campo de color, oro estampado, perlado y guilloché</td><td>Lacre y oro viejo, con perlado y guilloché propios</td><td>Sin reproducir la composición de ninguna anilla</td></tr>
-<tr><td><strong>Cartela central troquelada</strong></td><td>La pieza que sobresale de la anilla y lleva el nombre</td><td>Cartela de bordes festoneados con ARNALDO como protagonista</td><td>Sin escudos ni medallas</td></tr>
-<tr><td><strong>Retrato en medallón</strong></td><td>Bolívar lleva la imagen de su epónimo (S58)</td><td>Retrato grabado de Arnaldo si lo autoriza; mientras, sus manos</td><td>Sin retratos de terceros</td></tr>
-<tr><td><strong>Segunda anilla de serie</strong></td><td>Ediciones y series actuales añaden una segunda anilla</td><td>«PLIEGO DE AUTOR» en negro y oro</td><td>Sin «Habana» ni años</td></tr>
-<tr><td><strong>Habilitación de la caja</strong></td><td>Vista, bofetón, larguero y costero, aplicados a mano (S56, S57)</td><td>Vista con la casa de tabaco, larguero con ARNALDO, costero con el número de vitola</td><td>Sin sello de garantía, medallas ni escudos</td></tr>
-<tr><td><strong>Caja de cedro natural</strong></td><td>Presentación clásica en cedro</td><td>ARNALDO marcado a fuego en la tapa</td><td>—</td></tr>
+<tr><td><strong>Campo de la anilla</strong></td><td>Dominante blanca (S59)</td><td>Campo oscuro con filigrana de oro y bordes blancos (S60)</td><td>Marfil con filigrana de oro en ondas; versión negra para la Nº 3</td><td>El marrón de Montecristo y su orden de colores</td></tr>
+<tr><td><strong>Centro</strong></td><td>Logotipo rojo central con el nombre en blanco (S59)</td><td>Un emblema en relieve de oro (S60)</td><td>Medallón oval lacre troquelado y ARNALDO en marfil</td><td>Su logotipo y la composición de su anilla</td></tr>
+<tr><td><strong>Emblema</strong></td><td>—</td><td>Un solo signo fuerte: espadas y flor de lis (S61)</td><td>Monograma «A» en un óvalo perlado, encima del medallón</td><td>Triángulo, espadas, flor de lis, coronas</td></tr>
+<tr><td><strong>Nombre</strong></td><td>Letras blancas sobre rojo</td><td>Romanas gruesas, lectura a distancia</td><td>Playfair Display 900; definitivo dibujado a medida</td><td>Sus tipografías</td></tr>
+<tr><td><strong>Segunda anilla</strong></td><td>«Epicure» en su línea (S59)</td><td>—</td><td>«PLIEGO DE AUTOR», lacre y oro</td><td>«Habana», años, medallas</td></tr>
+<tr><td><strong>Caja</strong></td><td>Vista con una escena grabada en óvalo</td><td>Cedro con la marca impresa, sobria</td><td>Cedro con la marca a fuego; vista marfil y lacre con óvalo central</td><td>Jardín y fuente, «José Gener»</td></tr>
 </tbody></table>
 <div class="grid3" style="margin-top:4mm;gap:6mm">
- <div>{('<div style="height:30mm;background:url(' + chr(39) + I_CASA + chr(39) + ') center/cover;border-radius:1mm"></div>') if I_CASA else '<div style="height:30mm;border:1px dashed #C9A24A;border-radius:1mm;display:flex;align-items:center;justify-content:center;font-family:Cinzel;font-size:7.5pt;letter-spacing:.2em;color:#8A8073;text-align:center;padding:0 6mm">ANILLA DE LA CASA<br>EN DESARROLLO</div>'}<p class="small" style="margin-top:1.5mm">Anilla de la casa · Nº 1</p></div>
- <div>{('<div style="height:30mm;background:url(' + chr(39) + I_FIRMA + chr(39) + ') center/cover;border-radius:1mm"></div>') if I_FIRMA else '<div style="height:30mm;border:1px dashed #C9A24A;border-radius:1mm;display:flex;align-items:center;justify-content:center;font-family:Cinzel;font-size:7.5pt;letter-spacing:.2em;color:#8A8073;text-align:center;padding:0 6mm">VARIANTE CON FIRMA<br>EN DESARROLLO</div>'}<p class="small" style="margin-top:1.5mm">Variante con la firma (caligrafía provisional)</p></div>
- <div>{('<div style="height:30mm;background:url(' + chr(39) + I_CAJA + chr(39) + ') center/cover;border-radius:1mm"></div>') if I_CAJA else '<div style="height:30mm;border:1px dashed #C9A24A;border-radius:1mm;display:flex;align-items:center;justify-content:center;font-family:Cinzel;font-size:7.5pt;letter-spacing:.2em;color:#8A8073;text-align:center;padding:0 6mm">CAJA CON LA MARCA A FUEGO<br>EN DESARROLLO</div>'}<p class="small" style="margin-top:1.5mm">Caja de cedro con la marca a fuego</p></div>
+ <div>{th(A_N1, "27mm", "ANILLA Nº 1")}<p class="small" style="margin-top:1.5mm">Anilla Nº 1 · arte vectorial provisional</p></div>
+ <div>{thc(I_CAJA, "27mm", "CAJA")}<p class="small" style="margin-top:1.5mm">Caja de cedro con la marca a fuego · maqueta</p></div>
+ <div>{th(A_VISTA, "27mm", "VISTA")}<p class="small" style="margin-top:1.5mm">Vista · arte vectorial provisional</p></div>
 </div>
-<p class="small" style="margin-top:2mm">Ni «Habana», ni «Cuba», ni «Habano»; sin escudos de Estado, medallas ni fechas. Las marcas citadas pertenecen a sus titulares y se mencionan solo como referencia.</p>
+<p class="small" style="margin-top:2mm">Ni «Habana», ni «Cuba», ni «Habano»; sin escudos de Estado, medallas ni fechas. Hoyo de Monterrey y Montecristo son marcas de sus titulares y se citan solo como referencia; la distancia la confirmará el análisis de anterioridades (C5).</p>
 </div>""", title="DIRECCIÓN CREATIVA")
 
-    # 11 · Anilla Nº 1
-    if I_CASA:
-        N1_TXT = """<div class="kick">Habilitación · Nº 1 Robusto</div><h1 style="font-size:26pt">La anilla de la casa</h1>
- <ul class="clean" style="margin-top:3mm">
-  <li>Campo lacre con bordes de oro estampado y perlado en relieve.</li>
-  <li>Cartela central troquelada que sobresale de la anilla.</li>
-  <li><strong>ARNALDO</strong> como protagonista, en capitales de oro.</li>
-  <li>En el arte final, la firma real de Arnaldo dentro de la cartela.</li></ul>
- <p class="small" style="margin-top:5mm">Producción prevista: offset o tipografía + foil + relieve seco + troquel, a cepo real (≈90 × 17–20 mm).</p>
- <p class="cap">Render conceptual generado con IA (Qwen-Image).</p>"""
-    else:
-        N1_TXT = """<div class="kick">Habilitación · Nº 1 Robusto</div><h1 style="font-size:26pt">La anilla del medallón</h1>
- <ul class="clean" style="margin-top:3mm">
-  <li>Campo lacre con filetes de oro estampado y guilloché.</li>
-  <li>Medallón oval troquelado con filigrana victoriana.</li>
-  <li>Viñeta grabada: las manos del torcedor en la mesa de torcer.</li>
-  <li>Cinta esmaltada con <strong>ARNALDO</strong> en capitales grabadas.</li></ul>
- <p class="small" style="margin-top:5mm">En el arte final, la viñeta reproducirá las manos de Arnaldo y la cartela incorporará su firma real. Producción prevista: offset o tipografía + foil + relieve seco + troquel, a cepo real (≈90 × 17–20 mm).</p>
- <p class="cap">Render conceptual generado con IA (Qwen-Image). Las manos son ilustrativas, no las de Arnaldo.</p>"""
+    # 11 · Anilla Nº 1 + segunda anilla
     add(f"""
-{fig(I_N1, "left:0;top:0;width:178mm;height:210mm;background-position:50% 50%")}
+{fig(I_PURO, "left:0;top:0;width:178mm;height:210mm") if I_PURO else
+ f'<div style="{DK}"></div>' + artimg(A_N1, "left:9mm;top:72mm;width:160mm") + artimg(A_PLIEGO, "left:9mm;top:110mm;width:160mm")
+ + artimg(A_EMBLEMA, "left:76mm;top:136mm;width:26mm")}
 <div style="position:absolute;left:192mm;right:16mm;top:24mm">
- {N1_TXT}
+ <div class="kick">Habilitación · Nº 1 Robusto</div><h1 style="font-size:26pt">La anilla de la casa</h1>
+ <ul class="clean" style="margin-top:3mm">
+  <li>Campo marfil con filigrana de oro en ondas y cantos de oro perlados.</li>
+  <li>Medallón oval lacre troquelado, con <strong>ARNALDO</strong> en marfil.</li>
+  <li>Un solo emblema: el monograma «A» en un óvalo, encima del medallón.</li>
+  <li>Segunda anilla «PLIEGO DE AUTOR», igual en toda la gama.</li>
+  <li>La vitola, en la anilla (Nº 1 · Robusto) y en el costero.</li></ul>
+ <p class="small" style="margin-top:5mm">Producción prevista: offset + foil + relieve seco + troquel, a cepo real (≈90 × 18 mm). En el arte final, la firma real de Arnaldo puede sustituir al monograma.</p>
+ <p class="cap">Arte vectorial provisional (texto en trazados, sin errores de letra). El dibujo definitivo lo hará un diseñador especializado.</p>
 </div>""", dark=True, title="ANILLA Nº 1", left="192mm")
 
-    # 12 · Doble anilla y caja (Ruta A v3, si existen los renders) y Nº 3
-    if I_DOBLE:
-        add(f"""
-{fig(I_DOBLE, "left:0;top:0;width:178mm;height:210mm")}
-<div style="position:absolute;left:192mm;right:16mm;top:24mm">
- <div class="kick">Habilitación · Segunda anilla</div><h1 style="font-size:26pt">Pliego de autor</h1>
- <ul class="clean" style="margin-top:3mm">
-  <li>Anilla de la casa, igual en toda la gama.</li>
-  <li>Segunda anilla negra y oro con «PLIEGO DE AUTOR», como las series y ediciones de las grandes casas.</li>
-  <li>La vitola (Nº 1, Nº 2, Nº 3) se indica en el costero de la caja.</li></ul>
- <p class="cap" style="margin-top:6mm">Render conceptual generado con IA (Qwen-Image).</p>
-</div>""", dark=True, title="SEGUNDA ANILLA", left="192mm")
+    # 12 · Caja
     if I_CAJA:
         add(f"""
 {fig(I_CAJA, "left:0;top:0;width:178mm;height:210mm")}
 <div style="position:absolute;left:192mm;right:16mm;top:24mm">
  <div class="kick">Habilitación · Caja</div><h1 style="font-size:26pt">Cedro y fuego</h1>
  <ul class="clean" style="margin-top:3mm">
-  <li>Caja de cedro natural con ARNALDO marcado a fuego en la tapa.</li>
+  <li>Caja de cedro natural con el emblema y ARNALDO marcados a fuego en la tapa.</li>
   <li>Papel de bordes lacre y oro; larguero con el nombre y costero con la vitola.</li>
-  <li>Dentro, la vista litográfica y el colofón numerado.</li></ul>
- <p class="small" style="margin-top:5mm">Zona reservada para la advertencia sanitaria, la marca fiscal y el identificador único, conforme al RD 579/2017.</p>
- <p class="cap">Render conceptual generado con IA (Qwen-Image). Retocado: la marca a fuego se ha regrabado con tipografía porque el render escribía «ARNADO».</p>
+  <li>Dentro, la vista y el colofón numerado.</li></ul>
+ <div style="background:#F4EBD8;border-radius:1mm;padding:3mm 6mm;margin-top:5mm"><img src="{A_FUEGO}" style="width:100%;display:block"></div>
+ <p class="small" style="margin-top:4mm">Zona reservada para la advertencia sanitaria, la marca fiscal y el identificador único, conforme al RD 579/2017.</p>
+ <p class="cap">Maqueta: fotografía conceptual generada con IA (Qwen-Image), con la marca generada borrada y la marca vectorial grabada en el plano de la tapa.</p>
 </div>""", dark=True, title="CAJA", left="192mm")
 
+    # 13 · Nº 2 y Nº 3
     add(f"""
-{fig(I_N3, "left:0;top:0;width:178mm;height:210mm;background-position:50% 50%")}
+<div style="{DK}"></div>
+{artimg(A_N2, "left:9mm;top:44mm;width:160mm")}
+{artimg(A_N3, "left:9mm;top:116mm;width:160mm")}
+<div style="position:absolute;left:9mm;top:84mm;width:160mm;text-align:center" class="cap">Nº 2 · Toro</div>
+<div style="position:absolute;left:9mm;top:156mm;width:160mm;text-align:center" class="cap">Nº 3 · Churchill · edición negra</div>
 <div style="position:absolute;left:192mm;right:16mm;top:24mm">
- <div class="kick">Habilitación · Nº 3 Churchill</div><h1 style="font-size:26pt">La edición negra</h1>
+ <div class="kick">Habilitación · Nº 2 y Nº 3</div><h1 style="font-size:26pt">Una anilla, tres vitolas</h1>
  <ul class="clean" style="margin-top:3mm">
-  <li>Laca negra brillante, lisa.</li>
-  <li>Bordes de oro con un patrón de hoja de palma inspirado en la yagua.</li>
-  <li>Cartela central de oro con <strong>ARNALDO</strong> y «Nº 3».</li>
-  <li>Reservada a la edición limitada (prevista para 2030).</li></ul>
- <p class="small" style="margin-top:5mm">La yagua —la vaina de la palma real con que se envuelven los tercios de tabaco— es un material propio del oficio; aquí inspira un patrón exclusivo de ARNALDO.</p>
- <p class="cap">Render conceptual generado con IA (Qwen-Image). Retocado para sustituir un patrón de damero por laca lisa y eliminar un guion sobrante.</p>
-</div>""", dark=True, title="ANILLA Nº 3", left="192mm")
+  <li>La misma anilla en toda la gama: lo que cambia es el color del medallón y del campo.</li>
+  <li><strong>Nº 2 Toro</strong>: medallón negro sobre marfil.</li>
+  <li><strong>Nº 3 Churchill</strong>: edición negra, campo negro con filigrana de oro y medallón lacre; reservada a la edición limitada (prevista para 2030).</li></ul>
+ <p class="small" style="margin-top:5mm">Como en las grandes casas, la gama se reconoce de lejos y cada vitola se distingue de cerca.</p>
+ <p class="cap">Arte vectorial provisional.</p>
+</div>""", dark=True, title="Nº 2 · Nº 3", left="192mm")
 
-    # 13 · Vista
+    # 14 · Vista
     add(f"""
-{fig(I_VISTA, "left:0;top:0;width:297mm;height:162mm;background-position:50% 45%")}
+{fig(I_ABIERTA, "left:0;top:0;width:297mm;height:162mm") if I_ABIERTA else
+ '<div style="position:absolute;left:0;top:0;width:297mm;height:162mm;background:radial-gradient(ellipse at 50% 45%,#3A2E26 0%,#14100D 72%)"></div>' + artimg(A_VISTA, "left:28mm;top:6mm;width:241mm")}
 <div style="position:absolute;left:18mm;right:18mm;top:168mm" class="grid2">
  <div><div class="kick">Habilitación · Vista</div><h2 style="font-size:17pt;margin:0">La vista: el interior de la tapa</h2></div>
- <div><p class="small" style="margin:0">Litografía (≈200 × 120 mm) con una casa de tabaco grabada en un óvalo de oro y papel de bordes lacre y oro, como en las cajas clásicas. En el arte final, retrato grabado de Arnaldo si lo autoriza. Render conceptual generado con IA (Qwen-Image), recortado para excluir las anillas pequeñas.</p></div>
+ <div><p class="small" style="margin:0">Litografía (≈200 × 120 mm) en marfil, lacre y oro: ARNALDO en la cartela superior y un óvalo central. En el arte final, el óvalo lleva una escena grabada, como en las vistas clásicas: la vega o, si lo autoriza, el retrato de Arnaldo. Arte vectorial provisional.</p></div>
 </div>""", dark=True, title="VISTA")
 
-    # 14 · La gama
+    # 15 · La gama
     gama_img = fig(I_GAMA, "right:18mm;top:28mm;width:98mm;height:56mm;border-radius:1mm")
     add(f"""<div class="pad">
 <div class="kick">La gama</div><h1>Una vitola para empezar; dos para crecer</h1>
@@ -581,8 +583,8 @@ def build():
 </div>""", title="GAMA")
 
     # 15 · Sistema visual
-    sw = [("#8E1B1B", "Lacre", "Campo de la anilla Nº 1, sellos"), ("#14100D", "Negro laca", "Edición Nº 3, fondos"),
-          ("#C9A24A", "Oro viejo", "Foil, filetes, guilloché"), ("#F4EBD8", "Marfil", "Papel de la vista, cintas")]
+    sw = [("#F4EBD8", "Marfil", "Campo de la anilla y de la vista"), ("#8E1B1B", "Lacre", "Medallón, segunda anilla, cartelas"),
+          ("#C9A24A", "Oro viejo", "Foil, perlado, filigrana"), ("#14100D", "Negro laca", "Nº 2, edición Nº 3, fondos")]
     sws = "".join(f'<div><div class="swatch" style="background:{c}"></div><h3 style="color:#1E1915">{nme}</h3><p class="small" style="margin:0">{c} · {use}</p></div>' for c, nme, use in sw)
     emb = ""
     add(f"""<div class="pad">
@@ -591,9 +593,10 @@ def build():
 <div class="grid2" style="margin-top:9mm;gap:12mm;">
  <div><h3>Wordmark provisional</h3>
   <div style="background:#14100D;padding:6mm 6mm;text-align:center">{wordmark(13, 82)}</div>
-  <p class="small" style="margin-top:2mm">Uso interno. El definitivo lo dibujará a medida un diseñador especializado e incorporará la firma real de Arnaldo.</p></div>
+  <p class="small" style="margin-top:2mm">Uso interno, en la misma romana gruesa de las anillas. El definitivo lo dibujará a medida un diseñador especializado; la firma real de Arnaldo puede acompañarlo.</p></div>
  <div><h3>Tipografías de trabajo</h3>
-  <p style="font-family:Cinzel;font-size:13pt;letter-spacing:.12em;margin:0">CINZEL · TITULARES</p>
+  <p style="font-family:'Playfair Display';font-weight:900;font-size:14pt;letter-spacing:.06em;margin:0">PLAYFAIR DISPLAY · EL NOMBRE</p>
+  <p style="font-family:Cinzel;font-size:12pt;letter-spacing:.12em;margin:0">CINZEL · LEYENDAS Y TITULARES</p>
   <p style="font-family:'Cormorant Garamond';font-size:15pt;margin:0">Cormorant Garamond · <em>texto editorial</em></p>
   <p style="font-family:Inter;font-size:10pt;margin:0 0 2mm">Inter · datos y tablas</p>
   <p class="small">Licencia SIL OFL 1.1, verificada. Los Pantone y acabados definitivos los fijará el diseñador con pruebas de imprenta.</p></div>
@@ -671,13 +674,13 @@ def build():
 <tr><td>1–3</td><td>Consentimiento de Arnaldo y autorización de su empleador; 15–20 firmas escaneadas; retrato opcional</td><td>0 €</td><td>Pendiente</td></tr>
 <tr><td>2–4</td><td>Tres presupuestos de estudios de packaging premium con el brief de 01_BRAND</td><td>0 €</td><td>Pendiente</td></tr>
 <tr><td>3–6</td><td>Informe de registrabilidad de ARNALDO (reservas FOLIO y LUMBRE)</td><td>≈900 €</td><td>Pendiente</td></tr>
-<tr><td>2–4 del encargo</td><td>Tres rutas creativas sobre la Ruta A v2</td><td rowspan="3">4.000–15.000 € {T("HIPÓTESIS")}</td><td rowspan="3">Por encargar</td></tr>
+<tr><td>2–4 del encargo</td><td>Arte final a partir de la Ruta A v4</td><td rowspan="3">4.000–15.000 € {T("HIPÓTESIS")}</td><td rowspan="3">Por encargar</td></tr>
 <tr><td>5–6 del encargo</td><td>Desarrollo de la ruta elegida: anillas Nº 1–3, vista, colofón</td></tr>
 <tr><td>7–8 del encargo</td><td>Artes finales, separaciones de tinta y foil, pruebas de imprenta</td></tr>
 <tr><td>Tras el informe</td><td>Solicitud de marca de la UE (clase 34) a nombre de la SL</td><td>≈1.100 € (tasa base de 850 € {T("PROBABLE")} + agente)</td><td>Pendiente</td></tr>
 </tbody></table>
 <div class="grid2" style="margin-top:7mm">
- <div class="card"><h3>Ya disponible</h3><p>Estrategia, naming, arquitectura de producto, brief creativo, ficha técnica editable y renders de exploración de la Ruta A v2 (este dossier).</p></div>
+ <div class="card"><h3>Ya disponible</h3><p>Estrategia, naming, arquitectura de producto, brief creativo, ficha técnica editable y arte provisional de la Ruta A v4: anillas, vista, marca a fuego y maquetas (este dossier).</p></div>
  <div class="card"><h3>Dentro del techo de la Fase 0</h3><p>El informe de marcas y la solicitud en la EUIPO están presupuestados dentro del techo de la Fase 0 (≤ 15.000 €). El diseño profesional se encarga cuando la Fase 0 confirme la vía legal.</p></div>
 </div>
 </div>""", title="HOJA DE RUTA")
@@ -800,8 +803,8 @@ def build():
 <div class="kick">Notas</div><h1>Sobre este documento</h1>
 <div class="grid2" style="gap:12mm;margin-top:4mm">
  <div><h3>Imágenes</h3>
-  <p>Todas las imágenes de producto son <strong>renders conceptuales</strong> generados con IA (Qwen-Image, vía Hugging Face) en octubre de 2026 para orientar al diseñador y a los inversores. No son artes finales ni fotografías de producto existente.</p>
-  <p>Cada render se ha revisado letra por letra. Los que tenían errores de texto se han retocado (lo indica su pie de imagen) o se han descartado. Los retoques están documentados y son reproducibles: <code>01_BRAND/renders/README.md</code> y <code>_build/renders</code>.</p>
+  <p>Las anillas, la vista y la marca a fuego son <strong>arte vectorial provisional</strong> (Ruta A v4), con el texto convertido a trazados desde tipografías con licencia SIL OFL 1.1: no pueden contener errores de letra. Las fotografías de producto son <strong>conceptos generados con IA</strong> (Qwen-Image, vía Hugging Face) en octubre de 2026, sin texto, sobre los que se compone ese arte. Ni el arte ni las maquetas son artes finales ni fotografías de producto existente.</p>
+  <p>Cada imagen se ha revisado letra por letra; cualquier retoque o composición lo indica su pie. El proceso es reproducible: <code>_build/brand_v4.py</code>, <code>_build/renders</code> y <code>01_BRAND/renders/README.md</code>.</p>
   <p>La firma, la viñeta y el retrato definitivos serán los de Arnaldo, con su consentimiento.</p></div>
  <div><h3>Fuentes y límites</h3>
   <p>Datos de mercado, precios y normativa procedentes de fuentes públicas consultadas el {FECHA} (09_RESEARCH/Source Register.xlsx). Etiquetas: {T("VERIFICADO")} {T("PROBABLE")} {T("HIPÓTESIS")} {T("BLOQUEADO")}.</p>
