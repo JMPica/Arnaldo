@@ -53,10 +53,10 @@ El promotor tria l'anella clàssica com a disseny de la casa i demana mantenir-l
 | Fitxer | Origen | Estat | Notes |
 |---|---|---|---|
 | arnaldo-render-anilla-clasica.png | Runway · Nano Banana Pro (10/10) | Original | Disseny triat. La signatura diu «Arnald Jonato» (inventada per la IA) |
-| **arnaldo-render-anilla-clasica-ret.png** | Retoc | ✅ Al dossier (portada i Nº 1) | Signatura inventada esborrada sobre la laca i substituïda per «Arnaldo» en cal·ligrafia provisional (`_build/renders/fix_clasica_firma.py`); la resta, intacta |
+| **arnaldo-render-anilla-clasica-ret.png** | Retoc | ✅ Al dossier (portada i Nº 1) | Signatura inventada esborrada sobre la laca i substituïda per «Arnaldo» en cal·ligrafia provisional d'aspecte manuscrit, Herr Von Muellerhoff (`_build/renders/fix_clasica_firma.py`); la resta, intacta |
 | **arnaldo-caja-marca-fuego.png** | A3-4 + marca a foc | ✅ Al dossier (caixa) | Marca generada esborrada amb veta real; ARNALDO i la signatura vectorials gravats amb homografia (`_build/renders/mock_caja_fuego.py`) |
 | ../assets/clasica/arnaldo-anilla-n1/-n2/-n3-negra | Vectorial | ✅ Al dossier | L'anella redibuixada: banda lacre (Nº 1), marfil (Nº 2) i negra (Nº 3) |
-| ../assets/clasica/arnaldo-anilla-pliego, -medallon, -vista, -marca-fuego | Vectorial | ✅ Al dossier | Segona anella, oval, vista i marca a foc (`_build/brand_clasica.py`) |
+| ../assets/clasica/arnaldo-anilla-especificacion, -pliego, -logotipo-oro/-lacre, -medallon, -vista, -marca-fuego | Vectorial | ✅ Al dossier | Full d'especificació a escala real (72 × 16 mm, oval 27 × 21 mm), segona anella, logotip (nom + signatura), oval, vista i marca a foc (`_build/brand_clasica.py`) |
 
 Les imatges de la v3 (A3-1, A3-4-ret, A3-5-ret) i de la v2 ja no surten al dossier; es conserven com a exploració.
 

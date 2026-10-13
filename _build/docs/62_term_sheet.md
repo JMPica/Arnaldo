@@ -52,7 +52,7 @@ Anexos: Ficha Técnica; muestra patrón; plan de QC; listado de licencias; model
 
 # Parte III — Cláusulas de propiedad intelectual (texto base)
 
-**Titularidad.** «La marca ARNALDO, sus variantes, las denominaciones de vitola, el término PLIEGO, el monograma, los diseños de anilla, caja, colofón y precinto, el manual de identidad y la Ficha Técnica (en adelante, los "Activos del Cliente") son y serán propiedad exclusiva del Cliente. Nada en este contrato transmite al Fabricante derecho alguno sobre los Activos del Cliente.»
+**Titularidad.** «La marca ARNALDO, sus variantes, las denominaciones de vitola, el término PLIEGO, la firma y su rúbrica como signo, los diseños de anilla, caja, colofón y precinto, el manual de identidad y la Ficha Técnica (en adelante, los "Activos del Cliente") son y serán propiedad exclusiva del Cliente. Nada en este contrato transmite al Fabricante derecho alguno sobre los Activos del Cliente.»
 
 **Licencia limitada.** «El Cliente concede al Fabricante una licencia no exclusiva, intransferible y gratuita, limitada a la aplicación de los Activos del Cliente sobre los productos fabricados para el Cliente y durante la vigencia del contrato, que se extinguirá automáticamente a su terminación.»
 

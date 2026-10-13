@@ -1,6 +1,6 @@
 # Retoque de la anilla clásica (render favorito del promotor): la IA escribió una firma inventada
 # («Arnald Jonato»). Se borra sobre la laca negra y se escribe «Arnaldo» en caligrafía provisional
-# (Pinyon Script, oro), con la inclinación del nombre. La firma real de Arnaldo la sustituirá.
+# (Herr Von Muellerhoff, de aspecto manuscrito, oro), con la inclinación del nombre. La firma real de Arnaldo la sustituirá.
 import sys, os, numpy as np, cv2
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 src, dst = sys.argv[1:3]
@@ -27,7 +27,7 @@ mask = (region & gold).astype(np.uint8)
 mask = cv2.dilate(mask, np.ones((5, 5), np.uint8))
 clean = cv2.inpaint(im, mask, 7, cv2.INPAINT_TELEA)
 # firma provisional
-font = ImageFont.truetype(os.path.join(B, "fonts", "pinyon-script-latin-400-normal.woff2"), 120)
+font = ImageFont.truetype(os.path.join(B, "fonts", "herr-von-muellerhoff-latin-400-normal.woff2"), 150)
 can = Image.new("L", (900, 260), 0)
 d = ImageDraw.Draw(can)
 d.text((40, 20), "Arnaldo", font=font, fill=255, stroke_width=2, stroke_fill=255)

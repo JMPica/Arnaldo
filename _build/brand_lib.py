@@ -11,7 +11,7 @@ FN = lambda n: TTFont(os.path.join(B, "fonts", n))
 FONTS = {
     "cz9": FN("cinzel-latin-900-normal.woff2"), "cz7": FN("cinzel-latin-700-normal.woff2"),
     "cz4": FN("cinzel-latin-400-normal.woff2"), "pf9": FN("playfair-display-latin-900-normal.woff2"),
-    "pf4i": FN("playfair-display-latin-400-italic.woff2"), "py": FN("pinyon-script-latin-400-normal.woff2"),
+    "pf4i": FN("playfair-display-latin-400-italic.woff2"), "py": FN("pinyon-script-latin-400-normal.woff2"), "hv": FN("herr-von-muellerhoff-latin-400-normal.woff2"), "cz6": FN("cinzel-latin-600-normal.woff2"),
     "fell": FN("im-fell-english-latin-400-normal.woff2"), "felli": FN("im-fell-english-latin-400-italic.woff2"),
     "in5": FN("inter-latin-500-normal.woff2"), "in4": FN("inter-latin-400-normal.woff2"),
 }

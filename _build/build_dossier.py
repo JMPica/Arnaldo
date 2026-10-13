@@ -89,6 +89,7 @@ def art(name):
 I_CLASICA = img("arnaldo-render-anilla-clasica-ret.png")     # firma inventada por la IA sustituida por «Arnaldo»
 A_N1, A_N2, A_N3 = art("arnaldo-anilla-n1.svg"), art("arnaldo-anilla-n2.svg"), art("arnaldo-anilla-n3-negra.svg")
 A_PLIEGO, A_MEDALLON = art("arnaldo-anilla-pliego.svg"), art("arnaldo-medallon.svg")
+A_SPEC, A_LOGO_ORO, A_LOGO_LACRE = art("arnaldo-anilla-especificacion.svg"), art("arnaldo-logotipo-oro.svg"), art("arnaldo-logotipo-lacre.svg")
 A_VISTA, A_FUEGO = art("arnaldo-vista.svg"), art("arnaldo-marca-fuego.svg")
 # Maquetas fotográficas: foto sin texto (IA) + arte vectorial compuesto encima
 I_CAJA = img("arnaldo-caja-marca-fuego.png")
@@ -106,6 +107,7 @@ def fontfaces():
             ("Cormorant Garamond", "cormorant-garamond-latin-{w}-{s}.woff2", (300, 400, 500, 600), ("normal", "italic")),
             ("Inter", "inter-latin-{w}-normal.woff2", (300, 400, 500, 600), ("normal",)),
             ("Pinyon Script", "pinyon-script-latin-{w}-normal.woff2", (400,), ("normal",)),
+            ("Herr Von Muellerhoff", "herr-von-muellerhoff-latin-{w}-normal.woff2", (400,), ("normal",)),
             ("Playfair Display", "playfair-display-latin-{w}-{s}.woff2", (400, 700, 900), ("normal", "italic"))]
     for fam, pat, ws, sts in fams:
         for w in ws:
@@ -298,7 +300,7 @@ def build():
 <div style="position:absolute;right:150mm;top:0;width:40mm;height:210mm;background:linear-gradient(90deg,rgba(20,16,13,0) 0%,rgba(20,16,13,0) 100%)"></div>
 <div style="position:absolute;left:20mm;top:22mm;width:118mm">
  <div class="kick">Dossier de marca · Para inversores</div>
- <div style="margin:16mm 0 6mm -1mm">{wordmark(19, 118)}</div>
+ <div style="margin:10mm 0 4mm -2mm">{('<img src="' + A_LOGO_ORO + '" style="width:112mm;display:block">') if A_LOGO_ORO else wordmark(19, 118)}</div>
  <div style="height:1px;background:linear-gradient(90deg,#C9A24A,rgba(201,162,74,0));width:90mm;margin:0 0 6mm"></div>
  <div class="lead" style="font-size:18pt;font-style:italic;color:#E9DFCB">Cigarros hechos a mano<br>con el nombre de quien los tuerce</div>
  <p style="margin-top:10mm;font-family:Cinzel;font-size:7.4pt;letter-spacing:.3em;color:#C9A24A">PLIEGO DE AUTOR · EDICIONES NUMERADAS</p>
@@ -523,16 +525,19 @@ def build():
  <p class="cap">Render conceptual generado con IA. Retocado: la IA había inventado una firma con un apellido; se ha sustituido por «Arnaldo» en caligrafía provisional, que se cambiará por la firma real.</p>
 </div>""", dark=True, title="ANILLA Nº 1", left="192mm")
 
-    # 12 · La anilla en vectorial + segunda anilla
-    add(f"""
-<div style="position:absolute;left:0;top:0;width:297mm;height:210mm;background:radial-gradient(ellipse at 50% 40%,#3A2E26 0%,#14100D 72%)"></div>
-{artimg(A_N1, "left:28mm;top:30mm;width:241mm")}
-{artimg(A_PLIEGO, "left:28mm;top:82mm;width:241mm")}
-<div style="position:absolute;left:28mm;right:28mm;top:104mm" class="grid2">
- <div><div class="kick">Habilitación · Arte</div><h2 style="font-size:17pt;margin:0;color:#F4EBD8">La anilla, redibujada</h2>
-  <p class="small" style="margin-top:3mm">El render elegido, pasado a vector para imprenta: mismas proporciones, mismo óvalo y mismo orden de lectura. La segunda anilla, «PLIEGO DE AUTOR», va debajo.</p></div>
- <div><p class="small" style="margin:0">Texto convertido a trazados desde tipografías con licencia SIL OFL 1.1 (Cinzel para el nombre), sin errores de letra posibles. La firma es provisional (caligrafía tipográfica) y se sustituirá por la firma real de Arnaldo vectorizada. El dibujo definitivo lo cerrará un diseñador especializado con pruebas de imprenta.</p></div>
-</div>""", dark=True, title="ARTE DE LA ANILLA")
+    # 12 · Arte de la anilla: hoja de especificación
+    add(f"""<div class="pad">
+<div class="kick">Habilitación · Arte de imprenta</div><h1 style="margin-bottom:3mm">La anilla, redibujada para producción</h1>
+{artimg(A_SPEC, "left:0;top:30mm;width:188mm")}
+<div style="position:absolute;left:196mm;width:64mm;top:40mm">
+ <h3>Qué se ha hecho</h3>
+ <p class="small" style="margin:0 0 3mm">El render elegido, pasado a vector a escala real (cepo 50): mismas proporciones, mismo óvalo, mismo orden de lectura. Sin monograma ni emblema.</p>
+ <h3>Texto sin errores</h3>
+ <p class="small" style="margin:0 0 3mm">Todo el texto va en trazados desde tipografías SIL OFL 1.1: Cinzel para el nombre; la firma es provisional hasta tener la real.</p>
+ <h3>Lo que cierra el diseñador</h3>
+ <p class="small" style="margin:0">Dibujo a medida del nombre, firma real vectorizada, pruebas de color y de foil, y troquel con la imprenta.</p>
+</div>
+</div>""", title="ARTE DE LA ANILLA")
 
     # 13 · Caja
     if I_CAJA:
@@ -549,23 +554,17 @@ def build():
  <p class="cap">Maqueta: fotografía conceptual generada con IA (Qwen-Image), con la marca generada borrada y la marca vectorial grabada en el plano de la tapa.</p>
 </div>""", dark=True, title="CAJA", left="192mm")
 
-    # 14 · Nº 2 y Nº 3
-    add(f"""
-<div style="{DK}"></div>
-{artimg(A_N2, "left:9mm;top:44mm;width:160mm")}
-{artimg(A_N3, "left:9mm;top:116mm;width:160mm")}
-<div style="position:absolute;left:9mm;top:82mm;width:160mm;text-align:center" class="cap">Nº 2 · Toro</div>
-<div style="position:absolute;left:9mm;top:154mm;width:160mm;text-align:center" class="cap">Nº 3 · Churchill · edición negra</div>
-<div style="position:absolute;left:192mm;right:16mm;top:24mm">
- <div class="kick">Habilitación · Nº 2 y Nº 3</div><h1 style="font-size:26pt">Una anilla, tres vitolas</h1>
- <ul class="clean" style="margin-top:3mm">
-  <li>El mismo óvalo en toda la gama: lo que cambia es el color de la banda.</li>
-  <li><strong>Nº 1 Robusto</strong>: lacre.</li>
-  <li><strong>Nº 2 Toro</strong>: marfil.</li>
-  <li><strong>Nº 3 Churchill</strong>: negro laca, para la edición limitada (prevista para 2030).</li></ul>
- <p class="small" style="margin-top:5mm">Como en las grandes casas, la gama se reconoce de lejos y cada vitola se distingue de cerca.</p>
- <p class="cap">Arte vectorial provisional.</p>
-</div>""", dark=True, title="Nº 2 · Nº 3", left="192mm")
+    # 14 · Una anilla, tres vitolas
+    add(f"""<div class="pad">
+<div class="kick">Habilitación · Gama</div><h1 style="margin-bottom:2mm">Una anilla, tres vitolas</h1>
+<p style="max-width:240mm;margin:0">El mismo óvalo en toda la gama: lo que cambia es el color de la banda. La gama se reconoce de lejos y cada vitola se distingue de cerca, como en las grandes casas.</p>
+{artimg(A_N1, "left:0;top:34mm;width:117mm")}
+{artimg(A_N2, "left:0;top:76mm;width:117mm")}
+{artimg(A_N3, "left:0;top:118mm;width:117mm")}
+<div style="position:absolute;left:128mm;right:0;top:47mm"><h3>Nº 1 · Robusto</h3><p class="small" style="margin:0">Banda lacre. Vitola de lanzamiento.</p></div>
+<div style="position:absolute;left:128mm;right:0;top:89mm"><h3>Nº 2 · Toro</h3><p class="small" style="margin:0">Banda marfil. Extensión.</p></div>
+<div style="position:absolute;left:128mm;right:0;top:131mm"><h3>Nº 3 · Churchill</h3><p class="small" style="margin:0">Banda negro laca. Edición limitada (prevista para 2030).</p></div>
+</div>""", title="GAMA EN LA ANILLA")
 
     # 15 · Vista
     add(f"""
@@ -601,12 +600,12 @@ def build():
 <div class="kick">Sistema visual</div><h1>Paleta y tipografía</h1>
 <div class="grid4" style="margin-top:5mm">{sws}</div>
 <div class="grid2" style="margin-top:9mm;gap:12mm;">
- <div><h3>Wordmark provisional</h3>
-  <div style="background:#14100D;padding:6mm 6mm;text-align:center">{wordmark(13, 82)}</div>
+ <div><h3>Logotipo provisional</h3>
+  <div style="background:#FFFDF8;border:1px solid #E6DCC7;padding:5mm 6mm;text-align:center">{('<img src="' + A_LOGO_LACRE + '" style="width:74mm">') if A_LOGO_LACRE else wordmark(13, 82)}</div>
   <p class="small" style="margin-top:2mm">Uso interno, en las mismas capitales romanas de la anilla. El definitivo lo dibujará a medida un diseñador especializado, junto con la firma real de Arnaldo.</p></div>
  <div><h3>Tipografías de trabajo</h3>
   <p style="font-family:Cinzel;font-weight:700;font-size:13pt;letter-spacing:.12em;margin:0">CINZEL · EL NOMBRE Y LOS TITULARES</p>
-  <p style="font-family:'Pinyon Script';font-size:17pt;margin:0">Pinyon Script · firma provisional</p>
+  <p style="font-family:'Herr Von Muellerhoff';font-size:22pt;margin:0;line-height:1.1">Herr Von Muellerhoff · firma provisional</p>
   <p style="font-family:'Cormorant Garamond';font-size:15pt;margin:0">Cormorant Garamond · <em>texto editorial</em></p>
   <p style="font-family:Inter;font-size:10pt;margin:0 0 2mm">Inter · datos y tablas</p>
   <p class="small">Licencia SIL OFL 1.1, verificada. Los Pantone y acabados definitivos los fijará el diseñador con pruebas de imprenta.</p></div>

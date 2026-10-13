@@ -66,9 +66,9 @@ El promotor elige como referencia definitiva el render «anilla clásica» de la
 | Segunda anilla | «Epicure» en su línea (S59) | — | «PLIEGO DE AUTOR», lacre y oro | «Habana», años, medallas |
 | Caja | Vista con escena grabada en óvalo | Cedro con la marca, sobria | Cedro con ARNALDO y la firma a fuego; vista con el óvalo de la casa | Jardín y fuente, «José Gener» |
 
-**Firma.** El render original llevaba una firma inventada por la IA con un apellido («Arnald Jonato»); se ha sustituido por «Arnaldo» en caligrafía provisional (`_build/renders/fix_clasica_firma.py`). En el arte final irá la firma real de Arnaldo vectorizada, con su consentimiento.
+**Firma.** El render original llevaba una firma inventada por la IA con un apellido («Arnald Jonato»); se ha sustituido por «Arnaldo» en caligrafía provisional de aspecto manuscrito (Herr Von Muellerhoff, OFL 1.1; `_build/renders/fix_clasica_firma.py`). En el arte final irá la firma real de Arnaldo vectorizada, con su consentimiento.
 
-**Arte vectorial.** La anilla (Nº 1, Nº 2, Nº 3), la segunda anilla, el óvalo, la vista y la marca a fuego están redibujados en vectorial (`_build/brand_clasica.py` → `01_BRAND/assets/clasica/`), con el texto convertido a trazados desde fuentes SIL OFL 1.1. La IA solo genera fotografías sin texto, sobre las que se compone ese arte (`_build/renders/mock_caja_fuego.py`).
+**Arte de imprenta.** La anilla está redibujada a escala real (desarrollo 72 × 16 mm para cepo 50, óvalo troquelado 27 × 21 mm), con colores planos, oro como foil, perlado en relieve seco y guilloché de roseta en el marco del óvalo, con su hoja de especificación. También la Nº 2 y la Nº 3, la segunda anilla, el logotipo (nombre + firma), la vista y la marca a fuego, en vectorial (`_build/brand_clasica.py` → `01_BRAND/assets/clasica/`), con el texto convertido a trazados desde fuentes SIL OFL 1.1. La IA solo genera fotografías sin texto, sobre las que se compone ese arte (`_build/renders/mock_caja_fuego.py`).
 
 <figure><img src="file:///home/user/Arnaldo/PROYECTO_CIGARS_CUBA_2027/01_BRAND/renders/arnaldo-render-anilla-clasica-ret.png" style="width:70%"><figcaption>La anilla clásica, diseño de la casa (render conceptual con la firma retocada).</figcaption></figure>
 
@@ -98,7 +98,7 @@ Crear una identidad y una habilitación completa que, puestas junto a las grande
 | # | Pieza | Especificación |
 |---|---|---|
 | 1 | Logotipo | Wordmark ARNALDO dibujado a medida (no tipografía de catálogo) + firma vectorizada como sello; versiones horizontal, vertical, monocolor y para foil |
-| 2 | Monograma | «A» o rúbrica de la firma para cabezal de anilla, sello en seco y lacre |
+| 2 | Firma | Firma real de Arnaldo vectorizada, con su rúbrica, para la anilla, la caja, el sello en seco y el colofón (sin monograma) |
 | 3 | Anilla Nº 1 | Desarrollo a cepo real (≈90 × 17–20 mm), cartela troquelada, 2 tintas planas + foil + relieve seco |
 | 4 | Variantes de anilla | Nº 2 y Nº 3 (edición limitada) |
 | 5 | Pie de anilla | «Pliego Nº» con numeración |
