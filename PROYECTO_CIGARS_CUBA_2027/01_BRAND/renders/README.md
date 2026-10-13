@@ -37,9 +37,15 @@ Generats el 10/10/2026 amb l'Space `mcp-tools/Qwen-Image` (16 passos, guidance 4
 | **arnaldo-a2-6-anilla-n2-oro-ret.png** (= A2-14-s1) | A2-14 (12/10) | ✅ Al dossier (Nº 2) | Segell lacre amb una fulla de tabac; «ARNALDO» i «Nº 2» correctes; chaveta real al costat del puro. La variant -s2 té un objecte ambigu al segell |
 | **arnaldo-a2-7-emblema-chavetas-ret.png** (= A2-13-s2) | A2-13 (12/10) | ✅ Al dossier (emblema) | Fulla de tabac sobre una chaveta de mitja lluna, sense fulles creuades. La variant -s1 barreja un puro i un ganivet (no s'usa) |
 
+| **arnaldo-a3-1-anilla-casa-ret.png** | A3-1 (13/10) | ✅ Al dossier (Nº 1) | Anella de la casa: lacre, or, perlat i cartel·la amb «ARNALDO» correcte. Substitueix el medalló com a imatge principal |
+| arnaldo-a3-2-anilla-firma.png | A3-2 (13/10) | ❌ Descartat | La signatura diu «Arnuldo». Es repeteix (A3-2b) |
+| arnaldo-a3-3-doble-anilla.png | A3-3 (13/10) | ❌ Descartat | «PLIEGO DE AUTOR» correcte, però un «1» i una titlla inventats travessen «ARNALDO»; el retoc no queda net. Es repeteix (A3-3b) |
+| **arnaldo-a3-4-caja-fuego-ret.png** | A3-4 (13/10) | ✅ Al dossier (caixa) | El render escrivia «ARNADO»: marca a foc regravada amb Cinzel en el pla de la tapa i veta real de la fusta (`_build/renders/fix_a34_branding.py`) |
+| **arnaldo-a3-5-caja-abierta-casa-ret.png** | A3-5 (13/10) | ✅ Al dossier (vista) | Vista clàssica a una tinta amb paper de vores; retall per sobre de les anelles petites (`_build/renders/crop_a35_vista.py`) |
+
 Retoc i revisió: cada imatge s'ha revisat lletra per lletra; al dossier només hi van les marcades ✅.
 
-**Cua** (`_build/renders/queue_2026-10-12-v3.json`): Ruta A v3 «Casa cubana clàssica» — A3-1 anella de la casa, A3-2 variant amb signatura, A3-3 doble anella «Pliego de autor», A3-4 caixa de cedre amb la marca a foc, A3-5 caixa oberta amb vista. El dossier recull les versions revisades `arnaldo-a3-…-ret.png`. Les imatges de la fulla i la chaveta (A2-6, A2-7, A2-13, A2-14) queden fora del dossier per decisió del promotor.
+**Cua** (`_build/renders/queue_2026-10-13-v3b.json`): A3-2b variant amb signatura i A3-3b doble anella «Pliego de autor», dues llavors cadascuna.
 
 Dossier per a inversors: `../ARNALDO Brand Dossier.pdf` (`_build/build_dossier.py`).
 

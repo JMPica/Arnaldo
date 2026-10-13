@@ -83,7 +83,8 @@ I_CAJA = img("arnaldo-a3-4-caja-fuego-ret.png")           # Ruta A v3: caja de c
 I_MEDALLON = img("arnaldo-a2-15-anilla-medallon-manos-ret.png") or img("arnaldo-a2-1-anilla-medallon-ret.png")
 I_N1 = I_CASA or I_MEDALLON
 I_N3 = img("arnaldo-a2-3-edicion-negra-ret.png")
-I_VISTA = img("arnaldo-a2-8-vista-casa-tabaco-ret.png") or img("arnaldo-a2-4-caja-vista-pano.png")
+I_VISTA = (img("arnaldo-a3-5-caja-abierta-casa-ret.png") or img("arnaldo-a2-8-vista-casa-tabaco-ret.png")
+           or img("arnaldo-a2-4-caja-vista-pano.png"))
 I_GAMA = img("arnaldo-a2-9-tres-vitolas-ret.png")
 I_MANOS = img("arnaldo-a2-10-manos-torcedor-ret.png")
 I_HUMIDOR = img("arnaldo-a2-11-humidor-ret.png")
@@ -539,7 +540,7 @@ def build():
   <li>Papel de bordes lacre y oro; larguero con el nombre y costero con la vitola.</li>
   <li>Dentro, la vista litográfica y el colofón numerado.</li></ul>
  <p class="small" style="margin-top:5mm">Zona reservada para la advertencia sanitaria, la marca fiscal y el identificador único, conforme al RD 579/2017.</p>
- <p class="cap">Render conceptual generado con IA (Qwen-Image).</p>
+ <p class="cap">Render conceptual generado con IA (Qwen-Image). Retocado: la marca a fuego se ha regrabado con tipografía porque el render escribía «ARNADO».</p>
 </div>""", dark=True, title="CAJA", left="192mm")
 
     add(f"""
@@ -559,8 +560,8 @@ def build():
     add(f"""
 {fig(I_VISTA, "left:0;top:0;width:297mm;height:162mm;background-position:50% 45%")}
 <div style="position:absolute;left:18mm;right:18mm;top:168mm" class="grid2">
- <div><div class="kick">Habilitación · Vista</div><h2 style="font-size:17pt;margin:0">El interior de la tapa: «Pliego de autor»</h2></div>
- <div><p class="small" style="margin:0">Litografía a varias tintas (≈200 × 120 mm) con medallón grabado, filigrana de oro y rosetas en las esquinas. En el arte final, retrato grabado de Arnaldo si lo autoriza. Render conceptual generado con IA (Qwen-Image), recortado para excluir las anillas pequeñas.</p></div>
+ <div><div class="kick">Habilitación · Vista</div><h2 style="font-size:17pt;margin:0">La vista: el interior de la tapa</h2></div>
+ <div><p class="small" style="margin:0">Litografía (≈200 × 120 mm) con una casa de tabaco grabada en un óvalo de oro y papel de bordes lacre y oro, como en las cajas clásicas. En el arte final, retrato grabado de Arnaldo si lo autoriza. Render conceptual generado con IA (Qwen-Image), recortado para excluir las anillas pequeñas.</p></div>
 </div>""", dark=True, title="VISTA")
 
     # 14 · La gama

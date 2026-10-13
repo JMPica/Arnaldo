@@ -1,0 +1,14 @@
+[
+ {
+  "id": "arnaldo-a3-2b-anilla-firma",
+  "ratio": "4:3",
+  "prompt": "Macro product photograph of a premium robusto cigar on dark walnut wearing an ornate classic Cuban-style cigar band in the grand nineteenth-century tradition: deep red lacquered field, wide antique-gold foil borders embossed with a row of tiny raised gold pearls, fine gold guilloché on the side panels with small gold rosettes, and a tall die-cut central gold cartouche with scalloped edges that rises above and below the band. Inside the cartouche, on a red ground, the name \"Arnaldo\" (spelled A-r-n-a-l-d-o, with the letter a after the n) written as an elegant flowing hand signature in raised gold foil, with a single underline flourish. That is the only text on the band. Embossed relief, raking warm light, ultra-detailed paper and foil texture, black background.",
+  "negative": "watermark, misspelled text, extra text, gibberish letters, flags, coat of arms, medals, crown, fleur-de-lis, laurel, tobacco leaf, knife, sickle, blurry, low resolution"
+ },
+ {
+  "id": "arnaldo-a3-3b-doble-anilla",
+  "ratio": "4:3",
+  "prompt": "Macro product photograph of a premium robusto cigar on dark walnut wearing two bands. The upper band is an ornate classic Cuban-style cigar band in the grand nineteenth-century tradition: deep red lacquered field, wide antique-gold foil borders embossed with a row of tiny raised gold pearls, fine gold guilloché on the side panels with small gold rosettes, and a tall die-cut central gold cartouche with scalloped edges that rises above and below the band, with \"ARNALDO\" in large bold engraved gold serif capitals inside the cartouche, plain letters with no numerals, flourishes or accents. Just below it, a narrow second band in glossy black with thin gold borders and the words \"PLIEGO DE AUTOR\" in small gold serif capitals. No other text. Raking warm light, black background.",
+  "negative": "watermark, misspelled text, extra text, gibberish letters, flags, coat of arms, medals, crown, fleur-de-lis, laurel, tobacco leaf, knife, sickle, blurry, low resolution, numerals, numbers, swash, tilde, accents"
+ }
+]
