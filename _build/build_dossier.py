@@ -328,8 +328,8 @@ def build():
 
     # 3 · La idea
     add(f"""
-<div style="position:absolute;right:0;top:0;width:150mm;height:210mm;background:radial-gradient(ellipse at 50% 45%,#3A2E26 0%,#14100D 70%)"></div>
-{artimg(A_VISTA, "right:9mm;top:64mm;width:132mm")}
+{fig(I_PURO, "right:0;top:0;width:150mm;height:210mm;background-position:50% 30%") if I_PURO else
+ '<div style="position:absolute;right:0;top:0;width:150mm;height:210mm;background:radial-gradient(ellipse at 50% 45%,#3A2E26 0%,#14100D 70%)"></div>' + artimg(A_VISTA, "right:9mm;top:64mm;width:132mm")}
 <div style="position:absolute;left:20mm;top:30mm;width:112mm">
  <div class="kick">La idea</div>
  <div class="quote" style="font-size:31pt">«Que cada caja lleve la firma de quien la hizo.»</div>
@@ -337,7 +337,7 @@ def build():
  <p class="lead" style="font-size:14pt">Las grandes marcas del puro se construyeron con un nombre, un oficio y una habilitación de primer nivel. ARNALDO parte de un activo que no se puede copiar: <strong>un torcedor real</strong>.</p>
  <p class="small" style="font-size:8.6pt">Cada lote es un <em>pliego</em> numerado; cada caja lleva un colofón «nº X de N» que, cuando el contrato lo permita, rubricará Arnaldo. «Pliego de autor»: con un autor real, la expresión cobra todo su sentido.</p>
 </div>
-<div style="position:absolute;left:20mm;bottom:16mm;width:112mm" class="cap">Imagen: vista (interior de la tapa), arte vectorial provisional. No es un arte final.</div>""", dark=True, title="LA IDEA", left="20mm", right="160mm")
+<div style="position:absolute;left:20mm;bottom:16mm;width:112mm" class="cap">{"Imagen: maqueta. Fotografía generada con IA sin texto (Qwen-Image) con la anilla de la casa y la segunda anilla compuestas en vectorial. No es un arte final." if I_PURO else "Imagen: vista (interior de la tapa), arte vectorial provisional. No es un arte final."}</div>""", dark=True, title="LA IDEA", left="20mm", right="160mm")
 
     # 4 · Arnaldo
     manos = fig(I_MANOS, "right:0;top:0;width:110mm;height:210mm")
@@ -542,7 +542,8 @@ def build():
     # 13 · Caja
     if I_CAJA:
         add(f"""
-{fig(I_CAJA, "left:0;top:0;width:178mm;height:210mm")}
+{fig(I_CAJA, "left:0;top:0;width:178mm;height:210mm;background-size:contain;background-repeat:no-repeat;background-color:#000")}
+<div style="position:absolute;left:0;top:105mm;width:178mm;height:105mm;background:#040302;z-index:-1"></div>
 <div style="position:absolute;left:192mm;right:16mm;top:24mm">
  <div class="kick">Habilitación · Caja</div><h1 style="font-size:26pt">Cedro y fuego</h1>
  <ul class="clean" style="margin-top:3mm">
@@ -551,7 +552,7 @@ def build():
   <li>Dentro, la vista y el colofón numerado.</li></ul>
  <div style="background:#F4EBD8;border-radius:1mm;padding:3mm 6mm;margin-top:5mm"><img src="{A_FUEGO}" style="width:100%;display:block"></div>
  <p class="small" style="margin-top:4mm">Zona reservada para la advertencia sanitaria, la marca fiscal y el identificador único, conforme al RD 579/2017.</p>
- <p class="cap">Maqueta: fotografía conceptual generada con IA (Qwen-Image), con la marca generada borrada y la marca vectorial grabada en el plano de la tapa.</p>
+ <p class="cap">Maqueta: fotografía generada con IA sin texto (Qwen-Image), con la marca vectorial grabada en el plano de la tapa.</p>
 </div>""", dark=True, title="CAJA", left="192mm")
 
     # 14 · Una anilla, tres vitolas
@@ -561,9 +562,11 @@ def build():
 {artimg(A_N1, "left:0;top:34mm;width:117mm")}
 {artimg(A_N2, "left:0;top:76mm;width:117mm")}
 {artimg(A_N3, "left:0;top:118mm;width:117mm")}
-<div style="position:absolute;left:128mm;right:0;top:47mm"><h3>Nº 1 · Robusto</h3><p class="small" style="margin:0">Banda lacre. Vitola de lanzamiento.</p></div>
-<div style="position:absolute;left:128mm;right:0;top:89mm"><h3>Nº 2 · Toro</h3><p class="small" style="margin:0">Banda marfil. Extensión.</p></div>
-<div style="position:absolute;left:128mm;right:0;top:131mm"><h3>Nº 3 · Churchill</h3><p class="small" style="margin:0">Banda negro laca. Edición limitada (prevista para 2030).</p></div>
+<div style="position:absolute;left:124mm;width:46mm;top:47mm"><h3>Nº 1 · Robusto</h3><p class="small" style="margin:0">Banda lacre. Vitola de lanzamiento.</p></div>
+<div style="position:absolute;left:124mm;width:46mm;top:89mm"><h3>Nº 2 · Toro</h3><p class="small" style="margin:0">Banda marfil. Extensión.</p></div>
+<div style="position:absolute;left:124mm;width:46mm;top:131mm"><h3>Nº 3 · Churchill</h3><p class="small" style="margin:0">Banda negro laca. Edición limitada (prevista para 2030).</p></div>
+{fig(I_GAMA, "left:176mm;right:0;top:40mm;height:85mm;border-radius:1mm")}
+{('<p class="cap" style="position:absolute;left:176mm;right:0;top:128mm">Maqueta: fotografía generada con IA sin texto, con las tres anillas compuestas en vectorial sobre cada vitola.</p>') if I_GAMA else ''}
 </div>""", title="GAMA EN LA ANILLA")
 
     # 15 · Vista
@@ -572,11 +575,11 @@ def build():
  '<div style="position:absolute;left:0;top:0;width:297mm;height:162mm;background:radial-gradient(ellipse at 50% 45%,#3A2E26 0%,#14100D 72%)"></div>' + artimg(A_VISTA, "left:28mm;top:6mm;width:241mm")}
 <div style="position:absolute;left:18mm;right:18mm;top:168mm" class="grid2">
  <div><div class="kick">Habilitación · Vista</div><h2 style="font-size:17pt;margin:0">La vista: el interior de la tapa</h2></div>
- <div><p class="small" style="margin:0">Litografía (≈200 × 120 mm) en marfil, lacre y oro con el óvalo de la casa al centro: ARNALDO y la firma. Arte vectorial provisional.</p></div>
+ <div><p class="small" style="margin:0">Litografía (≈200 × 120 mm) en marfil, lacre y oro con el óvalo de la casa al centro: ARNALDO y la firma. {"Maqueta: fotografía generada con IA con la tapa en blanco y la vista vectorial compuesta en perspectiva." if I_ABIERTA else "Arte vectorial provisional."}</p></div>
 </div>""", dark=True, title="VISTA")
 
     # 16 · La gama
-    gama_img = fig(I_GAMA, "right:18mm;top:28mm;width:98mm;height:56mm;border-radius:1mm")
+    gama_img = ""
     add(f"""<div class="pad">
 <div class="kick">La gama</div><h1>Una vitola para empezar; dos para crecer</h1>
 {gama_img}

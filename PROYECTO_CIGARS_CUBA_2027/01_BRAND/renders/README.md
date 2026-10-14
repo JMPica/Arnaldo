@@ -54,13 +54,24 @@ El promotor tria l'anella clàssica com a disseny de la casa i demana mantenir-l
 |---|---|---|---|
 | arnaldo-render-anilla-clasica.png | Runway · Nano Banana Pro (10/10) | Original | Disseny triat. La signatura diu «Arnald Jonato» (inventada per la IA) |
 | **arnaldo-render-anilla-clasica-ret.png** | Retoc | ✅ Al dossier (portada i Nº 1) | Signatura inventada esborrada sobre la laca i substituïda per «Arnaldo» en cal·ligrafia provisional d'aspecte manuscrit, Herr Von Muellerhoff (`_build/renders/fix_clasica_firma.py`); la resta, intacta |
-| **arnaldo-caja-marca-fuego.png** | A3-4 + marca a foc | ✅ Al dossier (caixa) | Marca generada esborrada amb veta real; ARNALDO i la signatura vectorials gravats amb homografia (`_build/renders/mock_caja_fuego.py`) |
 | ../assets/clasica/arnaldo-anilla-n1/-n2/-n3-negra | Vectorial | ✅ Al dossier | L'anella redibuixada: banda lacre (Nº 1), marfil (Nº 2) i negra (Nº 3) |
-| ../assets/clasica/arnaldo-anilla-especificacion, -pliego, -logotipo-oro/-lacre, -medallon, -vista, -marca-fuego | Vectorial | ✅ Al dossier | Full d'especificació a escala real (72 × 16 mm, oval 27 × 21 mm), segona anella, logotip (nom + signatura), oval, vista i marca a foc (`_build/brand_clasica.py`) |
+| ../assets/clasica/arnaldo-anilla-especificacion, -pliego, -logotipo-oro/-lacre, -medallon, -vista, -marca-fuego | Vectorial | ✅ Al dossier | Full d'especificació a escala real (72 × 16 mm, oval 23 × 20 mm), segona anella, logotip (nom + signatura), oval, vista i marca a foc (`_build/brand_clasica.py`) |
 
 Les imatges de la v3 (A3-1, A3-4-ret, A3-5-ret) i de la v2 ja no surten al dossier; es conserven com a exploració.
 
-**Cua** (`_build/renders/queue_2026-10-14-v4.json`, programada el 14/10 a les 15:45 UTC): fotos sense text (puro dret amb anella llisa, tres vitoles, caixa clavada, caixa oberta amb la tapa interior en blanc, vinyeta gravada) per compondre-hi l'anella de la casa.
+### Fotos sense text i maquetes (14/10/2026)
+
+Generades amb Qwen-Image (`_build/renders/queue_2026-10-14-v4.json`; el prefix «v4» del nom és només el de la cua) i compostes amb l'art de la casa (`_build/renders/compose_fotos.py`): l'anella s'enrotlla sobre el cilindre amb la llum de la foto, i la marca i la vista es projecten en perspectiva.
+
+| Fitxer | Base | Estat | Notes |
+|---|---|---|---|
+| **arnaldo-puro-anilla.png** | v4-p1 (robust dret, anella llisa) | ✅ Al dossier (La idea) | Anella Nº 1 + «Pliego de autor» enrotllades al puro |
+| **arnaldo-tres-vitolas.png** | v4-p2 (tres vitoles) | ✅ Al dossier (gamma) | Nº 1 lacre, Nº 2 marfil, Nº 3 negra; retallat per sota per treure els peus (la IA hi havia dibuixat cendra) |
+| **arnaldo-caja-marca-fuego.png** | v4-p3 (caixa clavada de cedre) | ✅ Al dossier (caixa) | Substitueix la caixeta amb tancador: ARNALDO i la signatura gravats a foc a la tapa |
+| **arnaldo-caja-abierta.png** | v4-p4 (caixa oberta, tapa en blanc) | ✅ Al dossier (vista) | Vista vectorial en perspectiva; enquadrat a la tapa perquè les anelles llises de la safata no surtin |
+| arnaldo-v4-p5-vineta-grabada.png | v4-p5 | Reserva | Gravat de vega sense text, correcte; no s'usa perquè la vista porta l'oval de la casa |
+
+Revisió: cap de les fotos base té text; tot el text de les maquetes és vectorial.
 
 Dossier per a inversors: `../ARNALDO Brand Dossier.pdf` (`_build/build_dossier.py`).
 

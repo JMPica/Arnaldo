@@ -3,7 +3,7 @@
 
 Redibujo del render «anilla clásica» (01_BRAND/renders/arnaldo-render-anilla-clasica.png) con criterios de
 diseño de producción:
-  · proporciones reales: desarrollo 72 × 16 mm para cepo 50, óvalo troquelado 27 × 21 mm (escala 20 px = 1 mm);
+  · proporciones reales: desarrollo 72 × 16 mm para cepo 50, óvalo troquelado 23 × 20 mm (escala 20 px = 1 mm);
   · colores planos de imprenta (lacre, negro laca) y oro como foil, sin brillos de pantalla;
   · grabado fino: perlado en relieve seco, guilloché de roseta en el marco del óvalo, ondas tono sobre tono;
   · ARNALDO en capitales romanas (Cinzel) en arco suave y la firma debajo.
@@ -144,7 +144,7 @@ def medallon(cx, cy, rx, ry, tag, name=True):
 
 # ------------------------------------------------------------------ anilla (desarrollo plano)
 BAND_W, BAND_H, BAND_CY, BODY_H = 72 * MM, 24 * MM, 12 * MM, 16 * MM
-OVAL_RX, OVAL_RY = 13.5 * MM, 10.5 * MM
+OVAL_RX, OVAL_RY = 11.5 * MM, 10 * MM
 
 
 def band(field="url(#lacreF)", tone=LACRE_D, tag="n1", line="url(#foil)"):
@@ -174,7 +174,7 @@ def band2(field="url(#lacreF)"):
     for yb in (0, H - 7):
         g.append(f'<rect x="0" y="{yb}" width="{W}" height="7" fill="url(#foil)"/>')
     g.append(f'<rect x="0" y="13" width="{W}" height="1.2" fill="url(#foil)"/><rect x="0" y="{H-14.2}" width="{W}" height="1.2" fill="url(#foil)"/>')
-    g.append(T("PLIEGO DE AUTOR", "cz6", 30, cx, cy + 10.5, "url(#foil)", tracking=.36))
+    g.append(T("PLIEGO DE AUTOR", "cz6", 27, cx, cy + 9.5, "url(#foil)", tracking=.3))
     for sgn in (-1, 1):
         x = cx + sgn * 262
         g.append(f'<path d="M{x},{cy-6} L{x+6},{cy} L{x},{cy+6} L{x-6},{cy} Z" fill="url(#foil)"/>')
@@ -206,8 +206,8 @@ def spec_sheet():
     g.append(dim_h(ox, ox + bw, oy - 40, "72 mm · desarrollo (cepo 50 + solape)"))
     g.append(dim_v(ox - 40, y_body0, y_body1, "16 mm"))
     cxo = ox + bw / 2
-    g.append(dim_h(cxo - OVAL_RX, cxo + OVAL_RX, oy + bh + 40 + ph_ + 60, "27 mm · óvalo troquelado"))
-    g.append(dim_v(ox + bw + 40, oy + BAND_CY - OVAL_RY, oy + BAND_CY + OVAL_RY, "21 mm", side=1))
+    g.append(dim_h(cxo - OVAL_RX, cxo + OVAL_RX, oy + bh + 40 + ph_ + 60, f"{2 * OVAL_RX / MM:g} mm · óvalo troquelado"))
+    g.append(dim_v(ox + bw + 40, oy + BAND_CY - OVAL_RY, oy + BAND_CY + OVAL_RY, f"{2 * OVAL_RY / MM:g} mm", side=1))
     g.append(dim_v(ox - 40, oy + bh + 40, oy + bh + 40 + ph_, "7 mm"))
     notes = [("Papel", "Estucado mate 90–100 g, fibra larga"), ("Lacre", "Directo, una tinta; a fijar con prueba"),
              ("Negro laca", "Negro enriquecido + UV brillante en reserva"), ("Oro", "Foil en caliente (stamping), un solo oro"),
