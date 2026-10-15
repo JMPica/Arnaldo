@@ -28,6 +28,7 @@ var autopilot: Autopilot = null
 var test_mode := false
 
 var _pointer_held := false
+var _touches: Dictionary = {}
 var _next_hint := 0
 var _end_timer := -1.0
 var _results_shown := false
@@ -89,8 +90,10 @@ func _build() -> void:
 		menus = OverlayMenus.new()
 		add_child(menus)
 		menus.resume_requested.connect(_toggle_pause)
-		menus.restart_requested.connect(func() -> void: _game().restart_level())
-		menus.next_requested.connect(func() -> void: _game().next_level())
+		menus.restart_requested.connect(func() -> void:
+			_game().current_level_index = level_index
+			_game().restart_level())
+		menus.next_requested.connect(func() -> void: _game().start_level(level_index + 1))
 		menus.menu_requested.connect(func() -> void: _game().go_to_menu())
 		_show_due_hints(level.start.x)
 
@@ -114,8 +117,16 @@ func _sfx(sound: String, volume_db := 0.0, pitch := 1.0) -> void:
 # ---------------------------------------------------------------- input ----
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		_pointer_held = event.pressed
+	if event is InputEventScreenTouch:
+		# Real touches are tracked per finger: any finger down = thrust.
+		if event.pressed:
+			_touches[event.index] = true
+		else:
+			_touches.erase(event.index)
+	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		# Mouse events emulated from touch are ignored (already counted above).
+		if event.device != InputEvent.DEVICE_ID_EMULATION:
+			_pointer_held = event.pressed
 	elif event.is_action_pressed("pause"):
 		_toggle_pause()
 	elif event.is_action_pressed("restart") and not get_tree().paused:
@@ -127,6 +138,7 @@ func _notification(what: int) -> void:
 	# the player for something outside the game.
 	if what == NOTIFICATION_APPLICATION_FOCUS_OUT or what == NOTIFICATION_APPLICATION_PAUSED:
 		_pointer_held = false
+		_touches.clear()
 		if mission and mission.is_playing() and not get_tree().paused and not test_mode:
 			_toggle_pause()
 
@@ -135,7 +147,7 @@ func thrust_input() -> bool:
 	if autopilot:
 		return autopilot.wants_thrust(rig.model.courier_pos, rig.model.courier_vel,
 				mission.state == Mission.State.BRAKING)
-	return _pointer_held or Input.is_action_pressed("thrust")
+	return _pointer_held or not _touches.is_empty() or Input.is_action_pressed("thrust")
 
 
 func _toggle_pause() -> void:
@@ -146,6 +158,7 @@ func _toggle_pause() -> void:
 		menus.close()
 	else:
 		_pointer_held = false
+		_touches.clear()
 		get_tree().paused = true
 		menus.show_pause()
 		_set_jet_sound(0.0)
@@ -317,9 +330,10 @@ func _show_results() -> void:
 	var progress := get_node("/root/Progress")
 	progress.record_result(level.id, level_index, success, integrity, stars, coins, mission.elapsed)
 	get_node("/root/Ads").on_delivery_finished()
+	var has_next := level_index + 1 < data.levels.size()
 	menus.show_results({
 		"success": success, "reason": mission.result_reason, "integrity": integrity, "stars": stars,
-		"time": mission.elapsed, "coins": coins, "has_next": _game().has_next_level(),
-		"is_last": success and not _game().has_next_level(),
+		"time": mission.elapsed, "coins": coins, "has_next": has_next,
+		"is_last": success and not has_next,
 	})
 	get_node("/root/Ads").maybe_show_interstitial()

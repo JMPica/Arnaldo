@@ -119,3 +119,26 @@ func test_main_menu_builds_with_all_missions() -> void:
 	var locked := buttons.filter(func(b): return b.disabled)
 	assert_eq(locked.size(), game_data().levels.size() - 1, "only the first mission is open on a new save")
 	menu.queue_free()
+
+
+func _touch(index: int, pressed: bool) -> void:
+	var ev := InputEventScreenTouch.new()
+	ev.index = index
+	ev.pressed = pressed
+	ev.position = Vector2(400 + index * 100, 500)
+	Input.parse_input_event(ev)
+
+
+func test_multitouch_keeps_thrust_while_any_finger_is_down() -> void:
+	var gs := _scene(0, false)
+	_touch(0, true)
+	await physics_frames(3)
+	assert_true(gs.thrust_input(), "first finger thrusts")
+	_touch(1, true)
+	_touch(0, false)
+	await physics_frames(2)
+	assert_true(gs.thrust_input(), "second finger keeps thrusting after the first lifts")
+	_touch(1, false)
+	await physics_frames(2)
+	assert_false(gs.thrust_input(), "no fingers, no thrust")
+	gs.queue_free()

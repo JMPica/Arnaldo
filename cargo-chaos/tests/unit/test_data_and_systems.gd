@@ -113,3 +113,10 @@ func test_ad_policy_respects_the_player() -> void:
 func test_null_ad_provider_never_shows() -> void:
 	assert_false(Ads.maybe_show_interstitial(), "prototype ships without ads")
 	assert_false(Ads.rewarded_available(), "no rewarded ads yet")
+
+
+func test_all_sounds_load() -> void:
+	for s in Sfx.SOUNDS:
+		assert_true(Sfx._streams.has(s), "sound '%s' imported and loaded" % s)
+	assert_true(Sfx._jet.stream != null, "jetpack loop loaded")
+	assert_eq((Sfx._jet.stream as AudioStreamWAV).loop_mode, AudioStreamWAV.LOOP_FORWARD, "jet loop loops")

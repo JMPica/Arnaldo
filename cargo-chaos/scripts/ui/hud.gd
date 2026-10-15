@@ -95,7 +95,7 @@ func build(level: LevelData, cargo: CargoType) -> void:
 
 	_hint = UiKit.label("", 34, Palette.GOGGLE, 10)
 	_hint.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
-	_hint.position = Vector2(-450, -120)
+	_hint.position = Vector2(-450, -165)
 	_hint.custom_minimum_size = Vector2(900, 60)
 	_hint.modulate.a = 0.0
 	_hint.mouse_filter = Control.MOUSE_FILTER_IGNORE
