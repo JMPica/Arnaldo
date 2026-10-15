@@ -43,6 +43,7 @@ Prototipo jugable de principio a fin sin el editor: menú → 5 misiones con 3 m
 
 ### Fase 3 — Polish y QA 🟡 en curso
 - **Hecho:** audio básico sintetizado (14 efectos), partículas, sacudida de cámara, animaciones del personaje (inclinación, estiramiento, poses), pausa automática al perder el foco, multitáctil, vídeo de una partida.
+- **Hecho también:** exportación Android (APK firmado de pruebas), Linux y Windows. El ejecutable Linux exportado se ha jugado con entrada real de teclado/ratón (xdotool) en pantalla virtual: menú → misión → vuelo → fracaso, con guardado y analítica escritos.
 - **Pendiente:** playtests humanos y ajuste de dificultad, música, pantalla de créditos/licencias, profiling en dispositivo, probar relaciones de aspecto 4:3 y 20:9.
 
 ### Fase 4 — MVP comercial ⛔ no iniciada (a propósito)
@@ -51,12 +52,13 @@ Solo hay preparación arquitectónica: `Analytics` (backend local), `Ads` + `AdP
 ## Problemas y limitaciones conocidas
 
 1. **Sin validación humana:** la sensación de control y la dificultad se han ajustado con métricas y un bot.
-2. **Sin móvil:** no hay exportación, ni emulador, ni medición de FPS/memoria. No se afirma que alcance 60 FPS en móvil.
+2. **Móvil sin probar en dispositivo:** existe un APK de pruebas firmado (52,7 MB, ARMv7 + ARM64, Android 7.0+, sin permisos; firma v2/v3, alineación y manifiesto verificados), pero **no se ha instalado en ningún teléfono** porque no hay dispositivo ni emulador. Sin medición de FPS/memoria; no se afirma que alcance 60 FPS en móvil.
 3. **Audio no escuchado** (el contenedor no tiene salida de audio).
 4. Interpolación física desactivada: posible falta de suavidad en pantallas de 120 Hz.
 5. Los niveles con obstáculos móviles se prueban con un solo timing determinista del bot.
 6. El arte es procedural provisional (de calidad presentable, sustituible por sprites).
 7. Retención D1/D7/D30 imposible de medir sin backend remoto (no existe).
+8. **Hallazgo de la prueba del ejecutable exportado:** en la misión 1, si el jugador no pulsa nada, la caja cae a la calle, rebota varias veces y se rompe en ~3,5 s. Puede ser demasiado duro para el primer minuto de juego; a confirmar en el playtest antes de cambiarlo.
 
 ## Decisiones relevantes
 
@@ -69,6 +71,6 @@ Solo hay preparación arquitectónica: `Analytics` (backend local), `Ads` + `AdP
 ## Siguiente prioridad (más valor)
 
 1. **Playtest con 5–10 personas** (build de escritorio o Android de pruebas): ¿se entiende que la carga va detrás?, ¿piano divertido o lento?, ¿tarta justa? Registrar con la analítica local (`user://analytics/*.jsonl`).
-2. Exportación Android de pruebas + profiling en un móvil de gama media.
+2. Instalar el APK de pruebas en un móvil de gama media: control táctil real, FPS y temperatura.
 3. Ajustes según playtest; luego música y pantalla de créditos.
 4. Solo después: hangar/economía (Fase 4).

@@ -20,6 +20,14 @@ godot --path cargo-chaos
 
 La primera vez que se abre en un proyecto clonado, Godot importa las fuentes y sonidos (si se lanza sin editor, ejecutar antes `godot --headless --path cargo-chaos --import`).
 
+### En Android (APK de pruebas)
+1. Copia `CargoChaos.apk` al móvil (o descárgalo desde donde te lo hayan compartido).
+2. Ábrelo y acepta **"Permitir instalar apps de esta fuente"** (Android lo pide para APK fuera de Google Play).
+3. Si Play Protect avisa de una "app desconocida", elige **Instalar de todas formas**: está firmada con una clave de pruebas, no publicada en la tienda.
+4. Requiere Android 7.0 o superior, procesador ARM (prácticamente todos los móviles). No pide ningún permiso.
+
+Para generarlo: `tools/export_android.sh` (instrucciones dentro del script). Builds de escritorio: presets "Linux" y "Windows" en `export_presets.cfg`.
+
 ### Controles
 | | |
 |---|---|

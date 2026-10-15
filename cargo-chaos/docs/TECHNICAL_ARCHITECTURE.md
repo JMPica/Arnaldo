@@ -109,6 +109,10 @@ Añadir una misión = crear un JSON y listarlo en `data/levels/index.json`. Sin 
 - Sin texturas: memoria gráfica mínima. Sonido: 376 KB en WAV.
 - **No medido en móvil.** En el contenedor (CPU, render por software) las 5 misiones se simulan en ~2 s headless.
 
-## 9. Exportación móvil (pendiente)
+## 9. Exportación
 
-No hay `export_presets.cfg` ni plantillas de exportación instaladas. Pasos: instalar export templates 4.7.2, Android SDK/JDK y firma; para iOS, Xcode en macOS. Ajustes ya preparados: renderer Compatibility, orientación horizontal, compresión ETC2/ASTC.
+`export_presets.cfg` (versionado, **sin secretos**) define tres presets: **Android**, **Linux** y **Windows**. Todos excluyen `tests/`, `tools/` y `docs/`.
+
+- **Android:** plantilla precompilada (sin Gradle), ARMv7 + ARM64, `com.jmpica.cargochaos`, minSdk 24, targetSdk 36, sin permisos, orientación horizontal, modo inmersivo. Firma con `apksigner`; la clave y su contraseña se pasan por variables de entorno (`GODOT_ANDROID_KEYSTORE_RELEASE_*`) desde `tools/export_android.sh`. **La clave nunca va al repositorio.** La APK de prueba actual usa una clave de pruebas temporal: una futura APK firmada con otra clave obligará a desinstalar antes de instalar.
+- En el contenedor de desarrollo, `dl.google.com` está bloqueado, así que el "SDK" es un directorio mínimo con `apksigner`/`zipalign` de Ubuntu. Para Google Play hará falta el SDK completo, exportación con Gradle y formato AAB.
+- **iOS:** requiere macOS + Xcode; no disponible.
