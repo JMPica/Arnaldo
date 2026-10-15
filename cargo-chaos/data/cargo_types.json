@@ -1,0 +1,79 @@
+{
+  "glass_box": {
+    "display_name": "Glass Box",
+    "description": "Light and very fragile. Trails behind you and shatters on hard hits.",
+    "mass": 0.35,
+    "size": [
+      54,
+      54
+    ],
+    "rope_length": 78,
+    "rope_frequency": 4.2,
+    "rope_damping_ratio": 0.35,
+    "air_drag": 0.35,
+    "angular_damping": 2.5,
+    "inertia_scale": 1.0,
+    "restitution": 0.35,
+    "friction": 0.4,
+    "fragility": 1.6,
+    "impact_threshold": 95,
+    "damage_per_speed": 0.18,
+    "scrape_rate": 14,
+    "hud_color": "#7fe3ff",
+    "art": "glass_box",
+    "bridle": 30.0,
+    "swing_damping": 2.5
+  },
+  "heavy_piano": {
+    "display_name": "Heavy Piano",
+    "description": "Heavy and tough. Slow to lift, swings wide and drags you around.",
+    "mass": 1.3,
+    "size": [
+      104,
+      78
+    ],
+    "rope_length": 96,
+    "rope_frequency": 3.4,
+    "rope_damping_ratio": 0.3,
+    "air_drag": 0.3,
+    "angular_damping": 1.2,
+    "inertia_scale": 1.0,
+    "restitution": 0.12,
+    "friction": 0.7,
+    "fragility": 0.45,
+    "impact_threshold": 150,
+    "damage_per_speed": 0.18,
+    "scrape_rate": 6,
+    "hud_color": "#ffcf5a",
+    "art": "heavy_piano",
+    "bridle": 20,
+    "swing_damping": 0.8
+  },
+  "birthday_cake": {
+    "display_name": "Birthday Cake",
+    "description": "Keep it level! Tilting too far ruins the frosting.",
+    "mass": 0.7,
+    "size": [
+      70,
+      62
+    ],
+    "rope_length": 82,
+    "rope_frequency": 3.8,
+    "rope_damping_ratio": 0.55,
+    "air_drag": 0.25,
+    "angular_damping": 2.0,
+    "inertia_scale": 1.0,
+    "restitution": 0.1,
+    "friction": 0.8,
+    "fragility": 0.9,
+    "impact_threshold": 110,
+    "damage_per_speed": 0.18,
+    "tilt_limit_deg": 24,
+    "tilt_damage_rate": 30,
+    "scrape_rate": 10,
+    "hud_color": "#ff8fc4",
+    "art": "birthday_cake",
+    "bridle": 30.0,
+    "swing_damping": 2.5
+  }
+}

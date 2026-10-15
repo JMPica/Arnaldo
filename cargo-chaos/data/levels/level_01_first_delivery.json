@@ -1,0 +1,34 @@
+{
+  "id": "level_01",
+  "name": "First Delivery",
+  "subtitle": "Hold to fly. Release to drop. Land it gently.",
+  "teaches": "Basic flight: holding climbs, releasing descends; the cargo hangs below you; gentle landing.",
+  "tutorial": true,
+  "cargo": "glass_box",
+  "fragility_multiplier": 0.5,
+  "cruise_speed": 250,
+  "time_limit": 0,
+  "reward_coins": 50,
+  "difficulty": 1,
+  "theme": "day",
+  "start": [220, 330],
+  "obstacles": [
+    { "type": "building", "x": 800, "width": 240, "height": 220, "variant": 0 },
+    { "type": "building", "x": 1400, "width": 210, "height": 310, "variant": 1 },
+    { "type": "sign", "x": 1960, "width": 230, "bottom": 230, "variant": 0 },
+    { "type": "building", "x": 2420, "width": 260, "height": 170, "variant": 3 },
+    { "type": "awning", "rect": [2420, 462, 260, 20] }
+  ],
+  "delivery": { "x": 3250, "width": 300, "top": 520 },
+  "hints": [
+    { "x": 0, "text": "HOLD to fly up" },
+    { "x": 420, "text": "RELEASE to drop. Your box hangs below you!" },
+    { "x": 1700, "text": "Fly UNDER the billboard" },
+    { "x": 2300, "text": "Awnings are soft. Buildings are not." },
+    { "x": 2900, "text": "Slow down... land the box gently on the pad" }
+  ],
+  "autopilot_path": [
+    [0, 330], [600, 330], [740, 255], [1090, 255], [1300, 175], [1660, 175],
+    [1880, 340], [2230, 340], [2360, 270], [2720, 270], [2950, 320], [3250, 390]
+  ]
+}

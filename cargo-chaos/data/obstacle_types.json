@@ -1,0 +1,12 @@
+{
+  "building":  { "label": "a building",        "surface": 1.0, "restitution_scale": 1.0, "anchor": "ground" },
+  "tower":     { "label": "a glass tower",     "surface": 1.1, "restitution_scale": 1.0, "anchor": "ground" },
+  "sign":      { "label": "a billboard",       "surface": 1.1, "restitution_scale": 1.0, "anchor": "ceiling" },
+  "girder":    { "label": "a steel girder",    "surface": 1.3, "restitution_scale": 0.8, "anchor": "ceiling" },
+  "skybridge": { "label": "a skybridge",       "surface": 1.0, "restitution_scale": 1.0, "anchor": "none" },
+  "awning":    { "label": "an awning",         "surface": 0.3, "restitution_scale": 1.6, "anchor": "none" },
+  "drone":     { "label": "a traffic drone",   "surface": 1.2, "restitution_scale": 1.2, "anchor": "none" },
+  "crane":     { "label": "a crane crate",     "surface": 1.3, "restitution_scale": 0.8, "anchor": "ceiling" },
+  "street":    { "label": "the street",        "surface": 1.0, "restitution_scale": 1.0, "anchor": "ground" },
+  "pad":       { "label": "the landing pad",   "surface": 0.6, "restitution_scale": 0.5, "anchor": "ground" }
+}
