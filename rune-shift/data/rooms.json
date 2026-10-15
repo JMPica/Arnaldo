@@ -1,0 +1,478 @@
+{
+  "_doc": "Arena interior 336x480. Obstáculos [x, y, ancho, alto]. Oleadas: [tipo, cantidad, élite opcional]. La siguiente oleada entra cuando quedan <= 1 enemigos o tras max_wait s.",
+  "arena": [
+    336,
+    480
+  ],
+  "player_start": [
+    168,
+    420
+  ],
+  "next_wave_when_left": 1,
+  "max_wait": 10,
+  "spawn_telegraph": 0.9,
+  "templates": {
+    "hall": {
+      "name": "Sala de los Sellos",
+      "obstacles": []
+    },
+    "pillars": {
+      "name": "Columnata",
+      "obstacles": [
+        [
+          72,
+          140,
+          24,
+          24
+        ],
+        [
+          240,
+          140,
+          24,
+          24
+        ],
+        [
+          72,
+          300,
+          24,
+          24
+        ],
+        [
+          240,
+          300,
+          24,
+          24
+        ]
+      ]
+    },
+    "altar": {
+      "name": "Altar Roto",
+      "obstacles": [
+        [
+          140,
+          196,
+          56,
+          34
+        ]
+      ]
+    },
+    "corridor": {
+      "name": "Paso Estrecho",
+      "obstacles": [
+        [
+          0,
+          214,
+          116,
+          20
+        ],
+        [
+          220,
+          214,
+          116,
+          20
+        ]
+      ]
+    },
+    "cross": {
+      "name": "Cripta en Cruz",
+      "obstacles": [
+        [
+          156,
+          100,
+          24,
+          24
+        ],
+        [
+          56,
+          224,
+          24,
+          24
+        ],
+        [
+          256,
+          224,
+          24,
+          24
+        ],
+        [
+          156,
+          340,
+          24,
+          24
+        ]
+      ]
+    },
+    "ruins": {
+      "name": "Ruinas",
+      "obstacles": [
+        [
+          40,
+          90,
+          34,
+          20
+        ],
+        [
+          252,
+          150,
+          22,
+          42
+        ],
+        [
+          104,
+          288,
+          42,
+          22
+        ],
+        [
+          226,
+          360,
+          32,
+          22
+        ]
+      ]
+    },
+    "seal": {
+      "name": "Núcleo del Sello",
+      "obstacles": [
+        [
+          40,
+          60,
+          20,
+          20
+        ],
+        [
+          276,
+          60,
+          20,
+          20
+        ],
+        [
+          40,
+          390,
+          20,
+          20
+        ],
+        [
+          276,
+          390,
+          20,
+          20
+        ]
+      ]
+    }
+  },
+  "run": [
+    {
+      "templates": [
+        "hall"
+      ],
+      "reward": "element",
+      "hint": "Muévete: tu hechizo ataca solo.",
+      "waves": [
+        [
+          [
+            "crawler",
+            3
+          ]
+        ],
+        [
+          [
+            "crawler",
+            4
+          ]
+        ]
+      ]
+    },
+    {
+      "templates": [
+        "pillars",
+        "ruins"
+      ],
+      "reward": "catalyst",
+      "hint": "Esquiva las flechas: mira su línea roja.",
+      "waves": [
+        [
+          [
+            "crawler",
+            3
+          ],
+          [
+            "archer",
+            1
+          ]
+        ],
+        [
+          [
+            "crawler",
+            3
+          ],
+          [
+            "archer",
+            2
+          ]
+        ]
+      ]
+    },
+    {
+      "templates": [
+        "cross",
+        "pillars"
+      ],
+      "reward": "form",
+      "hint": "El embestidor avisa antes de cargar.",
+      "waves": [
+        [
+          [
+            "crawler",
+            3
+          ],
+          [
+            "charger",
+            1
+          ]
+        ],
+        [
+          [
+            "charger",
+            1
+          ],
+          [
+            "crawler",
+            3
+          ],
+          [
+            "archer",
+            1
+          ]
+        ]
+      ]
+    },
+    {
+      "templates": [
+        "altar",
+        "ruins"
+      ],
+      "reward": "standard",
+      "hint": "El guardián bloquea por delante: rodéalo.",
+      "waves": [
+        [
+          [
+            "guardian",
+            1
+          ],
+          [
+            "crawler",
+            3
+          ]
+        ],
+        [
+          [
+            "archer",
+            2
+          ],
+          [
+            "crawler",
+            3
+          ]
+        ],
+        [
+          [
+            "guardian",
+            1
+          ],
+          [
+            "crawler",
+            2
+          ]
+        ]
+      ]
+    },
+    {
+      "templates": [
+        "ruins",
+        "corridor"
+      ],
+      "reward": "standard",
+      "waves": [
+        [
+          [
+            "crawler",
+            4
+          ],
+          [
+            "archer",
+            2
+          ]
+        ],
+        [
+          [
+            "charger",
+            2
+          ],
+          [
+            "crawler",
+            2,
+            "swift"
+          ]
+        ],
+        [
+          [
+            "guardian",
+            1
+          ],
+          [
+            "archer",
+            2
+          ]
+        ]
+      ]
+    },
+    {
+      "templates": [
+        "corridor",
+        "cross"
+      ],
+      "reward": "standard",
+      "waves": [
+        [
+          [
+            "charger",
+            2
+          ],
+          [
+            "archer",
+            2
+          ]
+        ],
+        [
+          [
+            "crawler",
+            5
+          ],
+          [
+            "guardian",
+            1
+          ]
+        ],
+        [
+          [
+            "charger",
+            1,
+            "brute"
+          ],
+          [
+            "archer",
+            2
+          ]
+        ]
+      ]
+    },
+    {
+      "templates": [
+        "pillars",
+        "altar"
+      ],
+      "reward": "standard",
+      "waves": [
+        [
+          [
+            "crawler",
+            6
+          ],
+          [
+            "archer",
+            2
+          ]
+        ],
+        [
+          [
+            "charger",
+            2
+          ],
+          [
+            "guardian",
+            2
+          ]
+        ],
+        [
+          [
+            "archer",
+            3
+          ],
+          [
+            "crawler",
+            3
+          ],
+          [
+            "crawler",
+            1,
+            "swift"
+          ]
+        ]
+      ]
+    },
+    {
+      "templates": [
+        "cross",
+        "ruins"
+      ],
+      "reward": "standard",
+      "waves": [
+        [
+          [
+            "guardian",
+            2
+          ],
+          [
+            "archer",
+            2
+          ]
+        ],
+        [
+          [
+            "charger",
+            2,
+            "swift"
+          ],
+          [
+            "crawler",
+            5
+          ]
+        ],
+        [
+          [
+            "archer",
+            3
+          ],
+          [
+            "charger",
+            1,
+            "brute"
+          ],
+          [
+            "crawler",
+            4
+          ]
+        ]
+      ]
+    },
+    {
+      "templates": [
+        "seal"
+      ],
+      "boss": true,
+      "hint": "Busca los huecos entre los proyectiles."
+    }
+  ],
+  "fragments": {
+    "per_room": 3,
+    "boss": 25,
+    "victory_bonus": 10
+  },
+  "scaling": {
+    "_doc": "Vida de enemigos x (1 + hp_per_room * sala). Enemigos extra por grupo: floor(sala * extra_per_room).",
+    "hp_per_room": 0.18,
+    "extra_per_room": 0.3
+  },
+  "rage_after": 75
+}

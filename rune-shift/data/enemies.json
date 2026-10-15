@@ -1,0 +1,95 @@
+{
+  "player": {
+    "hp": 100,
+    "speed": 92,
+    "radius": 6,
+    "iframes": 0.75
+  },
+  "targeting": {
+    "_doc": "Puntuación = distancia - bonificaciones (menor = prioritario).",
+    "telegraph_bonus": 45,
+    "close_bonus": 30,
+    "close_distance": 44
+  },
+  "crawler": {
+    "name": "Rastrero",
+    "hp": 18,
+    "speed": 40,
+    "radius": 6,
+    "contact": 8
+  },
+  "archer": {
+    "name": "Arquero",
+    "hp": 14,
+    "speed": 34,
+    "radius": 6,
+    "contact": 6,
+    "keep_min": 100,
+    "keep_max": 160,
+    "fire_every": 2.6,
+    "telegraph": 0.6,
+    "shot_speed": 115,
+    "shot_damage": 9
+  },
+  "charger": {
+    "name": "Embestidor",
+    "hp": 30,
+    "speed": 24,
+    "radius": 7,
+    "contact": 8,
+    "trigger_range": 150,
+    "telegraph": 0.8,
+    "dash_speed": 290,
+    "dash_time": 0.5,
+    "dash_damage": 14,
+    "recover": 0.9,
+    "cooldown": 1.6
+  },
+  "guardian": {
+    "name": "Guardián",
+    "hp": 44,
+    "speed": 22,
+    "radius": 8,
+    "contact": 9,
+    "shield_arc_deg": 120,
+    "turn_speed": 1.2,
+    "guard_break_hits": 6,
+    "guard_break_time": 1.8
+  },
+  "elites": {
+    "swift": {
+      "name": "Veloz",
+      "speed_mult": 1.55,
+      "hp_mult": 1.2,
+      "contact_mult": 1.0,
+      "size_mult": 1.0
+    },
+    "brute": {
+      "name": "Coloso",
+      "speed_mult": 0.9,
+      "hp_mult": 2.4,
+      "contact_mult": 1.5,
+      "size_mult": 1.35
+    }
+  },
+  "boss": {
+    "name": "El Guardián de los Sellos",
+    "hp": 1100,
+    "radius": 22,
+    "speed": 26,
+    "contact": 14,
+    "radial_count": 18,
+    "radial_gaps": 3,
+    "radial_speed": 92,
+    "radial_damage": 10,
+    "radial_telegraph": 0.9,
+    "charge_telegraph": 1.0,
+    "charge_speed": 320,
+    "charge_damage": 18,
+    "charge_recover": 1.1,
+    "pattern_pause": [
+      1.6,
+      0.9
+    ]
+  }
+}

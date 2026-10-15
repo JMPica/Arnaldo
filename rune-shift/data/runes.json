@@ -1,0 +1,166 @@
+{
+  "_doc": "Valores con lista = por nivel [1, 2, 3]. El motor lee cualquier parámetro con RuneDef.param(name, level).",
+  "forms": {
+    "orb": {
+      "name": "Orbe",
+      "short": "Proyectil al enemigo más cercano.",
+      "cooldown": 0.55,
+      "damage": [
+        8,
+        10,
+        12
+      ],
+      "speed": 240,
+      "radius": 4,
+      "projectiles": [
+        1,
+        2,
+        2
+      ],
+      "spread_deg": 14,
+      "pierce": [
+        0,
+        0,
+        1
+      ],
+      "range": 300
+    },
+    "orbit": {
+      "name": "Órbita",
+      "short": "Cuchillas que giran a tu alrededor.",
+      "cooldown": 1.1,
+      "damage": [
+        9,
+        11,
+        13
+      ],
+      "blades": [
+        3,
+        4,
+        5
+      ],
+      "orbit_radius": [
+        38,
+        40,
+        44
+      ],
+      "spin": 3.4,
+      "hit_interval": 0.32,
+      "blade_radius": 7,
+      "burst_radius": 84,
+      "burst_time": 0.35
+    },
+    "cone": {
+      "name": "Cono",
+      "short": "Ráfaga frontal que alcanza a todos en un arco.",
+      "cooldown": 0.65,
+      "damage": [
+        13,
+        16,
+        19
+      ],
+      "range": [
+        74,
+        80,
+        92
+      ],
+      "angle_deg": [
+        70,
+        85,
+        100
+      ],
+      "seek_range": 140
+    }
+  },
+  "elements": {
+    "fire": {
+      "name": "Fuego",
+      "short": "Quema: daño continuo que se acumula.",
+      "burn_dps": [
+        5,
+        7,
+        9
+      ],
+      "duration": 2.0,
+      "max_stacks": 3,
+      "tick": 0.5
+    },
+    "ice": {
+      "name": "Hielo",
+      "short": "Ralentiza; los enemigos helados reciben +25% de daño.",
+      "slow": [
+        0.45,
+        0.55,
+        0.65
+      ],
+      "duration": [
+        1.6,
+        1.8,
+        2.0
+      ],
+      "vulnerability": [
+        0.25,
+        0.3,
+        0.35
+      ]
+    },
+    "storm": {
+      "name": "Tormenta",
+      "short": "Carga eléctrica: al 4º impacto, descarga.",
+      "charges": [
+        4,
+        4,
+        3
+      ],
+      "discharge": [
+        16,
+        20,
+        24
+      ],
+      "chain_radius": 64,
+      "chain_ratio": 0.5
+    }
+  },
+  "catalysts": {
+    "echo": {
+      "name": "Eco",
+      "short": "Cada pocos lanzamientos, el hechizo se repite.",
+      "every": [
+        3,
+        3,
+        2
+      ],
+      "delay": 0.22
+    },
+    "rupture": {
+      "name": "Ruptura",
+      "short": "Los enemigos eliminados explotan.",
+      "radius": [
+        34,
+        42,
+        50
+      ],
+      "damage": [
+        10,
+        13,
+        16
+      ]
+    },
+    "rebound": {
+      "name": "Rebote",
+      "short": "Tras varios impactos, un rayo salta a otro enemigo.",
+      "every": [
+        5,
+        4,
+        3
+      ],
+      "damage": [
+        10,
+        12,
+        15
+      ],
+      "range": 120,
+      "speed": 420
+    }
+  }
+}
