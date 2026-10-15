@@ -1,5 +1,9 @@
 {
   "levels": [
-    "level_01_first_delivery.json"
+    "level_01_first_delivery.json",
+    "level_02_fragile_business.json",
+    "level_03_heavy_duty.json",
+    "level_04_cake_emergency.json",
+    "level_05_downtown_chaos.json"
   ]
 }

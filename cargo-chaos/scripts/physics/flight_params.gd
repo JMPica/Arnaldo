@@ -12,6 +12,7 @@ var thrust_release_time := 0.06    ## seconds from full thrust to 0
 var vertical_damping := 1.2        ## 1/s, linear damping on vertical speed
 var max_rise_speed := 480.0        ## px/s
 var max_fall_speed := 720.0        ## px/s
+var landing_max_fall_speed := 300.0 ## px/s while landing on the delivery pad (forgiving)
 var forward_gain := 4.0            ## 1/s, how hard the auto-pilot holds the cruise speed
 var forward_max_accel := 700.0     ## px/s^2
 var thrust_speed_bonus := 0.08     ## fraction of cruise speed gained while thrusting

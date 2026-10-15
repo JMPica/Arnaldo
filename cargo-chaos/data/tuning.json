@@ -21,7 +21,8 @@
       0,
       22
     ],
-    "idle_thrust_accel": 600.0
+    "idle_thrust_accel": 600.0,
+    "landing_max_fall_speed": 300
   },
   "world": {
     "ground_y": 650,

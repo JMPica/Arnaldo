@@ -1,0 +1,242 @@
+{
+  "id": "level_05",
+  "name": "Downtown Chaos",
+  "subtitle": "Night shift. Drones, cranes and a very fragile sculpture.",
+  "teaches": "Everything together: timing moving obstacles, trailing cargo, climbs and a clock.",
+  "cargo": "glass_box",
+  "fragility_multiplier": 1.0,
+  "cruise_speed": 265,
+  "time_limit": 34,
+  "reward_coins": 160,
+  "difficulty": 4,
+  "theme": "night",
+  "start": [
+    220,
+    300
+  ],
+  "obstacles": [
+    {
+      "type": "drone",
+      "rect": [
+        620,
+        400,
+        70,
+        34
+      ],
+      "move": [
+        240,
+        0
+      ],
+      "period": 3.0
+    },
+    {
+      "type": "sign",
+      "x": 1080,
+      "width": 260,
+      "bottom": 175,
+      "variant": 3
+    },
+    {
+      "type": "building",
+      "x": 1080,
+      "width": 260,
+      "height": 200,
+      "variant": 1
+    },
+    {
+      "type": "crane",
+      "rect": [
+        1560,
+        40,
+        110,
+        80
+      ],
+      "move": [
+        0,
+        250
+      ],
+      "period": 3.4,
+      "phase": 0.0
+    },
+    {
+      "type": "skybridge",
+      "rect": [
+        2000,
+        155,
+        600,
+        50
+      ]
+    },
+    {
+      "type": "building",
+      "x": 2000,
+      "width": 600,
+      "height": 150,
+      "variant": 5
+    },
+    {
+      "type": "tower",
+      "x": 2850,
+      "width": 170,
+      "height": 360
+    },
+    {
+      "type": "girder",
+      "x": 3420,
+      "width": 90,
+      "bottom": 255
+    },
+    {
+      "type": "drone",
+      "rect": [
+        3650,
+        110,
+        70,
+        34
+      ],
+      "move": [
+        0,
+        300
+      ],
+      "period": 2.6,
+      "phase": 0.0
+    },
+    {
+      "type": "building",
+      "x": 4000,
+      "width": 200,
+      "height": 200,
+      "variant": 0
+    },
+    {
+      "type": "building",
+      "x": 4230,
+      "width": 200,
+      "height": 300,
+      "variant": 4
+    },
+    {
+      "type": "building",
+      "x": 4460,
+      "width": 200,
+      "height": 390,
+      "variant": 2
+    },
+    {
+      "type": "sign",
+      "x": 4950,
+      "width": 300,
+      "bottom": 230,
+      "variant": 1
+    }
+  ],
+  "delivery": {
+    "x": 5650,
+    "width": 280,
+    "top": 540
+  },
+  "hints": [
+    {
+      "x": 0,
+      "text": "Night shift: everything moves"
+    },
+    {
+      "x": 1350,
+      "text": "Time the crane!"
+    },
+    {
+      "x": 3850,
+      "text": "Stairway to the sky!"
+    }
+  ],
+  "autopilot_path": [
+    [
+      0,
+      300
+    ],
+    [
+      460,
+      210
+    ],
+    [
+      960,
+      210
+    ],
+    [
+      1050,
+      250
+    ],
+    [
+      1420,
+      250
+    ],
+    [
+      1540,
+      440
+    ],
+    [
+      1740,
+      440
+    ],
+    [
+      1900,
+      290
+    ],
+    [
+      2640,
+      290
+    ],
+    [
+      2780,
+      100
+    ],
+    [
+      3160,
+      100
+    ],
+    [
+      3360,
+      360
+    ],
+    [
+      3560,
+      360
+    ],
+    [
+      3640,
+      420
+    ],
+    [
+      3820,
+      420
+    ],
+    [
+      3920,
+      270
+    ],
+    [
+      4160,
+      175
+    ],
+    [
+      4390,
+      75
+    ],
+    [
+      4770,
+      75
+    ],
+    [
+      4930,
+      320
+    ],
+    [
+      5300,
+      330
+    ],
+    [
+      5650,
+      400
+    ]
+  ]
+}

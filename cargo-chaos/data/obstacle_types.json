@@ -1,12 +1,72 @@
 {
-  "building":  { "label": "a building",        "surface": 1.0, "restitution_scale": 1.0, "anchor": "ground" },
-  "tower":     { "label": "a glass tower",     "surface": 1.1, "restitution_scale": 1.0, "anchor": "ground" },
-  "sign":      { "label": "a billboard",       "surface": 1.1, "restitution_scale": 1.0, "anchor": "ceiling" },
-  "girder":    { "label": "a steel girder",    "surface": 1.3, "restitution_scale": 0.8, "anchor": "ceiling" },
-  "skybridge": { "label": "a skybridge",       "surface": 1.0, "restitution_scale": 1.0, "anchor": "none" },
-  "awning":    { "label": "an awning",         "surface": 0.3, "restitution_scale": 1.6, "anchor": "none" },
-  "drone":     { "label": "a traffic drone",   "surface": 1.2, "restitution_scale": 1.2, "anchor": "none" },
-  "crane":     { "label": "a crane crate",     "surface": 1.3, "restitution_scale": 0.8, "anchor": "ceiling" },
-  "street":    { "label": "the street",        "surface": 1.0, "restitution_scale": 1.0, "anchor": "ground" },
-  "pad":       { "label": "the landing pad",   "surface": 0.6, "restitution_scale": 0.5, "anchor": "ground" }
+  "building": {
+    "label": "a building",
+    "surface": 1.0,
+    "restitution_scale": 1.0,
+    "anchor": "ground",
+    "scrape": 1.0
+  },
+  "tower": {
+    "label": "a glass tower",
+    "surface": 1.1,
+    "restitution_scale": 1.0,
+    "anchor": "ground",
+    "scrape": 1.1
+  },
+  "sign": {
+    "label": "a billboard",
+    "surface": 1.1,
+    "restitution_scale": 1.0,
+    "anchor": "ceiling",
+    "scrape": 1.1
+  },
+  "girder": {
+    "label": "a steel girder",
+    "surface": 1.3,
+    "restitution_scale": 0.8,
+    "anchor": "ceiling",
+    "scrape": 1.3
+  },
+  "skybridge": {
+    "label": "a skybridge",
+    "surface": 1.0,
+    "restitution_scale": 1.0,
+    "anchor": "none",
+    "scrape": 1.0
+  },
+  "awning": {
+    "label": "an awning",
+    "surface": 0.3,
+    "restitution_scale": 1.6,
+    "anchor": "none",
+    "scrape": 0.2
+  },
+  "drone": {
+    "label": "a traffic drone",
+    "surface": 1.2,
+    "restitution_scale": 1.2,
+    "anchor": "none",
+    "scrape": 1.2
+  },
+  "crane": {
+    "label": "a crane crate",
+    "surface": 1.3,
+    "restitution_scale": 0.8,
+    "anchor": "ceiling",
+    "scrape": 1.3
+  },
+  "street": {
+    "label": "the street",
+    "surface": 1.0,
+    "restitution_scale": 1.0,
+    "anchor": "ground",
+    "scrape": 1.0
+  },
+  "pad": {
+    "label": "the landing pad",
+    "surface": 0.6,
+    "restitution_scale": 0.5,
+    "anchor": "ground",
+    "scrape": 0.0
+  }
 }

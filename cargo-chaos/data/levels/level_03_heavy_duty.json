@@ -1,0 +1,34 @@
+{
+  "id": "level_03",
+  "name": "Heavy Duty",
+  "subtitle": "A piano weighs more than your excuses.",
+  "teaches": "Inertia: climbs take time, so start early; the heavy load swings wide and drags you around.",
+  "cargo": "heavy_piano",
+  "fragility_multiplier": 1.0,
+  "cruise_speed": 235,
+  "reward_coins": 100,
+  "difficulty": 3,
+  "theme": "sunset",
+  "start": [220, 260],
+  "obstacles": [
+    { "type": "building", "x": 720, "width": 220, "height": 240, "variant": 1 },
+    { "type": "building", "x": 1180, "width": 200, "height": 100, "variant": 3 },
+    { "type": "building", "x": 1560, "width": 230, "height": 330, "variant": 6 },
+    { "type": "sign", "x": 2050, "width": 220, "bottom": 250, "variant": 3 },
+    { "type": "crane", "rect": [2550, 40, 120, 90], "move": [0, 230], "period": 4.0, "phase": 0.0 },
+    { "type": "skybridge", "rect": [3050, 340, 360, 46] },
+    { "type": "building", "x": 3650, "width": 230, "height": 190, "variant": 0 },
+    { "type": "awning", "rect": [3650, 442, 230, 20] }
+  ],
+  "delivery": { "x": 4400, "width": 330, "top": 470 },
+  "hints": [
+    { "x": 0, "text": "Heavy! Start climbing EARLY" },
+    { "x": 1200, "text": "Big building ahead: climb now!" },
+    { "x": 2300, "text": "Watch the crane's rhythm" }
+  ],
+  "autopilot_path": [
+    [0, 260], [420, 230], [620, 175], [960, 175], [1120, 230], [1300, 120], [1820, 100],
+    [1960, 330], [2300, 330], [2500, 330], [2720, 300], [2900, 120], [3420, 115], [3560, 220],
+    [3900, 225], [4150, 260], [4400, 290]
+  ]
+}

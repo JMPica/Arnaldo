@@ -8,6 +8,7 @@ extends AnimatableBody2D
 var kind := "building"
 var label := "a building"
 var surface := 1.0
+var scrape := 1.0                     ## multiplier for drag damage (0 on the landing pad)
 var restitution_scale := 1.0
 var size := Vector2(100, 100)
 var motion := Vector2.ZERO
@@ -22,6 +23,7 @@ func configure(def: Dictionary, type_info: Dictionary) -> void:
 	kind = def["type"]
 	label = type_info.get("label", kind)
 	surface = float(type_info.get("surface", 1.0))
+	scrape = float(type_info.get("scrape", surface))
 	restitution_scale = float(type_info.get("restitution_scale", 1.0))
 	var rect: Rect2 = def["rect"]
 	size = rect.size

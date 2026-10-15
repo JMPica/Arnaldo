@@ -1,0 +1,36 @@
+{
+  "id": "level_04",
+  "name": "Cake Emergency",
+  "subtitle": "The party starts in 30 seconds. Keep it level!",
+  "teaches": "Smoothness: tilting past the limit ruins the cake; jerky tapping makes it bounce. Fly steady through tunnels.",
+  "cargo": "birthday_cake",
+  "fragility_multiplier": 1.0,
+  "cruise_speed": 250,
+  "time_limit": 30,
+  "reward_coins": 120,
+  "difficulty": 3,
+  "theme": "sunset",
+  "start": [220, 300],
+  "obstacles": [
+    { "type": "sign", "x": 700, "width": 480, "bottom": 195, "variant": 0 },
+    { "type": "building", "x": 700, "width": 480, "height": 175, "variant": 4 },
+    { "type": "building", "x": 1420, "width": 180, "height": 120, "variant": 2 },
+    { "type": "skybridge", "rect": [1750, 160, 560, 56] },
+    { "type": "building", "x": 1750, "width": 560, "height": 130, "variant": 5 },
+    { "type": "building", "x": 2580, "width": 200, "height": 300, "variant": 1 },
+    { "type": "sign", "x": 3000, "width": 520, "bottom": 225, "variant": 2 },
+    { "type": "building", "x": 3000, "width": 240, "height": 165, "variant": 3 },
+    { "type": "building", "x": 3280, "width": 240, "height": 165, "variant": 6 },
+    { "type": "girder", "x": 3800, "width": 90, "bottom": 290 }
+  ],
+  "delivery": { "x": 4500, "width": 300, "top": 520 },
+  "hints": [
+    { "x": 0, "text": "Smooth moves! Don't tip the cake" },
+    { "x": 1300, "text": "Gentle taps keep it level" },
+    { "x": 3700, "text": "Under the girder, then land softly" }
+  ],
+  "autopilot_path": [
+    [0, 300], [560, 268], [1220, 268], [1400, 305], [1700, 300], [2340, 300], [2500, 165], [2820, 165],
+    [2960, 290], [3560, 290], [3700, 380], [3950, 390], [4200, 340], [4500, 365]
+  ]
+}

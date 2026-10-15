@@ -29,6 +29,8 @@ var thrusting := false
 var target_speed := 0.0
 var drive_enabled := true
 var simulate := false
+## Once the delivery is over the cargo can no longer be damaged.
+var invulnerable := false
 
 ## Contact information gathered during the last physics_step().
 var cargo_contact_body: Object = null
@@ -148,6 +150,8 @@ func _handle_courier_collision(col: KinematicCollision2D) -> void:
 	var impact := model.apply_courier_contact(n, _collider_velocity(col.get_collider()))
 	if n.y < -0.6:
 		courier_on_floor = true
+		if model.courier_vel.length() < 20.0:
+			model.courier_vel = Vector2.ZERO
 	if model.stun_time > stun_before:
 		courier_bonk.emit(col.get_position(), impact)
 
@@ -172,10 +176,12 @@ func _handle_cargo_collision(col: KinematicCollision2D, h: float) -> void:
 	var p := col.get_position()
 	var cvel := _collider_velocity(obj)
 	var surface := 1.0
+	var scrape_mult := 1.0
 	var rscale := 1.0
 	var label := "something"
 	if obj is Obstacle:
 		surface = obj.surface
+		scrape_mult = obj.scrape
 		rscale = obj.restitution_scale
 		label = obj.label
 	var tangent := Vector2(-n.y, n.x)
@@ -183,7 +189,14 @@ func _handle_cargo_collision(col: KinematicCollision2D, h: float) -> void:
 	var impact := model.apply_cargo_contact(n, p, cvel, rscale)
 	cargo_contact_body = obj
 	cargo_contact_normal = n
+	# Static friction: a slow box lying on a floor comes to rest instead of
+	# creeping inside the collision margin (no jitter, no phantom damage).
+	if n.y < -0.7 and (model.cargo_vel - cvel).length() < 20.0:
+		model.cargo_vel = cvel
+		model.cargo_ang_vel *= 0.8
 
+	if invulnerable:
+		return
 	if impact > 0.0 and (_impact_cooldown <= 0.0 or impact > _last_impact * 1.3):
 		var dmg := DamageModel.impact_damage(impact, model.cargo, surface, level_fragility)
 		if dmg > 0.0:
@@ -196,20 +209,20 @@ func _handle_cargo_collision(col: KinematicCollision2D, h: float) -> void:
 			_last_impact = impact
 			cargo_impact.emit(p, impact, 0.0, label)
 
-	var scrape := DamageModel.scrape_damage(slide_speed, h, model.cargo, surface, level_fragility)
+	var scrape := DamageModel.scrape_damage(slide_speed, h, model.cargo, scrape_mult, level_fragility)
 	if scrape > 0.0:
 		_scrape_pending += scrape
 		_scrape_label = label
 
 
 func _flush_scrape() -> void:
-	if _scrape_pending > 0.0:
+	if _scrape_pending > 0.0 and not invulnerable:
 		integrity.apply(_scrape_pending, _scrape_label, "scrape")
 		_scrape_pending = 0.0
 
 
 func _apply_tilt_damage(dt: float) -> void:
-	if not model.cargo_attached:
+	if not model.cargo_attached or invulnerable:
 		return
 	var d := DamageModel.tilt_damage(model.tilt_degrees(), dt, model.cargo, level_fragility)
 	if d > 0.0:

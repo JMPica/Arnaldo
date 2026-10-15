@@ -1,0 +1,191 @@
+{
+  "id": "level_02",
+  "name": "Fragile Business",
+  "subtitle": "Full-strength glass. Every bump counts.",
+  "teaches": "Precision: the light box trails behind and swings; thread gaps without touching anything.",
+  "cargo": "glass_box",
+  "fragility_multiplier": 1.0,
+  "cruise_speed": 255,
+  "reward_coins": 80,
+  "difficulty": 2,
+  "theme": "day",
+  "start": [
+    220,
+    300
+  ],
+  "obstacles": [
+    {
+      "type": "building",
+      "x": 650,
+      "width": 200,
+      "height": 250,
+      "variant": 2
+    },
+    {
+      "type": "sign",
+      "x": 1080,
+      "width": 190,
+      "bottom": 190,
+      "variant": 1
+    },
+    {
+      "type": "building",
+      "x": 1080,
+      "width": 190,
+      "height": 190,
+      "variant": 4
+    },
+    {
+      "type": "sign",
+      "x": 1520,
+      "width": 420,
+      "bottom": 175,
+      "variant": 2
+    },
+    {
+      "type": "building",
+      "x": 1520,
+      "width": 420,
+      "height": 195,
+      "variant": 5
+    },
+    {
+      "type": "tower",
+      "x": 2200,
+      "width": 170,
+      "height": 370
+    },
+    {
+      "type": "skybridge",
+      "rect": [
+        2700,
+        300,
+        320,
+        46
+      ]
+    },
+    {
+      "type": "drone",
+      "rect": [
+        3300,
+        190,
+        70,
+        34
+      ],
+      "move": [
+        220,
+        0
+      ],
+      "period": 3.0
+    },
+    {
+      "type": "building",
+      "x": 3750,
+      "width": 240,
+      "height": 150,
+      "variant": 0
+    },
+    {
+      "type": "awning",
+      "rect": [
+        3750,
+        482,
+        240,
+        20
+      ]
+    }
+  ],
+  "delivery": {
+    "x": 4450,
+    "width": 280,
+    "top": 500
+  },
+  "hints": [
+    {
+      "x": 0,
+      "text": "The glass is at full strength now"
+    },
+    {
+      "x": 1350,
+      "text": "Steady through the corridor..."
+    },
+    {
+      "x": 2500,
+      "text": "Under the skybridge!"
+    }
+  ],
+  "autopilot_path": [
+    [
+      0,
+      300
+    ],
+    [
+      480,
+      300
+    ],
+    [
+      600,
+      215
+    ],
+    [
+      880,
+      215
+    ],
+    [
+      1020,
+      258
+    ],
+    [
+      1300,
+      258
+    ],
+    [
+      1460,
+      244
+    ],
+    [
+      1960,
+      244
+    ],
+    [
+      2080,
+      95
+    ],
+    [
+      2470,
+      95
+    ],
+    [
+      2650,
+      430
+    ],
+    [
+      3050,
+      430
+    ],
+    [
+      3250,
+      340
+    ],
+    [
+      3650,
+      330
+    ],
+    [
+      3700,
+      300
+    ],
+    [
+      4020,
+      300
+    ],
+    [
+      4200,
+      330
+    ],
+    [
+      4450,
+      380
+    ]
+  ]
+}

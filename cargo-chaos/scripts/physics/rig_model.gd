@@ -20,6 +20,7 @@ var cargo_ang_vel := 0.0
 var thrust_level := 0.0    ## 0..1 after spool-up
 var stun_time := 0.0       ## > 0 while recovering from a bonk (no forward drive)
 var cargo_attached := true ## false once the cargo is destroyed (rope cut)
+var landing_mode := false  ## over the delivery pad: the jetpack limits the fall speed
 
 var rope_k := 0.0
 var rope_c := 0.0
@@ -115,6 +116,10 @@ func drive_speed(cruise_speed: float) -> float:
 	return cruise_speed * (1.0 + flight.thrust_speed_bonus * thrust_level)
 
 
+func max_fall() -> float:
+	return flight.landing_max_fall_speed if landing_mode else flight.max_fall_speed
+
+
 ## Advances velocities by dt (semi-implicit Euler). Positions are not touched.
 ## target_speed is the desired horizontal speed (cruise, or braking target).
 func step_velocities(dt: float, target_speed: float, drive_enabled := true) -> void:
@@ -145,7 +150,7 @@ func step_velocities(dt: float, target_speed: float, drive_enabled := true) -> v
 				-flight.forward_max_accel, flight.forward_max_accel)
 		a_courier.x += want
 	courier_vel += a_courier * dt
-	courier_vel.y = clampf(courier_vel.y, -flight.max_rise_speed, flight.max_fall_speed)
+	courier_vel.y = clampf(courier_vel.y, -flight.max_rise_speed, max_fall())
 	stun_time = maxf(0.0, stun_time - dt)
 
 	# --- Cargo (translation) ---
@@ -157,7 +162,8 @@ func step_velocities(dt: float, target_speed: float, drive_enabled := true) -> v
 	a_cargo.x -= cargo_vel.x * (cargo.air_drag / cargo.mass)
 	a_cargo.y -= flight.vertical_damping * cargo_vel.y
 	cargo_vel += a_cargo * dt
-	cargo_vel.y = minf(cargo_vel.y, flight.max_fall_speed)
+	if cargo_attached:
+		cargo_vel.y = minf(cargo_vel.y, max_fall())
 
 	# --- Cargo (rotation): the rope pulls on the top of the box, which makes
 	# it align with the rope and wobble naturally. ---

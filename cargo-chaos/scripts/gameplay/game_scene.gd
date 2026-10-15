@@ -33,6 +33,7 @@ var _end_timer := -1.0
 var _results_shown := false
 var _feedback_cooldown := 0.0
 var _px_per_meter := 40.0
+var _final_integrity := 100.0
 
 
 func _ready() -> void:
@@ -166,6 +167,7 @@ func _physics_process(delta: float) -> void:
 	var playing := mission.is_playing()
 	rig.thrusting = playing and thrust_input()
 	rig.target_speed = mission.target_speed_at(rig.model.courier_pos.x)
+	rig.model.landing_mode = mission.state != Mission.State.RUNNING
 	rig.physics_step(delta)
 
 	var on_pad := rig.cargo_contact_body == world.pad and rig.cargo_contact_normal.y < -0.5
@@ -272,6 +274,8 @@ func _on_landed(point: Vector2, speed: float) -> void:
 func _on_mission_finished(success: bool, reason: String) -> void:
 	_end_timer = RESULTS_DELAY
 	rig.thrusting = false
+	rig.invulnerable = true
+	_final_integrity = rig.integrity.value
 	if success:
 		rig.courier_art.pose = CourierArt.Pose.HAPPY
 		rig.cargo_art.delivered = true
@@ -292,7 +296,7 @@ func _on_mission_finished(success: bool, reason: String) -> void:
 
 func _show_results() -> void:
 	_results_shown = true
-	var integrity := rig.integrity.value
+	var integrity := _final_integrity
 	var success := mission.state == Mission.State.SUCCESS
 	var stars := Mission.stars_for(integrity) if success else 0
 	var coins := Mission.coins_for(level.reward_coins, integrity) if success else 0
