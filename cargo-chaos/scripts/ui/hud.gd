@@ -25,7 +25,8 @@ func build(level: LevelData, cargo: CargoType) -> void:
 	add_child(root)
 
 	# --- Integrity (top-left) ---
-	var box := UiKit.panel(Color(0.16, 0.13, 0.28, 0.85))
+	var box := UiKit.panel(Color(0.16, 0.13, 0.28, 0.5))
+	box.modulate.a = 0.92
 	box.position = Vector2(16, 14)
 	box.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	root.add_child(box)

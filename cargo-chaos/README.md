@@ -20,6 +20,9 @@ godot --path cargo-chaos
 
 La primera vez que se abre en un proyecto clonado, Godot importa las fuentes y sonidos (si se lanza sin editor, ejecutar antes `godot --headless --path cargo-chaos --import`).
 
+### En el navegador / iPhone (versión web)
+Exportación web de Godot (WebGL 2, un solo hilo). `tools/build_web_page.sh` genera `build/play/`, una página autocontenida (motor comprimido y en base64 para servirlo como texto) que se puede alojar en cualquier hosting estático. En iPhone necesita iOS 15 o superior y se juega en horizontal.
+
 ### En Android (APK de pruebas)
 1. Copia `CargoChaos.apk` al móvil (o descárgalo desde donde te lo hayan compartido).
 2. Ábrelo y acepta **"Permitir instalar apps de esta fuente"** (Android lo pide para APK fuera de Google Play).

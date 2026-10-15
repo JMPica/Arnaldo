@@ -69,9 +69,10 @@ func _ready() -> void:
 	footer.offset_bottom = -10
 	footer.offset_left = 24
 	footer.offset_right = -24
-	footer.add_theme_constant_override("separation", 24)
+	footer.add_theme_constant_override("separation", 10)
 	add_child(footer)
-	var stats := UiKit.label("★ %d     ● %d coins" % [Progress.total_stars(), int(Progress.data["coins"])], 28, Palette.GOGGLE, 8)
+	footer.add_child(StarMeter.new(1, 1, 13.0))
+	var stats := UiKit.label("%d      coins: %d" % [Progress.total_stars(), int(Progress.data["coins"])], 28, Palette.GOGGLE, 8)
 	stats.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 	stats.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	footer.add_child(stats)
@@ -121,8 +122,7 @@ func _mission_card(i: int) -> Control:
 	var name_l := UiKit.label(lv.name, 21, Palette.WHITE, 6)
 	name_l.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	v.add_child(name_l)
-	var star_l := UiKit.label("★".repeat(stars) + "☆".repeat(3 - stars), 26, Palette.GOGGLE, 6)
-	star_l.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var star_l := StarMeter.new(stars, 3, 10.0)
 	v.add_child(star_l)
 	if not unlocked:
 		name_l.modulate.a = 0.5

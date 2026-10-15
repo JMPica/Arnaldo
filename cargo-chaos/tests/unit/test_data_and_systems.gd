@@ -120,3 +120,25 @@ func test_all_sounds_load() -> void:
 		assert_true(Sfx._streams.has(s), "sound '%s' imported and loaded" % s)
 	assert_true(Sfx._jet.stream != null, "jetpack loop loaded")
 	assert_eq((Sfx._jet.stream as AudioStreamWAV).loop_mode, AudioStreamWAV.LOOP_FORWARD, "jet loop loops")
+
+
+func test_ui_text_only_uses_glyphs_the_font_has() -> void:
+	# Web builds have no system fallback fonts: a missing glyph shows as a box.
+	UiKit.init()
+	var missing := {}
+	for dir in ["res://scripts/ui", "res://scripts/gameplay", "res://scripts/art"]:
+		for f in DirAccess.get_files_at(dir):
+			if not f.ends_with(".gd"):
+				continue
+			for line in FileAccess.get_file_as_string(dir.path_join(f)).split("\n"):
+				if line.strip_edges().begins_with("#"):
+					continue
+				for ch in line:
+					if ch.unicode_at(0) > 127 and not UiKit.font.has_char(ch.unicode_at(0)):
+						missing[ch] = f
+	for lv in game_data().levels:
+		for text in [lv.name, lv.subtitle] + lv.hints.map(func(h): return h["text"]):
+			for ch in text:
+				if not UiKit.font.has_char(ch.unicode_at(0)):
+					missing[ch] = lv.id
+	assert_eq(missing.size(), 0, "characters missing from the game font: %s" % str(missing))
