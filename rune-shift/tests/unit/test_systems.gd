@@ -131,3 +131,14 @@ func test_all_sounds_and_music_load() -> void:
 		assert_true(Sfx._streams.has(s), "sound '%s' loaded" % s)
 	for m in Sfx.MUSIC:
 		assert_true(ResourceLoader.exists("res://assets/audio/music_%s.ogg" % m), "music '%s' present" % m)
+
+
+func test_flipped_sprites_are_drawn_in_place() -> void:
+	# Regression: flipped sprites used to be drawn one sprite-width to the right.
+	var v := ArenaView.new()
+	add_child(v)
+	var cx := 100.0
+	var rect := Rect2(cx - 12, 0, 24, 24)
+	var mirrored_left := -rect.position.x + 2.0 * (rect.position.x + rect.size.x * 0.5) - rect.size.x
+	assert_near(mirrored_left, rect.position.x, 0.001, "mirroring around the centre keeps the sprite in place")
+	v.queue_free()

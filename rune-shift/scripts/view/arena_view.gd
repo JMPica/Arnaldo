@@ -141,9 +141,10 @@ func _draw() -> void:
 	for e in w.enemies:
 		_draw_telegraph(w, e)
 	_draw_enemy_projectiles(w)
+	_draw_boss_bar(w)
 	for t in _texts:
 		var a := clampf(t["life"] / 0.3, 0.0, 1.0)
-		var font := ThemeDB.fallback_font
+		var font := UiTheme.get_font()
 		draw_string_outline(font, t["pos"] - Vector2(60, 0), t["text"], HORIZONTAL_ALIGNMENT_CENTER, 120, 12, 3, Color(0, 0, 0, a))
 		draw_string(font, t["pos"] - Vector2(60, 0), t["text"], HORIZONTAL_ALIGNMENT_CENTER, 120, 12, Color(t["color"], a))
 	draw_set_transform(Vector2.ZERO)
@@ -161,6 +162,20 @@ func _draw_room(w: CombatWorld) -> void:
 		draw_texture(_floor, a.position)
 	for o in w.obstacles:
 		_draw_block(o)
+
+
+func _draw_boss_bar(w: CombatWorld) -> void:
+	for e in w.enemies:
+		if not e.is_boss():
+			continue
+		var r := Rect2(w.arena.position + Vector2(16, 8), Vector2(w.arena.size.x - 32, 8))
+		draw_rect(r.grow(2), Color("0b0a12"))
+		draw_rect(r, Color("3a1a22"))
+		draw_rect(Rect2(r.position, Vector2(r.size.x * clampf(e.hp / e.max_hp, 0.0, 1.0), r.size.y)), Color("ff5a4e") if e.phase == 2 else Color("c8352f"))
+		draw_line(Vector2(r.position.x + r.size.x * 0.5, r.position.y - 1), Vector2(r.position.x + r.size.x * 0.5, r.end.y + 1), Color("f4f1ff", 0.6))
+		var font := UiTheme.get_font()
+		draw_string_outline(font, r.position + Vector2(0, 22), "El Guardián de los Sellos", HORIZONTAL_ALIGNMENT_CENTER, r.size.x, 12, 3, Color("0b0a12"))
+		draw_string(font, r.position + Vector2(0, 22), "El Guardián de los Sellos", HORIZONTAL_ALIGNMENT_CENTER, r.size.x, 12, Color("f4f1ff"))
 
 
 func _draw_block(o: Rect2) -> void:
@@ -198,7 +213,13 @@ func _sprite(name: String, pos: Vector2, flip := false, variant := "", scale_k :
 	var size := Vector2(tex.get_width(), tex.get_height()) * SCALE * scale_k
 	var rect := Rect2((pos - Vector2(size.x * 0.5, size.y * 0.6)).round(), size)
 	if flip:
-		rect = Rect2(rect.position + Vector2(rect.size.x, 0), Vector2(-rect.size.x, rect.size.y))
+		# Mirror around the sprite's centre (a negative-size rect does not flip
+		# in place: it was drawn one sprite-width to the right).
+		var cx := rect.position.x + rect.size.x * 0.5
+		draw_set_transform(_shake_offset + Vector2(2.0 * cx, 0), 0.0, Vector2(-1, 1))
+		draw_texture_rect(tex, rect, false, modulate_c)
+		draw_set_transform(_shake_offset)
+		return
 	draw_texture_rect(tex, rect, false, modulate_c)
 
 

@@ -4,7 +4,7 @@
     "orb": {
       "name": "Orbe",
       "short": "Proyectil al enemigo más cercano.",
-      "cooldown": 0.55,
+      "cooldown": 0.64,
       "damage": [
         8,
         10,

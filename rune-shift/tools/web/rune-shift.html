@@ -1,0 +1,275 @@
+<title>Rune Shift</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap">
+<style>
+/* Layout: one full-screen portrait game canvas inside the safe area; a loading card until the engine starts. Single dark pixel-crypt look (the game's palette). */
+:root {
+  --night: #0e0b17;
+  --panel: #1b2140;
+  --ink: #f4f1ff;
+  --muted: #a9a3c9;
+  --orange: #7e4fc2;
+  --yellow: #c9a6ff;
+  --outline: #0b0a12;
+  --danger: #ff5a4e;
+  --display: "Pixelify Sans", "Courier New", ui-monospace, monospace;
+  --body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color-scheme: dark;
+}
+html, body { height: 100%; }
+body {
+  background: var(--night);
+  color: var(--ink);
+  overflow: hidden;
+  overscroll-behavior: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+#stage {
+  position: fixed;
+  top: env(safe-area-inset-top, 0px);
+  right: env(safe-area-inset-right, 0px);
+  bottom: env(safe-area-inset-bottom, 0px);
+  left: env(safe-area-inset-left, 0px);
+  background: var(--night);
+}
+#canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  outline: none;
+}
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding-block: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-bottom, 0px));
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  background: var(--night);
+  z-index: 5;
+}
+.card {
+  display: grid;
+  gap: 14px;
+  justify-items: center;
+  text-align: center;
+  width: min(440px, 100%);
+}
+.logo {
+  font-family: var(--display);
+  font-size: clamp(40px, 9vw, 76px);
+  line-height: 1;
+  color: var(--yellow);
+  letter-spacing: 0.01em;
+  -webkit-text-stroke: 0;
+  paint-order: stroke fill;
+  text-shadow: 0 3px 0 #4b2a73;
+  text-wrap: balance;
+}
+.tagline {
+  font-family: var(--display);
+  font-size: 20px;
+  color: var(--ink);
+}
+.bar {
+  width: 100%;
+  height: 22px;
+  border-radius: 0;
+  background: var(--outline);
+  border: 3px solid var(--outline);
+  box-shadow: inset 0 0 0 2px var(--panel);
+  overflow: hidden;
+}
+.bar > span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  border-radius: 0;
+  background: var(--orange);
+  transition: width 0.2s ease-out;
+}
+.status {
+  font-family: var(--body);
+  font-size: 14px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  min-height: 1.4em;
+}
+.status.error { color: var(--danger); }
+.hint {
+  font-family: var(--body);
+  font-size: 13px;
+  color: var(--muted);
+  max-width: 34ch;
+  line-height: 1.45;
+}
+#rotate { display: none; z-index: 6; }
+#rotate .card { gap: 18px; }
+.phone {
+  width: 54px;
+  height: 92px;
+  border: 5px solid var(--yellow);
+  border-radius: 12px;
+  animation: turn 2.2s ease-in-out infinite;
+}
+@keyframes turn {
+  0%, 25% { transform: rotate(-90deg); }
+  55%, 100% { transform: rotate(0deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .phone { animation: none; transform: rotate(0deg); }
+  .bar > span { transition: none; }
+}
+@media (orientation: landscape) and (max-height: 520px) {
+  #rotate { display: grid; }
+}
+</style>
+
+<div id="stage"><canvas id="canvas" tabindex="0">Tu navegador no puede mostrar el juego.</canvas></div>
+
+<div id="loading" class="overlay" role="status" aria-live="polite">
+  <div class="card">
+    <div class="logo">RUNE SHIFT</div>
+    <div class="tagline">Une runas. Forja hechizos.</div>
+    <div class="bar" aria-hidden="true"><span id="bar"></span></div>
+    <div id="status" class="status">Descargando el juego…</div>
+    <div class="hint">Arrastra el dedo para moverte; tu hechizo ataca solo. La primera carga descarga unos 14 MB.</div>
+  </div>
+</div>
+
+<div id="rotate" class="overlay" aria-live="polite">
+  <div class="card">
+    <div class="phone" aria-hidden="true"></div>
+    <div class="logo" style="font-size: 34px">Gira el móvil</div>
+    <div class="hint">Rune Shift se juega en vertical.</div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako.min.js"></script>
+<script>
+// The engine (.wasm, ~39 MB) ships gzip-compressed and base64-encoded as text
+// (~13 MB), and the game data as base64 text: the page downloads them with a
+// progress bar, decodes and unpacks them here, then hands them to Godot.
+window.CC_DOWNLOAD = function () {};
+(function () {
+  const realFetch = window.fetch.bind(window);
+  async function readText(url, onBytes) {
+    const r = await realFetch(url);
+    if (!r.ok) throw new Error("No se pudo descargar " + url + " (" + r.status + ").");
+    if (!r.body || !r.body.getReader) return await r.text();
+    const reader = r.body.getReader();
+    const parts = [];
+    let got = 0;
+    for (;;) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      parts.push(value);
+      got += value.length;
+      onBytes(got);
+    }
+    return new TextDecoder().decode(await new Blob(parts).arrayBuffer());
+  }
+  function fromBase64(text) {
+    const bin = atob(text.trim());
+    const out = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+    return out;
+  }
+  async function gunzip(bytes) {
+    if ("DecompressionStream" in window) {
+      const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"));
+      return new Uint8Array(await new Response(stream).arrayBuffer());
+    }
+    return pako.ungzip(bytes);
+  }
+  const ENGINE_TEXT_BYTES = 13445732;
+  window.fetch = function (input, init) {
+    const url = typeof input === "string" ? input : (input && input.url) || "";
+    if (/index\.wasm(\?|#|$)/.test(url)) {
+      return readText("engine.wasm.gz.txt", (n) => window.CC_DOWNLOAD(n, ENGINE_TEXT_BYTES))
+        .then(fromBase64).then(gunzip)
+        .then((bytes) => new Response(bytes, { headers: { "Content-Type": "application/wasm" } }));
+    }
+    if (/index\.pck(\?|#|$)/.test(url)) {
+      return readText("game.pck.txt", () => {}).then(fromBase64)
+        .then((bytes) => new Response(bytes, { headers: { "Content-Type": "application/octet-stream" } }));
+    }
+    return realFetch(input, init);
+  };
+})();
+</script>
+<script src="index.js"></script>
+<script>
+(function () {
+  const canvas = document.getElementById("canvas");
+  const stage = document.getElementById("stage");
+  const bar = document.getElementById("bar");
+  const statusEl = document.getElementById("status");
+  const loading = document.getElementById("loading");
+
+  // Render at most at 2x: sharp on iPhone, without the cost of 3x.
+  function fitCanvas() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const w = Math.max(1, Math.round(stage.clientWidth * dpr));
+    const h = Math.max(1, Math.round(stage.clientHeight * dpr));
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width = w;
+      canvas.height = h;
+    }
+  }
+  fitCanvas();
+  window.addEventListener("resize", fitCanvas);
+  window.addEventListener("orientationchange", () => setTimeout(fitCanvas, 250));
+
+  function fail(message) {
+    statusEl.textContent = message;
+    statusEl.classList.add("error");
+    bar.style.background = "var(--danger)";
+  }
+
+  const missing = Engine.getMissingFeatures({ threads: false });
+  if (missing.length) {
+    fail("Este navegador no puede ejecutar el juego: " + missing.join(", ") + ". Prueba con Safari actualizado.");
+    return;
+  }
+
+  const config = {
+    args: [],
+    canvas: canvas,
+    canvasResizePolicy: 0,
+    executable: "index",
+    experimentalVK: false,
+    ensureCrossOriginIsolationHeaders: false,
+    fileSizes: { "index.pck": 268912, "index.wasm": 39514754 },
+    focusCanvas: true,
+    gdextensionLibs: [],
+    onProgress: function (current, total) {
+      if (total > 0) {
+        if (current >= total) {
+          bar.style.width = "95%";
+          statusEl.textContent = "Arrancando…";
+        }
+      }
+    },
+  };
+
+  window.CC_DOWNLOAD = function (got, total) {
+    const pct = Math.min(85, Math.round((got / total) * 85));
+    bar.style.width = pct + "%";
+    statusEl.textContent = "Descargando… " + Math.min(100, Math.round((got / total) * 100)) + " %";
+  };
+  const engine = new Engine(config);
+  engine.startGame().then(() => {
+    bar.style.width = "100%";
+    fitCanvas();
+    loading.remove();
+    canvas.focus();
+  }).catch((err) => {
+    console.error(err);
+    fail((err && err.message) ? err.message : "No se pudo iniciar el juego. Recarga la página.");
+  });
+})();
+</script>

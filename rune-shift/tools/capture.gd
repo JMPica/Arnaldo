@@ -14,6 +14,7 @@ func _ready() -> void:
 	var seed_v := 7
 	var menu := false
 	var prefs := {}
+	var room := -1
 	for a in OS.get_cmdline_user_args():
 		var v := a.get_slice("=", 1)
 		if a.begins_with("--times="):
@@ -25,6 +26,7 @@ func _ready() -> void:
 		elif a.begins_with("--element="): prefs["element"] = v
 		elif a.begins_with("--catalyst="): prefs["catalyst"] = v
 		elif a == "--menu": menu = true
+		elif a.begins_with("--room="): room = int(v) - 1
 	Progression.save_path = "user://capture_save.json"
 	Progression.load_or_reset()
 	Analytics.enabled = false
@@ -37,6 +39,15 @@ func _ready() -> void:
 		_app.autopilot = bot
 		_app.auto_choose_delay = 2.5
 		_app.start_run(seed_v)
+		if room >= 0:
+			# Jump straight to a room with the preferred spell (screenshots only).
+			var sp: Spell = _app.session.run.spell
+			sp.form = prefs.get("form", "orb")
+			sp.element = prefs.get("element", "fire")
+			sp.catalyst = prefs.get("catalyst", "rupture")
+			sp.levels = {"form": 2, "element": 2, "catalyst": 2}
+			_app.session.enter_room(room)
+			_app._refresh_slots()
 
 
 func _process(delta: float) -> void:
