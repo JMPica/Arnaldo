@@ -52,8 +52,9 @@ El promotor tria l'anella clàssica com a disseny de la casa i demana mantenir-l
 
 | Fitxer | Origen | Estat | Notes |
 |---|---|---|---|
+| **arnaldo-anilla-casa-referencia.png** | Foto aportada pel promotor (16/10) | ✅ Al dossier (portada i Nº 1) | **Referència única de la marca.** Text correcte («ARNALDO», «Arnaldo»), sense retoc. L'art vectorial (guilloché en xarxa, signatura en cal·ligrafia formal) i les maquetes s'hi han ajustat |
 | arnaldo-render-anilla-clasica.png | Runway · Nano Banana Pro (10/10) | Original | Disseny triat. La signatura diu «Arnald Jonato» (inventada per la IA) |
-| **arnaldo-render-anilla-clasica-ret.png** | Retoc | ✅ Al dossier (portada i Nº 1) | Signatura inventada esborrada sobre la laca i substituïda per «Arnaldo» en cal·ligrafia provisional d'aspecte manuscrit, Herr Von Muellerhoff (`_build/renders/fix_clasica_firma.py`); la resta, intacta |
+| arnaldo-render-anilla-clasica-ret.png | Retoc | Substituït per la foto de referència (16/10) | Signatura inventada esborrada sobre la laca i substituïda per «Arnaldo» en cal·ligrafia provisional d'aspecte manuscrit, Herr Von Muellerhoff (`_build/renders/fix_clasica_firma.py`); la resta, intacta |
 | ../assets/clasica/arnaldo-anilla-n1/-n2/-n3-negra | Vectorial | ✅ Al dossier | L'anella redibuixada: banda lacre (Nº 1), marfil (Nº 2) i negra (Nº 3) |
 | ../assets/clasica/arnaldo-anilla-especificacion, -pliego, -logotipo-oro/-lacre, -medallon, -vista, -marca-fuego | Vectorial | ✅ Al dossier | Full d'especificació a escala real (72 × 16 mm, oval 23 × 20 mm), segona anella, logotip (nom + signatura), oval, vista i marca a foc (`_build/brand_clasica.py`) |
 

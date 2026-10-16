@@ -5,9 +5,9 @@ Redibujo del render «anilla clásica» (01_BRAND/renders/arnaldo-render-anilla-
 diseño de producción:
   · proporciones reales: desarrollo 72 × 16 mm para cepo 50, óvalo troquelado 23 × 20 mm (escala 20 px = 1 mm);
   · colores planos de imprenta (lacre, negro laca) y oro como foil, sin brillos de pantalla;
-  · grabado fino: perlado en relieve seco, guilloché de roseta en el marco del óvalo, ondas tono sobre tono;
+  · grabado fino: perlado en relieve seco, guilloché en red en el marco del óvalo, ondas tono sobre tono;
   · ARNALDO en capitales romanas (Cinzel) en arco suave y la firma debajo.
-Sin monograma ni emblema: la firma hace de signo. La firma es PROVISIONAL (Herr Von Muellerhoff, OFL 1.1) hasta
+Sin monograma ni emblema: la firma hace de signo. La firma es PROVISIONAL (Pinyon Script, OFL 1.1, como en la foto de referencia) hasta
 tener la firma real de Arnaldo vectorizada. Todo el texto va en trazados.
 Uso: python3 brand_clasica.py DIR_SALIDA"""
 import os, sys, math
@@ -53,6 +53,20 @@ def pearls_ellipse(cx, cy, rx, ry, r, gap):
     per = math.pi * (3 * (rx + ry) - math.sqrt((3 * rx + ry) * (rx + 3 * ry)))
     n = int(per / gap)
     return "".join(f'<circle cx="{cx + rx * math.cos(2*math.pi*i/n):.1f}" cy="{cy + ry * math.sin(2*math.pi*i/n):.1f}" r="{r}" fill="url(#pearl)"/>' for i in range(n))
+
+
+def lattice_ring(cx, cy, rx0, ry0, rx1, ry1, step, stroke, sw, tag):
+    """Red de rombos (guilloché en red) recortada al anillo entre dos elipses, con punto en cada cruce."""
+    cid = f"lr{tag}"
+    g = [f'<clipPath id="{cid}"><path fill-rule="evenodd" d="M{cx-rx1},{cy} a{rx1},{ry1} 0 1,0 {2*rx1},0 a{rx1},{ry1} 0 1,0 {-2*rx1},0 Z '
+         f'M{cx-rx0},{cy} a{rx0},{ry0} 0 1,0 {2*rx0},0 a{rx0},{ry0} 0 1,0 {-2*rx0},0 Z"/></clipPath><g clip-path="url(#{cid})">']
+    n = int(2 * rx1 / step) + 4
+    for k in range(-n, n + 1):
+        x = cx + k * step
+        g.append(f'<line x1="{x - ry1:.1f}" y1="{cy - ry1:.1f}" x2="{x + ry1:.1f}" y2="{cy + ry1:.1f}" stroke="{stroke}" stroke-width="{sw}"/>')
+        g.append(f'<line x1="{x + ry1:.1f}" y1="{cy - ry1:.1f}" x2="{x - ry1:.1f}" y2="{cy + ry1:.1f}" stroke="{stroke}" stroke-width="{sw}"/>')
+    g.append("</g>")
+    return "".join(g)
 
 
 def rosette_ring(cx, cy, rx0, ry0, rx1, ry1, n, k, stroke, sw):
@@ -115,9 +129,9 @@ def arch(txt, font, size, cx, base_y, R, fill, tracking=0.06, extra=""):
 
 def firma(cx, cy, size, fill="url(#foil)", rot=-6):
     """Firma PROVISIONAL (caligrafía manuscrita tipográfica) con rúbrica; se sustituirá por la firma real."""
-    d, w = tp("Arnaldo", "hv", size, 0, 0, 0.0, "middle")
-    ru = (f'<path d="M{-w*.30:.1f},{size*.24:.1f} C{-w*.05:.1f},{size*.17:.1f} {w*.25:.1f},{size*.15:.1f} {w*.5:.1f},{size*.02:.1f}" '
-          f'fill="none" stroke="{fill}" stroke-width="{size*.03:.2f}" stroke-linecap="round"/>')
+    d, w = tp("Arnaldo", "py", size, 0, 0, 0.0, "middle")
+    ru = (f'<path d="M{-w*.42:.1f},{size*.16:.1f} C{-w*.15:.1f},{size*.12:.1f} {w*.2:.1f},{size*.08:.1f} {w*.46:.1f},{-size*.04:.1f}" '
+          f'fill="none" stroke="{fill}" stroke-width="{size*.032:.2f}" stroke-linecap="round"/>')
     return f'<g transform="translate({cx},{cy}) rotate({rot})"><path d="{d}" fill="{fill}"/>{ru}</g>'
 
 
@@ -128,7 +142,7 @@ def medallon(cx, cy, rx, ry, tag, name=True):
     g.append(f'<ellipse cx="{cx}" cy="{cy}" rx="{rx-4*s}" ry="{ry-4*s}" fill="none" stroke="{INK_GOLD}" stroke-width="{.6*s:.2f}"/>')
     g.append(pearls_ellipse(cx, cy, rx - 10 * s, ry - 10 * s, 3.1 * s, 9.5 * s))
     g.append(f'<ellipse cx="{cx}" cy="{cy}" rx="{rx-17*s}" ry="{ry-17*s}" fill="none" stroke="{INK_GOLD}" stroke-width="{.7*s:.2f}"/>')
-    g.append(rosette_ring(cx, cy, rx - 48 * s, ry - 48 * s, rx - 21 * s, ry - 21 * s, 9, round(34 * s), INK_GOLD, f"{min(.55*s, .8):.2f}"))
+    g.append(lattice_ring(cx, cy, rx - 48 * s, ry - 48 * s, rx - 19 * s, ry - 19 * s, 7.5 * s, INK_GOLD, f"{min(1.1*s, 1.6):.2f}", tag))
     g.append(f'<ellipse cx="{cx}" cy="{cy}" rx="{rx-50*s}" ry="{ry-50*s}" fill="none" stroke="{INK_GOLD}" stroke-width="{.7*s:.2f}"/>')
     g.append(f'<ellipse cx="{cx}" cy="{cy}" rx="{rx-52*s}" ry="{ry-52*s}" fill="{LACRE_D}"/>')
     g.append(f'<ellipse cx="{cx}" cy="{cy}" rx="{rx-57*s}" ry="{ry-57*s}" fill="url(#foil)"/>')
@@ -137,8 +151,8 @@ def medallon(cx, cy, rx, ry, tag, name=True):
     g.append(f'<ellipse cx="{cx}" cy="{cy}" rx="{irx-8*s}" ry="{iry-8*s}" fill="none" stroke="url(#foil)" stroke-width="{.8*s:.2f}"/>')
     g.append(scroll(cx, cy - ry + 3 * s, 46 * s, 1) + scroll(cx, cy + ry - 3 * s, 46 * s, -1))
     if name:
-        g.append(arch("ARNALDO", "cz7", 58 * s, cx, cy - 6 * s, 760 * s, "url(#foil)", tracking=.07, extra='filter="url(#relieve)"'))
-        g.append(firma(cx + 6 * s, cy + 66 * s, 58 * s))
+        g.append(arch("ARNALDO", "cz7", 59 * s, cx, cy - 4 * s, 760 * s, "url(#foil)", tracking=.07, extra='filter="url(#relieve)"'))
+        g.append(firma(cx + 4 * s, cy + 70 * s, 66 * s))
     return "".join(g)
 
 

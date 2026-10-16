@@ -86,7 +86,8 @@ def art(name):
 
 
 # Diseño de la casa: «anilla clásica» (render elegido por el promotor) y su redibujo vectorial
-I_CLASICA = img("arnaldo-render-anilla-clasica-ret.png")     # firma inventada por la IA sustituida por «Arnaldo»
+I_CLASICA = (img("arnaldo-anilla-casa-referencia.png")       # foto de referencia del promotor (16/10): manda sobre todo lo demás
+             or img("arnaldo-render-anilla-clasica-ret.png"))
 A_N1, A_N2, A_N3 = art("arnaldo-anilla-n1.svg"), art("arnaldo-anilla-n2.svg"), art("arnaldo-anilla-n3-negra.svg")
 A_PLIEGO, A_MEDALLON = art("arnaldo-anilla-pliego.svg"), art("arnaldo-medallon.svg")
 A_SPEC, A_LOGO_ORO, A_LOGO_LACRE = art("arnaldo-anilla-especificacion.svg"), art("arnaldo-logotipo-oro.svg"), art("arnaldo-logotipo-lacre.svg")
@@ -294,7 +295,7 @@ def build():
 
     # 1 · Portada
     add(f"""
-{fig(I_CLASICA, "right:0;top:0;width:150mm;height:210mm;background-position:52% 50%") if I_CLASICA else
+{fig(I_CLASICA, "right:0;top:0;width:150mm;height:210mm;background-position:50% 50%") if I_CLASICA else
    '<div style="position:absolute;right:0;top:0;width:150mm;height:210mm;background:radial-gradient(ellipse at 50% 45%,#3A2E26 0%,#14100D 70%)"></div>'
    + artimg(A_N1, "right:7mm;top:80mm;width:136mm") + artimg(A_PLIEGO, "right:7mm;top:113mm;width:136mm")}
 <div style="position:absolute;right:150mm;top:0;width:40mm;height:210mm;background:linear-gradient(90deg,rgba(20,16,13,0) 0%,rgba(20,16,13,0) 100%)"></div>
@@ -522,7 +523,7 @@ def build():
   <li><strong>ARNALDO</strong> en capitales romanas de oro y, debajo, la firma de Arnaldo.</li>
   <li>Segunda anilla «PLIEGO DE AUTOR», igual en toda la gama.</li></ul>
  <p class="small" style="margin-top:5mm">Producción prevista: offset + foil + relieve seco + troquel, a cepo real (≈90 × 18 mm).</p>
- <p class="cap">Render conceptual generado con IA. Retocado: la IA había inventado una firma con un apellido; se ha sustituido por «Arnaldo» en caligrafía provisional, que se cambiará por la firma real.</p>
+ <p class="cap">Imagen de referencia de la anilla de la casa, aportada por el promotor: es el patrón que siguen el arte vectorial, las maquetas y este dossier. Concepto, no producto existente; la firma se cambiará por la firma real de Arnaldo.</p>
 </div>""", dark=True, title="ANILLA Nº 1", left="192mm")
 
     # 12 · Arte de la anilla: hoja de especificación
@@ -531,7 +532,7 @@ def build():
 {artimg(A_SPEC, "left:0;top:30mm;width:188mm")}
 <div style="position:absolute;left:196mm;width:64mm;top:40mm">
  <h3>Qué se ha hecho</h3>
- <p class="small" style="margin:0 0 3mm">El render elegido, pasado a vector a escala real (cepo 50): mismas proporciones, mismo óvalo, mismo orden de lectura. Sin monograma ni emblema.</p>
+ <p class="small" style="margin:0 0 3mm">La foto de referencia, pasada a vector a escala real (cepo 50): banda lacre perlada, óvalo con guilloché en red, ARNALDO en capitales romanas y la firma debajo. Sin monograma ni emblema.</p>
  <h3>Texto sin errores</h3>
  <p class="small" style="margin:0 0 3mm">Todo el texto va en trazados desde tipografías SIL OFL 1.1: Cinzel para el nombre; la firma es provisional hasta tener la real.</p>
  <h3>Lo que cierra el diseñador</h3>
@@ -608,7 +609,7 @@ def build():
   <p class="small" style="margin-top:2mm">Uso interno, en las mismas capitales romanas de la anilla. El definitivo lo dibujará a medida un diseñador especializado, junto con la firma real de Arnaldo.</p></div>
  <div><h3>Tipografías de trabajo</h3>
   <p style="font-family:Cinzel;font-weight:700;font-size:13pt;letter-spacing:.12em;margin:0">CINZEL · EL NOMBRE Y LOS TITULARES</p>
-  <p style="font-family:'Herr Von Muellerhoff';font-size:22pt;margin:0;line-height:1.1">Herr Von Muellerhoff · firma provisional</p>
+  <p style="font-family:'Pinyon Script';font-size:19pt;margin:0;line-height:1.2">Pinyon Script · firma provisional</p>
   <p style="font-family:'Cormorant Garamond';font-size:15pt;margin:0">Cormorant Garamond · <em>texto editorial</em></p>
   <p style="font-family:Inter;font-size:10pt;margin:0 0 2mm">Inter · datos y tablas</p>
   <p class="small">Licencia SIL OFL 1.1, verificada. Los Pantone y acabados definitivos los fijará el diseñador con pruebas de imprenta.</p></div>
