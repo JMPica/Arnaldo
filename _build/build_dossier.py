@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-"""ARNALDO — Dossier de marca para inversores (PDF apaisado A4, HTML + Chromium).
+"""ARNALDO VALLÉS — Dossier de marca para inversores (PDF apaisado A4, HTML + Chromium).
 
 Todas las cifras proceden de los documentos del proyecto (docs/40_brand_strategy.md, 41_product.md,
 42_identity.md, 10_cuba_legal.md, 01_memo.md) y de metrics.json. Las imágenes son renders de exploración
 de 01_BRAND/renders; las que aún no existen se omiten sin romper la maquetación.
 
-Uso: python3 build_dossier.py  →  PROYECTO_CIGARS_CUBA_2027/01_BRAND/ARNALDO Brand Dossier.pdf
+Uso: python3 build_dossier.py  →  PROYECTO_CIGARS_CUBA_2027/01_BRAND/ARNALDO VALLÉS Brand Dossier.pdf
 """
 import os, json, subprocess, tempfile
 from PIL import Image
@@ -13,7 +13,7 @@ from PIL import Image
 B = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(B, "..", "PROYECTO_CIGARS_CUBA_2027"))
 REN = os.path.join(ROOT, "01_BRAND", "renders")
-OUT = os.path.join(ROOT, "01_BRAND", "ARNALDO Brand Dossier.pdf")
+OUT = os.path.join(ROOT, "01_BRAND", "ARNALDO VALLÉS Brand Dossier.pdf")
 CACHE = os.path.join(B, ".cache_dossier")
 CHROME = "/opt/pw-browsers/chromium-1194/chrome-linux/chrome"
 M = json.load(open(os.path.join(B, "metrics.json")))
@@ -28,14 +28,14 @@ DATOS = {
     "promotor_dedicacion": None,        # completa / parcial (horas por semana)
     "promotor_capital": None,           # aportación propia: Fase 0 (≤ 15.000 €) y posterior
     "promotor_vinculo": None,           # relación con Arnaldo: desde cuándo y cómo
-    "arnaldo_apellidos": None,
+    "arnaldo_apellidos": "Vallés",    # aportado por el promotor (17/10/2026); segundo apellido, si lo hay, pendiente
     "arnaldo_categoria": None,          # categoría y años de oficio, solo si están acreditados
     "arnaldo_empresa": None,            # entidad o fábrica en la que trabaja
     "d12_opcion": None,                 # A: sin inversores hasta el Go · B: inversor para el tramo 1 · C: socio estratégico
     "d12_importe": None,                # importe aproximado a captar
     "d12_participacion": None,          # % de la sociedad a ceder, o «a negociar»
     "d12_instrumento": None,            # capital / préstamo participativo / a definir
-    "d13_plan_b": None,                 # Sí: ARNALDO con origen R. Dominicana o Nicaragua como plan B · No: solo vía B3
+    "d13_plan_b": None,                 # Sí: ARNALDO VALLÉS con origen R. Dominicana o Nicaragua como plan B · No: solo vía B3
 }
 PENDIENTES = []
 
@@ -187,7 +187,8 @@ def T(tag):
 
 def page(body, n, dark=False, title="", left="18mm", right="18mm"):
     cls = "page dark" if dark else "page"
-    hdr = f'<div class="hdr" style="left:{left};right:{right}"><span>ARNALDO · DOSSIER DE MARCA</span><span>{title}</span></div>' if n > 1 else ""
+    brand = "ARNALDO VALLÉS · DOSSIER DE MARCA" if left == "18mm" and right == "18mm" else "ARNALDO VALLÉS"
+    hdr = f'<div class="hdr" style="left:{left};right:{right}"><span>{brand}</span><span>{title}</span></div>' if n > 1 else ""
     legal = (f"Confidencial · Documento de trabajo para revisión profesional · Fecha de corte {FECHA}"
              if (left, right) == ("18mm", "18mm") else f"Confidencial · Fecha de corte {FECHA}")
     ftr = (f'<div class="ftr" style="left:{left};right:{right}"><span>{legal}</span>'
@@ -201,8 +202,8 @@ def wordmark(h_mm, w_mm):
             '<defs><linearGradient id="wmg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8A6620"/>'
             '<stop offset=".25" stop-color="#E9CF7E"/><stop offset=".45" stop-color="#FFF2C2"/><stop offset=".62" stop-color="#D1AB52"/>'
             '<stop offset=".85" stop-color="#8A6620"/><stop offset="1" stop-color="#C8A04A"/></linearGradient></defs>'
-            '<text x="500" y="126" text-anchor="middle" font-family="Cinzel" font-weight="600" font-size="138" letter-spacing="30" '
-            'fill="url(#wmg)">ARNALDO</text></svg>')
+            '<text x="500" y="126" text-anchor="middle" font-family="Cinzel" font-weight="600" font-size="92" letter-spacing="10" '
+            'fill="url(#wmg)">ARNALDO VALLÉS</text></svg>')
 
 
 def artimg(url, style):
@@ -316,7 +317,7 @@ def build():
     add(f"""<div class="pad" style="top:18mm">
 <div class="kick">Resumen</div><h1>La marca en una página</h1>
 <div class="grid3" style="margin-top:6mm;row-gap:8mm">
- <div class="card"><h3>Nombre</h3><p><strong>ARNALDO</strong>, el nombre del torcedor cubano que participa en el proyecto. No hay que inventar ninguna historia: la persona existe.</p></div>
+ <div class="card"><h3>Nombre</h3><p><strong>ARNALDO VALLÉS</strong>, el nombre y apellido del torcedor cubano que participa en el proyecto. No hay que inventar ninguna historia: la persona existe.</p></div>
  <div class="card"><h3>Idea</h3><p>Que cada caja lleve la firma de quien la hizo. Producción en <strong>pliegos</strong> numerados, con un <strong>colofón</strong> en cada caja.</p></div>
  <div class="card"><h3>Posicionamiento</h3><p><strong>Contemporary Cuban Luxury</strong>, la alternativa mejor puntuada en la matriz ponderada (3,90 en una escala de 1 a 5), con la gramática visual clásica de la habilitación cubana, sin herencia inventada.</p></div>
  <div class="card"><h3>Producto</h3><p>Una vitola de lanzamiento, <strong>Nº 1 Robusto</strong>; después <strong>Nº 2 Toro</strong> y <strong>Nº 3 Churchill</strong> en edición limitada. PVP objetivo del escenario Base: <strong>24 €</strong> por unidad.</p></div>
@@ -335,7 +336,7 @@ def build():
  <div class="kick">La idea</div>
  <div class="quote" style="font-size:31pt">«Que cada caja lleve la firma de quien la hizo.»</div>
  <div style="height:1px;background:linear-gradient(90deg,#C9A24A,rgba(201,162,74,0));width:80mm;margin:9mm 0 7mm"></div>
- <p class="lead" style="font-size:14pt">Las grandes marcas del puro se construyeron con un nombre, un oficio y una habilitación de primer nivel. ARNALDO parte de un activo que no se puede copiar: <strong>un torcedor real</strong>.</p>
+ <p class="lead" style="font-size:14pt">Las grandes marcas del puro se construyeron con un nombre, un oficio y una habilitación de primer nivel. ARNALDO VALLÉS parte de un activo que no se puede copiar: <strong>un torcedor real</strong>.</p>
  <p class="small" style="font-size:8.6pt">Cada lote es un <em>pliego</em> numerado; cada caja lleva un colofón «nº X de N» que, cuando el contrato lo permita, rubricará Arnaldo. «Pliego de autor»: con un autor real, la expresión cobra todo su sentido.</p>
 </div>
 <div style="position:absolute;left:20mm;bottom:16mm;width:112mm" class="cap">{"Imagen: maqueta. Fotografía generada con IA sin texto (Qwen-Image) con la anilla de la casa y la segunda anilla compuestas en vectorial. No es un arte final." if I_PURO else "Imagen: vista (interior de la tapa), arte vectorial provisional. No es un arte final."}</div>""", dark=True, title="LA IDEA", left="20mm", right="160mm")
@@ -344,8 +345,8 @@ def build():
     manos = fig(I_MANOS, "right:0;top:0;width:110mm;height:210mm")
     rgt = "128mm" if I_MANOS else "18mm"
     add(f"""{manos}<div class="pad" style="right:{rgt}">
-<div class="kick">La pieza central</div><h1>Arnaldo, el torcedor</h1>
-<p class="lead">Arnaldo es el torcedor cubano que participa en el proyecto y da nombre a la marca. Su firma manuscrita será el sello de ARNALDO y, si él lo autoriza, su retrato grabado presidirá la vista de la caja.</p>
+<div class="kick">La pieza central</div><h1>Arnaldo Vallés, el torcedor</h1>
+<p class="lead">Arnaldo Vallés es el torcedor cubano que participa en el proyecto y da nombre a la marca. Su firma manuscrita será el sello de ARNALDO VALLÉS y, si él lo autoriza, su retrato grabado presidirá la vista de la caja.</p>
 <div class="{'grid2' if I_MANOS else 'grid3'}" style="margin-top:5mm;row-gap:5mm">
  <div><h3>Lo que aporta</h3><ul class="clean">
   <li>Autenticidad: una persona y un oficio reales.</li>
@@ -361,7 +362,7 @@ def build():
   <li>Datos verificables para el colofón: nombre completo, categoría y años de oficio acreditados.</li></ul></div>
 </div>
 <p class="small" style="margin-top:5mm">Principio editorial: no se atribuye a Arnaldo ningún mérito, año de oficio, premio o declaración que no esté acreditado. Las imágenes de este dossier son ilustrativas: ninguna representa a Arnaldo ni reproduce su firma real.</p>
-</div>""", title="ARNALDO", right=rgt)
+</div>""", title="ARNALDO VALLÉS", right=rgt)
 
     # 5 · Mercado
     add(f"""<div class="pad">
@@ -382,13 +383,13 @@ def build():
 
     # 6 · Precio y competencia
     add(f"""<div class="pad">
-<div class="kick">Precio y competencia</div><h1>Dónde se sitúa ARNALDO</h1>
+<div class="kick">Precio y competencia</div><h1>Dónde se sitúa ARNALDO VALLÉS</h1>
 <table style="margin-top:4mm">
 <thead><tr><th style="width:15%">Banda de PVP</th><th style="width:47%">Ejemplos (precios oficiales España, 2026)</th><th>Comentario</th></tr></thead>
 <tbody>
 <tr><td>&lt; 12 €</td><td>Corrida Honduras Robusto 9,50 € · Padrón 2000 11,90 € · El Viejo Continente Estelí Robusto 11,80 €</td><td>No cubanos; entrada al premium</td></tr>
 <tr><td>12–18 €</td><td>Davidoff Puro Dominicano Short Robusto 15,50 €</td><td>Marcas no cubanas de prestigio</td></tr>
-<tr class="hl"><td>18–25 €</td><td>Partagás Serie D No. 4 ≈21,20 € · Montecristo No. 2 21,80 € · R&amp;J Churchills 24,80 € · <strong>ARNALDO Nº 1: 24 € (escenario Base)</strong></td><td>Núcleo de los Habanos clásicos</td></tr>
+<tr class="hl"><td>18–25 €</td><td>Partagás Serie D No. 4 ≈21,20 € · Montecristo No. 2 21,80 € · R&amp;J Churchills 24,80 € · <strong>ARNALDO VALLÉS Nº 1: 24 € (escenario Base)</strong></td><td>Núcleo de los Habanos clásicos</td></tr>
 <tr><td>25–50 €</td><td>Padrón 1926 80th 42 €</td><td>Ultra-premium no cubano y gamas altas cubanas</td></tr>
 <tr><td>&gt; 50 €</td><td>Cohiba Behike BHK 56: 262,50 €</td><td>Colección y lujo extremo</td></tr>
 </tbody></table>
@@ -404,7 +405,7 @@ def build():
     _r = lambda *ks: f"{sum(M[f'split_{k}_eur_raw'] for k in ks) / 24 * 100:.1f}".replace(".", ",") + " %"
     state_pct, canal_pct = _r("vat", "iee", "duty"), _r("rm", "dist")
     add(f"""<div class="pad">
-<div class="kick">Economía de una unidad</div><h1>Dónde van los 24 € de un ARNALDO Nº 1</h1>
+<div class="kick">Economía de una unidad</div><h1>Dónde van los 24 € de un ARNALDO VALLÉS Nº 1</h1>
 <div style="display:grid;grid-template-columns:186mm 1fr;gap:8mm;margin-top:2mm">
  <div>{unidad_svg()}</div>
  <div>
@@ -451,7 +452,7 @@ def build():
   <div class="card" style="margin-bottom:6mm"><h3>Promesa al profesional</h3><p class="lead">Un torcedor real detrás de cada pliego: consistencia verificable, ficha técnica y trazabilidad.</p></div>
   <div class="card"><h3>Personalidad</h3><p><span class="chip" style="color:#8E1B1B;border-color:#8E1B1B">CLÁSICA</span><span class="chip" style="color:#8E1B1B;border-color:#8E1B1B">HONESTA</span><span class="chip" style="color:#8E1B1B;border-color:#8E1B1B">ARTESANAL</span><span class="chip" style="color:#8E1B1B;border-color:#8E1B1B">PRECISA</span></p></div>
  </div>
- <div><h3>Lo que ARNALDO no hace</h3><ul class="clean">
+ <div><h3>Lo que ARNALDO VALLÉS no hace</h3><ul class="clean">
   <li>No atribuye a Arnaldo méritos, años, premios ni declaraciones que no estén acreditados.</li>
   <li>No sugiere vínculo con otras personas del sector.</li>
   <li>No imita anillas, sellos ni elementos de seguridad de Habanos ni de otras marcas.</li>
@@ -466,7 +467,7 @@ def build():
 <div class="grid2" style="gap:12mm;margin-top:4mm">
  <div>
   <table><thead><tr><th>Nivel</th><th>Elemento</th></tr></thead><tbody>
-  <tr><td>Marca madre</td><td><strong>ARNALDO</strong>: wordmark + firma manuscrita de Arnaldo como sello</td></tr>
+  <tr><td>Marca madre</td><td><strong>ARNALDO VALLÉS</strong>: wordmark + firma manuscrita de Arnaldo como sello</td></tr>
   <tr><td>Vitolas</td><td><strong>Nº 1</strong> Robusto (lanzamiento) · <strong>Nº 2</strong> Toro (extensión) · <strong>Nº 3</strong> Churchill (edición limitada)</td></tr>
   <tr><td>Lotes</td><td><strong>PLIEGO Nº 001</strong>, 002…</td></tr>
   <tr><td>Caja</td><td><strong>Colofón</strong> numerado «nº X de N», rubricado por Arnaldo cuando el contrato lo permita</td></tr>
@@ -475,16 +476,16 @@ def build():
   <p class="small" style="margin-top:4mm">Nombres de reserva: <strong>FOLIO</strong> y <strong>LUMBRE</strong>, si Arnaldo o su empleador no autorizan el nombre o si el informe de registrabilidad es desfavorable. 21 nombres evaluados.</p>
  </div>
  <div>
-  <table><thead><tr><th>Criterio</th><th>Valoración del nombre ARNALDO</th></tr></thead><tbody>
+  <table><thead><tr><th>Criterio</th><th>Valoración del nombre ARNALDO VALLÉS</th></tr></thead><tbody>
   <tr><td>Autenticidad</td><td>Muy alta: persona real, oficio real</td></tr>
   <tr><td>Memorabilidad</td><td>Alta: tres sílabas, fácil en español, inglés, francés, italiano y alemán</td></tr>
   <tr><td>Adecuación premium</td><td>Alta: tradición de marcas con nombre propio</td></tr>
-  <tr><td>Distintividad registral</td><td>Media: se refuerza con apellido y con la firma como marca figurativa</td></tr>
-  <tr><td>Colisiones (búsqueda web)</td><td>Ninguna marca de puros «Arnaldo»; ARLONDO (tabaco) a analizar {T("PROBABLE")}</td></tr>
+  <tr><td>Distintividad registral</td><td>Media-alta: nombre y apellido, más la firma como marca figurativa</td></tr>
+  <tr><td>Colisiones (búsqueda web)</td><td>Ninguna marca de puros «Arnaldo Vallés»; a analizar DON VALLES (EE. UU., puros, 2016) y ARLONDO (tabaco) {T("PROBABLE")}</td></tr>
   </tbody></table>
  </div>
 </div>
-<div style="display:flex;align-items:stretch;gap:0;margin-top:9mm"><div style="flex:1;border:1px solid #C9A24A;padding:3.5mm 3mm;text-align:center;background:#14100D"><div style="font-family:Cinzel;font-weight:700;font-size:11pt;letter-spacing:.12em;color:#E6CB86">ARNALDO</div><div class="small" style="margin-top:1mm;color:#A99D8A">Marca madre</div></div><div style="width:7mm;display:flex;align-items:center;justify-content:center;color:#C9A24A;font-size:13pt">→</div><div style="flex:1;border:1px solid #C9A24A;padding:3.5mm 3mm;text-align:center;background:#FBF7EF"><div style="font-family:Cinzel;font-weight:700;font-size:10pt;letter-spacing:.12em;color:#8E1B1B">Nº 1 · Nº 2 · Nº 3</div><div class="small" style="margin-top:1mm;color:#8A8073">Vitolas</div></div><div style="width:7mm;display:flex;align-items:center;justify-content:center;color:#C9A24A;font-size:13pt">→</div><div style="flex:1;border:1px solid #C9A24A;padding:3.5mm 3mm;text-align:center;background:#FBF7EF"><div style="font-family:Cinzel;font-weight:700;font-size:10pt;letter-spacing:.12em;color:#8E1B1B">PLIEGO Nº 001</div><div class="small" style="margin-top:1mm;color:#8A8073">Lote numerado</div></div><div style="width:7mm;display:flex;align-items:center;justify-content:center;color:#C9A24A;font-size:13pt">→</div><div style="flex:1;border:1px solid #C9A24A;padding:3.5mm 3mm;text-align:center;background:#FBF7EF"><div style="font-family:Cinzel;font-weight:700;font-size:10pt;letter-spacing:.12em;color:#8E1B1B">nº X de N</div><div class="small" style="margin-top:1mm;color:#8A8073">Colofón de cada caja</div></div><div style="width:7mm;display:flex;align-items:center;justify-content:center;color:#C9A24A;font-size:13pt">→</div><div style="flex:1;border:1px solid #C9A24A;padding:3.5mm 3mm;text-align:center;background:#8E1B1B"><div style="font-family:Cinzel;font-weight:700;font-size:10pt;letter-spacing:.12em;color:#F4EBD8">PLIEGO DE AUTOR</div><div class="small" style="margin-top:1mm;color:#E9DFCB">Edición firmada</div></div></div>
+<div style="display:flex;align-items:stretch;gap:0;margin-top:9mm"><div style="flex:1;border:1px solid #C9A24A;padding:3.5mm 3mm;text-align:center;background:#14100D"><div style="font-family:Cinzel;font-weight:700;font-size:11pt;letter-spacing:.12em;color:#E6CB86">ARNALDO VALLÉS</div><div class="small" style="margin-top:1mm;color:#A99D8A">Marca madre</div></div><div style="width:7mm;display:flex;align-items:center;justify-content:center;color:#C9A24A;font-size:13pt">→</div><div style="flex:1;border:1px solid #C9A24A;padding:3.5mm 3mm;text-align:center;background:#FBF7EF"><div style="font-family:Cinzel;font-weight:700;font-size:10pt;letter-spacing:.12em;color:#8E1B1B">Nº 1 · Nº 2 · Nº 3</div><div class="small" style="margin-top:1mm;color:#8A8073">Vitolas</div></div><div style="width:7mm;display:flex;align-items:center;justify-content:center;color:#C9A24A;font-size:13pt">→</div><div style="flex:1;border:1px solid #C9A24A;padding:3.5mm 3mm;text-align:center;background:#FBF7EF"><div style="font-family:Cinzel;font-weight:700;font-size:10pt;letter-spacing:.12em;color:#8E1B1B">PLIEGO Nº 001</div><div class="small" style="margin-top:1mm;color:#8A8073">Lote numerado</div></div><div style="width:7mm;display:flex;align-items:center;justify-content:center;color:#C9A24A;font-size:13pt">→</div><div style="flex:1;border:1px solid #C9A24A;padding:3.5mm 3mm;text-align:center;background:#FBF7EF"><div style="font-family:Cinzel;font-weight:700;font-size:10pt;letter-spacing:.12em;color:#8E1B1B">nº X de N</div><div class="small" style="margin-top:1mm;color:#8A8073">Colofón de cada caja</div></div><div style="width:7mm;display:flex;align-items:center;justify-content:center;color:#C9A24A;font-size:13pt">→</div><div style="flex:1;border:1px solid #C9A24A;padding:3.5mm 3mm;text-align:center;background:#8E1B1B"><div style="font-family:Cinzel;font-weight:700;font-size:10pt;letter-spacing:.12em;color:#F4EBD8">PLIEGO DE AUTOR</div><div class="small" style="margin-top:1mm;color:#E9DFCB">Edición firmada</div></div></div>
 </div>""", title="NOMBRE")
 
     # 10 · Dirección creativa
@@ -493,16 +494,16 @@ def build():
     thc = lambda url, h, alt: (f'<div style="height:{h};background:url(' + chr(39) + url + chr(39) + ') center/cover;border-radius:1mm"></div>') if url else th(None, h, alt)
     add(f"""<div class="pad">
 <div class="kick">Dirección creativa · La anilla clásica</div><h1>Una anilla de casa grande</h1>
-<p style="max-width:245mm">El diseño de la casa es una anilla clásica: banda lacre con cantos de oro perlados y un óvalo central de laca negra, enmarcado en oro con guilloché, con ARNALDO en capitales romanas y la firma debajo. Toma de Hoyo de Monterrey y de Montecristo su forma de construir una anilla, no sus elementos. Sin monograma ni emblema: la firma hace de signo, como en el origen de la anilla.</p>
+<p style="max-width:245mm">El diseño de la casa es una anilla clásica: banda lacre con cantos de oro perlados y un óvalo central de laca negra, enmarcado en oro con guilloché, con ARNALDO VALLÉS en capitales romanas y la firma debajo. Toma de Hoyo de Monterrey y de Montecristo su forma de construir una anilla, no sus elementos. Sin monograma ni emblema: la firma hace de signo, como en el origen de la anilla.</p>
 <table style="margin-top:2mm;font-size:8.2pt">
-<thead><tr><th style="width:15%">Código</th><th style="width:22%">Hoyo de Monterrey</th><th style="width:22%">Montecristo</th><th style="width:25%">ARNALDO</th><th>Lo que no se toma</th></tr></thead>
+<thead><tr><th style="width:15%">Código</th><th style="width:22%">Hoyo de Monterrey</th><th style="width:22%">Montecristo</th><th style="width:25%">ARNALDO VALLÉS</th><th>Lo que no se toma</th></tr></thead>
 <tbody>
 <tr><td><strong>Centro</strong></td><td>Logotipo rojo central con el nombre en blanco (S59)</td><td>Un emblema en relieve de oro (S60)</td><td>Óvalo de laca negra con marco de oro en guilloché, troquelado</td><td>Su logotipo y la composición de su anilla</td></tr>
-<tr><td><strong>Nombre</strong></td><td>Letras blancas sobre rojo</td><td>Romanas gruesas, lectura a distancia</td><td>ARNALDO en capitales romanas de oro, en arco</td><td>Sus tipografías</td></tr>
+<tr><td><strong>Nombre</strong></td><td>Letras blancas sobre rojo</td><td>Romanas gruesas, lectura a distancia</td><td>ARNALDO VALLÉS en capitales romanas de oro, en arco</td><td>Sus tipografías</td></tr>
 <tr><td><strong>Signo</strong></td><td>—</td><td>Un solo signo fuerte: espadas y flor de lis (S61)</td><td>La firma de Arnaldo; la anilla nació como firma del fabricante (S55)</td><td>Triángulo, espadas, flor de lis, coronas</td></tr>
 <tr><td><strong>Campo y paleta</strong></td><td>Dominante blanca (S59)</td><td>Campo oscuro con filigrana de oro y bordes blancos (S60)</td><td>Lacre, negro laca y oro; marfil y negro en la Nº 2 y la Nº 3</td><td>El marrón de Montecristo y su orden de colores</td></tr>
 <tr><td><strong>Segunda anilla</strong></td><td>«Epicure» en su línea (S59)</td><td>—</td><td>«PLIEGO DE AUTOR», lacre y oro</td><td>«Habana», años, medallas</td></tr>
-<tr><td><strong>Caja</strong></td><td>Vista con una escena grabada en óvalo</td><td>Cedro con la marca, sobria</td><td>Cedro con ARNALDO y la firma a fuego; vista con el óvalo de la casa</td><td>Jardín y fuente, «José Gener»</td></tr>
+<tr><td><strong>Caja</strong></td><td>Vista con una escena grabada en óvalo</td><td>Cedro con la marca, sobria</td><td>Cedro con ARNALDO VALLÉS y la firma a fuego; vista con el óvalo de la casa</td><td>Jardín y fuente, «José Gener»</td></tr>
 </tbody></table>
 <div class="grid3" style="margin-top:4mm;gap:6mm">
  <div>{th(A_N1, "27mm", "ANILLA Nº 1")}<p class="small" style="margin-top:1.5mm">La anilla redibujada en vectorial</p></div>
@@ -520,10 +521,10 @@ def build():
  <ul class="clean" style="margin-top:3mm">
   <li>Banda lacre con cantos de oro estampado y perlado en relieve.</li>
   <li>Óvalo central troquelado: marco de oro en guilloché y centro de laca negra.</li>
-  <li><strong>ARNALDO</strong> en capitales romanas de oro y, debajo, la firma de Arnaldo.</li>
+  <li><strong>ARNALDO VALLÉS</strong> en capitales romanas de oro y, debajo, la firma de Arnaldo.</li>
   <li>Segunda anilla «PLIEGO DE AUTOR», igual en toda la gama.</li></ul>
  <p class="small" style="margin-top:5mm">Producción prevista: offset + foil + relieve seco + troquel, a cepo real (≈90 × 18 mm).</p>
- <p class="cap">Imagen de referencia de la anilla de la casa, aportada por el promotor: es el patrón que siguen el arte vectorial, las maquetas y este dossier. Concepto, no producto existente; la firma se cambiará por la firma real de Arnaldo.</p>
+ <p class="cap">Imagen de referencia de la anilla de la casa, aportada por el promotor: es el patrón que siguen el arte vectorial, las maquetas y este dossier. Retocada tras el rebranding: «ARNALDO VALLÉS» y la firma «Arnaldo Vallés» sustituyen al nombre de pila. Concepto, no producto existente; la firma se cambiará por la firma real de Arnaldo Vallés.</p>
 </div>""", dark=True, title="ANILLA Nº 1", left="192mm")
 
     # 12 · Arte de la anilla: hoja de especificación
@@ -532,7 +533,7 @@ def build():
 {artimg(A_SPEC, "left:0;top:30mm;width:188mm")}
 <div style="position:absolute;left:196mm;width:64mm;top:40mm">
  <h3>Qué se ha hecho</h3>
- <p class="small" style="margin:0 0 3mm">La foto de referencia, pasada a vector a escala real (cepo 50): banda lacre perlada, óvalo con guilloché en red, ARNALDO en capitales romanas y la firma debajo. Sin monograma ni emblema.</p>
+ <p class="small" style="margin:0 0 3mm">La foto de referencia, pasada a vector a escala real (cepo 50): banda lacre perlada, óvalo con guilloché en red, ARNALDO VALLÉS en capitales romanas y la firma debajo. Sin monograma ni emblema.</p>
  <h3>Texto sin errores</h3>
  <p class="small" style="margin:0 0 3mm">Todo el texto va en trazados desde tipografías SIL OFL 1.1: Cinzel para el nombre; la firma es provisional hasta tener la real.</p>
  <h3>Lo que cierra el diseñador</h3>
@@ -548,7 +549,7 @@ def build():
 <div style="position:absolute;left:192mm;right:16mm;top:24mm">
  <div class="kick">Habilitación · Caja</div><h1 style="font-size:26pt">Cedro y fuego</h1>
  <ul class="clean" style="margin-top:3mm">
-  <li>Caja de cedro natural con ARNALDO y la firma marcados a fuego en la tapa.</li>
+  <li>Caja de cedro natural con ARNALDO VALLÉS y la firma marcados a fuego en la tapa.</li>
   <li>Papel de bordes lacre y oro; larguero con el nombre y costero con la vitola.</li>
   <li>Dentro, la vista y el colofón numerado.</li></ul>
  <div style="background:#F4EBD8;border-radius:1mm;padding:3mm 6mm;margin-top:5mm"><img src="{A_FUEGO}" style="width:100%;display:block"></div>
@@ -576,7 +577,7 @@ def build():
  '<div style="position:absolute;left:0;top:0;width:297mm;height:162mm;background:radial-gradient(ellipse at 50% 45%,#3A2E26 0%,#14100D 72%)"></div>' + artimg(A_VISTA, "left:28mm;top:6mm;width:241mm")}
 <div style="position:absolute;left:18mm;right:18mm;top:168mm" class="grid2">
  <div><div class="kick">Habilitación · Vista</div><h2 style="font-size:17pt;margin:0">La vista: el interior de la tapa</h2></div>
- <div><p class="small" style="margin:0">Litografía (≈200 × 120 mm) en marfil, lacre y oro con el óvalo de la casa al centro: ARNALDO y la firma. {"Maqueta: fotografía generada con IA con la tapa en blanco y la vista vectorial compuesta en perspectiva." if I_ABIERTA else "Arte vectorial provisional."}</p></div>
+ <div><p class="small" style="margin:0">Litografía (≈200 × 120 mm) en marfil, lacre y oro con el óvalo de la casa al centro: ARNALDO VALLÉS y la firma. {"Maqueta: fotografía generada con IA con la tapa en blanco y la vista vectorial compuesta en perspectiva." if I_ABIERTA else "Arte vectorial provisional."}</p></div>
 </div>""", dark=True, title="VISTA")
 
     # 16 · La gama
@@ -623,7 +624,7 @@ def build():
  <div class="card"><h3>Colofón</h3><p>Cada caja reproduce pliego, fecha y número de caja sobre el total. Es la prueba física de la promesa de la marca.</p></div>
  <div class="card"><h3>Ficha técnica</h3><p>Liga, fermentación, bonchado e ingredientes documentados por la fábrica, sin inventar contenidos: nada de fincas ni añadas que no consten.</p></div>
  <div><div style="background:#F4EBD8;border:1px solid #C9A24A;outline:1px solid #C9A24A;outline-offset:-2.2mm;padding:5mm 4mm;text-align:center;box-shadow:0 1mm 3mm rgba(0,0,0,.12)">
-  <div style="font-family:Cinzel;font-weight:600;font-size:10pt;letter-spacing:.3em;color:#14100D">ARNALDO</div>
+  <div style="font-family:Cinzel;font-weight:600;font-size:10pt;letter-spacing:.3em;color:#14100D">ARNALDO VALLÉS</div>
   <div style="font-family:Cinzel;font-size:6pt;letter-spacing:.25em;color:#8E1B1B;margin:1.5mm 0 2.5mm">PLIEGO Nº 001</div>
   <div style="font-family:'Cormorant Garamond';font-size:9.5pt;line-height:1.3;color:#3A2E25">Nº 1 · Robusto<br>Caja <strong>0001</strong> de 0500</div>
   <div style="font-family:'Cormorant Garamond';font-style:italic;font-size:8.5pt;color:#3A2E25;margin-top:2mm">Torcido a mano por</div>
@@ -662,8 +663,8 @@ def build():
     add(f"""<div class="pad">
 <div class="kick">Protección del activo</div><h1>La marca será de la sociedad española</h1>
 <div class="grid3" style="margin-top:4mm">
- <div class="card"><h3>Unión Europea</h3><p>Solicitud de ARNALDO como marca de la UE en clase 34 a nombre de la SL, con independencia de Cuba. Tasa base: 850 € por una clase {T("PROBABLE")}. Se presentará antes de compartir nombre y diseños con la contraparte cubana.</p></div>
- <div class="card"><h3>Firma</h3><p>La firma de Arnaldo se registra también como marca figurativa, junto con ARNALDO + apellido, con su consentimiento expreso.</p></div>
+ <div class="card"><h3>Unión Europea</h3><p>Solicitud de ARNALDO VALLÉS como marca de la UE en clase 34 a nombre de la SL, con independencia de Cuba. Tasa base: 850 € por una clase {T("PROBABLE")}. Se presentará antes de compartir nombre y diseños con la contraparte cubana.</p></div>
+ <div class="card"><h3>Firma</h3><p>La firma de Arnaldo se registra también como marca figurativa, junto con la denominación ARNALDO VALLÉS, con su consentimiento expreso.</p></div>
  <div class="card"><h3>Cuba</h3><p>Registro en la OCPI a través de agente oficial. Condición no negociable C2: titularidad del 100 % de la marca, nunca a nombre de una entidad cubana.</p></div>
 </div>
 <table style="margin-top:7mm">
@@ -671,8 +672,8 @@ def build():
 <tbody>
 <tr><td>Titularidad exigida por la contraparte (precedentes: Davidoff, Vegas Robaina)</td><td>Registro previo en la UE a nombre de la SL; C2 como condición de entrada</td></tr>
 <tr><td>Persona clave</td><td>Licencia irrevocable y transferible; cláusulas de salida y de fallecimiento; nombres de reserva FOLIO y LUMBRE</td></tr>
-<tr><td>Registrabilidad no confirmada</td><td>Informe de agente en EUIPO, OEPM y OCPI (≈900 €) antes de producir; análisis de ARLONDO</td></tr>
-<tr><td>Asociación con Arnaldo Vichot (maestro ligador de Partagás, fallecido en 2026)</td><td>No sugerir vínculo; apellido y firma propios</td></tr>
+<tr><td>Registrabilidad no confirmada</td><td>Informe de agente en EUIPO, OEPM y OCPI (≈900 €) antes de producir; análisis de DON VALLES y ARLONDO</td></tr>
+<tr><td>Asociación con Arnaldo Vichot (maestro ligador de Partagás, fallecido en 2026)</td><td>No sugerir vínculo; la marca lleva su apellido, Vallés, y su firma</td></tr>
 <tr><td>Parecido con Habanos u otras marcas</td><td>Lista de elementos prohibidos en el brief; revisión jurídica de las artes finales</td></tr>
 </tbody></table>
 <p class="small" style="margin-top:3mm">La búsqueda preliminar se hizo en fuentes web; no se consultaron EUIPO, OEPM ni OCPI directamente. Fuentes: S10, S13, S42, S49–S51, N05.</p>
@@ -686,7 +687,7 @@ def build():
 <tbody>
 <tr><td>1–3</td><td>Consentimiento de Arnaldo y autorización de su empleador; 15–20 firmas escaneadas; retrato opcional</td><td>0 €</td><td>Pendiente</td></tr>
 <tr><td>2–4</td><td>Tres presupuestos de estudios de packaging premium con el brief de 01_BRAND</td><td>0 €</td><td>Pendiente</td></tr>
-<tr><td>3–6</td><td>Informe de registrabilidad de ARNALDO (reservas FOLIO y LUMBRE)</td><td>≈900 €</td><td>Pendiente</td></tr>
+<tr><td>3–6</td><td>Informe de registrabilidad de ARNALDO VALLÉS (reservas FOLIO y LUMBRE)</td><td>≈900 €</td><td>Pendiente</td></tr>
 <tr><td>2–4 del encargo</td><td>Arte final a partir de la anilla clásica</td><td rowspan="3">4.000–15.000 € {T("HIPÓTESIS")}</td><td rowspan="3">Por encargar</td></tr>
 <tr><td>5–6 del encargo</td><td>Desarrollo de la ruta elegida: anillas Nº 1–3, vista, colofón</td></tr>
 <tr><td>7–8 del encargo</td><td>Artes finales, separaciones de tinta y foil, pruebas de imprenta</td></tr>
@@ -735,7 +736,7 @@ def build():
   <li>Proyecto completo: {M['opt_need']}–{M['cons_need']} según escenario.</li></ul></div>
  <div><h3>Si la vía cubana no se abre</h3><ul class="clean">
   <li>Importación de marcas premium no cubanas (vía B3): contribución {M['b3_contrib']}/u a PVP 15 €, punto muerto ≈{M['b3_be']} u/año, 40–60 k€ de capital {T("HIPÓTESIS")}.</li>
-  <li>ARNALDO con origen alternativo (República Dominicana o Nicaragua): {ph('d13_plan_b', 'decisión D13: ¿plan B de origen?')}</li></ul></div>
+  <li>ARNALDO VALLÉS con origen alternativo (República Dominicana o Nicaragua): {ph('d13_plan_b', 'decisión D13: ¿plan B de origen?')}</li></ul></div>
 </div>
 <p class="small" style="margin-top:4mm">Fuente: 07_OPERATIONS/180-Day Execution Plan.xlsx (costes acumulados {T("HIPÓTESIS")}), Business Case y Premium Import Business Case.</p>
 </div>""", title="FASE 0")
@@ -821,12 +822,12 @@ def build():
   <p>La firma, la viñeta y el retrato definitivos serán los de Arnaldo, con su consentimiento.</p></div>
  <div><h3>Fuentes y límites</h3>
   <p>Datos de mercado, precios y normativa procedentes de fuentes públicas consultadas el {FECHA} (09_RESEARCH/Source Register.xlsx). Etiquetas: {T("VERIFICADO")} {T("PROBABLE")} {T("HIPÓTESIS")} {T("BLOQUEADO")}.</p>
-  <p>La disponibilidad registral de ARNALDO no está confirmada en registros oficiales. No se ha contactado con ninguna entidad y no hay nada firmado.</p>
+  <p>La disponibilidad registral de ARNALDO VALLÉS no está confirmada en registros oficiales. No se ha contactado con ninguna entidad y no hay nada firmado.</p>
   <h3 style="margin-top:5mm">Aviso</h3>
   <p class="small">Documento confidencial de trabajo, dirigido a inversores y asesores profesionales. No constituye una oferta de valores ni asesoramiento jurídico, fiscal o financiero, y no es material publicitario dirigido al consumidor (Ley 28/2005). Requiere revisión profesional antes de cualquier decisión, firma o comunicación externa.</p></div>
 </div></div>""", title="NOTAS")
 
-    html = f"""<!doctype html><html lang="es"><head><meta charset="utf-8"><title>ARNALDO — Dossier de marca</title>
+    html = f"""<!doctype html><html lang="es"><head><meta charset="utf-8"><title>ARNALDO VALLÉS — Dossier de marca</title>
 <style>{fontfaces()}{CSS}</style></head><body>{''.join(P)}</body></html>"""
     return html, n
 

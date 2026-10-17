@@ -1,6 +1,6 @@
 ---
 title: "Preguntas difíciles del inversor"
-subtitle: "Las objeciones que un inversor o un comité de due diligence plantearía sobre ARNALDO, con respuestas directas, cifras del modelo y el documento donde comprobarlas"
+subtitle: "Las objeciones que un inversor o un comité de due diligence plantearía sobre ARNALDO VALLÉS, con respuestas directas, cifras del modelo y el documento donde comprobarlas"
 short: "Investor Q&A"
 kicker: "00 · EXECUTIVE"
 toc: true
@@ -14,7 +14,7 @@ Cada respuesta es deliberadamente directa, incluidas las desfavorables. Las cifr
 # A. Tesis y mercado
 
 **1. ¿Por qué una marca nueva de puros si Habanos domina el segmento?**
-Porque el valor del puro premium descansa en el nombre, el oficio y la habilitación, y ARNALDO parte de un activo que no se puede copiar: un torcedor real, con su firma, en lotes numerados y documentados. En 2026, además, la distribución de Habanos en España opera con cuentas bloqueadas por sanciones [VERIFICADO] (S21), lo que puede abrir espacio en los humidores especialistas. Pero la marca no compite en precio ni en volumen: compite en autenticidad verificable.
+Porque el valor del puro premium descansa en el nombre, el oficio y la habilitación, y ARNALDO VALLÉS parte de un activo que no se puede copiar: un torcedor real, con su firma, en lotes numerados y documentados. En 2026, además, la distribución de Habanos en España opera con cuentas bloqueadas por sanciones [VERIFICADO] (S21), lo que puede abrir espacio en los humidores especialistas. Pero la marca no compite en precio ni en volumen: compite en autenticidad verificable.
 
 **2. ¿Qué tamaño tiene la oportunidad?**
 Pequeño. La demanda accesible estimada de abajo arriba es de 1.600–6.000 unidades/año [HIPÓTESIS], es decir, {{sam_rev_low}}–{{sam_rev_high}} de ingresos anuales de la marca a PVP 24 € (antes de impuesto especial). Es un negocio de nicho: su atractivo depende del margen y de la propiedad del activo, no de la escala.
@@ -71,7 +71,7 @@ Pendiente de decisión del promotor (D12). La estructura recomendada es por tram
 # D. Alternativas
 
 **18. Si la vía cubana no se abre, ¿se pierde todo?**
-Se pierde, como máximo, el coste de la Fase 0. Quedan dos alternativas documentadas: la importación de marcas premium no cubanas (vía B3: contribución {{b3_contrib}}/u a PVP 15 €, punto muerto ≈{{b3_be}} u/año, 40–60 k€ de capital [HIPÓTESIS]) y ARNALDO con origen República Dominicana o Nicaragua, que reduce el coste ≈{{ct_diff10k}} por cada 10.000 unidades al eliminar el arancel [PROBABLE], a costa de cambiar el posicionamiento (decisión D13).
+Se pierde, como máximo, el coste de la Fase 0. Quedan dos alternativas documentadas: la importación de marcas premium no cubanas (vía B3: contribución {{b3_contrib}}/u a PVP 15 €, punto muerto ≈{{b3_be}} u/año, 40–60 k€ de capital [HIPÓTESIS]) y ARNALDO VALLÉS con origen República Dominicana o Nicaragua, que reduce el coste ≈{{ct_diff10k}} por cada 10.000 unidades al eliminar el arancel [PROBABLE], a costa de cambiar el posicionamiento (decisión D13).
 
 **19. ¿Por qué no importar Habanos directamente, que ya tienen demanda?**
 Porque no es legal para un tercero: la exportación es exclusiva de Habanos S.A. y la distribución en España, de Tabacalera; la importación paralela desde fuera del EEE infringe la marca. La oferta recibida de Behike 56 a ≈50 €/caja equivale al {{bh_ratio}} del PVP oficial: falsificación o desvío casi seguros. NO-GO absoluto.
@@ -85,7 +85,7 @@ No. Son renders conceptuales generados con IA para orientar al diseñador. Se ha
 La dirección creativa toma de tres grandes marcas su nivel, no sus elementos: hay una lista expresa de lo prohibido (jardín y fuente, triángulo y espadas, damero y cabeza taína, «Habana», «Cuba», «Habano», escudos y medallas). Aun así, las artes finales deben pasar una revisión de abogado de marcas antes de producir.
 
 **22. ¿Está registrada la marca?**
-No. La búsqueda preliminar no halló colisiones en tabaco salvo ARLONDO (a analizar), pero no es un informe oficial. El informe de registrabilidad (≈900 €) es condición C7 y la solicitud EUIPO (≈1.100 € con agente; tasa base 850 € [PROBABLE]) se presenta a nombre de la SL.
+No. La búsqueda preliminar no halló colisiones en tabaco salvo DON VALLES (EE. UU.) y ARLONDO (a analizar), pero no es un informe oficial. El informe de registrabilidad (≈900 €) es condición C7 y la solicitud EUIPO (≈1.100 € con agente; tasa base 850 € [PROBABLE]) se presenta a nombre de la SL.
 
 **23. ¿Quién es el equipo?**
 El promotor (dirección y desarrollo comercial), Arnaldo (nombre, firma y criterio de construcción) y asesores externos por contratar: abogado cubano habilitado, abogado español de comercio exterior, asesor fiscal España–Andorra, agente de marcas, asesor regulatorio y operador logístico habilitado. El perfil del promotor y la trayectoria acreditada de Arnaldo deben incorporarse antes de presentar a inversores.

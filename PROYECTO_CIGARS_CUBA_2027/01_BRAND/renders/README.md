@@ -1,4 +1,6 @@
-# Renders de exploración ARNALDO
+# Renders de exploración ARNALDO VALLÉS
+
+*Rebranding 17/10/2026: la marca passa d'ARNALDO a ARNALDO VALLÉS. Les files antigues descriuen el text que tenia cada render en el seu moment.*
 
 Generats amb Runway el 10/10/2026 (pla gratuït del compte; queden 3 crèdits). Són conceptes per al dissenyador, no arts finals.
 
@@ -52,7 +54,8 @@ El promotor tria l'anella clàssica com a disseny de la casa i demana mantenir-l
 
 | Fitxer | Origen | Estat | Notes |
 |---|---|---|---|
-| **arnaldo-anilla-casa-referencia.png** | Foto aportada pel promotor (16/10) | ✅ Al dossier (portada i Nº 1) | **Referència única de la marca.** Text correcte («ARNALDO», «Arnaldo»), sense retoc. L'art vectorial (guilloché en xarxa, signatura en cal·ligrafia formal) i les maquetes s'hi han ajustat |
+| **arnaldo-anilla-casa-referencia.png** | Foto del promotor (16/10) retocada (17/10) | ✅ Al dossier (portada i Nº 1) | **Referència única de la marca.** Rebranding: «ARNALDO» i «Arnaldo» esborrats de la laca i substituïts per «ARNALDO VALLÉS» i la signatura «Arnaldo Vallés» amb la mateixa inclinació i llum (`_build/renders/fix_referencia_nombre.py`) |
+| arnaldo-anilla-casa-referencia-original.png | Foto aportada pel promotor (16/10) | Original | Text «ARNALDO» / «Arnaldo», correcte, anterior al rebranding |
 | arnaldo-render-anilla-clasica.png | Runway · Nano Banana Pro (10/10) | Original | Disseny triat. La signatura diu «Arnald Jonato» (inventada per la IA) |
 | arnaldo-render-anilla-clasica-ret.png | Retoc | Substituït per la foto de referència (16/10) | Signatura inventada esborrada sobre la laca i substituïda per «Arnaldo» en cal·ligrafia provisional d'aspecte manuscrit, Herr Von Muellerhoff (`_build/renders/fix_clasica_firma.py`); la resta, intacta |
 | ../assets/clasica/arnaldo-anilla-n1/-n2/-n3-negra | Vectorial | ✅ Al dossier | L'anella redibuixada: banda lacre (Nº 1), marfil (Nº 2) i negra (Nº 3) |
@@ -74,6 +77,6 @@ Generades amb Qwen-Image (`_build/renders/queue_2026-10-14-v4.json`; el prefix �
 
 Revisió: cap de les fotos base té text; tot el text de les maquetes és vectorial.
 
-Dossier per a inversors: `../ARNALDO Brand Dossier.pdf` (`_build/build_dossier.py`).
+Dossier per a inversors: `../ARNALDO VALLÉS Brand Dossier.pdf` (`_build/build_dossier.py`).
 
 Prompts: `../Higgsfield Prompt Pack.md` (vàlids també per a Runway, ChatGPT, Gemini o Ideogram).

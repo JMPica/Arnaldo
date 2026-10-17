@@ -24,7 +24,7 @@ No consta hoy ninguna vía pública y verificada para que una pequeña sociedad 
 Que la operación entraría en la red de una compañía que comercializa sus propias marcas y cuyo socio privado está afectado por sanciones de la UE (30/07/2026) y EE.UU. [VERIFICADO] (S21, S22). Implicaría probables exigencias de volumen (las ediciones regionales piden 25.000 u por referencia [PROBABLE] (S02)), control comercial y, posiblemente, de la marca; y obligaría a un *screening* de sanciones de cada pago.
 
 **4. ¿Podemos registrar y conservar la propiedad de la marca?**
-En la UE, sí, con una condición previa: ARNALDO es el nombre de una persona real, por lo que hace falta su **consentimiento escrito** y una licencia de nombre, firma e imagen a favor de la SL. Con ello, la SL puede registrar ARNALDO en EUIPO (clase 34) independientemente de Cuba, tras informe de registrabilidad (la búsqueda preliminar no halló colisiones en tabaco, pero no es un informe oficial). En Cuba, registro en OCPI vía agente oficial; el riesgo es que la contraparte exija titularidad. Condición no negociable C2 [PROBABLE].
+En la UE, sí, con una condición previa: ARNALDO VALLÉS es el nombre de una persona real, por lo que hace falta su **consentimiento escrito** y una licencia de nombre, firma e imagen a favor de la SL. Con ello, la SL puede registrar ARNALDO VALLÉS en EUIPO (clase 34) independientemente de Cuba, tras informe de registrabilidad (la búsqueda preliminar no halló colisiones en tabaco, pero no es un informe oficial). En Cuba, registro en OCPI vía agente oficial; el riesgo es que la contraparte exija titularidad. Condición no negociable C2 [PROBABLE].
 
 **5. ¿Barreras para importar y distribuir en España?**
 Habilitación CMT como fabricante/titular (≤15 días hábiles), EU-CEG, trazabilidad y marcas fiscales (obligatorias en cigarros desde 20/05/2024), etiquetado RD 579/2017, PVP publicado en BOE, distribuidor habilitado, venta sólo en ≈13.000 expendedurías, publicidad prohibida [VERIFICADO] (S16–S18, S26–S29). Fiscalmente, con origen Cuba el Estado se lleva ≈{{state_pct_base}} del PVP (IVA 21%, IEE 15,8%, arancel 26% [PROBABLE]).
@@ -39,13 +39,13 @@ A PVP 24 € y FOB 6 USD: {{base_be}}. A 30 €: ≈{{ue30_be}} u/año. A 25 €
 Sólo el escenario Optimista es rentable: PVP 28 €, FOB 5 USD, 12.000 u en 2031 → EBITDA 2031 {{opt_ebitda_2031}}, VAN {{opt_npv}}, TIR {{opt_irr}} (con valor terminal 5× EBITDA). Base: VAN {{base_npv}}; Conservador {{cons_npv}}; Estrés {{stress_npv}}. Sin probabilidades asignadas.
 
 **9. ¿Es más viable la marca propia o importar marcas premium existentes?**
-Importar **Habanos** no es viable (exclusiva; importación paralela prohibida). Importar **marcas premium no cubanas** sin distribución en España sí: contribución {{b3_contrib}}/u a PVP 15 € frente a {{base_contrib}}/u de ARNALDO a 24 €, arancel 0% con origen preferente [PROBABLE], sin dependencia del sistema estatal cubano.
+Importar **Habanos** no es viable (exclusiva; importación paralela prohibida). Importar **marcas premium no cubanas** sin distribución en España sí: contribución {{b3_contrib}}/u a PVP 15 € frente a {{base_contrib}}/u de ARNALDO VALLÉS a 24 €, arancel 0% con origen preferente [PROBABLE], sin dependencia del sistema estatal cubano.
 
 **10. ¿Qué estructura y estrategia se recomiendan?**
 Estrategia **E3 secuencial** (puntuación 3,60 frente a 3,55 de E2, 1,70 de E4 y 1,40 de E1): Fase 0 cubana con gasto acotado + validación de B3 sin capital; marca propia sólo si C1–C8. Estructura: **SL española** titular de la marca, habilitada como fabricante, con logística, depósito fiscal y distribución subcontratados a un operador habilitado; ninguna sociedad andorrana sin sustancia real. Arnaldo participa como dueño de su nombre licenciado a la SL, preferentemente con participación en la SL (10% de referencia, con *vesting*): un royalty del 2% llevaría el VAN del escenario Optimista a −4.561 €; la marca nunca debe registrarse a nombre de una entidad cubana ni a título personal en Cuba.
 
 **11. ¿Qué puede ejecutarse inmediatamente?**
-Contratar abogados (Cuba + España); cuestionario al torcedor; rechazo por escrito de la oferta Behike; dictamen fiscal España–Andorra; consultas a CMT, TARIC, BOE y banco; informe de registrabilidad de ARNALDO (reserves FOLIO/LUMBRE); mapa de 40 expendedurías especialistas y de 10 fabricantes no cubanos. Coste estimado a 30 días: {{plan_cost_30}}; a 90 días: {{plan_cost_90}}. Todas requieren aprobación del promotor; ninguna comunicación se ha enviado.
+Contratar abogados (Cuba + España); cuestionario al torcedor; rechazo por escrito de la oferta Behike; dictamen fiscal España–Andorra; consultas a CMT, TARIC, BOE y banco; informe de registrabilidad de ARNALDO VALLÉS (reserves FOLIO/LUMBRE); mapa de 40 expendedurías especialistas y de 10 fabricantes no cubanos. Coste estimado a 30 días: {{plan_cost_30}}; a 90 días: {{plan_cost_90}}. Todas requieren aprobación del promotor; ninguna comunicación se ha enviado.
 
 **12. ¿Qué información falta y quién debe facilitarla?**
 
@@ -58,7 +58,7 @@ Contratar abogados (Cuba + España); cuestionario al torcedor; rechazo por escri
 | Canal bancario | Banco español |
 | Tarifa y condiciones de distribución | Distribuidor habilitado |
 | Aceptación de precio por expendedurías | Expendedurías especialistas |
-| Registrabilidad de ARNALDO | Agente de marcas |
+| Registrabilidad de ARNALDO VALLÉS | Agente de marcas |
 | Residencia fiscal y estructura | Asesor fiscal España–Andorra |
 | Margen vigente del expendedor, arancel TARIC, plazo EU-CEG | Asesor regulatorio / agente de aduanas |
 
@@ -113,14 +113,14 @@ Contratar abogados (Cuba + España); cuestionario al torcedor; rechazo por escri
 
 # Auditoría D — Diseño
 
-La marca pasa a **ARNALDO** (nombre del torcedor). Las identidades FOLIO v1 y v2 se archivan porque no alcanzan el nivel de las grandes marcas; la identidad definitiva se encarga a un diseñador especializado con el brief de `01_BRAND/Brand Identity Guidelines.pdf`, construida sobre la **firma manuscrita** de Arnaldo y, si él lo autoriza, un retrato grabado. Controles exigidos: sin escudos de Estado, medallas, fechas inventadas, «Habano/Cuba/Habana», imitación de anillas o sellos de Habanos, ni sugerencia de vínculo con otras personas del sector; zona de advertencia sanitaria reservada; tipografías con licencia comercial verificada.
+La marca pasa a **ARNALDO** (nombre del torcedor) y, el 17/10/2026, a **ARNALDO VALLÉS** (nombre y apellido). Las identidades FOLIO v1 y v2 se archivan porque no alcanzan el nivel de las grandes marcas; la identidad definitiva se encarga a un diseñador especializado con el brief de `01_BRAND/Brand Identity Guidelines.pdf`, construida sobre la **firma manuscrita** de Arnaldo y, si él lo autoriza, un retrato grabado. Controles exigidos: sin escudos de Estado, medallas, fechas inventadas, «Habano/Cuba/Habana», imitación de anillas o sellos de Habanos, ni sugerencia de vínculo con otras personas del sector; zona de advertencia sanitaria reservada; tipografías con licencia comercial verificada.
 
 # Mapa del dossier
 
 | Carpeta | Contenido clave |
 |---|---|
 | 00_EXECUTIVE | Este memorándum · Investor Q&A (preguntas difíciles con respuestas) · Decision Matrix.xlsx · Project Status & Next Actions.md |
-| 01_BRAND | ARNALDO Brand Dossier (para inversores) · Brand Strategy · Brand Identity Guidelines · Product Architecture · Naming xlsx · Technical Spec xlsx · assets (SVG/PNG) |
+| 01_BRAND | ARNALDO VALLÉS Brand Dossier (para inversores) · Brand Strategy · Brand Identity Guidelines · Product Architecture · Naming xlsx · Technical Spec xlsx · assets (SVG/PNG) |
 | 02_BUSINESS_PLAN | Business Plan 2027–2031 (DOCX + PDF) |
 | 03_BUSINESS_CASE | Business Case · Scenario Analysis · Financial Model 2027–2031.xlsx |
 | 04_CUBA_LEGAL | Cuba Legal Feasibility · Due Diligence · Export Authorization Questions · Term Sheet |

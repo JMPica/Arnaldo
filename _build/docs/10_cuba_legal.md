@@ -68,7 +68,7 @@ out: ["04_CUBA_LEGAL/Cuba Legal Feasibility.pdf"]
 
 | Vía | Descripción | Ventajas | Barreras | Valoración |
 |---|---|---|---|---|
-| **V1. Fabricación bajo contrato con Habanos S.A. / Tabacuba** | Habanos (o una fábrica de Tabacuba con exportación por Habanos) fabrica la marca ARNALDO para la SL española. | Única vía alineada con la estructura actual; trazabilidad y autenticidad oficiales. | Sin programa público (sólo «Habanos Private Selection» para ganadores de subastas, S12); conflicto de interés; riesgo de exigir la titularidad; mínimos de volumen probablemente elevados (las ediciones regionales exigen 25.000 u por referencia, S02). | Vía principal a explorar. Probabilidad: no estimable sin respuesta. [BLOQUEADO] |
+| **V1. Fabricación bajo contrato con Habanos S.A. / Tabacuba** | Habanos (o una fábrica de Tabacuba con exportación por Habanos) fabrica la marca ARNALDO VALLÉS para la SL española. | Única vía alineada con la estructura actual; trazabilidad y autenticidad oficiales. | Sin programa público (sólo «Habanos Private Selection» para ganadores de subastas, S12); conflicto de interés; riesgo de exigir la titularidad; mínimos de volumen probablemente elevados (las ediciones regionales exigen 25.000 u por referencia, S02). | Vía principal a explorar. Probabilidad: no estimable sin respuesta. [BLOQUEADO] |
 | **V2. Fábrica estatal + exportador autorizado distinto de Habanos** | La «empresa autorizada» del torcedor fabrica y otra entidad estatal exporta. | Podría ser la situación que describe el torcedor. | Para puros premium hechos a mano, la exportación se canaliza por Habanos; ninguna fuente identifica otro exportador de puros premium. | Verificar documentalmente la licencia real de la empresa. [BLOQUEADO] |
 | **V3. Mipyme o cooperativa exportadora (DL 133/2026)** | Operador privado fabrica y exporta con autorización MINCEX. | Encaje formal con las reformas. | Prohibición histórica de producción de tabaco a mipymes (S44); monopsonio de hoja; DO; Res. 98/2022. | Muy improbable hoy. Consultar MINCEX. [BLOQUEADO] |
 | **V4. Empresa mixta / AEI (Ley 118)** | Asociación con Tabacuba u otra entidad para producir. | Seguridad jurídica si se aprueba. | Aprobación gubernamental, capital y plazos incompatibles con 15–100 k€; sector en retirada de socios (BAT/Brascuba). | Descartada para este proyecto. |
@@ -78,7 +78,7 @@ out: ["04_CUBA_LEGAL/Cuba Legal Feasibility.pdf"]
 
 ## Unión Europea
 
-- La SL española puede solicitar **ARNALDO** como marca de la UE en clase 34 con independencia de cualquier acuerdo cubano (tasa base 850 € por una clase [PROBABLE], N05). Recomendación: presentar tras el informe de registrabilidad y **antes** de compartir el nombre y los diseños con la contraparte cubana.
+- La SL española puede solicitar **ARNALDO VALLÉS** como marca de la UE en clase 34 con independencia de cualquier acuerdo cubano (tasa base 850 € por una clase [PROBABLE], N05). Recomendación: presentar tras el informe de registrabilidad y **antes** de compartir el nombre y los diseños con la contraparte cubana.
 - Prohibido usar «Habano», «Habanos», «Cuba», «La Habana», «Vuelta Abajo» o símbolos de la DO como elementos de marca: el OLG de Múnich reconoce protección ampliada a «Cuba», «La Habana» y derivados para puros (S13).
 - La indicación fáctica del país de origen («Hecho en Cuba») en el envase debe validarse con el abogado: puede estar sujeta a las reglas de la DO y al sello de garantía de Habanos [HIPÓTESIS].
 
@@ -114,7 +114,7 @@ out: ["04_CUBA_LEGAL/Cuba Legal Feasibility.pdf"]
 | Asociación internacional | No necesaria si basta contrato comercial | Evitar empresa mixta/AEI | [PROBABLE] |
 | Derechos de marca | Titularidad 100% SL (UE + Cuba) | Cláusula esencial; registro previo | [HIPÓTESIS] de aceptación |
 | Diseños y documentación técnica | Propiedad de la SL; confidencialidad | Cesión y no uso por la fábrica | [HIPÓTESIS] |
-| Exclusividad territorial | Fábrica no produce ARNALDO para otros; SL exclusiva mundial | Exclusiva a favor de la SL | [HIPÓTESIS] |
+| Exclusividad territorial | Fábrica no produce ARNALDO VALLÉS para otros; SL exclusiva mundial | Exclusiva a favor de la SL | [HIPÓTESIS] |
 | Condiciones de pago | Probable exigencia de anticipo | 30% pedido / 70% contra documentos o carta de crédito; nunca 100% anticipado | [HIPÓTESIS] |
 | Incoterms 2020 | FCA aeropuerto/puerto de La Habana o FOB Mariel | FCA (aéreo) o FOB (marítimo); seguro a cargo de la SL | [HIPÓTESIS] |
 | Control de calidad | Inspección previa al embarque | Derecho de inspección y rechazo; AQL ISO 2859-1 | [HIPÓTESIS] |

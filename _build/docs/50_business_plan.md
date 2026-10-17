@@ -1,6 +1,6 @@
 ---
 title: "Plan de empresa 2027–2031"
-subtitle: "ARNALDO — marca propia de cigarros premium y vía de importación premium, con decisión por fases"
+subtitle: "ARNALDO VALLÉS — marca propia de cigarros premium y vía de importación premium, con decisión por fases"
 short: "Business Plan 2027–2031"
 kicker: "02 · BUSINESS PLAN"
 toc: true
@@ -9,7 +9,7 @@ out: ["02_BUSINESS_PLAN/Business Plan 2027–2031.pdf", "02_BUSINESS_PLAN/Busine
 
 # 1. Resumen ejecutivo
 
-**Qué se propone.** Crear **ARNALDO**, una marca premium de cigarros hechos a mano que lleva el nombre —y, con su consentimiento, la firma— de Arnaldo, el torcedor cubano que participa en el proyecto; fabricada —si la Fase 0 lo confirma— en Cuba por una entidad autorizada con su colaboración técnica, e importada y distribuida en España por canales habilitados. En paralelo se evalúa la importación y distribución de cigarros premium de terceros.
+**Qué se propone.** Crear **ARNALDO VALLÉS**, una marca premium de cigarros hechos a mano que lleva el nombre —y, con su consentimiento, la firma— de Arnaldo Vallés, el torcedor cubano que participa en el proyecto; fabricada —si la Fase 0 lo confirma— en Cuba por una entidad autorizada con su colaboración técnica, e importada y distribuida en España por canales habilitados. En paralelo se evalúa la importación y distribución de cigarros premium de terceros.
 
 **Qué se ha encontrado.**
 
@@ -24,7 +24,7 @@ out: ["02_BUSINESS_PLAN/Business Plan 2027–2031.pdf", "02_BUSINESS_PLAN/Busine
 
 | Línea | Actividad | Rol de la sociedad | Estado |
 |---|---|---|---|
-| A — Marca propia | Diseño, especificación, registro y comercialización B2B de ARNALDO | Titular de marca, habilitada como fabricante ante el CMT; producción encargada a entidad autorizada | [BLOQUEADO] por Fase 0 |
+| A — Marca propia | Diseño, especificación, registro y comercialización B2B de ARNALDO VALLÉS | Titular de marca, habilitada como fabricante ante el CMT; producción encargada a entidad autorizada | [BLOQUEADO] por Fase 0 |
 | B3 — Importación premium | Importación y distribución de marcas no cubanas con exclusiva para España | Importador-titular en España de las referencias; distribución vía operador habilitado | Validación |
 | B1 — Habanos | Importación directa | — | NO-GO |
 
@@ -45,7 +45,7 @@ Concentración: Habanos domina el premium; la distribución mayorista está conc
 
 # 5. Competencia y posicionamiento
 
-Competidores directos de ARNALDO Nº 1: Habanos clásicos de formato robusto (≈21–22 €) y marcas no cubanas de prestigio (12–20 €). ARNALDO se posiciona en el lujo cubano clásico con la **anilla clásica** como diseño de la casa —banda lacre con cantos de oro perlados, óvalo central de laca negra enmarcado en oro con ARNALDO en capitales romanas y la firma de Arnaldo debajo, segunda anilla «Pliego de autor», vista y caja de cedro con la marca a fuego; referencias: Hoyo de Monterrey y Montecristo; ver `01_BRAND/ARNALDO Brand Dossier.pdf`—, lotes numerados («pliegos») y colofón de trazabilidad; precio objetivo 24 € (Base) que exige superar en calidad percibida a referencias consolidadas. Matriz de posicionamiento: B 3,90 / C 3,35 / A 2,45 (`Decision Matrix.xlsx`).
+Competidores directos de ARNALDO VALLÉS Nº 1: Habanos clásicos de formato robusto (≈21–22 €) y marcas no cubanas de prestigio (12–20 €). ARNALDO VALLÉS se posiciona en el lujo cubano clásico con la **anilla clásica** como diseño de la casa —banda lacre con cantos de oro perlados, óvalo central de laca negra enmarcado en oro con ARNALDO VALLÉS en capitales romanas y la firma de Arnaldo debajo, segunda anilla «Pliego de autor», vista y caja de cedro con la marca a fuego; referencias: Hoyo de Monterrey y Montecristo; ver `01_BRAND/ARNALDO VALLÉS Brand Dossier.pdf`—, lotes numerados («pliegos») y colofón de trazabilidad; precio objetivo 24 € (Base) que exige superar en calidad percibida a referencias consolidadas. Matriz de posicionamiento: B 3,90 / C 3,35 / A 2,45 (`Decision Matrix.xlsx`).
 
 **Ventaja competitiva sostenible** (Fisher): baja mientras la producción dependa de un único fabricante estatal; se construye con (i) propiedad plena de la marca y del diseño, (ii) relación con estanqueros especialistas, (iii) habilitaciones y know-how regulatorio, (iv) consistencia documentada.
 
@@ -64,7 +64,7 @@ Para el estanquero especialista: una referencia diferenciada, consistente y docu
 | Plazos | 4–6 meses pedido→llegada (Base 5); Estrés 10 |
 | Riesgos | Autorización, titularidad de marca, hoja, energía/logística, pagos, sanciones |
 
-Si la Fase 0 es negativa, alternativas: (a) **ARNALDO con origen República Dominicana o Nicaragua** (arancel 0% con prueba de origen, fabricantes que ya exportan a la UE; el posicionamiento dejaría de ser «cubano» y el torcedor podría participar sólo si puede viajar y contratar legalmente) [HIPÓTESIS]; (b) concentrarse en B3.
+Si la Fase 0 es negativa, alternativas: (a) **ARNALDO VALLÉS con origen República Dominicana o Nicaragua** (arancel 0% con prueba de origen, fabricantes que ya exportan a la UE; el posicionamiento dejaría de ser «cubano» y el torcedor podría participar sólo si puede viajar y contratar legalmente) [HIPÓTESIS]; (b) concentrarse en B3.
 
 # 8. Estructura societaria
 
@@ -91,11 +91,11 @@ Puntuaciones del `Decision Matrix.xlsx` (pesos: cumplimiento 20%, riesgo fiscal 
 
 # 9. Propiedad intelectual y contratación
 
-- Marca **ARNALDO** a nombre de la SL: EUIPO (clase 34) antes de compartir con terceros; Cuba (OCPI) vía agente oficial; reservas FOLIO y LUMBRE.
+- Marca **ARNALDO VALLÉS** a nombre de la SL: EUIPO (clase 34) antes de compartir con terceros; Cuba (OCPI) vía agente oficial; reservas FOLIO y LUMBRE.
 - **Nombre, firma e imagen de Arnaldo**: consentimiento escrito previo al registro (marca con nombre de persona) y licencia exclusiva, irrevocable, transferible y mundial a la SL; cláusulas de salida, conflicto y fallecimiento. Precedentes a evitar: Davidoff (disputa con Cubatabaco por la titularidad) y Vegas Robaina (marca con el nombre de un veguero, propiedad de Habanos S.A. desde 1997).
 - **Participación de Arnaldo**: recomendada en forma de participación en la SL (referencia: 10% con *vesting* a 4 años); un royalty del 2% sobre ingresos haría negativo el VAN incluso en el escenario Optimista (−4.561 €). Todo ello por vía legal y con autorización de su empleador. Detalle: `04_CUBA_LEGAL/Arnaldo Name & Participation Agreement.docx`.
 - Diseños: cesión total del diseñador a la SL; registro de diseño UE de la anilla y caja si el coste lo justifica.
-- Contrato de fabricación: titularidad exclusiva de la marca, licencia de uso limitada a la producción contratada, confidencialidad de la ficha técnica, prohibición de producir ARNALDO o imitaciones para terceros, devolución/destrucción de anillas y materiales sobrantes. Cláusulas en `Contract Term Sheet.docx`.
+- Contrato de fabricación: titularidad exclusiva de la marca, licencia de uso limitada a la producción contratada, confidencialidad de la ficha técnica, prohibición de producir ARNALDO VALLÉS o imitaciones para terceros, devolución/destrucción de anillas y materiales sobrantes. Cláusulas en `Contract Term Sheet.docx`.
 - Contrato de distribución: no exclusivo/exclusivo según operador, tarifa, plazos de pago, reporting, depósito fiscal, devolución de stock en caso de resolución.
 
 # 10. Importación y operativa aduanera

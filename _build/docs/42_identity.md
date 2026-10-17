@@ -1,5 +1,5 @@
 ---
-title: "ARNALDO — Brief creativo e identidad provisional"
+title: "ARNALDO VALLÉS — Brief creativo e identidad provisional"
 subtitle: "Encargo para un diseñador especializado en habilitación de tabaco: objetivos, materiales de Arnaldo, entregables, restricciones legales y de producción, herramientas y calendario"
 short: "Brand Identity Guidelines"
 kicker: "01 · BRAND"
@@ -9,7 +9,7 @@ out: ["01_BRAND/Brand Identity Guidelines.pdf"]
 
 # Situación
 
-La marca pasa a llamarse **ARNALDO**, por el torcedor que participa en el proyecto. Las dos identidades anteriores (FOLIO v1 «Colofón» y FOLIO v2 «Gran Habilitación») se archivan en `01_BRAND/assets/_v1_descartada/` y `_v2_descartada/`: el promotor considera que no alcanzan el nivel de las grandes marcas.
+La marca pasa a llamarse **ARNALDO** (10/10/2026) y, desde el 17/10/2026, **ARNALDO VALLÉS**: el nombre y apellido del torcedor que participa en el proyecto. Las dos identidades anteriores (FOLIO v1 «Colofón» y FOLIO v2 «Gran Habilitación») se archivan en `01_BRAND/assets/_v1_descartada/` y `_v2_descartada/`: el promotor considera que no alcanzan el nivel de las grandes marcas.
 
 **Diagnóstico.** El nivel de una anilla de Habanos no sale de añadir ornamento por código: sale de (1) un **activo auténtico** —un nombre, una firma, un rostro—, (2) **dibujo y grabado hechos a mano** por especialistas y (3) **producción real**: litografía, estampación en oro, relieve y troquel. Este documento es el encargo para conseguirlo.
 
@@ -53,6 +53,16 @@ Se mantienen los límites: nada de «Habana», «Cuba» o «Habano», escudos, m
 
 **Nota (13/10/2026)**: los renders de la v3 no alcanzan el nivel buscado. Una Ruta A v4 vectorial (anilla marfil con monograma «A») se descartó el mismo día: el promotor elige la **anilla clásica** como diseño de la casa (abajo).
 
+# Rebranding: ARNALDO VALLÉS (17/10/2026)
+
+La marca lleva el nombre y apellido del torcedor: **ARNALDO VALLÉS**. Se mantiene el diseño de la casa (abajo) y cambia solo el texto del óvalo: arriba **ARNALDO VALLÉS** en capitales romanas de oro, en arco; debajo la firma **«Arnaldo Vallés»** (decisión del promotor). Consecuencias:
+
+- **Registro.** Nombre y apellido es más distintivo que un nombre de pila. A analizar en el informe de registrabilidad: **DON VALLES**, marca de EE. UU. registrada en 2016 para puros [PROBABLE] (S62), y ARLONDO (S51). Se registran ARNALDO VALLÉS y la firma como marca figurativa, con su consentimiento.
+- **Arte.** Anillas, vista, marca a fuego, logotipo y wordmark provisional regenerados (`_build/brand_clasica.py`); maquetas recompuestas.
+- **Foto de referencia.** Retocada (`_build/renders/fix_referencia_nombre.py`): se borraron «ARNALDO» y «Arnaldo» de la laca negra y se escribieron «ARNALDO VALLÉS» y «Arnaldo Vallés» con la misma inclinación y luz; el original se conserva como `arnaldo-anilla-casa-referencia-original.png`.
+
+<figure><img src="file:///home/user/Arnaldo/PROYECTO_CIGARS_CUBA_2027/01_BRAND/renders/arnaldo-anilla-casa-referencia.png" style="width:80%"><figcaption>Foto de referencia con el nombre completo (retocada).</figcaption></figure>
+
 # Diseño de la casa: la anilla clásica (13/10/2026) — elegido por el promotor
 
 El promotor elige como referencia definitiva el render «anilla clásica» de la primera exploración y pide mantenerlo: **banda lacre con cantos de oro perlados, óvalo central troquelado de laca negra enmarcado en oro con guilloché, ARNALDO en capitales romanas de oro y la firma debajo**. Sin monograma ni emblema: la firma hace de signo.
@@ -68,7 +78,7 @@ El promotor elige como referencia definitiva el render «anilla clásica» de la
 
 **Foto de referencia (16/10/2026).** El promotor aporta la imagen definitiva de la anilla de la casa (`01_BRAND/renders/arnaldo-anilla-casa-referencia.png`) y pide no desviarse de ella. Es el patrón de todo: banda lacre con cantos de oro perlados, óvalo troquelado con marco de oro en guilloché de red y filigrana arriba y abajo, filete lacre, centro de laca negra, ARNALDO en capitales romanas de oro y la firma «Arnaldo» en caligrafía formal con su rúbrica. El texto de la foto es correcto y no se ha retocado.
 
-<figure><img src="file:///home/user/Arnaldo/PROYECTO_CIGARS_CUBA_2027/01_BRAND/renders/arnaldo-anilla-casa-referencia.png" style="width:80%"><figcaption>Foto de referencia de la anilla de la casa.</figcaption></figure>
+<figure><img src="file:///home/user/Arnaldo/PROYECTO_CIGARS_CUBA_2027/01_BRAND/renders/arnaldo-anilla-casa-referencia-original.png" style="width:80%"><figcaption>Foto de referencia original (16/10/2026), antes del rebranding.</figcaption></figure>
 
 **Firma.** El render original llevaba una firma inventada por la IA con un apellido («Arnald Jonato»); se ha sustituido por «Arnaldo» en caligrafía provisional (`_build/renders/fix_clasica_firma.py`). Ese render queda sustituido por la foto de referencia; en el arte vectorial la firma provisional es Pinyon Script (OFL 1.1), la más cercana a la de la foto. En el arte final irá la firma real de Arnaldo vectorizada, con su consentimiento.
 
@@ -88,7 +98,7 @@ Crear una identidad y una habilitación completa que, puestas junto a las grande
 | Lujo clásico: oro, relieve, litografía, color profundo | Imitación de marcas o sellos de Habanos |
 | Precisión y consistencia (pliegos numerados) | Estética barata de «souvenir cubano» |
 
-# La pieza central: Arnaldo
+# La pieza central: Arnaldo Vallés
 
 **Lo que necesitamos de Arnaldo** (con su consentimiento escrito, ver `Arnaldo Name & Participation Agreement.docx`):
 
@@ -101,7 +111,7 @@ Crear una identidad y una habilitación completa que, puestas junto a las grande
 
 | # | Pieza | Especificación |
 |---|---|---|
-| 1 | Logotipo | Wordmark ARNALDO dibujado a medida (no tipografía de catálogo) + firma vectorizada como sello; versiones horizontal, vertical, monocolor y para foil |
+| 1 | Logotipo | Wordmark ARNALDO VALLÉS dibujado a medida (no tipografía de catálogo) + firma vectorizada como sello; versiones horizontal, vertical, monocolor y para foil |
 | 2 | Firma | Firma real de Arnaldo vectorizada, con su rúbrica, para la anilla, la caja, el sello en seco y el colofón (sin monograma) |
 | 3 | Anilla Nº 1 | Desarrollo a cepo real (≈90 × 17–20 mm), cartela troquelada, 2 tintas planas + foil + relieve seco |
 | 4 | Variantes de anilla | Nº 2 y Nº 3 (edición limitada) |

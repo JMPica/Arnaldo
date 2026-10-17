@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
-"""ARNALDO · Anilla clásica (diseño de la casa, elegido por el promotor el 13/10/2026) — arte de imprenta.
+"""ARNALDO VALLÉS · Anilla clásica (diseño de la casa, elegido por el promotor el 13/10/2026) — arte de imprenta.
 
 Redibujo del render «anilla clásica» (01_BRAND/renders/arnaldo-render-anilla-clasica.png) con criterios de
 diseño de producción:
   · proporciones reales: desarrollo 72 × 16 mm para cepo 50, óvalo troquelado 23 × 20 mm (escala 20 px = 1 mm);
   · colores planos de imprenta (lacre, negro laca) y oro como foil, sin brillos de pantalla;
   · grabado fino: perlado en relieve seco, guilloché en red en el marco del óvalo, ondas tono sobre tono;
-  · ARNALDO en capitales romanas (Cinzel) en arco suave y la firma debajo.
+  · ARNALDO VALLÉS en capitales romanas (Cinzel) en arco y la firma «Arnaldo Vallés» debajo (rebranding 17/10/2026).
 Sin monograma ni emblema: la firma hace de signo. La firma es PROVISIONAL (Pinyon Script, OFL 1.1, como en la foto de referencia) hasta
-tener la firma real de Arnaldo vectorizada. Todo el texto va en trazados.
+tener la firma real de Arnaldo Vallés vectorizada. Todo el texto va en trazados.
 Uso: python3 brand_clasica.py DIR_SALIDA"""
 import os, sys, math
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -18,7 +18,8 @@ OUT = sys.argv[1]
 os.makedirs(OUT, exist_ok=True)
 MM = 20                                   # px por mm en las piezas de anilla
 LACRE, LACRE_D, NOIR, MARFIL = "#8C1D1A", "#5E1110", "#0F0C0A", "#F3EAD6"
-INK_GOLD = "#6E5218"                      # trazo del grabado sobre el oro
+INK_GOLD = "#6E5218"
+NOMBRE, FIRMA = "ARNALDO VALLÉS", "Arnaldo Vallés"   # marca: nombre y apellido del torcedor                      # trazo del grabado sobre el oro
 
 DEFS = """<defs>
 <linearGradient id="foil" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#B08A3E"/><stop offset=".38" stop-color="#E4C981"/><stop offset=".62" stop-color="#CBA552"/><stop offset="1" stop-color="#9E7A31"/></linearGradient>
@@ -129,7 +130,7 @@ def arch(txt, font, size, cx, base_y, R, fill, tracking=0.06, extra=""):
 
 def firma(cx, cy, size, fill="url(#foil)", rot=-6):
     """Firma PROVISIONAL (caligrafía manuscrita tipográfica) con rúbrica; se sustituirá por la firma real."""
-    d, w = tp("Arnaldo", "py", size, 0, 0, 0.0, "middle")
+    d, w = tp(FIRMA, "py", size, 0, 0, 0.0, "middle")
     ru = (f'<path d="M{-w*.42:.1f},{size*.16:.1f} C{-w*.15:.1f},{size*.12:.1f} {w*.2:.1f},{size*.08:.1f} {w*.46:.1f},{-size*.04:.1f}" '
           f'fill="none" stroke="{fill}" stroke-width="{size*.032:.2f}" stroke-linecap="round"/>')
     return f'<g transform="translate({cx},{cy}) rotate({rot})"><path d="{d}" fill="{fill}"/>{ru}</g>'
@@ -151,8 +152,8 @@ def medallon(cx, cy, rx, ry, tag, name=True):
     g.append(f'<ellipse cx="{cx}" cy="{cy}" rx="{irx-8*s}" ry="{iry-8*s}" fill="none" stroke="url(#foil)" stroke-width="{.8*s:.2f}"/>')
     g.append(scroll(cx, cy - ry + 3 * s, 46 * s, 1) + scroll(cx, cy + ry - 3 * s, 46 * s, -1))
     if name:
-        g.append(arch("ARNALDO", "cz7", 59 * s, cx, cy - 4 * s, 760 * s, "url(#foil)", tracking=.07, extra='filter="url(#relieve)"'))
-        g.append(firma(cx + 4 * s, cy + 70 * s, 66 * s))
+        g.append(arch(NOMBRE, "cz7", 34 * s, cx, cy - 8 * s, 1300 * s, "url(#foil)", tracking=.06, extra='filter="url(#relieve)"'))
+        g.append(firma(cx + 4 * s, cy + 54 * s, 50 * s, rot=-4))
     return "".join(g)
 
 
@@ -269,21 +270,33 @@ def brand_stamp(ink="#3B2414"):
     W, H = 1400, 560
     cx = W / 2
     g = [f'<g fill="{ink}"><rect x="{cx-540}" y="40" width="1080" height="6"/><rect x="{cx-540}" y="54" width="1080" height="2.4"/>',
-         T("ARNALDO", "cz7", 200, cx, 270, ink, tracking=.08),
+         T(NOMBRE, "cz7", 118, cx, 250, ink, tracking=.06),
          f'<rect x="{cx-540}" y="312" width="1080" height="2.4"/><rect x="{cx-540}" y="322" width="1080" height="6"/></g>',
-         firma(cx, 440, 170, fill=ink, rot=-4)]
+         firma(cx, 462, 118, fill=ink, rot=-3)]
     return "".join(g), W, H
 
 
 def lockup(fill="url(#foil)", sub="#C9A24A"):
-    """Logotipo de la casa: ARNALDO + firma + PLIEGO DE AUTOR."""
+    """Logotipo de la casa: ARNALDO VALLÉS + firma + PLIEGO DE AUTOR."""
     W, H = 1400, 590
     cx = W / 2
     _, tw = tp("PLIEGO DE AUTOR", "cz6", 26, 0, 0, .36, "middle")
-    g = [T("ARNALDO", "cz6", 190, cx, 210, fill, tracking=.12),
+    g = [T(NOMBRE, "cz6", 112, cx, 200, fill, tracking=.08),
          firma(cx + 10, 390, 150, fill=fill, rot=-4),
          f'<rect x="{cx - tw/2 - 190}" y="{518}" width="160" height="1.6" fill="{sub}"/><rect x="{cx + tw/2 + 30}" y="{518}" width="160" height="1.6" fill="{sub}"/>',
          T("PLIEGO DE AUTOR", "cz6", 26, cx, 528, sub, tracking=.36)]
+    return "".join(g), W, H
+
+
+def wordmark_provisional(bg, ink, rule):
+    """Wordmark provisional de documentos internos (1600 × 520): nombre, línea, descriptor y firma."""
+    W, H = 1600, 520
+    cx = W / 2
+    g = [f'<rect width="{W}" height="{H}" fill="{bg}"/>',
+         T(NOMBRE, "cz7", 118, cx, 250, ink, tracking=.16),
+         f'<rect x="{cx-260}" y="300" width="520" height="2" fill="{rule}" opacity=".7"/>',
+         T("CIGARROS HECHOS A MANO", "cz4", 30, cx, 362, ink, tracking=.42),
+         firma(cx, 448, 74, fill=ink, rot=-3)]
     return "".join(g), W, H
 
 
@@ -305,3 +318,10 @@ if __name__ == "__main__":
     svg(W, H, lk, "arnaldo-logotipo-oro.svg")
     lk, W, H = lockup(fill=LACRE, sub=LACRE)
     svg(W, H, lk, "arnaldo-logotipo-lacre.svg")
+    # wordmark provisional de las portadas de documentos (se escribe en assets/, junto a la carpeta clasica/)
+    up = os.path.dirname(os.path.abspath(OUT))
+    for name, bg, ink, rule in (("arnaldo-wordmark-provisional-ivory.svg", "#F4EBD8", "#14100D", "#14100D"),
+                                ("arnaldo-wordmark-provisional-black.svg", "#14100D", "url(#foil)", "url(#foil)")):
+        wm, W, H = wordmark_provisional(bg, ink, rule)
+        s_ = f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}">{DEFS}{wm}</svg>'
+        open(os.path.join(up, name), "w").write(s_)

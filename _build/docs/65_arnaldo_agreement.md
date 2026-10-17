@@ -6,7 +6,7 @@ out: ["04_CUBA_LEGAL/Arnaldo Name & Participation Agreement.docx"]
 
 # 1. Objetivo
 
-Que la marca **ARNALDO** pueda llevar el nombre, la firma y, en su caso, la imagen del torcedor Arnaldo [apellido], y que él participe en el éxito del proyecto, **sin** que el activo principal de la sociedad quede expuesto a: (i) su salida, fallecimiento o conflicto; (ii) reclamaciones de su empleador o de entidades estatales cubanas; (iii) la pérdida de la titularidad de la marca.
+Que la marca **ARNALDO VALLÉS** pueda llevar el nombre, la firma y, en su caso, la imagen del torcedor Arnaldo Vallés, y que él participe en el éxito del proyecto, **sin** que el activo principal de la sociedad quede expuesto a: (i) su salida, fallecimiento o conflicto; (ii) reclamaciones de su empleador o de entidades estatales cubanas; (iii) la pérdida de la titularidad de la marca.
 
 # 2. Por qué no conviene que la marca sea «suya» en sentido jurídico
 
@@ -22,9 +22,9 @@ Que la marca **ARNALDO** pueda llevar el nombre, la firma y, en su caso, la imag
 
 | Término | Propuesta |
 |---|---|
-| Partes | [SL española] («la Sociedad») y Arnaldo [apellido], torcedor, residente en Cuba («Arnaldo») |
+| Partes | [SL española] («la Sociedad») y Arnaldo Vallés, torcedor, residente en Cuba («Arnaldo») |
 | Condición previa | Autorización escrita de su empleador para colaborar y para el uso de su nombre; dictamen del abogado cubano sobre la forma legal de cobro |
-| Objeto | (a) Consentimiento para registrar «ARNALDO» (y variantes con apellido y firma) como marca a nombre de la Sociedad; (b) licencia de uso de su nombre, firma, imagen y biografía profesional verificable; (c) colaboración técnica a través de la entidad autorizada |
+| Objeto | (a) Consentimiento para registrar «ARNALDO VALLÉS» (y sus variantes «ARNALDO» y «VALLÉS», y la firma) como marca a nombre de la Sociedad; (b) licencia de uso de su nombre, firma, imagen y biografía profesional verificable; (c) colaboración técnica a través de la entidad autorizada |
 | Alcance de la licencia | Exclusiva, mundial, por toda la duración de los derechos de marca, **irrevocable** salvo incumplimiento grave de la Sociedad, transferible con la marca en caso de venta |
 | Límites de uso | Sólo productos del tabaco de la marca y documentación profesional; nada que le atribuya hechos, premios o declaraciones que no haya hecho; sin publicidad al consumidor (Ley 28/2005) |
 | Aprobación | Arnaldo aprueba por escrito la firma usada como logotipo y cualquier retrato o texto biográfico |
@@ -42,7 +42,7 @@ Que la marca **ARNALDO** pueda llevar el nombre, la firma y, en su caso, la imag
 
 # 4. Cláusulas base
 
-**Consentimiento.** «Arnaldo consiente expresamente que la Sociedad solicite y mantenga a su nombre el registro, en cualquier país, de las marcas ARNALDO, [ARNALDO + apellido] y de la representación gráfica de su firma, para productos de la clase 34 y servicios conexos.»
+**Consentimiento.** «Arnaldo consiente expresamente que la Sociedad solicite y mantenga a su nombre el registro, en cualquier país, de las marcas ARNALDO VALLÉS, ARNALDO y VALLÉS y de la representación gráfica de su firma, para productos de la clase 34 y servicios conexos.»
 
 **Licencia de imagen.** «Arnaldo concede a la Sociedad una licencia exclusiva, mundial, transferible e irrevocable para usar su nombre, firma, retrato aprobado y datos profesionales verificables en el producto, su envase y la documentación profesional, en los términos de este acuerdo.»
 
@@ -60,8 +60,8 @@ Que la marca **ARNALDO** pueda llevar el nombre, la firma y, en su caso, la imag
 
 | Riesgo | Mitigación |
 |---|---|
-| Marca de nombre de pila poco distintiva | Registrar también «ARNALDO + apellido» y la firma como marca figurativa |
-| Asociación con Arnaldo Vichot, histórico maestro ligador de Partagás (fallecido en febrero de 2026) | No sugerir vínculo; usar apellido y firma propios; revisar en el informe de registrabilidad |
+| Colisión con la marca estadounidense DON VALLES (puros, registrada en 2016) | Análisis de confusión en el informe de registrabilidad; registrar ARNALDO VALLÉS completo y la firma como marca figurativa |
+| Asociación con Arnaldo Vichot, histórico maestro ligador de Partagás (fallecido en febrero de 2026) | No sugerir vínculo; la marca lleva su apellido, Vallés, y su firma; revisar en el informe de registrabilidad |
 | Marca de tabaco «ARLONDO» (Gryson) | Análisis de confusión en el informe de registrabilidad |
 | Arnaldo no obtiene autorización de su empleador | Sin autorización no se usa su nombre: activar reserva FOLIO |
 | Exposición de Arnaldo en Cuba | Él decide qué datos personales aparecen; nada que le comprometa ante su empleador |

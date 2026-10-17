@@ -136,3 +136,7 @@ Studio product photograph of three premium Cuban-style cigars standing perfectly
 Overhead photograph at a 60-degree angle of an open traditional Spanish-cedar cigar box holding ten robusto cigars in one neat row, each cigar wearing a plain unprinted ivory paper band with nothing printed on it. The inside of the raised lid is covered with a completely blank smooth ivory paper sheet edged by a thin gold border, nothing printed on it. Thin gold-and-ivory edge paper along the box rim. Warm tungsten light, dark background, realistic, sharp, high-end catalogue photography.
 
 *Negative:* text, letters, words, logo, monogram, print on band, pattern on band, label, stamp, watermark, signature, numbers, flags, coat of arms, medals, crown, fleur-de-lis, tobacco leaf on band, knife, sickle, blurry, low resolution, cartoon, illustration
+
+# REBRANDING — ARNALDO VALLÉS (17/10/2026)
+
+*La marca passa a dur el nom i cognom del torcedor. Els prompts anteriors (amb «ARNALDO») queden com a historial. Recomanació: no demanar text a la IA; generar fotos sense text i compondre-hi l'art vectorial de `_build/brand_clasica.py` (anella amb «ARNALDO VALLÉS» i la signatura «Arnaldo Vallés»).*

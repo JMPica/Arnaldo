@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Financial Model 2027–2031 (Proyecto A — marca propia ARNALDO).
+"""Financial Model 2027–2031 (Proyecto A — marca propia ARNALDO VALLÉS).
 
 Arquitectura: un único motor de cálculo (hoja 'Engine') calcula los 4 escenarios
 en bloques paralelos con las MISMAS fórmulas. Las hojas de presentación
@@ -37,7 +37,7 @@ def q(sheet):
 
 # ---------------------------------------------------------------- Assumptions
 A = ws_["Assumptions"]
-title(A, "Supuestos del modelo — Proyecto A (marca propia ARNALDO)",
+title(A, "Supuestos del modelo — Proyecto A (marca propia ARNALDO VALLÉS)",
       "Todos los valores en azul son editables. Estados: VERIFICADO / PROBABLE / HIPÓTESIS / BLOQUEADO. Fuentes en 'Sources & Validation'. Fecha de corte: 10/10/2026.")
 legend(A, 3, 3)
 put(A, "A4", "Escenario seleccionado (1=Conservador, 2=Base, 3=Optimista, 4=Estrés)")
@@ -977,7 +977,7 @@ widths(SA, {"A": 56, "B": 16, "C": 16, "D": 16, "E": 16, "F": 16, "G": 14, "H": 
 
 # ---------------------------------------------------------------- Dashboard
 D = ws_["Dashboard"]
-title(D, "ARNALDO — Modelo financiero 2027–2031 · Dashboard ejecutivo",
+title(D, "ARNALDO VALLÉS — Modelo financiero 2027–2031 · Dashboard ejecutivo",
       "Proyecto A (marca propia fabricada en Cuba). Condicionado a la confirmación jurídica de la Fase 0. Fecha de corte 10/10/2026.")
 put(D, "A4", "Escenario activo (cambiar en Assumptions!C4)")
 put(D, "B4", "=Assumptions!$D$4", "out")

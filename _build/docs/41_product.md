@@ -1,5 +1,5 @@
 ---
-title: "Arquitectura de producto ARNALDO"
+title: "Arquitectura de producto ARNALDO VALLÉS"
 subtitle: "Vitola inicial, extensiones, parámetros de calidad medibles, documentación de liga, conservación, control de pliegos y papel del torcedor"
 short: "Product Architecture"
 kicker: "01 · BRAND"
@@ -15,7 +15,7 @@ out: ["01_BRAND/Product Architecture.pdf"]
 
 # Gama propuesta
 
-| Nombre ARNALDO | Vitola de referencia | Dimensiones orientativas | Calendario | Complejidad de fabricación |
+| Nombre ARNALDO VALLÉS | Vitola de referencia | Dimensiones orientativas | Calendario | Complejidad de fabricación |
 |---|---|---|---|---|
 | **Nº 1** | Robusto | ≈124 mm × cepo 50 | Lanzamiento (2028, sólo si C1–C8) | Media: formato versátil, consumo de capa moderado, tiro estable |
 | Nº 2 | Toro / Gordito | ≈150–156 mm × 50–52 | Extensión 2029 | Media-alta: cepos grandes tienden a irregularidades de tiro y combustión |

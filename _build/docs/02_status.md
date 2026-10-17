@@ -19,7 +19,7 @@ out: ["00_EXECUTIVE/Project Status & Next Actions.md"]
 | Model financer 2027–2031 (4 escenaris, 18 pestanyes, fórmules) | Fet — 0 errors, balanç quadrat | 03_BUSINESS_CASE/Financial Model 2027–2031.xlsx |
 | Business case i escenaris | Fet | 03_BUSINESS_CASE/*.pdf |
 | Pla d'empresa 2027–2031 | Fet (DOCX + PDF) | 02_BUSINESS_PLAN |
-| Marca **ARNALDO** (nom del torcedor): estratègia, naming i riscos, brief creatiu per a dissenyador professional, wordmark provisional; identitats FOLIO v1/v2 arxivades | Fet — identitat definitiva pendent de signatura/retrat d'Arnaldo i dissenyador | 01_BRAND |
+| Marca **ARNALDO VALLÉS** (nom i cognom del torcedor; rebranding 17/10/2026): estratègia, naming i riscos, brief creatiu per a dissenyador professional, wordmark provisional; identitats FOLIO v1/v2 arxivades | Fet — identitat definitiva pendent de signatura/retrat d'Arnaldo i dissenyador | 01_BRAND |
 | Preguntes difícils d'inversor (25) amb respostes, verificació de xifres clau i auditoria independent del model (9/9) | Fet | 00_EXECUTIVE/Investor Q&A.pdf |
 | Acord amb Arnaldo: cessió de nom, signatura i imatge + participació (royalty / equity) | Esborrany fet | 04_CUBA_LEGAL/Arnaldo Name & Participation Agreement.docx |
 | Projecte B (importació premium) i protocol d'autenticitat | Fet | 06_PREMIUM_IMPORT |
@@ -44,7 +44,7 @@ out: ["00_EXECUTIVE/Project Status & Next Actions.md"]
 | 3 | Reunió R1 amb el torcedor: identitat oficial de l'empresa | Setmanes 1–2 | 0 € | Sí |
 | 4 | Contractar advocat cubà habilitat + advocat espanyol | Setmanes 1–2 | ≈1.500 € | Sí |
 | 4b | Dictamen de sancions UE/EUA sobre la contrapart i el flux de pagaments (evidència de C4), dins de l'encàrrec d'advocats | Setmanes 2–6 | A pressupostar | Sí |
-| 5 | Encarregar informe de registrabilitat ARNALDO (+ cognom i signatura; reserves FOLIO/LUMBRE) | Setmanes 3–6 | ≈900 € | Sí |
+| 5 | Encarregar informe de registrabilitat ARNALDO VALLÉS (+ signatura; DON VALLES; reserves FOLIO/LUMBRE) | Setmanes 3–6 | ≈900 € | Sí |
 | 5b | Obtenir d'Arnaldo: consentiment escrit, autorització del seu ocupador, 15–20 signatures escanejades i (opcional) retrat | Setmanes 1–3 | 0 € | Sí |
 | 5c | Demanar 3 pressupostos a estudis de packaging premium amb el brief de 01_BRAND | Setmanes 2–4 | 0 € (encàrrec 4–15 k€) | Sí |
 | 6 | Dictamen fiscal Espanya–Andorra (trasllat 2027) | Setmanes 2–5 | ≈1.500 € | Sí |
@@ -55,15 +55,15 @@ out: ["00_EXECUTIVE/Project Status & Next Actions.md"]
 
 ## Decisions pendents teves
 
-D01 Fase 0 · D03 posició sobre titularitat de la marca · D04 rebuig Behike · D05 estructura (recomanada SL espanyola) · D06 calendari del trasllat a Andorra · D07 validació B3 · D08 nom definitiu · D09 pressupost màxim previ · D10 encaix legal del torcedor · D11 contraprestació d'Arnaldo · D12 proposta a inversors (import, trams, instrument) · D13 origen alternatiu d'ARNALDO com a pla B. Detall: `00_EXECUTIVE/Decision Matrix.xlsx` › «Decisiones pendientes».
+D01 Fase 0 · D03 posició sobre titularitat de la marca · D04 rebuig Behike · D05 estructura (recomanada SL espanyola) · D06 calendari del trasllat a Andorra · D07 validació B3 · D08 nom definitiu · D09 pressupost màxim previ · D10 encaix legal del torcedor · D11 contraprestació d'Arnaldo · D12 proposta a inversors (import, trams, instrument) · D13 origen alternatiu d'ARNALDO VALLÉS com a pla B. Detall: `00_EXECUTIVE/Decision Matrix.xlsx` › «Decisiones pendientes».
 
 ## Dades pendents al dossier
 
-`01_BRAND/ARNALDO Brand Dossier.pdf` té **13 marcadors grocs «[PENDIENTE · …]»**: el teu perfil, les dades acreditades d'Arnaldo i les decisions D12 i D13. S'omplen totes al bloc `DATOS` del principi de `_build/build_dossier.py`; en tornar a generar, el script avisa si en queda algun. **No s'ha d'enviar el dossier amb marcadors.**
+`01_BRAND/ARNALDO VALLÉS Brand Dossier.pdf` té **12 marcadors grocs «[PENDIENTE · …]»**: el teu perfil, les dades acreditades d'Arnaldo i les decisions D12 i D13. S'omplen totes al bloc `DATOS` del principi de `_build/build_dossier.py`; en tornar a generar, el script avisa si en queda algun. **No s'ha d'enviar el dossier amb marcadors.**
 
 ## Límits d'aquest treball
 
 - L'entorn bloquejava la descàrrega directa de pàgines: les fonts s'han llegit a través d'extractes del cercador (totes amb data 10/10/2026).
 - No s'ha contactat cap entitat ni s'ha enviat cap comunicació. Cap document està signat.
-- La disponibilitat de la marca ARNALDO no està confirmada en registres oficials (EUIPO/OEPM/OCPI).
+- La disponibilitat de la marca ARNALDO VALLÉS no està confirmada en registres oficials (EUIPO/OEPM/OCPI).
 - El preu FOB, la demanda i les tarifes de distribució són hipòtesis editables.

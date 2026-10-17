@@ -1,5 +1,5 @@
 ---
-title: "Estrategia de marca ARNALDO"
+title: "Estrategia de marca ARNALDO VALLÉS"
 subtitle: "Investigación de mercado, posicionamiento, naming y arquitectura de una marca premium con el nombre de su torcedor"
 short: "Brand Strategy"
 kicker: "01 · BRAND"
@@ -9,7 +9,7 @@ out: ["01_BRAND/Brand Strategy.pdf"]
 
 # Síntesis
 
-- **Nombre: ARNALDO** (decisión del promotor, 10/10/2026), el nombre del torcedor cubano que participa en el proyecto. Sustituye a FOLIO, que queda como **reserva** junto a LUMBRE. Es la mejor respuesta a la regla de autenticidad del proyecto: no hay que inventar ninguna historia, porque la persona existe.
+- **Nombre: ARNALDO VALLÉS** (decisión del promotor, 17/10/2026; antes ARNALDO, 10/10/2026), el nombre y apellido del torcedor cubano que participa en el proyecto. Sustituye a FOLIO, que queda como **reserva** junto a LUMBRE. Es la mejor respuesta a la regla de autenticidad del proyecto: no hay que inventar ninguna historia, porque la persona existe.
 - **Condiciones**: consentimiento escrito de Arnaldo, autorización de su empleador, licencia irrevocable y transferible de nombre, firma e imagen a favor de la SL, y registro de la marca **a nombre de la SL** (nunca de una entidad cubana). Ver `04_CUBA_LEGAL/Arnaldo Name & Participation Agreement.docx`.
 - **Posicionamiento: B — Contemporary Cuban Luxury** en lo comercial (ganó la matriz ponderada), con lotes numerados por pliegos (de C). La expresión visual debe apoyarse en **lo auténtico**: la firma manuscrita de Arnaldo como logotipo, un retrato grabado si él lo autoriza, y una habilitación clásica de alto nivel ejecutada por un diseñador especializado (`01_BRAND/Brand Identity Guidelines.pdf` = brief creativo).
 - **Uso**: documentación del proyecto, registro y producción. **No** es un plan de publicidad al consumidor (Ley 28/2005).
@@ -43,7 +43,7 @@ El mercado premium crece en valor más que en unidades: el motor ha sido el prec
 | 25–50 € | Padrón 1926 80th 42 € | Ultra-premium no cubano y gamas altas cubanas |
 | > 50 € | Cohiba Behike BHK 56: 262,50 € | Colección y lujo extremo |
 
-Fuentes: S19, S37, S38 [VERIFICADO/PROBABLE]. ARNALDO, a 24 € (Base), se situaría **por encima** de los Habanos clásicos de formato equivalente: el reto comercial central.
+Fuentes: S19, S37, S38 [VERIFICADO/PROBABLE]. ARNALDO VALLÉS, a 24 € (Base), se situaría **por encima** de los Habanos clásicos de formato equivalente: el reto comercial central.
 
 ## Peso del origen cubano
 
@@ -104,23 +104,23 @@ Criterios y pesos: diferenciación 20%, coherencia productiva 15%, viabilidad re
 - **Propósito** (interno): que cada caja lleve la firma de quien la hizo.
 - **Promesa al profesional**: un torcedor real detrás de cada pliego; consistencia verificable, ficha técnica y trazabilidad.
 - **Personalidad**: clásica, honesta, artesanal, precisa.
-- **Lo que ARNALDO no hace**: no atribuye a Arnaldo méritos, años, premios o declaraciones que no haya acreditado; no sugiere vínculo con otras personas del sector; no imita anillas, sellos ni elementos de seguridad de Habanos; no usa «Habano», «Cuba» ni «Habana» en la marca; no hace publicidad al consumidor.
+- **Lo que ARNALDO VALLÉS no hace**: no atribuye a Arnaldo méritos, años, premios o declaraciones que no haya acreditado; no sugiere vínculo con otras personas del sector; no imita anillas, sellos ni elementos de seguridad de Habanos; no usa «Habano», «Cuba» ni «Habana» en la marca; no hace publicidad al consumidor.
 
 # Naming
 
 ## Decisión
 
-El promotor ha elegido **ARNALDO**, nombre del torcedor. El sistema de producto se mantiene: lotes llamados **pliegos**, **colofón** numerado en cada caja (ahora rubricado por Arnaldo cuando el contrato lo permita) y la expresión «**Pliego de autor**», que con un autor real gana todo su sentido.
+El promotor ha elegido **ARNALDO VALLÉS**, nombre y apellido del torcedor (17/10/2026; antes solo ARNALDO). El sistema de producto se mantiene: lotes llamados **pliegos**, **colofón** numerado en cada caja (ahora rubricado por Arnaldo cuando el contrato lo permita) y la expresión «**Pliego de autor**», que con un autor real gana todo su sentido.
 
-## Análisis del nombre ARNALDO
+## Análisis del nombre ARNALDO VALLÉS
 
 | Criterio | Valoración | Comentario |
 |---|---|---|
 | Autenticidad | Muy alta | Persona real, oficio real |
 | Memorabilidad y pronunciación | Alta | Tres sílabas, fácil en español, inglés, francés, italiano y alemán |
 | Adecuación premium | Alta | Tradición de marcas con nombre propio en el puro cubano |
-| Distintividad registral | Media | Nombre de pila: reforzar con apellido y con la **firma** como marca figurativa |
-| Colisiones halladas (web, 10/10/2026) | Ninguna marca de puros «Arnaldo» | Marca de tabaco similar **ARLONDO** (Gryson) a analizar [PROBABLE] (S51) |
+| Distintividad registral | Media-alta | Nombre y apellido; se refuerza con la **firma** como marca figurativa |
+| Colisiones halladas (web, 10 y 17/10/2026) | Ninguna marca de puros «Arnaldo Vallés» | **DON VALLES** (EE. UU., puros, registrada en 2016) [PROBABLE] (S62) y **ARLONDO** (Gryson, tabaco) [PROBABLE] (S51), a analizar |
 | Asociaciones | A vigilar | Arnaldo Vichot, histórico maestro ligador de Partagás, falleció en febrero de 2026 [VERIFICADO] (S49): no sugerir vínculo |
 | Riesgo de titularidad | Alto si se fabrica dentro de Habanos | Precedentes: Vegas Robaina (nombre de un veguero, marca de Habanos S.A. desde 1997) [VERIFICADO] (S50) y Davidoff (disputa por la titularidad) [PROBABLE] (S10) |
 | Riesgo de persona clave | Medio | Licencia irrevocable y transferible; cláusulas de salida y fallecimiento |
@@ -138,8 +138,8 @@ El promotor ha elegido **ARNALDO**, nombre del torcedor. El sistema de producto 
 
 ## Arquitectura de marca
 
-- **Marca madre**: ARNALDO (wordmark + firma manuscrita de Arnaldo como sello).
-- **Vitolas**: **ARNALDO Nº 1** (Robusto, lanzamiento), **Nº 2** (Toro, extensión), **Nº 3** (Churchill, edición limitada).
+- **Marca madre**: ARNALDO VALLÉS (wordmark + firma manuscrita de Arnaldo como sello).
+- **Vitolas**: **ARNALDO VALLÉS Nº 1** (Robusto, lanzamiento), **Nº 2** (Toro, extensión), **Nº 3** (Churchill, edición limitada).
 - **Lotes**: PLIEGO Nº 001, 002…; colofón «nº X de N» por caja.
 - **Ediciones especiales** (sólo con C1–C8 y consistencia demostrada): «Pliego de autor», firmadas por Arnaldo caja a caja si el contrato y su empleador lo permiten.
 
