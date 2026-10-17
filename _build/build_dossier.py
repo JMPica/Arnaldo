@@ -46,7 +46,7 @@ def ph(key, label):
     if v:
         return v
     PENDIENTES.append(label)
-    return f'<span class="ph">[PENDIENTE · {label}]</span>'
+    return f'<span class="ph">{label}</span>'
 
 
 # ---------------------------------------------------------------- imágenes
@@ -97,8 +97,8 @@ I_CAJA = img("arnaldo-caja-marca-fuego.png")
 I_PURO = img("arnaldo-puro-anilla.png")
 I_GAMA = img("arnaldo-tres-vitolas.png")
 I_ABIERTA = img("arnaldo-caja-abierta.png")
-I_MANOS = img("arnaldo-a2-10-manos-torcedor-ret.png")
-I_HUMIDOR = img("arnaldo-a2-11-humidor-ret.png")
+I_HERO = img("arnaldo-av-1-anilla-nombre-completo-ret.png")     # foto principal con el nombre completo (17/10)
+I_VINETA = img("arnaldo-v4-p5-vineta-grabada.png")              # grabado sin texto: vega y casa de tabaco
 
 
 # ---------------------------------------------------------------- tipografías
@@ -120,62 +120,55 @@ def fontfaces():
 
 
 CSS = """
-:root{--lacre:#8E1B1B;--noir:#14100D;--oro:#C9A24A;--oro2:#E6CB86;--marfil:#F4EBD8;--tinta:#1E1915;--ceniza:#8A8073;--linea:#D8CCB4;--papel:#FBF7EF}
+:root{--lacre:#8C1D1A;--noir:#110D0B;--oro:#C9A24A;--oro2:#E3C987;--marfil:#F3EAD6;--tinta:#1C1714;--ceniza:#8C8276;--linea:#DDD2BE;--papel:#F7F2E8}
 @page{size:297mm 210mm;margin:0}
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
-body{font-family:Inter,sans-serif;font-size:10.4pt;line-height:1.5;color:var(--tinta);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font-family:Inter,sans-serif;font-size:9.6pt;line-height:1.55;color:var(--tinta);-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .page{width:297mm;height:210mm;position:relative;overflow:hidden;page-break-after:always;break-after:page;background:var(--papel)}
 .page:last-child{page-break-after:auto;break-after:auto}
 .dark{background:var(--noir);color:var(--marfil)}
-.pad{position:absolute;inset:16mm 18mm 18mm 18mm}
-.hdr{position:absolute;top:8mm;left:18mm;right:18mm;display:flex;justify-content:space-between;font-family:Cinzel;font-size:6.6pt;letter-spacing:.32em;color:var(--ceniza)}
-.ftr{position:absolute;bottom:7mm;left:18mm;right:18mm;display:flex;justify-content:space-between;font-size:6.4pt;color:var(--ceniza);letter-spacing:.04em}
-.dark .hdr,.dark .ftr{color:#9C907E}
-.kick{font-family:Cinzel;font-size:7.4pt;letter-spacing:.34em;color:var(--lacre);text-transform:uppercase;margin:0 0 3mm}
+.ftr{position:absolute;bottom:9mm;left:22mm;right:22mm;display:flex;justify-content:space-between;font-family:Cinzel;font-size:6.2pt;letter-spacing:.38em;color:var(--ceniza)}
+.dark .ftr{color:#8F8474}
+.kick{font-family:Cinzel;font-size:7pt;letter-spacing:.42em;color:var(--lacre);text-transform:uppercase;margin:0 0 5mm}
 .dark .kick{color:var(--oro)}
-h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:33pt;line-height:1.05;margin:0 0 6mm;color:var(--tinta)}
-.dark h1{color:var(--marfil)}
-h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:15pt;margin:0 0 2mm;color:var(--tinta)}
-.dark h2{color:var(--oro2)}
-h3{font-family:Cinzel;font-weight:600;font-size:8pt;letter-spacing:.2em;text-transform:uppercase;margin:0 0 2mm;color:var(--lacre)}
+.display{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:40pt;line-height:1.02;margin:0 0 7mm;color:var(--tinta);letter-spacing:-.005em}
+.dark .display{color:var(--marfil)}
+.display em{font-style:italic;color:var(--lacre)}
+.dark .display em{color:var(--oro2)}
+.lead{font-family:'Cormorant Garamond',serif;font-size:15pt;line-height:1.38;color:#3A2E25;margin:0 0 4mm}
+.dark .lead{color:#E2D7C2}
+p{margin:0 0 3mm}
+.muted{color:var(--ceniza)}
+.dark .muted{color:#A2968A}
+.fine{font-size:6.8pt;line-height:1.45;color:var(--ceniza)}
+.dark .fine{color:#8F8474}
+h3{font-family:Cinzel;font-weight:600;font-size:7.4pt;letter-spacing:.26em;text-transform:uppercase;margin:0 0 2.5mm;color:var(--lacre)}
 .dark h3{color:var(--oro)}
-p{margin:0 0 2.6mm}
-.lead{font-family:'Cormorant Garamond',serif;font-size:16pt;line-height:1.35;color:#3A2E25}
-.dark .lead{color:#E9DFCB}
-.small{font-size:8pt;color:var(--ceniza);line-height:1.45}
-.dark .small{color:#A99D8A}
-.rule{height:1px;background:var(--oro);opacity:.7;margin:4mm 0}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8mm}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:7mm}
-.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:6mm}
-.card{border-top:1.2px solid var(--lacre);padding-top:3mm}
-.dark .card{border-top-color:var(--oro)}
-.stat{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:40pt;line-height:1;color:var(--lacre);margin:0 0 2mm}
-.dark .stat{color:var(--oro2)}
-table{border-collapse:collapse;width:100%;font-size:8.9pt;line-height:1.4}
-th{font-family:Inter;font-weight:600;font-size:7.2pt;letter-spacing:.12em;text-transform:uppercase;text-align:left;color:var(--lacre);border-bottom:1.2px solid var(--lacre);padding:1.6mm 2mm}
-td{padding:2mm 2.2mm;border-bottom:1px solid var(--linea);vertical-align:top}
-.dark th{color:var(--oro);border-bottom-color:var(--oro)}
-.dark td{border-bottom-color:#3A3129}
-tr.hl td{background:#F3E6CF}
-.tag{display:inline-block;font-size:6.2pt;font-weight:600;letter-spacing:.06em;padding:.3mm 1.4mm;border-radius:1mm;vertical-align:1px}
-.tag.v{background:#DDEBD9;color:#2D5A27}.tag.p{background:#F4E8C8;color:#7A5A12}.tag.h{background:#E7E1F1;color:#4B3B78}.tag.b{background:#F3D9D6;color:#8E1B1B}
 .figure{position:absolute;background-size:cover;background-position:center;background-repeat:no-repeat}
-.cap{font-size:7.6pt;color:#A99D8A;line-height:1.4;margin-top:2mm}
-.wm{font-family:Cinzel;font-weight:600;letter-spacing:.28em;background:linear-gradient(180deg,#8A6620 0%,#E9CF7E 25%,#FFF2C2 45%,#D1AB52 62%,#8A6620 85%,#C8A04A 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:30pt;line-height:1.12;color:var(--oro2)}
-ul.clean{list-style:none;padding:0;margin:0}
-ul.clean li{padding:1.8mm 0 1.8mm 5.5mm;position:relative;border-bottom:1px solid var(--linea)}
-.dark ul.clean li{border-bottom-color:#3A3129}
-ul.clean li:before{content:"";position:absolute;left:0;top:3.9mm;width:2mm;height:2mm;background:var(--lacre);transform:rotate(45deg)}
-.dark ul.clean li:before{background:var(--oro)}
-.num{font-family:Cinzel;font-weight:700;color:var(--lacre)}
-.dark .num{color:var(--oro)}
-.swatch{height:30mm;border-radius:1mm;margin-bottom:2.5mm;border:1px solid rgba(0,0,0,.08)}
-.chip{display:inline-block;font-family:Cinzel;font-size:7pt;letter-spacing:.2em;border:1px solid var(--oro);color:var(--oro);padding:1mm 3mm;margin:0 2mm 2mm 0}
-.ph{display:inline-block;background:#FFF1B8;color:#7A4B00;border:1px dashed #C08A00;border-radius:1mm;padding:0 1.6mm;font-family:Inter;font-weight:600;font-size:.86em;letter-spacing:0}
-.verdict{font-family:Cinzel;font-weight:700;letter-spacing:.14em;font-size:13pt;color:var(--lacre)}
+.big{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:46pt;line-height:.95;color:var(--lacre);margin:0 0 2.5mm}
+.dark .big{color:var(--oro2)}
+.big small{font-size:16pt;margin-left:1mm}
+.col{position:absolute}
+.hair{height:1px;background:var(--oro);opacity:.8}
+.rule-l{border-left:1px solid var(--oro);padding-left:6mm}
+.grid{display:grid;gap:9mm}
+.c2{grid-template-columns:1fr 1fr}.c3{grid-template-columns:repeat(3,1fr)}.c4{grid-template-columns:repeat(4,1fr)}
+.tick{border-top:1px solid var(--lacre);padding-top:3.5mm}
+.dark .tick{border-top-color:var(--oro)}
+ul.dash{list-style:none;padding:0;margin:0}
+ul.dash li{padding:0 0 2.6mm 5mm;position:relative}
+ul.dash li:before{content:"";position:absolute;left:0;top:2.3mm;width:2.4mm;height:1px;background:var(--lacre)}
+.dark ul.dash li:before{background:var(--oro)}
+.ph{font-style:italic;color:#9A7A2E;border-bottom:1px dashed #C9A24A;font-weight:500}
+.verdict{font-family:Cinzel;font-weight:700;letter-spacing:.2em;font-size:11pt;color:var(--oro)}
+.cnum{font-family:'Cormorant Garamond',serif;font-size:22pt;line-height:1;color:var(--oro2);width:14mm;flex:none}
+.cond{display:flex;gap:4mm;padding:3.2mm 0;border-bottom:1px solid #2E2620}
+.scn{border-top:1px solid var(--linea);padding-top:4mm}
+.scn.hl{border-top:2px solid var(--lacre)}
+.scn .row{display:flex;justify-content:space-between;border-bottom:1px solid var(--linea);padding:1.8mm 0;font-size:8.6pt}
+.scn .row span:first-child{color:var(--ceniza)}
+.scn .row span:last-child{font-weight:600}
 """
 
 
@@ -185,15 +178,11 @@ def T(tag):
     return f'<span class="tag {cls}">{tag}</span>'
 
 
-def page(body, n, dark=False, title="", left="18mm", right="18mm"):
+def page(body, n, dark=False, title="", left="22mm", right="22mm", footer=True):
     cls = "page dark" if dark else "page"
-    brand = "ARNALDO VALLÉS · DOSSIER DE MARCA" if left == "18mm" and right == "18mm" else "ARNALDO VALLÉS"
-    hdr = f'<div class="hdr" style="left:{left};right:{right}"><span>{brand}</span><span>{title}</span></div>' if n > 1 else ""
-    legal = (f"Confidencial · Documento de trabajo para revisión profesional · Fecha de corte {FECHA}"
-             if (left, right) == ("18mm", "18mm") else f"Confidencial · Fecha de corte {FECHA}")
-    ftr = (f'<div class="ftr" style="left:{left};right:{right}"><span>{legal}</span>'
-           f'<span>{n:02d}</span></div>') if n > 1 else ""
-    return f'<section class="{cls}">{hdr}{body}{ftr}</section>'
+    ftr = (f'<div class="ftr" style="left:{left};right:{right}"><span>ARNALDO VALLÉS{(" · " + title) if title else ""}</span>'
+           f'<span>{n:02d}</span></div>') if (n > 1 and footer) else ""
+    return f'<section class="{cls}">{body}{ftr}</section>'
 
 
 def wordmark(h_mm, w_mm):
@@ -251,6 +240,39 @@ def unidad_svg(pvp=24.0):
     return "".join(out)
 
 
+# ---------------------------------------------------------------- escalera de precios (SVG en mm)
+def precios_svg():
+    """PVP oficiales en España (2026) de referencias de formato comparable; ARNALDO VALLÉS a 24 € (Base)."""
+    # (nombre, PVP, lado: 1 arriba / -1 abajo, nivel, ancla del texto)
+    pts = [("Corrida Robusto", 9.5, -1, 1, "middle"), ("Padrón 2000", 11.9, 1, 1, "middle"),
+           ("Davidoff Short Robusto", 15.5, -1, 1, "middle"), ("Partagás Serie D No. 4", 21.2, 1, 1, "end"),
+           ("Montecristo No. 2", 21.8, -1, 2, "end"), ("Romeo y Julieta Churchills", 24.8, -1, 2, "start"),
+           ("Padrón 1926 80th", 42.0, 1, 1, "middle")]
+    W, H, x0, x1, ya = 250, 66, 6, 244, 38
+    X = lambda v: x0 + (v - 5) / (45 - 5) * (x1 - x0)
+    o = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}mm" height="{H}mm" viewBox="0 0 {W} {H}">',
+         f'<rect x="{X(18)}" y="{ya - 4}" width="{X(25) - X(18)}" height="8" fill="#EFE3CC"/>',
+         f'<line x1="{x0}" y1="{ya}" x2="{x1}" y2="{ya}" stroke="#1C1714" stroke-width=".35"/>']
+    for v in range(5, 50, 5):
+        o.append(f'<line x1="{X(v)}" y1="{ya - 1}" x2="{X(v)}" y2="{ya + 1}" stroke="#1C1714" stroke-width=".3"/>'
+                 f'<text x="{X(v)}" y="{ya + 5.2}" text-anchor="middle" font-family="Inter" font-size="2.5" fill="#A89C8B">{v}</text>')
+    for name, v, side, lvl, anc in pts:
+        L = 8 + 9 * (lvl - 1)
+        y2 = ya - side * L
+        ty = y2 - 1.2 if side > 0 else y2 + 3.2
+        dx = {"middle": 0, "end": .8, "start": -.8}[anc]
+        o.append(f'<line x1="{X(v)}" y1="{ya}" x2="{X(v)}" y2="{y2}" stroke="#A89C8B" stroke-width=".25"/>'
+                 f'<circle cx="{X(v)}" cy="{ya}" r="1.2" fill="#A89C8B"/>'
+                 f'<text x="{X(v) + dx}" y="{ty}" text-anchor="{anc}" font-family="Inter" font-size="2.6" fill="#3A2E25">{name} '
+                 f'<tspan font-weight="600">{str(v).replace(".", ",")} €</tspan></text>')
+    o.append(f'<line x1="{X(24)}" y1="{ya - 24}" x2="{X(24)}" y2="{ya}" stroke="#8C1D1A" stroke-width=".5"/>'
+             f'<circle cx="{X(24)}" cy="{ya}" r="2.2" fill="#8C1D1A"/>'
+             f'<text x="{X(24)}" y="{ya - 29}" text-anchor="middle" font-family="Cinzel" font-weight="700" font-size="3.6" letter-spacing=".5" fill="#8C1D1A">ARNALDO VALLÉS Nº 1</text>'
+             f'<text x="{X(24)}" y="{ya - 25.2}" text-anchor="middle" font-family="Inter" font-weight="600" font-size="3" fill="#8C1D1A">24 € · escenario Base</text>')
+    o.append("</svg>")
+    return "".join(o)
+
+
 # ---------------------------------------------------------------- vitolas a escala 1:1 (SVG en mm)
 def vitolas_svg():
     rows = [("Nº 1", "Robusto", 124, 124, "50", (50,), "lacre"), ("Nº 2", "Toro", 152, "150–156", "50–52", (50, 52), "marfil"),
@@ -289,545 +311,255 @@ def build():
     P = []
     n = 0
 
-    def add(body, dark=False, title="", left="18mm", right="18mm"):
+    def add(body, dark=False, title="", **kw):
         nonlocal n
         n += 1
-        P.append(page(body, n, dark, title, left, right))
+        P.append(page(body, n, dark, title, **kw))
+
+    dark_bg = lambda style: f'<div style="position:absolute;{style};background:radial-gradient(ellipse at 50% 42%,#3A2E26 0%,#110D0B 72%)"></div>'
 
     # 1 · Portada
     add(f"""
-{fig(I_CLASICA, "right:0;top:0;width:150mm;height:210mm;background-position:50% 50%") if I_CLASICA else
-   '<div style="position:absolute;right:0;top:0;width:150mm;height:210mm;background:radial-gradient(ellipse at 50% 45%,#3A2E26 0%,#14100D 70%)"></div>'
-   + artimg(A_N1, "right:7mm;top:80mm;width:136mm") + artimg(A_PLIEGO, "right:7mm;top:113mm;width:136mm")}
-<div style="position:absolute;right:150mm;top:0;width:40mm;height:210mm;background:linear-gradient(90deg,rgba(20,16,13,0) 0%,rgba(20,16,13,0) 100%)"></div>
-<div style="position:absolute;left:20mm;top:22mm;width:118mm">
- <div class="kick">Dossier de marca · Para inversores</div>
- <div style="margin:10mm 0 4mm -2mm">{('<img src="' + A_LOGO_ORO + '" style="width:112mm;display:block">') if A_LOGO_ORO else wordmark(19, 118)}</div>
- <div style="height:1px;background:linear-gradient(90deg,#C9A24A,rgba(201,162,74,0));width:90mm;margin:0 0 6mm"></div>
- <div class="lead" style="font-size:18pt;font-style:italic;color:#E9DFCB">Cigarros hechos a mano<br>con el nombre de quien los tuerce</div>
- <p style="margin-top:10mm;font-family:Cinzel;font-size:7.4pt;letter-spacing:.3em;color:#C9A24A">PLIEGO DE AUTOR · EDICIONES NUMERADAS</p>
+{fig(I_HERO, "left:112mm;top:0;width:185mm;height:210mm;background-position:42% 50%") if I_HERO else dark_bg("left:112mm;top:0;width:185mm;height:210mm")}
+<div style="position:absolute;left:112mm;top:0;width:30mm;height:210mm;background:linear-gradient(90deg,#110D0B 0%,rgba(17,13,11,0) 100%)"></div>
+<div class="col" style="left:22mm;top:26mm;width:86mm">
+ <div class="kick">Dossier para inversores</div>
+ <div style="margin:30mm 0 0 -2mm">{('<img src="' + A_LOGO_ORO + '" style="width:86mm;display:block">') if A_LOGO_ORO else wordmark(14, 86)}</div>
+ <div class="lead" style="font-size:15pt;font-style:italic;margin-top:12mm;color:#E2D7C2">Cigarros hechos a mano,<br>con el nombre de quien los tuerce.</div>
 </div>
-<div style="position:absolute;left:20mm;bottom:16mm;width:115mm" class="small">
- Versión 1.0 · Fecha de corte {FECHA} · Confidencial.<br>
- Documento de trabajo preparado con fuentes públicas. Las imágenes son conceptos (fotografías generadas con IA y arte vectorial provisional), no artes finales.
- No es material publicitario dirigido al consumidor. Requiere revisión jurídica y fiscal profesional antes de su difusión.
-</div>""", dark=True)
+<div class="col fine" style="left:22mm;bottom:14mm;width:84mm;color:#9A8E80">Confidencial · Octubre de 2026<br>No es material publicitario dirigido al consumidor.</div>""", dark=True)
 
-    # 2 · La marca en una página
-    add(f"""<div class="pad" style="top:18mm">
-<div class="kick">Resumen</div><h1>La marca en una página</h1>
-<div class="grid3" style="margin-top:6mm;row-gap:8mm">
- <div class="card"><h3>Nombre</h3><p><strong>ARNALDO VALLÉS</strong>, el nombre y apellido del torcedor cubano que participa en el proyecto. No hay que inventar ninguna historia: la persona existe.</p></div>
- <div class="card"><h3>Idea</h3><p>Que cada caja lleve la firma de quien la hizo. Producción en <strong>pliegos</strong> numerados, con un <strong>colofón</strong> en cada caja.</p></div>
- <div class="card"><h3>Posicionamiento</h3><p><strong>Contemporary Cuban Luxury</strong>, la alternativa mejor puntuada en la matriz ponderada (3,90 en una escala de 1 a 5), con la gramática visual clásica de la habilitación cubana, sin herencia inventada.</p></div>
- <div class="card"><h3>Producto</h3><p>Una vitola de lanzamiento, <strong>Nº 1 Robusto</strong>; después <strong>Nº 2 Toro</strong> y <strong>Nº 3 Churchill</strong> en edición limitada. PVP objetivo del escenario Base: <strong>24 €</strong> por unidad.</p></div>
- <div class="card"><h3>Canal</h3><p>Expendedurías especialistas en España (≈13.000 puntos autorizados) a través de un distribuidor habilitado. Sin venta online ni publicidad al consumidor.</p></div>
- <div class="card"><h3>Estado</h3><p><span class="verdict" style="font-size:9pt">CONDITIONAL GO</span> solo para la Fase 0 (≤ 15.000 €): verificación jurídica en Cuba, registro de marca y validación comercial. Nada de producción antes de cumplir C1–C8.</p></div>
-</div>
-<div class="rule" style="margin-top:9mm"></div>
-<p class="small">Fuentes: Brand Strategy, Product Architecture, Brand Identity Guidelines y Executive Investment Memorandum de este dossier (fecha de corte {FECHA}).</p>
-</div>""", title="RESUMEN")
-
-    # 3 · La idea
+    # 2 · La idea
     add(f"""
-{fig(I_PURO, "right:0;top:0;width:150mm;height:210mm;background-position:50% 30%") if I_PURO else
- '<div style="position:absolute;right:0;top:0;width:150mm;height:210mm;background:radial-gradient(ellipse at 50% 45%,#3A2E26 0%,#14100D 70%)"></div>' + artimg(A_VISTA, "right:9mm;top:64mm;width:132mm")}
-<div style="position:absolute;left:20mm;top:30mm;width:112mm">
+{fig(I_PURO, "right:0;top:0;width:118mm;height:210mm;background-position:50% 30%")}
+<div class="col" style="left:24mm;top:30mm;width:132mm">
  <div class="kick">La idea</div>
- <div class="quote" style="font-size:31pt">«Que cada caja lleve la firma de quien la hizo.»</div>
- <div style="height:1px;background:linear-gradient(90deg,#C9A24A,rgba(201,162,74,0));width:80mm;margin:9mm 0 7mm"></div>
- <p class="lead" style="font-size:14pt">Las grandes marcas del puro se construyeron con un nombre, un oficio y una habilitación de primer nivel. ARNALDO VALLÉS parte de un activo que no se puede copiar: <strong>un torcedor real</strong>.</p>
- <p class="small" style="font-size:8.6pt">Cada lote es un <em>pliego</em> numerado; cada caja lleva un colofón «nº X de N» que, cuando el contrato lo permita, rubricará Arnaldo. «Pliego de autor»: con un autor real, la expresión cobra todo su sentido.</p>
-</div>
-<div style="position:absolute;left:20mm;bottom:16mm;width:112mm" class="cap">{"Imagen: maqueta. Fotografía generada con IA sin texto (Qwen-Image) con la anilla de la casa y la segunda anilla compuestas en vectorial. No es un arte final." if I_PURO else "Imagen: vista (interior de la tapa), arte vectorial provisional. No es un arte final."}</div>""", dark=True, title="LA IDEA", left="20mm", right="160mm")
+ <div class="display" style="font-style:italic;font-size:42pt;color:var(--oro2)">«Que cada caja lleve la firma de quien la hizo.»</div>
+ <div class="hair" style="width:60mm;margin:10mm 0 9mm"></div>
+ <p class="lead">Las grandes marcas del puro nacieron de un nombre, un oficio y una anilla. ARNALDO VALLÉS parte de algo que no se puede copiar: un torcedor real.</p>
+ <p class="muted" style="max-width:118mm">Cada lote es un <em>pliego</em> numerado. Cada caja lleva un colofón, «caja nº X de N», con la firma de Arnaldo Vallés.</p>
+</div>""", dark=True, title="La idea")
 
-    # 4 · Arnaldo
-    manos = fig(I_MANOS, "right:0;top:0;width:110mm;height:210mm")
-    rgt = "128mm" if I_MANOS else "18mm"
-    add(f"""{manos}<div class="pad" style="right:{rgt}">
-<div class="kick">La pieza central</div><h1>Arnaldo Vallés, el torcedor</h1>
-<p class="lead">Arnaldo Vallés es el torcedor cubano que participa en el proyecto y da nombre a la marca. Su firma manuscrita será el sello de ARNALDO VALLÉS y, si él lo autoriza, su retrato grabado presidirá la vista de la caja.</p>
-<div class="{'grid2' if I_MANOS else 'grid3'}" style="margin-top:5mm;row-gap:5mm">
- <div><h3>Lo que aporta</h3><ul class="clean">
-  <li>Autenticidad: una persona y un oficio reales.</li>
-  <li>Criterio de construcción e interlocución con la fábrica.</li>
-  <li>Su firma y, si quiere, su imagen, con derecho de veto.</li></ul></div>
- <div><h3>Lo que se formaliza antes</h3><ul class="clean">
-  <li>Consentimiento escrito y autorización de su empleador.</li>
-  <li>Licencia irrevocable y transferible de nombre, firma e imagen a favor de la SL.</li>
-  <li>Participación de referencia: 10 % de la SL con <em>vesting</em> a 4 años {T("HIPÓTESIS")}.</li></ul></div>
- <div><h3>Lo que necesitamos de él</h3><ul class="clean">
-  <li>15–20 firmas en papel liso, escaneadas a 600 ppp.</li>
-  <li>Opcional: 3–5 fotografías de rostro y de manos en la mesa de torcer.</li>
-  <li>Datos verificables para el colofón: nombre completo, categoría y años de oficio acreditados.</li></ul></div>
-</div>
-<p class="small" style="margin-top:5mm">Principio editorial: no se atribuye a Arnaldo ningún mérito, año de oficio, premio o declaración que no esté acreditado. Las imágenes de este dossier son ilustrativas: ninguna representa a Arnaldo ni reproduce su firma real.</p>
-</div>""", title="ARNALDO VALLÉS", right=rgt)
-
-    # 5 · Mercado
-    add(f"""<div class="pad">
-<div class="kick">Mercado</div><h1>Un mercado de alto valor, que crece por precio</h1>
-<div class="grid4" style="margin-top:7mm">
- <div class="card"><div class="stat">827<span style="font-size:15pt"> M USD</span></div><p>Facturación de Habanos S.A. en 2024 (+16 % según la compañía; +14,7 % según otras fuentes) {T("VERIFICADO")}</p></div>
- <div class="card"><div class="stat">54 %</div><p>Peso de Europa en las ventas de Habanos {T("VERIFICADO")}</p></div>
- <div class="card"><div class="stat">2.º</div><p>Puesto de España entre los mercados mundiales de Habanos en 2024, tras China {T("VERIFICADO")}</p></div>
- <div class="card"><div class="stat">≈13.000</div><p>Expendedurías, la red minorista autorizada en España (12.858 licencias en 2024) {T("PROBABLE")}</p></div>
-</div>
-<div class="grid2" style="margin-top:10mm">
- <div><h3>Lectura</h3><p>El crecimiento del segmento premium es sobre todo de <strong>precio</strong> (Cohiba duplicó precios en 2022). El consumidor está acostumbrado a pagar más por los formatos clásicos, pero compara con referencias consolidadas a precios conocidos.</p>
- <p>En 2026 la red de distribución de Habanos en Europa está afectada por sanciones, lo que genera riesgo de desabastecimiento puntual del puro cubano {T("VERIFICADO")}.</p></div>
- <div><h3>Lo que no sabemos (y cómo lo cerraremos)</h3><p>No existe un dato público fiable del valor del puro premium hecho a mano en España separado del resto de cigarros. La demanda accesible se estima de abajo arriba en <strong>1.600–6.000 unidades/año</strong> {T("HIPÓTESIS")} y se validará con 15 entrevistas a estanqueros especialistas.</p></div>
-</div>
-<p class="small" style="position:absolute;bottom:0">Fuentes: S20, S21, S24, S53, S16–S17, S26, S52 (09_RESEARCH/Source Register.xlsx, consulta {FECHA}). Criterios de las etiquetas: 09_RESEARCH/Evidence &amp; Assumptions Log.xlsx.</p>
-</div>""", title="MERCADO")
-
-    # 6 · Precio y competencia
-    add(f"""<div class="pad">
-<div class="kick">Precio y competencia</div><h1>Dónde se sitúa ARNALDO VALLÉS</h1>
-<table style="margin-top:4mm">
-<thead><tr><th style="width:15%">Banda de PVP</th><th style="width:47%">Ejemplos (precios oficiales España, 2026)</th><th>Comentario</th></tr></thead>
-<tbody>
-<tr><td>&lt; 12 €</td><td>Corrida Honduras Robusto 9,50 € · Padrón 2000 11,90 € · El Viejo Continente Estelí Robusto 11,80 €</td><td>No cubanos; entrada al premium</td></tr>
-<tr><td>12–18 €</td><td>Davidoff Puro Dominicano Short Robusto 15,50 €</td><td>Marcas no cubanas de prestigio</td></tr>
-<tr class="hl"><td>18–25 €</td><td>Partagás Serie D No. 4 ≈21,20 € · Montecristo No. 2 21,80 € · R&amp;J Churchills 24,80 € · <strong>ARNALDO VALLÉS Nº 1: 24 € (escenario Base)</strong></td><td>Núcleo de los Habanos clásicos</td></tr>
-<tr><td>25–50 €</td><td>Padrón 1926 80th 42 €</td><td>Ultra-premium no cubano y gamas altas cubanas</td></tr>
-<tr><td>&gt; 50 €</td><td>Cohiba Behike BHK 56: 262,50 €</td><td>Colección y lujo extremo</td></tr>
-</tbody></table>
-<div class="grid2" style="margin-top:7mm">
- <div class="card"><h3>El reto comercial central</h3><p>A 24 €, una marca nueva se sitúa por encima de Habanos clásicos de formato equivalente. Solo lo justifica una habilitación al nivel de las grandes marcas y una autenticidad verificable: por eso la marca es el activo que se trabaja primero.</p></div>
- <div class="card"><h3>Estructura competitiva</h3><p>Rivalidad alta, canal con poder alto (espacio de humidor limitado), proveedor con poder muy alto (sistema estatal cubano) y barreras de entrada muy altas: regulación, prohibición de publicidad, capital circulante y reputación.</p></div>
-</div>
-<p class="small" style="position:absolute;bottom:0">Fuentes: S19, S37, S38 {T("VERIFICADO")}/{T("PROBABLE")}. Precios de referencia a {FECHA}; pueden variar con cada publicación en el BOE.</p>
-</div>""", title="PRECIO Y COMPETENCIA")
-
-
-    # 6b · Economía de una unidad
-    _r = lambda *ks: f"{sum(M[f'split_{k}_eur_raw'] for k in ks) / 24 * 100:.1f}".replace(".", ",") + " %"
-    state_pct, canal_pct = _r("vat", "iee", "duty"), _r("rm", "dist")
-    add(f"""<div class="pad">
-<div class="kick">Economía de una unidad</div><h1>Dónde van los 24 € de un ARNALDO VALLÉS Nº 1</h1>
-<div style="display:grid;grid-template-columns:186mm 1fr;gap:8mm;margin-top:2mm">
- <div>{unidad_svg()}</div>
- <div>
-  <div class="card"><h3>Lo que queda a la marca</h3><div class="stat">{M['split_contrib_eur']}</div><p>por unidad antes de gastos fijos ({M['split_contrib']} del PVP), en el escenario Base (PVP 24 €, FOB 6 USD).</p></div>
-  <div class="card" style="margin-top:5mm"><h3>Por qué es tan poco</h3><p>Con origen Cuba, el Estado (IVA, impuesto especial y arancel) se lleva el {state_pct} del PVP y el canal el {canal_pct}. Con el mismo FOB y origen República Dominicana, el arancel baja a 0 % y el coste se reduce ≈{M['ct_diff10k']} por cada 10.000 unidades {T("PROBABLE")}.</p></div>
- </div>
-</div>
-<table style="margin-top:4mm">
-<thead><tr><th>PVP</th><th>Contribución por unidad (costes Base)</th><th>Punto muerto EBITDA</th><th>FOB máximo para un margen del 25 %</th></tr></thead>
-<tbody>
-<tr><td>20 €</td><td>{M['ue20_contrib']}</td><td>{M['ue20_be']}</td><td>{M['ue20_fobmax']}</td></tr>
-<tr class="hl"><td>25 €</td><td>{M['ue25_contrib']}</td><td>{M['ue25_be']} u/año</td><td>{M['ue25_fobmax']}</td></tr>
-<tr><td>30 €</td><td>{M['ue30_contrib']}</td><td>{M['ue30_be']} u/año</td><td>{M['ue30_fobmax']}</td></tr>
-</tbody></table>
-<p class="small" style="margin-top:2mm">Fuente: Financial Model 2027–2031.xlsx (hojas «Import &amp; Taxes» y «Unit Economics») y Customs and Tax Model.xlsx. Escenario Base, 2028. IVA 21 % e impuesto especial 15,8 % {T("VERIFICADO")}; arancel 26 % y margen del expendedor 9 % {T("PROBABLE")}, a confirmar en TARIC y BOE (Q10, Q11); FOB {T("BLOQUEADO")} hasta recibir una cotización formal.</p>
-</div>""", title="ECONOMÍA UNITARIA")
-
-    # 7 · Posicionamiento
-    add(f"""<div class="pad">
-<div class="kick">Posicionamiento</div><h1>Tres caminos evaluados, uno elegido</h1>
-<table style="margin-top:4mm">
-<thead><tr><th style="width:20%"></th><th>A · Luxury Heritage</th><th>B · Contemporary Cuban Luxury</th><th>C · Ultra-Limited Artisan</th></tr></thead>
-<tbody>
-<tr><td>Idea</td><td>Tradición, artesanía, códigos clásicos</td><td>Lujo contemporáneo e internacional</td><td>Pequeñas producciones numeradas</td></tr>
-<tr><td>Riesgo de autenticidad</td><td>Alto: tentación de inventar herencia</td><td>Bajo</td><td>Bajo</td></tr>
-<tr><td>Precio defendible</td><td>Medio</td><td>Medio-alto</td><td>Alto</td></tr>
-<tr><td>Escalabilidad</td><td>Media</td><td>Alta</td><td>Baja</td></tr>
-<tr class="hl"><td><strong>Puntuación ponderada</strong></td><td>2,45</td><td><strong>3,90</strong></td><td>3,35</td></tr>
-</tbody></table>
-<div class="grid3" style="margin-top:8mm">
- <div class="card"><h3>De B, la estrategia</h3><p>Lujo contemporáneo y escalable, con bajo riesgo de autenticidad: la opción ganadora de la matriz.</p></div>
- <div class="card"><h3>De C, la escasez</h3><p>Numeración por pliegos y una edición limitada, Nº 3, para el coleccionista.</p></div>
- <div class="card"><h3>De A, la gramática visual</h3><p>Oro, relieve, litografía y cartela clásica, que el consumidor asocia a calidad, pero sin herencia, fechas, familias ni medallas inventadas.</p></div>
-</div>
-<p class="small" style="position:absolute;bottom:0">Criterios y pesos: diferenciación 20 %, coherencia productiva 15 %, viabilidad reguladora 15 %, potencial con profesionales 15 %, potencial de precio 15 %, escalabilidad 10 %, coste de desarrollo 5 %, dependencia del fabricante 5 % (00_EXECUTIVE/Decision Matrix.xlsx, hoja «Posicionamiento»; escala de 1 a 5).</p>
-</div>""", title="POSICIONAMIENTO")
-
-    # 8 · Plataforma de marca
-    add(f"""<div class="pad">
-<div class="kick">Plataforma de marca</div><h1>Clásica, honesta, artesanal, precisa</h1>
-<div class="grid2" style="margin-top:6mm;gap:12mm">
- <div>
-  <div class="card" style="margin-bottom:6mm"><h3>Propósito</h3><p class="lead">Que cada caja lleve la firma de quien la hizo.</p></div>
-  <div class="card" style="margin-bottom:6mm"><h3>Promesa al profesional</h3><p class="lead">Un torcedor real detrás de cada pliego: consistencia verificable, ficha técnica y trazabilidad.</p></div>
-  <div class="card"><h3>Personalidad</h3><p><span class="chip" style="color:#8E1B1B;border-color:#8E1B1B">CLÁSICA</span><span class="chip" style="color:#8E1B1B;border-color:#8E1B1B">HONESTA</span><span class="chip" style="color:#8E1B1B;border-color:#8E1B1B">ARTESANAL</span><span class="chip" style="color:#8E1B1B;border-color:#8E1B1B">PRECISA</span></p></div>
- </div>
- <div><h3>Lo que ARNALDO VALLÉS no hace</h3><ul class="clean">
-  <li>No atribuye a Arnaldo méritos, años, premios ni declaraciones que no estén acreditados.</li>
-  <li>No sugiere vínculo con otras personas del sector.</li>
-  <li>No imita anillas, sellos ni elementos de seguridad de Habanos ni de otras marcas.</li>
-  <li>No usa «Habano», «Habana», «Cuba» ni «Vuelta Abajo» como elementos de marca.</li>
-  <li>No usa escudos de Estado, banderas, medallas ni fechas de fundación.</li>
-  <li>No hace publicidad al consumidor (Ley 28/2005).</li></ul></div>
-</div></div>""", title="PLATAFORMA")
-
-    # 9 · Nombre y arquitectura
-    add(f"""<div class="pad">
-<div class="kick">Nombre y arquitectura</div><h1>Una marca madre, tres vitolas, lotes con firma</h1>
-<div class="grid2" style="gap:12mm;margin-top:4mm">
- <div>
-  <table><thead><tr><th>Nivel</th><th>Elemento</th></tr></thead><tbody>
-  <tr><td>Marca madre</td><td><strong>ARNALDO VALLÉS</strong>: wordmark + firma manuscrita de Arnaldo como sello</td></tr>
-  <tr><td>Vitolas</td><td><strong>Nº 1</strong> Robusto (lanzamiento) · <strong>Nº 2</strong> Toro (extensión) · <strong>Nº 3</strong> Churchill (edición limitada)</td></tr>
-  <tr><td>Lotes</td><td><strong>PLIEGO Nº 001</strong>, 002…</td></tr>
-  <tr><td>Caja</td><td><strong>Colofón</strong> numerado «nº X de N», rubricado por Arnaldo cuando el contrato lo permita</td></tr>
-  <tr><td>Ediciones especiales</td><td><strong>Pliego de autor</strong>, firmadas caja a caja, solo con C1–C8 cumplidas y consistencia demostrada</td></tr>
-  </tbody></table>
-  <p class="small" style="margin-top:4mm">Nombres de reserva: <strong>FOLIO</strong> y <strong>LUMBRE</strong>, si Arnaldo o su empleador no autorizan el nombre o si el informe de registrabilidad es desfavorable. 21 nombres evaluados.</p>
- </div>
- <div>
-  <table><thead><tr><th>Criterio</th><th>Valoración del nombre ARNALDO VALLÉS</th></tr></thead><tbody>
-  <tr><td>Autenticidad</td><td>Muy alta: persona real, oficio real</td></tr>
-  <tr><td>Memorabilidad</td><td>Alta: tres sílabas, fácil en español, inglés, francés, italiano y alemán</td></tr>
-  <tr><td>Adecuación premium</td><td>Alta: tradición de marcas con nombre propio</td></tr>
-  <tr><td>Distintividad registral</td><td>Media-alta: nombre y apellido, más la firma como marca figurativa</td></tr>
-  <tr><td>Colisiones (búsqueda web)</td><td>Ninguna marca de puros «Arnaldo Vallés»; a analizar DON VALLES (EE. UU., puros, 2016) y ARLONDO (tabaco) {T("PROBABLE")}</td></tr>
-  </tbody></table>
- </div>
-</div>
-<div style="display:flex;align-items:stretch;gap:0;margin-top:9mm"><div style="flex:1;border:1px solid #C9A24A;padding:3.5mm 3mm;text-align:center;background:#14100D"><div style="font-family:Cinzel;font-weight:700;font-size:11pt;letter-spacing:.12em;color:#E6CB86">ARNALDO VALLÉS</div><div class="small" style="margin-top:1mm;color:#A99D8A">Marca madre</div></div><div style="width:7mm;display:flex;align-items:center;justify-content:center;color:#C9A24A;font-size:13pt">→</div><div style="flex:1;border:1px solid #C9A24A;padding:3.5mm 3mm;text-align:center;background:#FBF7EF"><div style="font-family:Cinzel;font-weight:700;font-size:10pt;letter-spacing:.12em;color:#8E1B1B">Nº 1 · Nº 2 · Nº 3</div><div class="small" style="margin-top:1mm;color:#8A8073">Vitolas</div></div><div style="width:7mm;display:flex;align-items:center;justify-content:center;color:#C9A24A;font-size:13pt">→</div><div style="flex:1;border:1px solid #C9A24A;padding:3.5mm 3mm;text-align:center;background:#FBF7EF"><div style="font-family:Cinzel;font-weight:700;font-size:10pt;letter-spacing:.12em;color:#8E1B1B">PLIEGO Nº 001</div><div class="small" style="margin-top:1mm;color:#8A8073">Lote numerado</div></div><div style="width:7mm;display:flex;align-items:center;justify-content:center;color:#C9A24A;font-size:13pt">→</div><div style="flex:1;border:1px solid #C9A24A;padding:3.5mm 3mm;text-align:center;background:#FBF7EF"><div style="font-family:Cinzel;font-weight:700;font-size:10pt;letter-spacing:.12em;color:#8E1B1B">nº X de N</div><div class="small" style="margin-top:1mm;color:#8A8073">Colofón de cada caja</div></div><div style="width:7mm;display:flex;align-items:center;justify-content:center;color:#C9A24A;font-size:13pt">→</div><div style="flex:1;border:1px solid #C9A24A;padding:3.5mm 3mm;text-align:center;background:#8E1B1B"><div style="font-family:Cinzel;font-weight:700;font-size:10pt;letter-spacing:.12em;color:#F4EBD8">PLIEGO DE AUTOR</div><div class="small" style="margin-top:1mm;color:#E9DFCB">Edición firmada</div></div></div>
-</div>""", title="NOMBRE")
-
-    # 10 · Dirección creativa
-    DK = 'position:absolute;left:0;top:0;width:178mm;height:210mm;background:radial-gradient(ellipse at 50% 45%,#3A2E26 0%,#14100D 72%)'
-    th = lambda url, h, alt: (f'<div style="height:{h};background:#14100D url(' + chr(39) + url + chr(39) + ') center/contain no-repeat;border-radius:1mm"></div>') if url else f'<div style="height:{h};border:1px dashed #C9A24A;border-radius:1mm;display:flex;align-items:center;justify-content:center;font-family:Cinzel;font-size:7.5pt;letter-spacing:.2em;color:#8A8073;text-align:center;padding:0 6mm">{alt}<br>EN DESARROLLO</div>'
-    thc = lambda url, h, alt: (f'<div style="height:{h};background:url(' + chr(39) + url + chr(39) + ') center/cover;border-radius:1mm"></div>') if url else th(None, h, alt)
-    add(f"""<div class="pad">
-<div class="kick">Dirección creativa · La anilla clásica</div><h1>Una anilla de casa grande</h1>
-<p style="max-width:245mm">El diseño de la casa es una anilla clásica: banda lacre con cantos de oro perlados y un óvalo central de laca negra, enmarcado en oro con guilloché, con ARNALDO VALLÉS en capitales romanas y la firma debajo. Toma de Hoyo de Monterrey y de Montecristo su forma de construir una anilla, no sus elementos. Sin monograma ni emblema: la firma hace de signo, como en el origen de la anilla.</p>
-<table style="margin-top:2mm;font-size:8.2pt">
-<thead><tr><th style="width:15%">Código</th><th style="width:22%">Hoyo de Monterrey</th><th style="width:22%">Montecristo</th><th style="width:25%">ARNALDO VALLÉS</th><th>Lo que no se toma</th></tr></thead>
-<tbody>
-<tr><td><strong>Centro</strong></td><td>Logotipo rojo central con el nombre en blanco (S59)</td><td>Un emblema en relieve de oro (S60)</td><td>Óvalo de laca negra con marco de oro en guilloché, troquelado</td><td>Su logotipo y la composición de su anilla</td></tr>
-<tr><td><strong>Nombre</strong></td><td>Letras blancas sobre rojo</td><td>Romanas gruesas, lectura a distancia</td><td>ARNALDO VALLÉS en capitales romanas de oro, en arco</td><td>Sus tipografías</td></tr>
-<tr><td><strong>Signo</strong></td><td>—</td><td>Un solo signo fuerte: espadas y flor de lis (S61)</td><td>La firma de Arnaldo; la anilla nació como firma del fabricante (S55)</td><td>Triángulo, espadas, flor de lis, coronas</td></tr>
-<tr><td><strong>Campo y paleta</strong></td><td>Dominante blanca (S59)</td><td>Campo oscuro con filigrana de oro y bordes blancos (S60)</td><td>Lacre, negro laca y oro; marfil y negro en la Nº 2 y la Nº 3</td><td>El marrón de Montecristo y su orden de colores</td></tr>
-<tr><td><strong>Segunda anilla</strong></td><td>«Epicure» en su línea (S59)</td><td>—</td><td>«PLIEGO DE AUTOR», lacre y oro</td><td>«Habana», años, medallas</td></tr>
-<tr><td><strong>Caja</strong></td><td>Vista con una escena grabada en óvalo</td><td>Cedro con la marca, sobria</td><td>Cedro con ARNALDO VALLÉS y la firma a fuego; vista con el óvalo de la casa</td><td>Jardín y fuente, «José Gener»</td></tr>
-</tbody></table>
-<div class="grid3" style="margin-top:4mm;gap:6mm">
- <div>{th(A_N1, "27mm", "ANILLA Nº 1")}<p class="small" style="margin-top:1.5mm">La anilla redibujada en vectorial</p></div>
- <div>{thc(I_CAJA, "27mm", "CAJA")}<p class="small" style="margin-top:1.5mm">Caja de cedro con la marca a fuego · maqueta</p></div>
- <div>{th(A_VISTA, "27mm", "VISTA")}<p class="small" style="margin-top:1.5mm">Vista · arte vectorial provisional</p></div>
-</div>
-<p class="small" style="margin-top:2mm">Ni «Habana», ni «Cuba», ni «Habano»; sin escudos de Estado, medallas ni fechas. Hoyo de Monterrey y Montecristo son marcas de sus titulares y se citan solo como referencia; la distancia la confirmará el análisis de anterioridades (C5).</p>
-</div>""", title="DIRECCIÓN CREATIVA")
-
-    # 11 · Anilla Nº 1 (la foto elegida)
+    # 3 · Arnaldo Vallés
     add(f"""
-{fig(I_CLASICA, "left:0;top:0;width:178mm;height:210mm;background-position:50% 50%") if I_CLASICA else f'<div style="{DK}"></div>' + artimg(A_N1, "left:9mm;top:80mm;width:160mm")}
-<div style="position:absolute;left:192mm;right:16mm;top:24mm">
- <div class="kick">Habilitación · Nº 1 Robusto</div><h1 style="font-size:26pt">La anilla de la casa</h1>
- <ul class="clean" style="margin-top:3mm">
-  <li>Banda lacre con cantos de oro estampado y perlado en relieve.</li>
-  <li>Óvalo central troquelado: marco de oro en guilloché y centro de laca negra.</li>
-  <li><strong>ARNALDO VALLÉS</strong> en capitales romanas de oro y, debajo, la firma de Arnaldo.</li>
-  <li>Segunda anilla «PLIEGO DE AUTOR», igual en toda la gama.</li></ul>
- <p class="small" style="margin-top:5mm">Producción prevista: offset + foil + relieve seco + troquel, a cepo real (≈90 × 18 mm).</p>
- <p class="cap">Imagen de referencia de la anilla de la casa, aportada por el promotor: es el patrón que siguen el arte vectorial, las maquetas y este dossier. Retocada tras el rebranding: «ARNALDO VALLÉS» y la firma «Arnaldo Vallés» sustituyen al nombre de pila. Concepto, no producto existente; la firma se cambiará por la firma real de Arnaldo Vallés.</p>
-</div>""", dark=True, title="ANILLA Nº 1", left="192mm")
-
-    # 12 · Arte de la anilla: hoja de especificación
-    add(f"""<div class="pad">
-<div class="kick">Habilitación · Arte de imprenta</div><h1 style="margin-bottom:3mm">La anilla, redibujada para producción</h1>
-{artimg(A_SPEC, "left:0;top:30mm;width:188mm")}
-<div style="position:absolute;left:196mm;width:64mm;top:40mm">
- <h3>Qué se ha hecho</h3>
- <p class="small" style="margin:0 0 3mm">La foto de referencia, pasada a vector a escala real (cepo 50): banda lacre perlada, óvalo con guilloché en red, ARNALDO VALLÉS en capitales romanas y la firma debajo. Sin monograma ni emblema.</p>
- <h3>Texto sin errores</h3>
- <p class="small" style="margin:0 0 3mm">Todo el texto va en trazados desde tipografías SIL OFL 1.1: Cinzel para el nombre; la firma es provisional hasta tener la real.</p>
- <h3>Lo que cierra el diseñador</h3>
- <p class="small" style="margin:0">Dibujo a medida del nombre, firma real vectorizada, pruebas de color y de foil, y troquel con la imprenta.</p>
-</div>
-</div>""", title="ARTE DE LA ANILLA")
-
-    # 13 · Caja
-    if I_CAJA:
-        add(f"""
-{fig(I_CAJA, "left:0;top:0;width:178mm;height:210mm;background-size:contain;background-repeat:no-repeat;background-color:#000")}
-<div style="position:absolute;left:0;top:105mm;width:178mm;height:105mm;background:#040302;z-index:-1"></div>
-<div style="position:absolute;left:192mm;right:16mm;top:24mm">
- <div class="kick">Habilitación · Caja</div><h1 style="font-size:26pt">Cedro y fuego</h1>
- <ul class="clean" style="margin-top:3mm">
-  <li>Caja de cedro natural con ARNALDO VALLÉS y la firma marcados a fuego en la tapa.</li>
-  <li>Papel de bordes lacre y oro; larguero con el nombre y costero con la vitola.</li>
-  <li>Dentro, la vista y el colofón numerado.</li></ul>
- <div style="background:#F4EBD8;border-radius:1mm;padding:3mm 6mm;margin-top:5mm"><img src="{A_FUEGO}" style="width:100%;display:block"></div>
- <p class="small" style="margin-top:4mm">Zona reservada para la advertencia sanitaria, la marca fiscal y el identificador único, conforme al RD 579/2017.</p>
- <p class="cap">Maqueta: fotografía generada con IA sin texto (Qwen-Image), con la marca vectorial grabada en el plano de la tapa.</p>
-</div>""", dark=True, title="CAJA", left="192mm")
-
-    # 14 · Una anilla, tres vitolas
-    add(f"""<div class="pad">
-<div class="kick">Habilitación · Gama</div><h1 style="margin-bottom:2mm">Una anilla, tres vitolas</h1>
-<p style="max-width:240mm;margin:0">El mismo óvalo en toda la gama: lo que cambia es el color de la banda. La gama se reconoce de lejos y cada vitola se distingue de cerca, como en las grandes casas.</p>
-{artimg(A_N1, "left:0;top:34mm;width:117mm")}
-{artimg(A_N2, "left:0;top:76mm;width:117mm")}
-{artimg(A_N3, "left:0;top:118mm;width:117mm")}
-<div style="position:absolute;left:124mm;width:46mm;top:47mm"><h3>Nº 1 · Robusto</h3><p class="small" style="margin:0">Banda lacre. Vitola de lanzamiento.</p></div>
-<div style="position:absolute;left:124mm;width:46mm;top:89mm"><h3>Nº 2 · Toro</h3><p class="small" style="margin:0">Banda marfil. Extensión.</p></div>
-<div style="position:absolute;left:124mm;width:46mm;top:131mm"><h3>Nº 3 · Churchill</h3><p class="small" style="margin:0">Banda negro laca. Edición limitada (prevista para 2030).</p></div>
-{fig(I_GAMA, "left:176mm;right:0;top:40mm;height:85mm;border-radius:1mm")}
-{('<p class="cap" style="position:absolute;left:176mm;right:0;top:128mm">Maqueta: fotografía generada con IA sin texto, con las tres anillas compuestas en vectorial sobre cada vitola.</p>') if I_GAMA else ''}
-</div>""", title="GAMA EN LA ANILLA")
-
-    # 15 · Vista
-    add(f"""
-{fig(I_ABIERTA, "left:0;top:0;width:297mm;height:162mm") if I_ABIERTA else
- '<div style="position:absolute;left:0;top:0;width:297mm;height:162mm;background:radial-gradient(ellipse at 50% 45%,#3A2E26 0%,#14100D 72%)"></div>' + artimg(A_VISTA, "left:28mm;top:6mm;width:241mm")}
-<div style="position:absolute;left:18mm;right:18mm;top:168mm" class="grid2">
- <div><div class="kick">Habilitación · Vista</div><h2 style="font-size:17pt;margin:0">La vista: el interior de la tapa</h2></div>
- <div><p class="small" style="margin:0">Litografía (≈200 × 120 mm) en marfil, lacre y oro con el óvalo de la casa al centro: ARNALDO VALLÉS y la firma. {"Maqueta: fotografía generada con IA con la tapa en blanco y la vista vectorial compuesta en perspectiva." if I_ABIERTA else "Arte vectorial provisional."}</p></div>
-</div>""", dark=True, title="VISTA")
-
-    # 16 · La gama
-    gama_img = ""
-    add(f"""<div class="pad">
-<div class="kick">La gama</div><h1>Una vitola para empezar; dos para crecer</h1>
-{gama_img}
-<div style="margin-top:4mm">{vitolas_svg()}</div>
-<table style="margin-top:2mm">
-<thead><tr><th>Nombre</th><th>Vitola</th><th>Calendario</th><th>Complejidad de fabricación</th></tr></thead>
-<tbody>
-<tr><td><strong>Nº 1</strong></td><td>Robusto</td><td>Lanzamiento 2028, solo si se cumplen C1–C8</td><td>Media: formato versátil, consumo de capa moderado, tiro estable</td></tr>
-<tr><td><strong>Nº 2</strong></td><td>Toro</td><td>Extensión 2029</td><td>Media-alta: los cepos grandes tienden a irregularidades de tiro y combustión</td></tr>
-<tr><td><strong>Nº 3</strong></td><td>Churchill (Julieta No. 2)</td><td>Edición limitada 2030</td><td>Alta: capa larga sin defectos y torcedores de máxima categoría</td></tr>
-</tbody></table>
-<p class="small" style="margin-top:3mm">Dibujo a escala 1:1 si se imprime en A4 al 100 %. Medidas orientativas habituales del sector {T("PROBABLE")}; la vitola de galera exacta la fija la fábrica. Por qué Nº 1 primero: es el formato con más rotación en expendedurías especialistas y el más comparable con referencias de precio conocidas.</p>
-</div>""", title="GAMA")
-
-    # 15 · Sistema visual
-    sw = [("#8E1B1B", "Lacre", "Banda de la Nº 1, segunda anilla"), ("#14100D", "Negro laca", "Óvalo central, Nº 3, fondos"),
-          ("#C9A24A", "Oro viejo", "Foil, perlado, guilloché"), ("#F4EBD8", "Marfil", "Banda de la Nº 2, papel de la vista")]
-    sws = "".join(f'<div><div class="swatch" style="background:{c}"></div><h3 style="color:#1E1915">{nme}</h3><p class="small" style="margin:0">{c} · {use}</p></div>' for c, nme, use in sw)
-    emb = ""
-    add(f"""<div class="pad">
-<div class="kick">Sistema visual</div><h1>Paleta y tipografía</h1>
-<div class="grid4" style="margin-top:5mm">{sws}</div>
-<div class="grid2" style="margin-top:9mm;gap:12mm;">
- <div><h3>Logotipo provisional</h3>
-  <div style="background:#FFFDF8;border:1px solid #E6DCC7;padding:5mm 6mm;text-align:center">{('<img src="' + A_LOGO_LACRE + '" style="width:74mm">') if A_LOGO_LACRE else wordmark(13, 82)}</div>
-  <p class="small" style="margin-top:2mm">Uso interno, en las mismas capitales romanas de la anilla. El definitivo lo dibujará a medida un diseñador especializado, junto con la firma real de Arnaldo.</p></div>
- <div><h3>Tipografías de trabajo</h3>
-  <p style="font-family:Cinzel;font-weight:700;font-size:13pt;letter-spacing:.12em;margin:0">CINZEL · EL NOMBRE Y LOS TITULARES</p>
-  <p style="font-family:'Pinyon Script';font-size:19pt;margin:0;line-height:1.2">Pinyon Script · firma provisional</p>
-  <p style="font-family:'Cormorant Garamond';font-size:15pt;margin:0">Cormorant Garamond · <em>texto editorial</em></p>
-  <p style="font-family:Inter;font-size:10pt;margin:0 0 2mm">Inter · datos y tablas</p>
-  <p class="small">Licencia SIL OFL 1.1, verificada. Los Pantone y acabados definitivos los fijará el diseñador con pruebas de imprenta.</p></div>
-</div>{emb}</div>""", title="SISTEMA VISUAL")
-
-    # 16 · Autenticidad verificable
-    add(f"""<div class="pad">
-<div class="kick">Producto y calidad</div><h1>Autenticidad que se puede comprobar</h1>
-<div style="display:grid;grid-template-columns:1fr 1fr 1fr 64mm;gap:6mm;margin-top:2mm">
- <div class="card"><h3>Pliego</h3><p>Cada lote registra número, vitola, fecha de torcido, unidades torcidas, rechazadas y expedidas, rango de cajas, tratamiento antiplagas, puntuación de cata, factura y DUA.</p></div>
- <div class="card"><h3>Colofón</h3><p>Cada caja reproduce pliego, fecha y número de caja sobre el total. Es la prueba física de la promesa de la marca.</p></div>
- <div class="card"><h3>Ficha técnica</h3><p>Liga, fermentación, bonchado e ingredientes documentados por la fábrica, sin inventar contenidos: nada de fincas ni añadas que no consten.</p></div>
- <div><div style="background:#F4EBD8;border:1px solid #C9A24A;outline:1px solid #C9A24A;outline-offset:-2.2mm;padding:5mm 4mm;text-align:center;box-shadow:0 1mm 3mm rgba(0,0,0,.12)">
-  <div style="font-family:Cinzel;font-weight:600;font-size:10pt;letter-spacing:.3em;color:#14100D">ARNALDO VALLÉS</div>
-  <div style="font-family:Cinzel;font-size:6pt;letter-spacing:.25em;color:#8E1B1B;margin:1.5mm 0 2.5mm">PLIEGO Nº 001</div>
-  <div style="font-family:'Cormorant Garamond';font-size:9.5pt;line-height:1.3;color:#3A2E25">Nº 1 · Robusto<br>Caja <strong>0001</strong> de 0500</div>
-  <div style="font-family:'Cormorant Garamond';font-style:italic;font-size:8.5pt;color:#3A2E25;margin-top:2mm">Torcido a mano por</div>
-  <div style="border:1px dashed #C9A24A;margin:1.5mm 4mm 0;padding:1.5mm;font-size:6pt;color:#8A8073">firma de Arnaldo</div>
- </div><p class="small" style="margin-top:1.5mm">Maqueta tipográfica del colofón; numeración de ejemplo.</p></div>
-</div>
-<table style="margin-top:5mm">
-<thead><tr><th style="width:18%">Atributo</th><th style="width:32%">Método</th><th>Criterio (a cerrar con la fábrica)</th></tr></thead>
-<tbody>
-<tr><td>Longitud y cepo</td><td>Calibre y regla</td><td>±2 mm / ±1 cepo {T("HIPÓTESIS")}</td></tr>
-<tr><td>Tiro</td><td>Medidor de resistencia al tiro</td><td>Rango de ficha; 0 tiros bloqueados</td></tr>
-<tr><td>Consistencia</td><td>Catas ciegas de 3 catadores, 5 unidades por pliego</td><td>Desviación entre unidades por debajo del umbral acordado</td></tr>
-<tr><td>Conservación</td><td>Higrómetro y pesada</td><td>16–18 °C y 65–70 % HR {T("PROBABLE")}</td></tr>
-<tr><td>Muestreo</td><td>ISO 2859-1, nivel II</td><td>AQL 1,0 (defectos mayores) y 2,5 (menores); 0 defectos críticos; propuesta: reposición a cargo del fabricante por encima del 3 % de rechazo</td></tr>
-</tbody></table>
-<p class="small" style="margin-top:3mm">El torcedor aporta construcción y consistencia física; la liga, la escogida de capas, el control de calidad y el almacén de hoja requieren una fábrica autorizada.</p>
-</div>""", title="CALIDAD")
-
-    # 17 · Canal y regulación
-    hum = fig(I_HUMIDOR, "right:0;top:0;width:100mm;height:210mm")
-    add(f"""{hum}<div class="pad" style="{'right:118mm' if I_HUMIDOR else ''}">
-<div class="kick">Canal y marco regulatorio</div><h1>Una marca que se construye en el humidor</h1>
-<div class="{'grid2' if not I_HUMIDOR else ''}" style="margin-top:4mm;gap:10mm">
- <div><h3>Lo que fija la ley</h3><ul class="clean">
-  <li>Venta solo en expendedurías (≈13.000), abastecidas por un distribuidor mayorista habilitado {T("VERIFICADO")}.</li>
-  <li>Prohibidas la venta online al consumidor y la venta a distancia transfronteriza.</li>
-  <li>Prohibida la publicidad al consumidor (Ley 28/2005): solo comunicación profesional.</li>
-  <li>Habilitación CMT, EU-CEG, marcas fiscales y trazabilidad, PVP publicado en el BOE.</li>
-  <li>Zona de advertencia sanitaria en el envase conforme al RD 579/2017.</li></ul></div>
- <div style="{'margin-top:6mm' if I_HUMIDOR else ''}"><h3>Lo que implica para la marca</h3>
-  <p>El escaparate es el humidor de la expendeduría especialista y el prescriptor es el estanquero. La marca debe ganar en la comparación directa, caja junto a caja, y apoyarse en hechos verificables: pliego, colofón y ficha técnica.</p>
-  <p>Objetivo de validación: al menos <strong>10 expendedurías especialistas</strong> interesadas por escrito (condición C6).</p></div>
-</div></div>""", title="CANAL")
-
-    # 18 · Protección de la marca
-    add(f"""<div class="pad">
-<div class="kick">Protección del activo</div><h1>La marca será de la sociedad española</h1>
-<div class="grid3" style="margin-top:4mm">
- <div class="card"><h3>Unión Europea</h3><p>Solicitud de ARNALDO VALLÉS como marca de la UE en clase 34 a nombre de la SL, con independencia de Cuba. Tasa base: 850 € por una clase {T("PROBABLE")}. Se presentará antes de compartir nombre y diseños con la contraparte cubana.</p></div>
- <div class="card"><h3>Firma</h3><p>La firma de Arnaldo se registra también como marca figurativa, junto con la denominación ARNALDO VALLÉS, con su consentimiento expreso.</p></div>
- <div class="card"><h3>Cuba</h3><p>Registro en la OCPI a través de agente oficial. Condición no negociable C2: titularidad del 100 % de la marca, nunca a nombre de una entidad cubana.</p></div>
-</div>
-<table style="margin-top:7mm">
-<thead><tr><th style="width:30%">Riesgo de marca</th><th>Mitigación</th></tr></thead>
-<tbody>
-<tr><td>Titularidad exigida por la contraparte (precedentes: Davidoff, Vegas Robaina)</td><td>Registro previo en la UE a nombre de la SL; C2 como condición de entrada</td></tr>
-<tr><td>Persona clave</td><td>Licencia irrevocable y transferible; cláusulas de salida y de fallecimiento; nombres de reserva FOLIO y LUMBRE</td></tr>
-<tr><td>Registrabilidad no confirmada</td><td>Informe de agente en EUIPO, OEPM y OCPI (≈900 €) antes de producir; análisis de DON VALLES y ARLONDO</td></tr>
-<tr><td>Asociación con Arnaldo Vichot (maestro ligador de Partagás, fallecido en 2026)</td><td>No sugerir vínculo; la marca lleva su apellido, Vallés, y su firma</td></tr>
-<tr><td>Parecido con Habanos u otras marcas</td><td>Lista de elementos prohibidos en el brief; revisión jurídica de las artes finales</td></tr>
-</tbody></table>
-<p class="small" style="margin-top:3mm">La búsqueda preliminar se hizo en fuentes web; no se consultaron EUIPO, OEPM ni OCPI directamente. Fuentes: S10, S13, S42, S49–S51, N05.</p>
-</div>""", title="PROTECCIÓN")
-
-    # 19 · Hoja de ruta e inversión en marca
-    add(f"""<div class="pad">
-<div class="kick">Hoja de ruta de la marca</div><h1>De concepto a arte final en ocho semanas</h1>
-<table style="margin-top:4mm">
-<thead><tr><th style="width:16%">Semanas</th><th style="width:44%">Hito</th><th style="width:20%">Coste estimado</th><th>Estado</th></tr></thead>
-<tbody>
-<tr><td>1–3</td><td>Consentimiento de Arnaldo y autorización de su empleador; 15–20 firmas escaneadas; retrato opcional</td><td>0 €</td><td>Pendiente</td></tr>
-<tr><td>2–4</td><td>Tres presupuestos de estudios de packaging premium con el brief de 01_BRAND</td><td>0 €</td><td>Pendiente</td></tr>
-<tr><td>3–6</td><td>Informe de registrabilidad de ARNALDO VALLÉS (reservas FOLIO y LUMBRE)</td><td>≈900 €</td><td>Pendiente</td></tr>
-<tr><td>2–4 del encargo</td><td>Arte final a partir de la anilla clásica</td><td rowspan="3">4.000–15.000 € {T("HIPÓTESIS")}</td><td rowspan="3">Por encargar</td></tr>
-<tr><td>5–6 del encargo</td><td>Desarrollo de la ruta elegida: anillas Nº 1–3, vista, colofón</td></tr>
-<tr><td>7–8 del encargo</td><td>Artes finales, separaciones de tinta y foil, pruebas de imprenta</td></tr>
-<tr><td>Tras el informe</td><td>Solicitud de marca de la UE (clase 34) a nombre de la SL</td><td>≈1.100 € (tasa base de 850 € {T("PROBABLE")} + agente)</td><td>Pendiente</td></tr>
-</tbody></table>
-<div class="grid2" style="margin-top:7mm">
- <div class="card"><h3>Ya disponible</h3><p>Estrategia, naming, arquitectura de producto, brief creativo, ficha técnica editable, la anilla de la casa y su arte provisional: anillas, vista, marca a fuego y maquetas (este dossier).</p></div>
- <div class="card"><h3>Dentro del techo de la Fase 0</h3><p>El informe de marcas y la solicitud en la EUIPO están presupuestados dentro del techo de la Fase 0 (≤ 15.000 €). El diseño profesional se encarga cuando la Fase 0 confirme la vía legal.</p></div>
-</div>
-</div>""", title="HOJA DE RUTA")
-
-
-    # 19b · Escenarios
-    add(f"""<div class="pad">
-<div class="kick">Escenarios</div><h1>Qué tiene que ser verdad</h1>
-<table style="margin-top:2mm">
-<thead><tr><th style="width:28%"></th><th>Conservador</th><th>Base</th><th>Optimista</th><th>Estrés</th></tr></thead>
-<tbody>
-<tr><td>PVP / FOB</td><td>20 € / 7,0 USD</td><td>24 € / 6,0 USD</td><td>28 € / 5,0 USD</td><td>24 € / 7,5 USD</td></tr>
-<tr><td>Unidades en 2031</td><td>{M['cons_units_2031']}</td><td>{M['base_units_2031']}</td><td>{M['opt_units_2031']}</td><td>{M['stress_units_2031']}</td></tr>
-<tr><td>Puntos de venta activos necesarios en 2031</td><td>{M['cons_pos_2031']}</td><td>{M['base_pos_2031']}</td><td>{M['opt_pos_2031']}</td><td>—</td></tr>
-<tr><td>EBITDA 2031</td><td>{M['cons_ebitda_2031']}</td><td>{M['base_ebitda_2031']}</td><td>{M['opt_ebitda_2031']}</td><td>{M['stress_ebitda_2031']}</td></tr>
-<tr><td>Necesidad máxima de financiación</td><td>{M['cons_need']}</td><td>{M['base_need']}</td><td>{M['opt_need']}</td><td>{M['stress_need']}</td></tr>
-<tr class="hl"><td><strong>VAN al 18 %</strong></td><td>{M['cons_npv']}</td><td>{M['base_npv']}</td><td><strong>{M['opt_npv']}</strong></td><td>{M['stress_npv']}</td></tr>
-</tbody></table>
-<div class="grid3" style="margin-top:6mm">
- <div class="card"><h3>Precio y coste</h3><p>FOB ≤ ≈5 USD por unidad y un PVP ≥ 25 € aceptado por escrito por las expendedurías especialistas.</p></div>
- <div class="card"><h3>Demanda</h3><p>El Optimista necesita {M['opt_pos_2031']} puntos de venta activos: el doble de la demanda accesible estimada (1.600–6.000 u/año, 40–150 puntos) {T("HIPÓTESIS")}.</p></div>
- <div class="card"><h3>Equipo</h3><p>El modelo no retribuye al promotor: cada 10.000 €/año de remuneración añade ≈{M['base_be_per10k']} al punto muerto Base.</p></div>
-</div>
-<p class="small" style="margin-top:4mm">Sin probabilidades asignadas. Solo el escenario Optimista tiene VAN positivo (TIR {M['opt_irr']}, con valor terminal de 5× EBITDA 2031), y su flujo de caja acumulado sigue siendo negativo en 2031. Fuente: Financial Model 2027–2031.xlsx, hoja «Scenarios»; detalle en Scenario Analysis.pdf.</p>
-</div>""", title="ESCENARIOS")
-
-    # 19c · Fase 0
-    add(f"""<div class="pad">
-<div class="kick">Lo que compra el primer euro</div><h1>Una opción barata antes de una apuesta cara</h1>
-<div class="grid3" style="margin-top:3mm">
- <div class="card"><div class="stat">{M['plan_cost_30']}</div><h3>30 días</h3><p>Abogados en Cuba y España, identidad de la fábrica, consultas a CMT, TARIC, BOE y banco, encargo del informe de marcas.</p></div>
- <div class="card"><div class="stat">{M['plan_cost_90']}</div><h3>90 días · comité Go/No-Go</h3><p>Capacidad legal de exportación, due diligence de la fábrica, dictamen de marca y de sanciones, solicitud EUIPO, 15 entrevistas a estanqueros.</p></div>
- <div class="card"><div class="stat">{M['plan_cost_180']}</div><h3>180 días · solo con Go</h3><p>SL, diseño profesional, prototipos y catas, term sheet, habilitaciones, EU-CEG, cartas de interés y distribuidor.</p></div>
-</div>
-<div class="grid2" style="margin-top:7mm;gap:10mm">
- <div><h3>Regla de capital</h3><ul class="clean">
-  <li>Fase 0: ≤ 15.000 €, con capital propio del promotor.</li>
-  <li>Pedido piloto (1.000–3.000 u): solo con C1–C8 cumplidas; un pedido de 3.000 u necesita {M['wc_peak']} de caja.</li>
-  <li>Proyecto completo: {M['opt_need']}–{M['cons_need']} según escenario.</li></ul></div>
- <div><h3>Si la vía cubana no se abre</h3><ul class="clean">
-  <li>Importación de marcas premium no cubanas (vía B3): contribución {M['b3_contrib']}/u a PVP 15 €, punto muerto ≈{M['b3_be']} u/año, 40–60 k€ de capital {T("HIPÓTESIS")}.</li>
-  <li>ARNALDO VALLÉS con origen alternativo (República Dominicana o Nicaragua): {ph('d13_plan_b', 'decisión D13: ¿plan B de origen?')}</li></ul></div>
-</div>
-<p class="small" style="margin-top:4mm">Fuente: 07_OPERATIONS/180-Day Execution Plan.xlsx (costes acumulados {T("HIPÓTESIS")}), Business Case y Premium Import Business Case.</p>
-</div>""", title="FASE 0")
-
-
-    # 19d · Propuesta por tramos
-    add(f"""<div class="pad">
-<div class="kick">Propuesta de inversión · recomendación pendiente de decisión (D12)</div><h1>Capital por tramos, liberado por hechos</h1>
-<table style="margin-top:2mm">
-<thead><tr><th style="width:16%">Tramo</th><th style="width:16%">Importe</th><th style="width:22%">Quién aporta</th><th style="width:26%">Qué compra</th><th>Se libera solo si…</th></tr></thead>
-<tbody>
-<tr class="hl"><td><strong>0 · Fase 0</strong></td><td>≤ 15.000 € ({M['plan_cost_90']} previstos a 90 días)</td><td>Promotor, con capital propio</td><td>Vía legal, titularidad de la marca, sanciones, registrabilidad, 15 entrevistas</td><td>Aprobación del promotor (D01)</td></tr>
-<tr><td><strong>1 · Piloto</strong></td><td>Necesidad de caja de un pedido de 3.000 u: {M['wc_peak']}, más gastos fijos</td><td>Promotor e inversor(es)</td><td>SL, diseño profesional, habilitaciones, EU-CEG, pedido piloto</td><td>C1–C8 cumplidas y documentadas</td></tr>
-<tr><td><strong>2 · Escalado</strong></td><td>Hasta la necesidad máxima: {M['opt_need']}–{M['cons_need']}</td><td>Inversor(es) o financiación</td><td>Segundo pedido, extensión Nº 2 y red de puntos de venta</td><td>KPIs del Business Plan durante 12 meses: contribución ≥ 4 €/u, ≥ 4 cajas por punto y año, rechazo ≤ 3 %, ≥ 40 puntos activos</td></tr>
-</tbody></table>
-<div class="grid3" style="margin-top:7mm">
- <div class="card"><h3>Qué no se pide</h3><p>Ningún capital externo antes del Go de la Fase 0. Ningún anticipo a fábrica sin las ocho condiciones.</p></div>
- <div class="card"><h3>Instrumentos posibles</h3><p>Capital en la SL española o préstamo participativo (p. ej. ENISA) con el plan validado {T("HIPÓTESIS")}. La valoración se negocia después de la Fase 0, con hechos.</p></div>
- <div class="card"><h3>Protección del inversor</h3><p>Marca a nombre de la SL, licencia irrevocable de nombre y firma, liberación por hitos y opción de redirigir el capital a la vía B3 si Cuba no se abre.</p></div>
-</div>
-<table style="margin-top:6mm"><thead><tr><th colspan="4">Decisión del promotor (D12)</th></tr></thead><tbody>
-<tr><td style="width:22%">Opción</td><td>{ph('d12_opcion', 'A sin inversores hasta el Go · B tramo 1 · C socio estratégico')}</td><td style="width:18%">Importe a captar</td><td>{ph('d12_importe', 'importe aproximado')}</td></tr>
-<tr><td>Participación a ceder</td><td>{ph('d12_participacion', '% o «a negociar»')}</td><td>Instrumento</td><td>{ph('d12_instrumento', 'capital / préstamo participativo')}</td></tr>
-</tbody></table>
-<p class="small" style="margin-top:3mm">Importes de los modelos del dossier. La valoración se negocia después de la Fase 0.</p>
-</div>""", title="PROPUESTA")
-
-    # 19e · Equipo
-    add(f"""<div class="pad">
-<div class="kick">Equipo y gobierno</div><h1>Quién lo hace</h1>
-<div class="grid2" style="gap:10mm;margin-top:2mm">
- <div>
-  <div class="card" style="margin-bottom:5mm"><h3>Promotor · {ph('promotor_nombre', 'nombre y apellidos')}</h3>
-   <p style="margin-bottom:1.5mm">Dirección y desarrollo comercial; titular de la SL española.</p>
-   <p style="margin-bottom:1.5mm"><strong>Experiencia:</strong> {ph('promotor_experiencia', 'sector, cargos y años')}</p>
-   <p style="margin-bottom:1.5mm"><strong>Dedicación:</strong> {ph('promotor_dedicacion', 'completa o parcial')} · <strong>Aportación:</strong> {ph('promotor_capital', 'capital propio')}</p>
-   <p style="margin:0"><strong>Relación con Arnaldo:</strong> {ph('promotor_vinculo', 'desde cuándo y cómo')}</p></div>
-  <div class="card"><h3>Arnaldo {ph('arnaldo_apellidos', 'apellidos')}, torcedor</h3>
-   <p style="margin-bottom:1.5mm">Nombre, firma y criterio de construcción, a través de la entidad autorizada y con permiso de su empleador.</p>
-   <p style="margin-bottom:1.5mm"><strong>Categoría y oficio (acreditados):</strong> {ph('arnaldo_categoria', 'solo con documento')}</p>
-   <p style="margin:0"><strong>Entidad en la que trabaja:</strong> {ph('arnaldo_empresa', 'razón social')}</p></div>
+{fig(I_VINETA, "left:0;top:0;width:128mm;height:210mm;background-position:50% 50%;filter:sepia(.25)")}
+<div class="col" style="left:150mm;right:24mm;top:28mm">
+ <div class="kick">El autor</div>
+ <div class="display">Un torcedor,<br><em>no un personaje</em></div>
+ <p class="lead">Arnaldo Vallés es el torcedor cubano que da nombre a la marca y participa en el proyecto. No hay historia que inventar: la persona existe y firma su trabajo.</p>
+ <div class="grid c2" style="margin-top:7mm;gap:8mm">
+  <div class="tick"><h3>Aporta</h3><p class="muted" style="margin:0">Su nombre, su firma y su criterio de construcción, con derecho de veto sobre ambos.</p></div>
+  <div class="tick"><h3>Se formaliza</h3><p class="muted" style="margin:0">Consentimiento escrito, permiso de su empleador y licencia de nombre y firma a favor de la sociedad.</p></div>
  </div>
- <div><h3>Asesores externos (por contratar en la Fase 0)</h3>
-  <table><tbody>
-  <tr><td>Abogado cubano habilitado</td><td>Vía legal, due diligence de la fábrica, contratos</td></tr>
-  <tr><td>Abogado español de comercio exterior</td><td>Contratos, sanciones UE/EE. UU.</td></tr>
-  <tr><td>Asesor fiscal España–Andorra</td><td>Residencia, estructura, retribución</td></tr>
-  <tr><td>Agente de marcas</td><td>Registrabilidad y registro en la UE y en Cuba</td></tr>
-  <tr><td>Asesor regulatorio</td><td>CMT, EU-CEG, trazabilidad, PVP en el BOE</td></tr>
-  <tr><td>Operador logístico habilitado</td><td>Depósito fiscal y distribución</td></tr>
-  <tr><td>Estudio de packaging premium</td><td>Identidad definitiva (tras el Go)</td></tr>
-  </tbody></table></div>
+ <p class="fine" style="margin-top:8mm">No se le atribuye ningún mérito, premio ni año de oficio que no esté acreditado. Grabado ilustrativo.</p>
+</div>""", title="El autor", left="150mm")
+
+    # 4 · Oportunidad
+    add(f"""<div class="col" style="left:24mm;right:24mm;top:26mm">
+ <div class="kick">La oportunidad</div>
+ <div class="display">Un mercado que paga<br><em>por el nombre</em></div>
+ <div class="grid c4" style="margin-top:12mm;gap:10mm">
+  <div class="tick"><div class="big">827<small>M USD</small></div><p class="muted">Ventas de Habanos S.A. en 2024, con crecimiento sobre todo por precio.</p></div>
+  <div class="tick"><div class="big">54 %</div><p class="muted">Peso de Europa en esas ventas.</p></div>
+  <div class="tick"><div class="big">2.º</div><p class="muted">Puesto de España entre los mercados del puro cubano, tras China.</p></div>
+  <div class="tick"><div class="big">13.000</div><p class="muted">Expendedurías: la única red de venta autorizada en España.</p></div>
+ </div>
+ <div class="hair" style="margin:12mm 0 6mm;opacity:.5"></div>
+ <p class="lead" style="max-width:200mm">La demanda accesible para una marca nueva se estima en <strong>1.600–6.000 puros al año</strong> en 40–150 puntos de venta. Se validará con 15 estanqueros especialistas antes de producir.</p>
 </div>
-<p class="small" style="margin-top:5mm">Gobierno: comité Go/No-Go con acta en la semana 11; ninguna comunicación externa ni pago sin aprobación del promotor; screening de sanciones de cada contraparte (SOP-01).</p>
-</div>""", title="EQUIPO")
+<div class="col fine" style="left:24mm;right:24mm;bottom:17mm">Fuentes: Halfwheel y Habanos S.A. (2024), Comisionado para el Mercado de Tabacos, prensa sectorial; detalle en 09_RESEARCH/Source Register.xlsx. La demanda accesible es una estimación propia.</div>""", title="Oportunidad")
 
-    # 20 · Estado y condiciones
-    add(f"""<div class="pad">
-<div class="kick">Estado del proyecto</div><h1>Una marca preparada, una inversión condicionada</h1>
-<p><span class="verdict">CONDITIONAL GO</span> — solo Fase 0 y validación (≤ 15.000 €). <strong>NO-GO</strong> a cualquier anticipo, producción o stock hasta cumplir las ocho condiciones verificables.</p>
-<table style="margin-top:3mm">
-<thead><tr><th style="width:6%"></th><th style="width:52%">Condición</th><th>Evidencia</th></tr></thead>
-<tbody>
-<tr><td class="num">C1</td><td>Autorización documentada de fabricación y exportación para una marca de titularidad extranjera</td><td>Licencia o carta oficial</td></tr>
-<tr><td class="num">C2</td><td>Titularidad del 100 % de la marca aceptada (UE y Cuba)</td><td>Term sheet + OCPI</td></tr>
-<tr><td class="num">C3</td><td>FOB firme compatible con ≤ 5 USD a PVP 24 € (o un PVP mayor validado)</td><td>Oferta firmada</td></tr>
-<tr><td class="num">C4</td><td>Canal de pago validado y dictamen de sanciones UE/EE. UU. sobre la contraparte</td><td>Banco + dictamen de abogado</td></tr>
-<tr><td class="num">C5</td><td>Distribuidor habilitado dispuesto</td><td>Carta de intención</td></tr>
-<tr><td class="num">C6</td><td>≥ 10 expendedurías especialistas interesadas</td><td>Cartas</td></tr>
-<tr><td class="num">C7</td><td>Informe de registrabilidad favorable</td><td>Agente de marcas</td></tr>
-<tr><td class="num">C8</td><td>Capital ≥ necesidad del escenario Conservador + 25 % (o socio o financiación comprometidos)</td><td>Modelo + compromiso</td></tr>
-</tbody></table>
-<p class="small" style="margin-top:3mm">Hoy no consta una vía pública y verificada para que una sociedad extranjera fabrique en Cuba una marca propia {T("BLOQUEADO")}: es la cuestión que resuelve la Fase 0. Necesidad máxima de financiación del proyecto completo: de {M['opt_need']} (Optimista) a {M['cons_need']} (Conservador). Cifras, escenarios y riesgos completos: Executive Investment Memorandum y Business Case.</p>
-</div>""", title="ESTADO")
+    # 5 · Precio
+    add(f"""<div class="col" style="left:24mm;right:24mm;top:26mm">
+ <div class="kick">Precio</div>
+ <div class="display">Al precio de un clásico,<br><em>con un autor detrás</em></div>
+ <div style="margin:2mm 0 0 -4mm">{precios_svg()}</div>
+ <div class="grid c2" style="margin-top:2mm;gap:14mm">
+  <div class="tick"><h3>El reto</h3><p class="muted" style="margin:0">A 24 €, una marca nueva compite de tú a tú con los Habanos que el fumador ya conoce. Solo lo justifican una habilitación de primer nivel y una autenticidad que se pueda comprobar.</p></div>
+  <div class="tick"><h3>Por qué puede ganar</h3><p class="muted" style="margin:0">El estanquero vende lo que puede explicar. Un torcedor con nombre y apellido, lotes numerados y una ficha técnica son argumentos que ninguna marca de catálogo tiene.</p></div>
+ </div>
+</div>
+<div class="col fine" style="left:24mm;right:24mm;bottom:17mm">PVP oficiales en España por unidad, 2026 (BOE). Banda sombreada: Habanos clásicos, 18–25 €. Cohiba Behike BHK 56, a 262,50 €, queda fuera de escala.</div>""", title="Precio")
 
-    # 21 · Notas
-    add(f"""<div class="pad">
-<div class="kick">Notas</div><h1>Sobre este documento</h1>
-<div class="grid2" style="gap:12mm;margin-top:4mm">
- <div><h3>Imágenes</h3>
-  <p>Las anillas, la vista y la marca a fuego son <strong>arte vectorial provisional</strong> redibujado a partir de la anilla clásica, con el texto convertido a trazados desde tipografías con licencia SIL OFL 1.1: no pueden contener errores de letra. Las fotografías de producto son <strong>conceptos generados con IA</strong> en octubre de 2026: la anilla clásica (Runway, Nano Banana Pro, con la firma retocada) y fotografías sin texto (Qwen-Image, vía Hugging Face) sobre las que se compone ese arte. Ni el arte ni las maquetas son artes finales ni fotografías de producto existente.</p>
-  <p>Cada imagen se ha revisado letra por letra; cualquier retoque o composición lo indica su pie. El proceso es reproducible: <code>_build/brand_clasica.py</code>, <code>_build/renders</code> y <code>01_BRAND/renders/README.md</code>.</p>
-  <p>La firma, la viñeta y el retrato definitivos serán los de Arnaldo, con su consentimiento.</p></div>
- <div><h3>Fuentes y límites</h3>
-  <p>Datos de mercado, precios y normativa procedentes de fuentes públicas consultadas el {FECHA} (09_RESEARCH/Source Register.xlsx). Etiquetas: {T("VERIFICADO")} {T("PROBABLE")} {T("HIPÓTESIS")} {T("BLOQUEADO")}.</p>
-  <p>La disponibilidad registral de ARNALDO VALLÉS no está confirmada en registros oficiales. No se ha contactado con ninguna entidad y no hay nada firmado.</p>
-  <h3 style="margin-top:5mm">Aviso</h3>
-  <p class="small">Documento confidencial de trabajo, dirigido a inversores y asesores profesionales. No constituye una oferta de valores ni asesoramiento jurídico, fiscal o financiero, y no es material publicitario dirigido al consumidor (Ley 28/2005). Requiere revisión profesional antes de cualquier decisión, firma o comunicación externa.</p></div>
-</div></div>""", title="NOTAS")
+    # 6 · La anilla
+    add(f"""{dark_bg("left:0;top:0;width:297mm;height:210mm")}
+<div class="col" style="left:24mm;top:26mm;width:120mm"><div class="kick">La casa</div><div class="display">La anilla</div></div>
+{artimg(A_N1, "left:38mm;top:66mm;width:221mm")}
+{artimg(A_PLIEGO, "left:38mm;top:142mm;width:221mm")}
+<div class="col" style="left:24mm;right:24mm;top:166mm">
+ <div class="grid c4" style="gap:8mm">
+  <div class="tick"><h3>Banda lacre</h3><p class="muted" style="margin:0;font-size:8.4pt">Cantos de oro con perlado en relieve.</p></div>
+  <div class="tick"><h3>Óvalo troquelado</h3><p class="muted" style="margin:0;font-size:8.4pt">Marco de oro en guilloché y centro de laca negra.</p></div>
+  <div class="tick"><h3>El nombre</h3><p class="muted" style="margin:0;font-size:8.4pt">ARNALDO VALLÉS en capitales romanas de oro.</p></div>
+  <div class="tick"><h3>La firma</h3><p class="muted" style="margin:0;font-size:8.4pt">Debajo, la firma de Arnaldo. Y una segunda anilla: «Pliego de autor».</p></div>
+ </div>
+</div>""", dark=True, title="La anilla", footer=False)
 
-    html = f"""<!doctype html><html lang="es"><head><meta charset="utf-8"><title>ARNALDO VALLÉS — Dossier de marca</title>
+    # 7 · Gama
+    add(f"""<div class="col" style="left:24mm;top:26mm;width:110mm">
+ <div class="kick">La gama</div>
+ <div class="display">Una anilla,<br><em>tres vitolas</em></div>
+ <p class="muted">Un mismo óvalo en toda la gama; cambia el color de la banda. Se reconoce de lejos y se distingue de cerca.</p>
+</div>
+{artimg(A_N1, "left:22mm;top:92mm;width:96mm")}{artimg(A_N2, "left:22mm;top:124mm;width:96mm")}{artimg(A_N3, "left:22mm;top:156mm;width:96mm")}
+<div class="col" style="left:122mm;top:99mm;width:40mm"><h3>Nº 1 · Robusto</h3><p class="fine" style="margin:0">Lanzamiento</p></div>
+<div class="col" style="left:122mm;top:131mm;width:40mm"><h3>Nº 2 · Toro</h3><p class="fine" style="margin:0">Extensión</p></div>
+<div class="col" style="left:122mm;top:163mm;width:40mm"><h3>Nº 3 · Churchill</h3><p class="fine" style="margin:0">Edición limitada</p></div>
+<div style="position:absolute;left:168mm;top:0;width:129mm;height:210mm;background:#050403"></div>
+{fig(I_GAMA, "left:168mm;top:40mm;width:129mm;height:129mm")}""", title="La gama", right="135mm")
+
+    # 8 · La caja
+    add(f"""
+{fig(I_CAJA, "left:0;top:0;width:148mm;height:210mm;background-position:50% 45%")}
+{fig(I_ABIERTA, "left:149mm;top:0;width:148mm;height:210mm;background-position:45% 50%")}
+<div style="position:absolute;left:0;bottom:0;width:297mm;height:88mm;background:linear-gradient(0deg,rgba(10,8,6,.97) 35%,rgba(10,8,6,0) 100%)"></div>
+<div class="col" style="left:24mm;bottom:22mm;width:120mm"><div class="kick">La caja</div><div class="display" style="margin:0">Cedro y fuego</div></div>
+<div class="col" style="left:166mm;right:24mm;bottom:22mm"><p class="muted" style="margin:0">Caja de cedro con el nombre y la firma marcados a fuego. Dentro, la vista litografiada con el óvalo de la casa y el colofón numerado de cada caja.</p></div>""", dark=True, title="La caja")
+
+    # 9 · Prueba
+    add(f"""<div class="col" style="left:24mm;top:26mm;width:150mm">
+ <div class="kick">La prueba</div>
+ <div class="display">Autenticidad<br><em>que se puede comprobar</em></div>
+ <div class="grid c3" style="margin-top:10mm;gap:8mm">
+  <div class="tick"><h3>Pliego</h3><p class="muted" style="margin:0">Cada lote, numerado y documentado: fecha de torcido, unidades, rechazo, cata y expedición.</p></div>
+  <div class="tick"><h3>Colofón</h3><p class="muted" style="margin:0">Cada caja dice qué lote es y qué número de caja sobre el total.</p></div>
+  <div class="tick"><h3>Ficha técnica</h3><p class="muted" style="margin:0">Liga y construcción documentadas por la fábrica. Nada de fincas ni añadas que no consten.</p></div>
+ </div>
+ <p class="fine" style="margin-top:9mm">Control de calidad por muestreo ISO 2859-1 (AQL 1,0 en defectos mayores) y catas ciegas por pliego, a cerrar con la fábrica.</p>
+</div>
+<div class="col" style="left:196mm;top:40mm;width:78mm">
+ <div style="background:#FBF6EA;border:1px solid #C9A24A;outline:1px solid #C9A24A;outline-offset:-3mm;padding:11mm 8mm;text-align:center;box-shadow:0 2mm 8mm rgba(0,0,0,.12)">
+  <div style="font-family:Cinzel;font-weight:600;font-size:11pt;letter-spacing:.24em;color:#110D0B">ARNALDO VALLÉS</div>
+  <div style="font-family:Cinzel;font-size:6.4pt;letter-spacing:.32em;color:#8C1D1A;margin:3mm 0 6mm">PLIEGO Nº 001</div>
+  <div style="font-family:'Cormorant Garamond';font-size:12pt;line-height:1.35;color:#3A2E25">Nº 1 · Robusto<br>Caja <strong>0001</strong> de 0500</div>
+  <div style="font-family:'Cormorant Garamond';font-style:italic;font-size:10pt;color:#3A2E25;margin-top:6mm">Torcido a mano por</div>
+  <div style="font-family:'Pinyon Script';font-size:22pt;color:#3A2E25;line-height:1.3">Arnaldo Vallés</div>
+ </div>
+ <p class="fine" style="margin-top:3mm;text-align:center">El colofón · numeración de ejemplo</p>
+</div>""", title="La prueba")
+
+    # 10 · Economía de una unidad
+    add(f"""<div class="col" style="left:24mm;right:24mm;top:26mm">
+ <div class="kick">Economía de una unidad</div>
+ <div class="display">De 24 € de PVP,<br><em>{M['split_contrib_eur']} para la marca</em></div>
+</div>
+<div class="col" style="left:20mm;top:84mm">{unidad_svg()}</div>
+<div class="col" style="left:212mm;right:24mm;top:86mm">
+ <div class="big">{M['split_contrib_eur']}</div><p class="muted">Contribución por puro antes de gastos fijos ({M['split_contrib']} del PVP), escenario Base.</p>
+ <div class="hair" style="margin:6mm 0;opacity:.5"></div>
+ <p class="muted" style="margin:0">Con origen Cuba, el Estado y el canal se llevan la mayor parte. Por eso el precio de fábrica es la palanca: hay que cerrarlo por debajo de 5 USD.</p>
+</div>
+<div class="col fine" style="left:24mm;right:24mm;bottom:17mm">Financial Model 2027–2031.xlsx, escenario Base (2028). IVA 21 % e impuesto especial 15,8 % verificados; arancel 26 % y margen del expendedor 9 % a confirmar; precio de fábrica pendiente de cotización formal.</div>""", title="Economía unitaria")
+
+    # 11 · Escenarios
+    sc = [("Conservador", "20 € · 7,0 USD", "cons", False), ("Base", "24 € · 6,0 USD", "base", True),
+          ("Optimista", "28 € · 5,0 USD", "opt", False), ("Estrés", "24 € · 7,5 USD", "stress", False)]
+    cols = "".join(f"""<div class="scn{' hl' if hl else ''}"><h3 style="color:{'#8C1D1A' if hl else '#1C1714'}">{nm}</h3><p class="fine" style="margin:0 0 3mm">PVP · precio de fábrica: {pf}</p>
+<div class="row"><span>Puros en 2031</span><span>{M[k + '_units_2031']}</span></div>
+<div class="row"><span>EBITDA 2031</span><span>{M[k + '_ebitda_2031']}</span></div>
+<div class="row"><span>Financiación máxima</span><span>{M[k + '_need']}</span></div>
+<div class="row"><span>VAN al 18 %</span><span>{M[k + '_npv']}</span></div></div>""" for nm, pf, k, hl in sc)
+    add(f"""<div class="col" style="left:24mm;right:24mm;top:26mm">
+ <div class="kick">Escenarios</div>
+ <div class="display">Qué tiene que<br><em>ser verdad</em></div>
+ <div class="grid c4" style="margin-top:8mm;gap:8mm">{cols}</div>
+ <div class="grid c3" style="margin-top:10mm;gap:10mm">
+  <div><h3>Precio de fábrica</h3><p class="muted" style="margin:0">≤ 5 USD por puro, con un PVP de 25 € aceptado por los estanqueros.</p></div>
+  <div><h3>Demanda</h3><p class="muted" style="margin:0">El Optimista necesita {M['opt_pos_2031']} puntos de venta activos: el doble de lo que hoy se estima accesible.</p></div>
+  <div><h3>Lectura honesta</h3><p class="muted" style="margin:0">Solo el Optimista tiene VAN positivo. Por eso nada se produce antes de validar precio y demanda.</p></div>
+ </div>
+</div>
+<div class="col fine" style="left:24mm;right:24mm;bottom:17mm">Financial Model 2027–2031.xlsx, hoja «Scenarios». Sin probabilidades asignadas; el modelo no incluye retribución del promotor.</div>""", title="Escenarios")
+
+    # 12 · Plan
+    steps = [("30 días", M['plan_cost_30'], "Abogados en Cuba y España, identificación de la fábrica, consultas regulatorias y encargo del informe de marcas."),
+             ("90 días", M['plan_cost_90'], "Comité Go / No-Go: vía legal de exportación, titularidad de la marca, sanciones, registro en la UE y 15 entrevistas a estanqueros."),
+             ("180 días", M['plan_cost_180'], "Solo con Go: sociedad, diseño profesional, prototipos y catas, contrato con la fábrica y cartas de interés.")]
+    tl = "".join(f"""<div style="position:relative;padding-top:9mm"><div style="position:absolute;top:0;left:0;width:4mm;height:4mm;border-radius:50%;background:#8C1D1A"></div>
+<h3>{t}</h3><div class="big" style="font-size:34pt">{c}</div><p class="muted" style="margin:0">{d}</p></div>""" for t, c, d in steps)
+    add(f"""<div class="col" style="left:24mm;right:24mm;top:26mm">
+ <div class="kick">El plan</div>
+ <div class="display">Una opción barata<br><em>antes de una apuesta cara</em></div>
+ <div style="position:relative;margin-top:8mm">
+  <div style="position:absolute;top:1.9mm;left:2mm;right:0;height:1px;background:#C9A24A"></div>
+  <div class="grid c3" style="gap:12mm">{tl}</div>
+ </div>
+ <div class="grid c3" style="margin-top:11mm;gap:12mm">
+  <div class="tick"><h3>Tramo 0 · Fase 0</h3><p class="muted" style="margin:0">Hasta 15.000 €, capital propio del promotor.</p></div>
+  <div class="tick"><h3>Tramo 1 · Piloto</h3><p class="muted" style="margin:0">Pedido de 3.000 puros: {M['wc_peak']} de caja. Solo con las ocho condiciones cumplidas.</p></div>
+  <div class="tick"><h3>Tramo 2 · Escalado</h3><p class="muted" style="margin:0">Hasta {M['cons_need']}, liberado por resultados de 12 meses.</p></div>
+ </div>
+</div>
+<div class="col fine" style="left:24mm;right:24mm;bottom:17mm">Costes acumulados estimados (07_OPERATIONS/180-Day Execution Plan.xlsx). Si la vía cubana no se abre, el capital se redirige a la importación de marcas premium no cubanas.</div>""", title="El plan")
+
+    # 13 · Canal y protección
+    add(f"""<div class="col" style="left:24mm;right:24mm;top:26mm">
+ <div class="kick">Canal y protección</div>
+ <div class="display">Se vende en el humidor.<br><em>Se protege en Europa.</em></div>
+ <div class="grid c2" style="margin-top:10mm;gap:18mm">
+  <div><h3>Cómo se vende</h3><ul class="dash">
+   <li>Solo en expendedurías, a través de un distribuidor habilitado.</li>
+   <li>Sin venta online ni publicidad al consumidor: el prescriptor es el estanquero.</li>
+   <li>Objetivo de validación: 10 expendedurías especialistas interesadas por escrito.</li></ul></div>
+  <div><h3>Cómo se protege</h3><ul class="dash">
+   <li>La marca, a nombre de la sociedad española: se registra en la UE antes de compartir nada con la fábrica.</li>
+   <li>La firma de Arnaldo Vallés, registrada también como marca, con su consentimiento.</li>
+   <li>Titularidad del 100 % como condición no negociable con la contraparte cubana.</li></ul></div>
+ </div>
+ <p class="fine" style="margin-top:10mm">Anterioridades a analizar en el informe de registrabilidad: DON VALLES (EE. UU., puros) y ARLONDO (tabaco). Ley 28/2005; RD 579/2017.</p>
+</div>""", title="Canal y protección")
+
+    # 14 · Equipo y propuesta
+    add(f"""<div class="col" style="left:24mm;right:24mm;top:26mm">
+ <div class="kick">Equipo y propuesta</div>
+ <div class="display">Quién lo hace<br><em>y qué se pide</em></div>
+ <div class="grid c3" style="margin-top:8mm;gap:12mm">
+  <div class="tick"><h3>Promotor</h3><p style="margin:0 0 2mm"><strong>{ph('promotor_nombre', 'nombre y apellidos')}</strong></p>
+   <p class="muted" style="margin:0 0 2mm">{ph('promotor_experiencia', 'experiencia')}</p>
+   <p class="muted" style="margin:0">Dedicación: {ph('promotor_dedicacion', 'completa o parcial')} · {ph('promotor_vinculo', 'relación con Arnaldo')}</p></div>
+  <div class="tick"><h3>Arnaldo Vallés</h3><p style="margin:0 0 2mm"><strong>Torcedor</strong></p>
+   <p class="muted" style="margin:0 0 2mm">{ph('arnaldo_categoria', 'categoría y años de oficio acreditados')}</p>
+   <p class="muted" style="margin:0">{ph('arnaldo_empresa', 'entidad en la que trabaja')}</p></div>
+  <div class="tick"><h3>Asesores (Fase 0)</h3><p class="muted" style="margin:0">Abogados en Cuba y en España, asesor fiscal, agente de marcas, asesor regulatorio, operador logístico y, tras el Go, un estudio de packaging premium.</p></div>
+ </div>
+ <div style="margin-top:12mm;border:1px solid #C9A24A;padding:7mm 9mm;display:grid;grid-template-columns:52mm 1fr 1fr 1fr;gap:8mm;align-items:start">
+  <div><h3 style="margin:0">La propuesta</h3><p class="fine" style="margin:2mm 0 0">Ningún capital externo antes del Go de la Fase 0.</p></div>
+  <div><p class="fine" style="margin:0 0 1mm">Opción</p>{ph('d12_opcion', 'sin inversores hasta el Go · tramo 1 · socio')}</div>
+  <div><p class="fine" style="margin:0 0 1mm">Importe y participación</p>{ph('d12_importe', 'importe')} · {ph('d12_participacion', '% o a negociar')}</div>
+  <div><p class="fine" style="margin:0 0 1mm">Instrumento</p>{ph('d12_instrumento', 'capital o préstamo participativo')}</div>
+ </div>
+ <p class="fine" style="margin-top:4mm"><span class="ph">En dorado</span>: datos por completar antes de enviar el dossier. Aportación del promotor: {ph('promotor_capital', 'capital propio')}. Plan B de origen (República Dominicana o Nicaragua): {ph('d13_plan_b', 'decisión D13')}.</p>
+</div>""", title="Equipo y propuesta")
+
+    # 15 · Condiciones
+    conds = [("Fábrica", "Autorización documentada para fabricar y exportar una marca de titularidad extranjera."),
+             ("Marca", "Titularidad del 100 % aceptada en la UE y en Cuba."),
+             ("Precio", "Precio de fábrica firme compatible con ≤ 5 USD a PVP 24 €."),
+             ("Pagos", "Canal bancario validado y dictamen de sanciones UE / EE. UU."),
+             ("Distribuidor", "Distribuidor habilitado dispuesto, con carta de intención."),
+             ("Estanqueros", "Al menos 10 expendedurías especialistas interesadas por escrito."),
+             ("Registro", "Informe de registrabilidad favorable."),
+             ("Capital", "Capital o financiación ≥ necesidad del Conservador + 25 %.")]
+    cl = "".join(f'<div class="cond"><div class="cnum">C{i+1}</div><div><h3 style="margin:0 0 1mm">{t}</h3><p class="muted" style="margin:0;font-size:8.8pt">{d}</p></div></div>' for i, (t, d) in enumerate(conds))
+    add(f"""<div class="col" style="left:24mm;right:24mm;top:26mm">
+ <div class="kick">Estado</div>
+ <div class="display">Una marca preparada.<br><em>Una inversión condicionada.</em></div>
+ <p style="margin:0 0 6mm"><span class="verdict">CONDITIONAL GO</span> <span class="muted">— solo la Fase 0. Ningún anticipo, producción ni stock hasta cumplir las ocho condiciones.</span></p>
+ <div class="grid c2" style="gap:0 16mm">{cl}</div>
+</div>""", dark=True, title="Estado")
+
+    # 16 · Notas
+    add(f"""<div class="col" style="left:24mm;right:24mm;top:26mm">
+ <div class="kick">Notas</div>
+ <div class="display" style="font-size:30pt">Sobre este documento</div>
+ <div class="grid c3" style="margin-top:6mm;gap:12mm">
+  <div><h3>Imágenes</h3><p class="muted">Conceptos de diseño, no producto existente: fotografías generadas con inteligencia artificial y arte vectorial provisional de la anilla, revisados letra por letra. La firma es provisional hasta disponer de la de Arnaldo Vallés.</p></div>
+  <div><h3>Fuentes</h3><p class="muted">Datos de mercado, precios y normativa de fuentes públicas consultadas en octubre de 2026 (09_RESEARCH/Source Register.xlsx). Cifras del Financial Model 2027–2031. Detalle completo en el Executive Investment Memorandum y el Business Plan.</p></div>
+  <div><h3>Aviso</h3><p class="muted">Documento confidencial para inversores y asesores. No es una oferta de valores ni asesoramiento jurídico, fiscal o financiero, ni material publicitario dirigido al consumidor (Ley 28/2005). No se ha contactado con ninguna entidad y no hay nada firmado.</p></div>
+ </div>
+</div>""", title="Notas")
+
+    html = f"""<!doctype html><html lang="es"><head><meta charset="utf-8"><title>ARNALDO VALLÉS — Dossier para inversores</title>
 <style>{fontfaces()}{CSS}</style></head><body>{''.join(P)}</body></html>"""
     return html, n
 

@@ -1,0 +1,14 @@
+[
+ {
+  "id": "arnaldo-av-1-anilla-nombre-completo",
+  "ratio": "4:3",
+  "prompt": "Close-up luxury product photograph of a premium Cuban-style robusto cigar lying diagonally on a dark walnut table, warm low-key light, shallow depth of field, a blurred glass of rum in the background. The cigar wears an ornate classic cigar band: deep red lacquered paper with embossed gold foil borders and rows of tiny raised gold pearls, and a large die-cut oval medallion in the centre framed by gold filigree with a fine gold lattice guilloché pattern. Inside the oval, on glossy black lacquer, the name \"ARNALDO VALLÉS\" in elegant engraved gold Roman serif capitals on one line following a gentle arc, and below it the handwritten gold signature \"Arnaldo Vallés\" with an underline flourish. Exact spelling: ARNALDO VALLÉS, with an acute accent on the E. No other text. Ultra-detailed paper and foil texture, photorealistic, 85mm macro.",
+  "negative": "watermark, misspelled text, extra letters, extra words, gibberish, numbers, flags, coat of arms, medals, crown, fleur-de-lis, laurel, sickle, knife, monogram, blurry, low resolution, cartoon"
+ },
+ {
+  "id": "arnaldo-av-2-anilla-nombre-completo",
+  "ratio": "4:3",
+  "prompt": "Close-up luxury product photograph of a premium Cuban-style robusto cigar lying diagonally on a dark walnut table, warm low-key light, shallow depth of field, a blurred glass of rum in the background. The cigar wears an ornate classic cigar band: deep red lacquered paper with embossed gold foil borders and rows of tiny raised gold pearls, and a large die-cut oval medallion in the centre framed by gold filigree with a fine gold lattice guilloché pattern. Inside the oval, on glossy black lacquer, the name \"ARNALDO VALLÉS\" in elegant engraved gold Roman serif capitals on one line following a gentle arc, and below it the handwritten gold signature \"Arnaldo Vallés\" with an underline flourish; the signature is spelled A-r-n-a-l-d-o, with the letter l before the d. Exact spelling: ARNALDO VALLÉS, with an acute accent on the E. No other text. Ultra-detailed paper and foil texture, photorealistic, 85mm macro.",
+  "negative": "watermark, misspelled text, extra letters, extra words, gibberish, numbers, flags, coat of arms, medals, crown, fleur-de-lis, laurel, sickle, knife, monogram, blurry, low resolution, cartoon, Arnado, missing letters"
+ }
+]

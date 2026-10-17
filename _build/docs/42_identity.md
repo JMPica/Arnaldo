@@ -63,6 +63,8 @@ La marca lleva el nombre y apellido del torcedor: **ARNALDO VALLÉS**. Se mantie
 
 <figure><img src="file:///home/user/Arnaldo/PROYECTO_CIGARS_CUBA_2027/01_BRAND/renders/arnaldo-anilla-casa-referencia.png" style="width:80%"><figcaption>Foto de referencia con el nombre completo (retocada).</figcaption></figure>
 
+**Dossier rediseñado (17/10/2026).** El promotor rechaza el dossier de 28 páginas. Se rehace como libro de marca para inversores de 16 páginas: una idea por página, fotografía a sangre, cifras grandes y el detalle técnico remitido al Memorandum y al Business Plan. Portada: foto nueva generada con el nombre completo (`renders/arnaldo-av-1-anilla-nombre-completo-ret.png`, firma corregida).
+
 # Diseño de la casa: la anilla clásica (13/10/2026) — elegido por el promotor
 
 El promotor elige como referencia definitiva el render «anilla clásica» de la primera exploración y pide mantenerlo: **banda lacre con cantos de oro perlados, óvalo central troquelado de laca negra enmarcado en oro con guilloché, ARNALDO en capitales romanas de oro y la firma debajo**. Sin monograma ni emblema: la firma hace de signo.

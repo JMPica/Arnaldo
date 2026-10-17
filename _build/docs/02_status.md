@@ -59,7 +59,7 @@ D01 Fase 0 · D03 posició sobre titularitat de la marca · D04 rebuig Behike ·
 
 ## Dades pendents al dossier
 
-`01_BRAND/ARNALDO VALLÉS Brand Dossier.pdf` té **12 marcadors grocs «[PENDIENTE · …]»**: el teu perfil, les dades acreditades d'Arnaldo i les decisions D12 i D13. S'omplen totes al bloc `DATOS` del principi de `_build/build_dossier.py`; en tornar a generar, el script avisa si en queda algun. **No s'ha d'enviar el dossier amb marcadors.**
+`01_BRAND/ARNALDO VALLÉS Brand Dossier.pdf` té **12 dades per completar (en daurat)**: el teu perfil, les dades acreditades d'Arnaldo i les decisions D12 i D13. S'omplen totes al bloc `DATOS` del principi de `_build/build_dossier.py`; en tornar a generar, el script avisa si en queda algun. **No s'ha d'enviar el dossier amb marcadors.**
 
 ## Límits d'aquest treball
 

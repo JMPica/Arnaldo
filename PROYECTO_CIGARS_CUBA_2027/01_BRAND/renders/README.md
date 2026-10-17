@@ -54,7 +54,8 @@ El promotor tria l'anella clàssica com a disseny de la casa i demana mantenir-l
 
 | Fitxer | Origen | Estat | Notes |
 |---|---|---|---|
-| **arnaldo-anilla-casa-referencia.png** | Foto del promotor (16/10) retocada (17/10) | ✅ Al dossier (portada i Nº 1) | **Referència única de la marca.** Rebranding: «ARNALDO» i «Arnaldo» esborrats de la laca i substituïts per «ARNALDO VALLÉS» i la signatura «Arnaldo Vallés» amb la mateixa inclinació i llum (`_build/renders/fix_referencia_nombre.py`) |
+| **arnaldo-av-1-anilla-nombre-completo-ret.png** (= av-1-s2) | Qwen-Image (17/10) | ✅ Al dossier (portada) | Anella amb el nom complet generat de bon principi: «ARNALDO VALLÉS» correcte. La signatura deia «Arnado Vallés»: esborrada i reescrita «Arnaldo Vallés» (`_build/renders/fix_av_firma.py`). La resta de variants (av-1-s1/s3/s4, av-2) tenen el mateix error o pitjor composició |
+| **arnaldo-anilla-casa-referencia.png** | Foto del promotor (16/10) retocada (17/10) | Fora del dossier (17/10) | Referència de disseny. Rebranding: «ARNALDO» i «Arnaldo» esborrats de la laca i substituïts per «ARNALDO VALLÉS» i la signatura «Arnaldo Vallés» amb la mateixa inclinació i llum (`_build/renders/fix_referencia_nombre.py`) |
 | arnaldo-anilla-casa-referencia-original.png | Foto aportada pel promotor (16/10) | Original | Text «ARNALDO» / «Arnaldo», correcte, anterior al rebranding |
 | arnaldo-render-anilla-clasica.png | Runway · Nano Banana Pro (10/10) | Original | Disseny triat. La signatura diu «Arnald Jonato» (inventada per la IA) |
 | arnaldo-render-anilla-clasica-ret.png | Retoc | Substituït per la foto de referència (16/10) | Signatura inventada esborrada sobre la laca i substituïda per «Arnaldo» en cal·ligrafia provisional d'aspecte manuscrit, Herr Von Muellerhoff (`_build/renders/fix_clasica_firma.py`); la resta, intacta |
