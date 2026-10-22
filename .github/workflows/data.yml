@@ -1,6 +1,11 @@
 name: apex-data
 on:
   workflow_dispatch:
+    inputs:
+      only:
+        description: funciones a ejecutar (vacío = todas)
+        required: false
+        default: ""
   push:
     branches: [claude/apex-trading]
     paths: [research/fetch/**]
@@ -16,7 +21,7 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
       - run: pip install pandas pyarrow huggingface_hub
-      - run: python research/fetch/fetch_data.py
+      - run: python research/fetch/fetch_data.py ${{ github.event.inputs.only }}
       - name: Commit data
         run: |
           git config user.name "apex-bot"

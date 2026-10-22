@@ -105,7 +105,10 @@ def kraken():
         keep = [i for i in data.get("instruments", []) if "XBT" in i.get("symbol", "").upper()]
         with open(os.path.join(OUT, "kraken_instruments_xbt.json"), "w") as f:
             json.dump(keep, f, indent=1)
-        REPORT["kraken_instruments"] = len(keep)
+        summary = [{k: i.get(k) for k in ("symbol", "type", "contractSize", "contractValueTradePrecision", "tickSize", "tradeable", "base", "quote")} for i in data.get("instruments", [])]
+        with open(os.path.join(OUT, "kraken_instruments_all.json"), "w") as f:
+            json.dump(summary, f)
+        REPORT["kraken_instruments"] = len(summary)
     tick = get(f"{base}/derivatives/api/v3/tickers/PF_XBTUSD")
     if tick:
         with open(os.path.join(OUT, "kraken_ticker_pf_xbtusd.json"), "wb") as f:
@@ -145,7 +148,7 @@ def oanda():
     api = HfApi()
     sets = {"BTC": "BTCUSD_Bitcoin", "GOLD": "XAUUSD_Gold", "SILVER": "XAGUSD_Silver", "COPPER": "XCUUSD_Copper",
             "PLATINUM": "XPTUSD_Platinum", "OIL": "WTICOUSD_West-Texas-Oil", "NATGAS": "NATGASUSD_Natural-Gas",
-            "EURUSD": "EURUSD_Euro"}
+            "EURUSD": "EURUSD_EURUSD"}
     for sym, ds in sets.items():
         repo = f"bunqi/OANDA_{ds}"
         try:
@@ -157,9 +160,12 @@ def oanda():
         df = pd.concat(frames)
         if sym == "BTC":
             print(df.columns.tolist(), df.head(2).to_dict("records"))
-        cols = {c.lower(): c for c in df.columns}
-        tcol = next(cols[c] for c in ("time", "timestamp", "date", "datetime", "ts") if c in cols)
-        ts = pd.to_datetime(df[tcol], utc=True).astype("int64") // 10**9
+        cols = {c.lower(): c for c in df.columns if c.lower() not in {x.lower() for x in df.columns if x != c and x.lower() == c.lower() and x == x.lower()}}
+        if "time" in df.columns and pd.api.types.is_numeric_dtype(df["time"]):
+            ts = df["time"].astype("int64")  # epoch en segundos
+        else:
+            tcol = next(cols[c] for c in ("time", "timestamp", "date", "datetime", "ts") if c in cols)
+            ts = pd.to_datetime(df[tcol], utc=True).dt.as_unit("s").astype("int64")
         pick = lambda *names: next(df[cols[n]] for n in names if n in cols)
         o = pick("open", "mid_o", "o", "mid.o")
         h = pick("high", "mid_h", "h", "mid.h")
@@ -171,7 +177,12 @@ def oanda():
 
 
 if __name__ == "__main__":
+    only = set(sys.argv[1:])
+    if os.path.exists(os.path.join(OUT, "fetch_report.json")):
+        REPORT.update(json.load(open(os.path.join(OUT, "fetch_report.json"))))
     for fn in (coinbase, kraken, binance_funding, binance_klines, oanda):
+        if only and fn.__name__ not in only:
+            continue
         try:
             fn()
         except Exception as e:
