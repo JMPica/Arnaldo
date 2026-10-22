@@ -30,6 +30,7 @@ export interface ResearchPayload {
   configsTested: number;
   candidates: CandidateReport[];
   drift?: { trades: number; matched: number; note: string };
+  exploration?: string[];
 }
 
 const MIN_IMPROVEMENT = 0.2; // mejora mínima de Sharpe OOS para sustituir una estrategia vigente que sigue aprobada

@@ -35,6 +35,7 @@ export interface WFOptions {
   costs: CostModel;
   funding?: (ts: number) => number;
   initialCapital: number;
+  requireContiguous?: boolean;
 }
 
 export function sharpeOf(r: BacktestResult): number {
@@ -56,13 +57,13 @@ export function walkForward(hourly: Candle[], grid: StrategyConfig[], opt: WFOpt
     const testEnd = Math.min(trainEnd + opt.testDays * D, lastTs);
     let best: { cfg: StrategyConfig; sharpe: number } | null = null;
     for (const cfg of grid) {
-      const r = backtest(hourly, cfg, { initialCapital: opt.initialCapital, limits: opt.limits, costs: opt.costs, funding: opt.funding, start: trainStart, end: trainEnd });
+      const r = backtest(hourly, cfg, { initialCapital: opt.initialCapital, limits: opt.limits, costs: opt.costs, funding: opt.funding, start: trainStart, end: trainEnd, requireContiguous: opt.requireContiguous });
       if (r.trades.length < opt.minTrainTrades) continue;
       const s = sharpeOf(r);
       if (!best || s > best.sharpe) best = { cfg, sharpe: s };
     }
     if (best) {
-      const t = backtest(hourly, best.cfg, { initialCapital: opt.initialCapital, limits: opt.limits, costs: opt.costs, funding: opt.funding, start: trainEnd, end: testEnd });
+      const t = backtest(hourly, best.cfg, { initialCapital: opt.initialCapital, limits: opt.limits, costs: opt.costs, funding: opt.funding, start: trainEnd, end: testEnd, requireContiguous: opt.requireContiguous });
       const m = computeMetrics(t.daily, t.trades);
       folds.push({ trainStart, trainEnd, testStart: trainEnd, testEnd, chosen: best.cfg.id, trainSharpe: best.sharpe, testReturn: m.totalReturn, testSharpe: m.sharpe, testTrades: t.trades.length });
       oosTrades += t.trades.length;

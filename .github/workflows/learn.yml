@@ -1,0 +1,35 @@
+# Ciclo de aprendizaje: descarga datos frescos, reevalúa estrategias y envía
+# los resultados al motor. Lo lanza el programador semanal (apex-scheduler).
+name: apex-learn
+on:
+  workflow_call:
+permissions:
+  contents: read
+jobs:
+  learn:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      APEX_PASSWORD: ${{ secrets.APEX_PASSWORD }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: claude/apex-trading }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: pip install pandas pyarrow huggingface_hub && npm ci
+      - name: Datos frescos (BTC y funding)
+        run: python research/fetch/fetch_data.py kraken binance_funding binance_klines
+      - name: Localizar APEX
+        if: env.CLOUDFLARE_API_TOKEN != ''
+        run: node scripts/cf-setup.mjs
+      - name: Investigación y envío al motor
+        run: |
+          if [ -n "$APEX_PASSWORD" ]; then
+            export RESEARCH_TOKEN=$(node -e "process.stdout.write(require('crypto').createHmac('sha256', process.env.APEX_PASSWORD).update('apex-research-token').digest('hex'))")
+            echo "::add-mask::$RESEARCH_TOKEN"
+          fi
+          npx tsx research/learn.ts

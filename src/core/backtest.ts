@@ -11,6 +11,7 @@ export interface BacktestOptions {
   funding?: (ts: number) => number; // tasa por hora
   start?: number; // ts desde el que se permite operar (las velas previas solo calientan indicadores)
   end?: number;
+  requireContiguous?: boolean; // por defecto true (velas de 1h); false para velas diarias con fines de semana
 }
 
 export interface BacktestResult {
@@ -60,7 +61,8 @@ export function backtest(hourly: Candle[], cfg: StrategyConfig, opt: BacktestOpt
     }
     const next = hourly[i + 1];
     // La orden se ejecuta en la apertura de la siguiente vela, solo si es contigua.
-    const execPrice = next && next.ts === bar.ts + 3600 && next.ts <= end ? next.open : null;
+    const contiguous = opt.requireContiguous === false || (next && next.ts === bar.ts + 3600);
+    const execPrice = next && contiguous && next.ts <= end ? next.open : null;
     const r = processHour(
       state,
       {

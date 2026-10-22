@@ -2,15 +2,17 @@
 // Uso: npx tsx research/run.ts [--quick] [--assets BTC,GOLD]
 // Produce research/out/results.json, research/out/champion.json y docs/INVESTIGACION.md
 
-import { mkdirSync, writeFileSync, readFileSync, existsSync } from "node:fs";
+import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import type { Candle, CostModel, StrategyConfig } from "../src/core/types";
 import { DEFAULT_COSTS, DEFAULT_LIMITS } from "../src/core/types";
 import { backtest } from "../src/core/backtest";
-import { computeMetrics, dailyReturns, deflatedSharpe, monteCarloBlock, std, type Metrics } from "../src/core/metrics";
-import { FAMILIES, defaultGrid, walkForward, type WalkForwardResult } from "../src/core/walkforward";
-import { evaluateGates, GATES, type GateResult } from "../src/core/gates";
-import { loadCandles, loadSeries, fundingFn, fmt, fmtPct, date, DATA_DIR } from "./lib";
+import { computeMetrics, type Metrics } from "../src/core/metrics";
+import { FAMILIES, defaultGrid, type WalkForwardResult } from "../src/core/walkforward";
+import { GATES } from "../src/core/gates";
+import { makeConfig } from "../src/core/strategies";
+import { loadCandles, loadSeries, fundingFn, fmt, fmtPct, date } from "./lib";
+import { evaluateFamily, WF, type FamilyReport } from "./evaluate";
 
 const args = process.argv.slice(2);
 const QUICK = args.includes("--quick");
@@ -20,32 +22,21 @@ mkdirSync(OUT, { recursive: true });
 
 const ASSETS = [
   { key: "BTC", file: "BTC_binance_1h", label: "Bitcoin (BTCUSDT, Binance spot como proxy del perpetuo)", funding: "BTC_binance_funding" },
-  { key: "GOLD", file: "GOLD_oanda_1h", label: "Oro (XAU/USD, OANDA)" },
-  { key: "SILVER", file: "SILVER_oanda_1h", label: "Plata (XAG/USD, OANDA)" },
-  { key: "COPPER", file: "COPPER_oanda_1h", label: "Cobre (XCU/USD, OANDA)" },
-  { key: "PLATINUM", file: "PLATINUM_oanda_1h", label: "Platino (XPT/USD, OANDA)" },
-  { key: "OIL", file: "OIL_oanda_1h", label: "Petróleo WTI (OANDA)" },
-  { key: "NATGAS", file: "NATGAS_oanda_1h", label: "Gas natural (OANDA)" },
+  { key: "GOLD", file: "GOLD_oanda_1d", label: "Oro (XAU/USD, OANDA, velas diarias)", daily: true },
+  { key: "SILVER", file: "SILVER_oanda_1d", label: "Plata (XAG/USD, OANDA, velas diarias)", daily: true },
+  { key: "COPPER", file: "COPPER_oanda_1d", label: "Cobre (XCU/USD, OANDA, velas diarias)", daily: true },
+  { key: "PLATINUM", file: "PLATINUM_oanda_1d", label: "Platino (XPT/USD, OANDA, velas diarias)", daily: true },
+  { key: "OIL", file: "OIL_oanda_1d", label: "Petróleo WTI (OANDA, velas diarias)", daily: true },
+  { key: "NATGAS", file: "NATGAS_oanda_1d", label: "Gas natural (OANDA, velas diarias)", daily: true },
 ].filter((a) => !assetArg || assetArg.includes(a.key));
 
 const eurusdSeries = loadCandles("EURUSD_oanda_1h");
 const EURUSD = eurusdSeries.at(-1)?.close ?? 1.16;
 const CAPITAL_EUR = 200;
 const CAPITAL = CAPITAL_EUR * EURUSD; // la cuenta del exchange se lleva en USD
-// Para la investigación estadística se usa un capital nominal grande para que el
-// tamaño mínimo de lote no distorsione los resultados; la prueba "realidad 200 €"
-// se hace aparte con el capital real.
-const RESEARCH_CAPITAL = 100_000;
-const WF = { trainDays: 730, testDays: 182, minTrainTrades: 6 };
-
-interface FamilyReport {
-  family: string;
-  fullSample: { best: string; metrics: Metrics; dsr: number; neighborPositive: number; trials: number };
-  wf: Omit<WalkForwardResult, "oosDaily"> & { oosDailyCount: number };
-  stressSharpe: number;
-  gates: GateResult;
-  latestConfig: StrategyConfig | null;
-}
+// Para la investigación estadística se usa un capital nominal grande (ver
+// evaluate.ts) para que el lote mínimo no distorsione los resultados; la prueba
+// "realidad 200 €" se hace aparte con el capital real.
 
 interface AssetReport {
   asset: string;
@@ -73,11 +64,12 @@ function buyHold(hourly: Candle[], start: number): Metrics {
 
 function runAsset(a: (typeof ASSETS)[number]): { report: AssetReport; wfByFamily: Record<string, WalkForwardResult>; hourly: Candle[]; funding: (ts: number) => number } | null {
   let hourly = loadCandles(a.file);
-  if (hourly.length < 24 * 365 * 3) {
+  const daily = "daily" in a && a.daily;
+  if (hourly.length < (daily ? 365 * 3 : 24 * 365 * 3)) {
     console.log(`(sin datos suficientes para ${a.key}: ${hourly.length} velas)`);
     return null;
   }
-  if (QUICK) hourly = hourly.slice(-24 * 365 * 5);
+  if (QUICK) hourly = hourly.slice(daily ? -365 * 6 : -24 * 365 * 5);
   const funding = a.funding ? fundingFn(loadSeries(a.funding)) : () => 0;
   const costs: CostModel = { ...DEFAULT_COSTS };
   const start = hourly[0].ts + 365 * 86400;
@@ -85,46 +77,13 @@ function runAsset(a: (typeof ASSETS)[number]): { report: AssetReport; wfByFamily
   const wfByFamily: Record<string, WalkForwardResult> = {};
   for (const fam of FAMILIES) {
     const t0 = Date.now();
-    const grid = defaultGrid(fam);
-    // 1) Muestra completa: todas las configuraciones (para DSR y estabilidad)
-    const full = grid.map((cfg) => {
-      const r = backtest(hourly, cfg, { initialCapital: RESEARCH_CAPITAL, limits: DEFAULT_LIMITS, costs, funding, start });
-      return { cfg, r, m: computeMetrics(r.daily, r.trades) };
-    });
-    const sharpes = full.map((f) => f.m.sharpe);
-    const best = full.reduce((x, y) => (y.m.sharpe > x.m.sharpe ? y : x));
-    // Sharpe por periodo (diario) para el DSR
-    const perPeriod = sharpes.map((s) => s / Math.sqrt(365));
-    const dsr = deflatedSharpe(dailyReturns(best.r.daily), grid.length * FAMILIES.length, std(perPeriod) ** 2);
-    const neighborPositive = sharpes.filter((s) => s > 0).length / sharpes.length;
-    // 2) Walk-forward
-    const wf = walkForward(hourly, grid, { ...WF, limits: DEFAULT_LIMITS, costs, funding, initialCapital: RESEARCH_CAPITAL });
+    // Con velas diarias cada vela se trata como un paso del motor: los
+    // parámetros se cuentan en días y la orden se ejecuta en la apertura siguiente.
+    const grid = daily ? defaultGrid(fam).map((c) => makeConfig(c.family, "1h", c.params)) : defaultGrid(fam);
+    const { report, wf } = evaluateFamily(hourly, grid, costs, funding, grid.length * FAMILIES.length, !daily);
     wfByFamily[fam] = wf;
-    // 3) Estrés de costes ×2
-    const stressCosts: CostModel = { takerFee: costs.takerFee * 2, slippage: costs.slippage * 2, fundingPerHour: null };
-    const stressFunding = (ts: number) => funding(ts) * 2;
-    const wfStress = walkForward(hourly, grid, { ...WF, limits: DEFAULT_LIMITS, costs: stressCosts, funding: stressFunding, initialCapital: RESEARCH_CAPITAL });
-    const gates = evaluateGates({
-      oosSharpe: wf.oosMetrics.sharpe,
-      oosPsr: wf.oosPsr,
-      positiveFolds: wf.positiveFolds,
-      probDD20: wf.monteCarlo.probDD20,
-      oosTrades: wf.oosTrades,
-      neighborPositive,
-      oosMaxDD: wf.oosMetrics.maxDrawdown,
-      stressSharpe: wfStress.oosMetrics.sharpe,
-    });
-    const lastFold = wf.folds.at(-1);
-    const latestConfig = lastFold ? grid.find((g) => g.id === lastFold.chosen) ?? null : null;
-    const { oosDaily, ...wfRest } = wf;
-    families.push({
-      family: fam,
-      fullSample: { best: best.cfg.id, metrics: best.m, dsr, neighborPositive, trials: grid.length * FAMILIES.length },
-      wf: { ...wfRest, oosDailyCount: oosDaily.length },
-      stressSharpe: wfStress.oosMetrics.sharpe,
-      gates,
-      latestConfig,
-    });
+    families.push(report);
+    const gates = report.gates;
     console.log(`${a.key} ${fam}: OOS Sharpe ${fmt(wf.oosMetrics.sharpe)} CAGR ${fmtPct(wf.oosMetrics.cagr)} MDD ${fmtPct(wf.oosMetrics.maxDrawdown)} trades ${wf.oosTrades} gates ${gates.passed ? "OK" : "NO"} (${((Date.now() - t0) / 1000).toFixed(0)} s)`);
   }
   const wfStart = wfByFamily[FAMILIES[0]]?.oosDaily[0]?.ts ?? start;
@@ -180,14 +139,15 @@ if (btcCtx) {
 }
 
 // Contratos de materias primas en Coinbase (CDE): nocional mínimo frente al capital.
+// Tamaños de contrato verificados en la API pública de Coinbase (research/data/coinbase_futures_products.json).
 const SPECS: Record<string, { unit: string; size: number; source: string }> = {
-  BTC: { unit: "BTC", size: 0.01, source: "nano Bitcoin (BIT), 1/100 BTC" },
-  GOLD: { unit: "oz", size: 1, source: "Gold futures CDE, 1 onza troy" },
-  SILVER: { unit: "oz", size: 50, source: "Silver futures CDE, 50 onzas" },
-  COPPER: { unit: "lb", size: 500, source: "nano Copper CDE, 500 libras" },
-  PLATINUM: { unit: "oz", size: 10, source: "Platinum futures CDE, 10 onzas" },
-  OIL: { unit: "barriles", size: 10, source: "nano Crude Oil CDE, 10 barriles" },
-  NATGAS: { unit: "MMBtu", size: 1000, source: "Natural Gas CDE, 1.000 MMBtu" },
+  BTC: { unit: "BTC", size: 0.01, source: "nano Bitcoin BIT/BIP, 0,01 BTC" },
+  GOLD: { unit: "oz", size: 1, source: "Gold GOL, 1 onza troy" },
+  SILVER: { unit: "oz", size: 50, source: "Silver SLR, 50 onzas" },
+  COPPER: { unit: "lb", size: 2000, source: "Copper CU, 2.000 libras" },
+  PLATINUM: { unit: "oz", size: 10, source: "Platinum PT, 10 onzas" },
+  OIL: { unit: "barriles", size: 10, source: "Oil NOL, 10 barriles" },
+  NATGAS: { unit: "MMBtu", size: 1000, source: "Natural Gas NGS, 1.000 MMBtu" },
 };
 const SCREENSHOT_PRICES: Record<string, number> = { BTC: 84355, GOLD: 4141.6, SILVER: 57.665, COPPER: 6.55, PLATINUM: 1627.9, OIL: 97.92, NATGAS: 2.778 };
 const contractCheck = Object.entries(SPECS).map(([k, s]) => {

@@ -152,7 +152,9 @@ def oanda():
     for sym, ds in sets.items():
         repo = f"bunqi/OANDA_{ds}"
         try:
-            files = [f for f in api.list_repo_files(repo, repo_type="dataset") if f.startswith("60/") and f.endswith(".parquet")]
+            # Velas diarias: 2 ficheros por activo (las horarias son cientos y
+            # la descarga anónima de Hugging Face se limita por frecuencia).
+            files = [f for f in api.list_repo_files(repo, repo_type="dataset") if f.startswith("D/") and f.endswith(".parquet")]
         except Exception as e:
             print("sin dataset", repo, e)
             continue
@@ -173,7 +175,7 @@ def oanda():
         c = pick("close", "mid_c", "c", "mid.c")
         v = pick("volume", "v") if ("volume" in cols or "v" in cols) else c * 0
         rows = list(zip(ts.tolist(), o.astype(float), h.astype(float), l.astype(float), c.astype(float), v.astype(float)))
-        write_rows(f"{sym}_oanda_1h", rows)
+        write_rows(f"{sym}_oanda_1d", rows)
 
 
 if __name__ == "__main__":
