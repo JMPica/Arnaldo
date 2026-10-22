@@ -193,32 +193,33 @@ Datos: 2003-01-30 → 2026-10-21 (136.274 velas de 1 h).
 
 **Estrategia aprobada para paper trading:** `donchian:1d:allowShort=1,entry=20,exit=10,stopAtr=2,trail=0` (familia donchian, Sharpe OOS 0.93).
 
-### Prueba de realidad con 200 € (2024-10-20 → 2026-10-20)
+### Prueba de realidad con 400 € (2024-10-20 → 2026-10-20)
 
-Configuración: `donchian:1d:allowShort=1,entry=20,exit=10,stopAtr=2,trail=0`. Capital 224.45 USD (EUR/USD 1.1222).
+Configuración: `donchian:1d:allowShort=1,entry=20,exit=10,stopAtr=2,trail=0`. Capital 448.90 USD (EUR/USD 1.1222).
 
 | Métrica | Valor |
 |---|---|
-| Resultado neto | 25.85 € |
-| Comisiones pagadas | 1.37 € |
-| Funding pagado | 4.20 € |
+| Resultado neto | 53.96 € |
+| Comisiones pagadas | 2.86 € |
+| Funding pagado | 8.75 € |
 | Operaciones | 20 |
 | Órdenes rechazadas por riesgo/tamaño | 0 |
-| Nocional medio por operación | 76.40 USD |
-| Apalancamiento medio | 0.34x |
-| CAGR | 6.3 % |
-| Caída máxima | 13.7 % |
+| Nocional medio por operación | 159.28 USD |
+| Apalancamiento medio | 0.35x |
+| CAGR | 6.5 % |
+| Caída máxima | 14.4 % |
 
-## Viabilidad de los contratos de Coinbase con 200 € y apalancamiento máximo 2x
+## Viabilidad de los contratos de Coinbase con 400 € y apalancamiento máximo 2x
 
 | Activo | Contrato | Precio (captura) | Nocional por contrato | Apalancamiento necesario | ¿Cabe en 2x? |
 |---|---|---|---|---|---|
-| BTC | nano Bitcoin BIT/BIP, 0,01 BTC | 84.355 | 844 USD | 3.8x | **No** |
-| GOLD | Gold GOL, 1 onza troy | 4141,6 | 4142 USD | 18.5x | **No** |
-| SILVER | Silver SLR, 50 onzas | 57,665 | 2883 USD | 12.8x | **No** |
-| COPPER | Copper CU, 2.000 libras | 6,55 | 13100 USD | 58.4x | **No** |
-| PLATINUM | Platinum PT, 10 onzas | 1627,9 | 16279 USD | 72.5x | **No** |
-| OIL | Oil NOL, 10 barriles | 97,92 | 979 USD | 4.4x | **No** |
-| NATGAS | Natural Gas NGS, 1.000 MMBtu | 2,778 | 2778 USD | 12.4x | **No** |
+| BTC | nano Bitcoin BIT/BIP, 0,01 BTC | 84.355 | 844 USD | 1.9x | Sí |
+| GOLD | Gold GOL, 1 onza troy | 4141,6 | 4142 USD | 9.2x | **No** |
+| SILVER | Silver SLR, 50 onzas | 57,665 | 2883 USD | 6.4x | **No** |
+| COPPER | Copper CU, 2.000 libras | 6,55 | 13100 USD | 29.2x | **No** |
+| PLATINUM | Platinum PT, 10 onzas | 1627,9 | 16279 USD | 36.3x | **No** |
+| OIL | Oil NOL, 10 barriles | 97,92 | 979 USD | 2.2x | **No** |
+| NATGAS | Natural Gas NGS, 1.000 MMBtu | 2,778 | 2778 USD | 6.2x | **No** |
 
-Ningún contrato de Coinbase Derivatives cabe en el límite de 2x con 200 €: un solo contrato ya supera el apalancamiento permitido. Además, con un riesgo del 2 % (≈ 4.49 USD) y un contrato nano de BTC (0,01 BTC), el stop tendría que estar a ≈ 449 USD del precio (≈ 0.53 %), por debajo del ruido diario de BTC.
+Con 400 € solo el contrato nano de BTC cabe en 2x (1,9x). Pero con un riesgo del 2 % (≈ 8.98 USD) un contrato de 0,01 BTC obligaría a poner el stop a ≈ 898 USD del precio (≈ 1,06 %), mientras la estrategia aprobada usa stops de 2 ATR diarios (≈ 4-6 %): cada operación arriesgaría el 4-6 % del capital. Coinbase sigue sin ser compatible con las reglas de riesgo; Kraken (lote mínimo 0,0001 BTC) sí.
+

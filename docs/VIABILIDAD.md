@@ -2,11 +2,12 @@
 
 Resumen para el propietario. Las cifras de estrategia salen de `docs/INVESTIGACION.md`, que se genera automáticamente con datos reales.
 
-## 1. ¿Se pueden operar futuros de Bitcoin de Coinbase con 200 € y 2x?
+## 1. ¿Se pueden operar futuros de Bitcoin de Coinbase con 200-400 € y 2x?
 
 **No, con las reglas que fijaste.**
 
 - Coinbase empezó a ofrecer futuros a usuarios de Coinbase Advanced en 26 países europeos en marzo de 2026, a través de su entidad regulada MiFID (Chipre), con verificación de experiencia y KYC. Tus capturas confirman que los ves en la app (lugar: Coinbase Derivatives Exchange, contrato de 1/100 BTC, fondos en USD/USDC). No hay documentación pública que confirme que la API de Coinbase permita operar esos contratos desde la UE; lo de la API internacional (INTX) no aplica a residentes en la UE.
+- Con 400 €, un contrato nano de BTC (≈ 844 US$ ≈ 1,9x) ya cabría en el límite de 2x, pero no en el de riesgo: con stops de la estrategia del 4-6 %, un solo contrato arriesgaría el 4-6 % del capital, el doble o el triple del 2 % permitido. Harían falta unos 1.500-2.300 € para que un contrato encaje en el 2 %.
 - El problema decisivo es el tamaño del contrato. Según la API pública de Coinbase, el contrato más pequeño de BTC es de **0,01 BTC ≈ 844 US$** de nocional. Con 200 € (≈ 232 US$) eso exige **3,6x** de apalancamiento con un solo contrato. Tu límite es 2x.
 - Además, con un riesgo del 2 % por operación (≈ 4,5 US$), un solo contrato obligaría a poner el stop a ≈ 450 US$ del precio (≈ 0,5 %). BTC se mueve más que eso casi cualquier día: el stop saltaría casi siempre por ruido.
 
@@ -26,7 +27,7 @@ Tamaños verificados en la API pública de Coinbase y precios de tus capturas:
 
 Ninguno cabe en 2x con 200 €. Por eso no se pueden usar en APEX con tus reglas a través de Coinbase, aunque el análisis estadístico de estos activos está en el informe de investigación.
 
-**Alternativa para materias primas:** la lista pública de instrumentos de Kraken Futures incluye perpetuos de oro (`PF_XAUUSD`, mínimo 0,001 onzas ≈ 4 US$), plata (`PF_XAGUSD`, mínimo 0,1 onzas ≈ 6 US$) y petróleo WTI y Brent (`PF_WTIOILUSD`, `PF_BRENTOILUSD`, mínimo 0,1 barriles ≈ 10 US$). Esos tamaños sí caben en 2x con 200 €. Falta confirmar que estén disponibles para clientes del EEE (la lista se descargó desde un servidor de EE. UU.). Ver el informe de investigación para saber si alguna estrategia supera los criterios en estos activos antes de plantear añadirlos.
+**Alternativa para materias primas:** la lista pública de instrumentos de Kraken Futures incluye perpetuos de oro (`PF_XAUUSD`, mínimo 0,001 onzas ≈ 4 US$), plata (`PF_XAGUSD`, mínimo 0,1 onzas ≈ 6 US$) y petróleo WTI y Brent (`PF_WTIOILUSD`, `PF_BRENTOILUSD`, mínimo 0,1 barriles ≈ 10 US$). Esos tamaños sí caben en 2x con 400 €. Falta confirmar que estén disponibles para clientes del EEE (la lista se descargó desde un servidor de EE. UU.). Ver el informe de investigación para saber si alguna estrategia supera los criterios en estos activos antes de plantear añadirlos.
 
 ## 2. Alternativa elegida: Kraken Futures (perpetuo PF_XBTUSD)
 
@@ -34,7 +35,7 @@ Ninguno cabe en 2x con 200 €. Por eso no se pueden usar en APEX con tus reglas
 |---|---|---|
 | Regulación | MiFID II, Payward Europe Digital Solutions (CY) Ltd; disponible en España | MiFID II, Coinbase (Chipre) |
 | Tamaño mínimo | **0,0001 BTC ≈ 8 US$** (verificado en la API de Kraken) | 0,01 BTC ≈ 844 US$ |
-| ¿Cabe en 2x y 2 % de riesgo con 200 €? | **Sí**, con margen | No |
+| ¿Cabe en 2x y 2 % de riesgo con 400 €? | **Sí**, con margen | No |
 | API para operar | Sí, documentada, con entorno de pruebas (demo-futures.kraken.com) | No confirmada para la UE |
 | Comisiones (nivel inicial) | 0,02 % maker / 0,05 % taker | desde 0,02 % por contrato |
 | Diferencial observado | 1 US$ sobre 84.110 (≈ 0,1 pb) | — |
@@ -57,7 +58,9 @@ Con datos horarios reales de 2017 a octubre de 2026, costes reales y prueba fuer
 
 **Riesgo elegido: 2 % por operación** (decisión del propietario del 22/10/2026; antes 1 %). Fuera de muestra, la estrategia rindió un 13,2 % anual con una caída máxima del 18 %, y sigue superando todos los criterios. Las ganancias se reinvierten automáticamente: cada operación se dimensiona sobre el capital del momento.
 
-**Lo que esto significa en euros.** Con 2 % de riesgo y stops anchos, la posición media es de ≈ 0,34x del capital. En la prueba con 200 € de los dos últimos años (20/10/2024 → 20/10/2026) la estrategia habría ganado **≈ 25,9 €** (≈ 6,3 % anual) en 20 operaciones, con una caída máxima del 13,7 %, pagando ≈ 1,4 € en comisiones y ≈ 4,2 € en funding. Los resultados pasados no garantizan nada: es una referencia de orden de magnitud, no una previsión.
+**Capital inicial: 400 €** (decisión del propietario del 22/10/2026; antes 200 €).
+
+**Lo que esto significa en euros.** Con 2 % de riesgo y stops anchos, la posición media es de ≈ 0,35x del capital. En la prueba con 400 € de los dos últimos años (20/10/2024 → 20/10/2026) la estrategia habría ganado **≈ 54 €** (≈ 6,5 % anual) en 20 operaciones, con una caída máxima del 14,4 %, pagando ≈ 2,9 € en comisiones y ≈ 8,7 € en funding. Los resultados pasados no garantizan nada: es una referencia de orden de magnitud, no una previsión.
 
 ## 4. Costes de infraestructura
 
@@ -73,7 +76,7 @@ Con datos horarios reales de 2017 a octubre de 2026, costes reales y prueba fuer
 
 Uso estimado: 288 ciclos al día del motor más las visitas al panel, muy por debajo de los límites gratuitos.
 
-**¿Comprometen los costes la viabilidad?** Cualquier coste fijo la rompería. Un servidor de 4 €/mes son 48 € al año, el 24 % del capital, frente a una ganancia histórica de ≈ 13 €/año. Por eso todo el sistema está diseñado para el plan gratuito. Con 200 € el proyecto es viable como **fase de validación** (comprobar que el sistema funciona y que los resultados en simulación se parecen a los del backtest), no como fuente de ingresos.
+**¿Comprometen los costes la viabilidad?** Cualquier coste fijo la rompería. Un servidor de 4 €/mes son 48 € al año, el 12 % del capital, frente a una ganancia histórica de ≈ 25-50 €/año con 400 €. Por eso todo el sistema está diseñado para el plan gratuito. Con 400 € el proyecto sigue siendo sobre todo una **fase de validación** (comprobar que el sistema funciona y que los resultados en simulación se parecen a los del backtest), no como fuente de ingresos.
 
 ## 5. Riesgos y limitaciones conocidas
 

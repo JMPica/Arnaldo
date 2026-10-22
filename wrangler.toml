@@ -21,7 +21,7 @@ crons = ["*/5 * * * *", "7 6 1 * *"]
 
 [vars]
 SYMBOL = "PF_XBTUSD"
-INITIAL_CAPITAL_EUR = "200"
+INITIAL_CAPITAL_EUR = "400"
 
 [observability]
 enabled = true

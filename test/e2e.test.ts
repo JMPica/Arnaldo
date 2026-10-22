@@ -176,8 +176,8 @@ describe("APEX de extremo a extremo", () => {
     expect(s.engine.healthy).toBe(true);
     expect(s.engine.ticks).toBe(1);
     expect(s.market.price).toBe(80000);
-    expect(s.account.initialCapital).toBeCloseTo(200 * 1.15, 6);
-    expect(s.account.equity).toBeCloseTo(230, 6);
+    expect(s.account.initialCapital).toBeCloseTo(400 * 1.15, 6);
+    expect(s.account.equity).toBeCloseTo(460, 6);
     expect(s.controls.running).toBe(false);
     expect(s.strategy.approved).toBe(true); // estrategia aprobada por la investigación incluida en el despliegue
     expect((await call("/api/health", { auth: false })).json.ok).toBe(true);

@@ -127,7 +127,7 @@ export function persistEvents(db: D1Database, events: EngineEvent[], mode: strin
 }
 
 export function initialAccountCapitalUsd(env: Env, eurusd: number): number {
-  return Number(env.INITIAL_CAPITAL_EUR || "200") * eurusd;
+  return Number(env.INITIAL_CAPITAL_EUR || "400") * eurusd;
 }
 
 export type { AccountState };

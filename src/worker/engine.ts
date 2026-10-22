@@ -72,7 +72,7 @@ export async function runTick(env: Env, fetcher: Fetcher = (u, i) => fetch(u, i)
     meta.ticks++;
     const [controls, limits] = await Promise.all([loadControls(env), loadLimits(env)]);
     let strat = await loadStrategy(env);
-    let account = (await kvGet<AccountState>(env.DB, "account")) ?? newAccount(Number(env.INITIAL_CAPITAL_EUR || "200") * meta.eurusd);
+    let account = (await kvGet<AccountState>(env.DB, "account")) ?? newAccount(Number(env.INITIAL_CAPITAL_EUR || "400") * meta.eurusd);
 
     let ticker: Ticker;
     try {

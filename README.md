@@ -12,7 +12,7 @@ Ver **[docs/INTERVENCIONES.md](docs/INTERVENCIONES.md)**: crear una cuenta gratu
 
 | Documento | Contenido |
 |---|---|
-| [docs/VIABILIDAD.md](docs/VIABILIDAD.md) | Por qué no Coinbase con 200 € y 2x, por qué Kraken, costes (0 €/mes) y qué se puede esperar en euros |
+| [docs/VIABILIDAD.md](docs/VIABILIDAD.md) | Por qué no Coinbase con 400 € y 2x, por qué Kraken, costes (0 €/mes) y qué se puede esperar en euros |
 | [docs/INVESTIGACION.md](docs/INVESTIGACION.md) | Resultados de la investigación con datos reales (se regenera automáticamente) |
 | [docs/ARQUITECTURA.md](docs/ARQUITECTURA.md) | Cómo funciona, controles de riesgo, seguridad y pruebas |
 | [docs/INTERVENCIONES.md](docs/INTERVENCIONES.md) | Los pasos que requieren tu identidad o tus cuentas |

@@ -32,7 +32,7 @@ const ASSETS = [
 
 const eurusdSeries = loadCandles("EURUSD_oanda_1h");
 const EURUSD = eurusdSeries.at(-1)?.close ?? 1.16;
-const CAPITAL_EUR = 200;
+const CAPITAL_EUR = 400;
 const CAPITAL = CAPITAL_EUR * EURUSD; // la cuenta del exchange se lleva en USD
 // Para la investigación estadística se usa un capital nominal grande (ver
 // evaluate.ts) para que el lote mínimo no distorsione los resultados; la prueba

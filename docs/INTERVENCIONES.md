@@ -53,5 +53,5 @@ Cuando lo decidas, hablaremos de:
 1. Abrir cuenta en Kraken, verificar identidad y superar el test de idoneidad de derivados (requisito MiFID).
 2. Probar primero en el entorno demo de Kraken Futures (gratis, sin dinero).
 3. Crear una clave de API **solo con permiso de trading**, sin permiso de retirada.
-4. Transferir tú mismo, como máximo, 200 €. APEX nunca mueve fondos entre cuentas.
+4. Transferir tú mismo, como máximo, 400 €. APEX nunca mueve fondos entre cuentas.
 5. Darme tu autorización expresa por escrito.
