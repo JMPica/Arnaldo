@@ -104,10 +104,13 @@ export function defaultGrid(family: string): StrategyConfig[] {
     for (const [fast, slow] of [[10, 40], [20, 50], [20, 100], [50, 200]]) for (const allowShort of [0, 1]) for (const stopAtr of [3, 5]) push("1d", { fast, slow, allowShort, stopAtr, trail: 0 });
   } else if (family === "rsi_mr") {
     for (const oversold of [10, 20, 30]) for (const trend of [100, 200]) for (const stopAtr of [2, 3]) push("4h", { rsiLen: 2, oversold, trend, exitMa: 5, maxBars: 12, stopAtr, allowShort: 0 });
+  } else if (family === "trendline") {
+    // Reglas de Tori Trades: 4 h, 2-3+ toques separados ≥ 6 velas, ≥ 3 semanas (126 velas de 4 h).
+    for (const piv of [3, 5]) for (const minTouches of [2, 3]) for (const confirm of [0, 1]) for (const tp of [0, 1]) push("4h", { piv, minTouches, confirm, tp, bounce: 0, allowShort: 1, tol: 0.3, minGap: 6, minSpan: 126 });
   } else if (family === "boll_mr") {
     for (const len of [20, 40]) for (const k of [2, 2.5]) for (const trend of [0, 200]) for (const stopAtr of [2, 3]) push("4h", { len, k, trend, maxBars: 18, stopAtr, allowShort: 0 });
   }
   return out;
 }
 
-export const FAMILIES = ["tsmom", "donchian", "ema_cross", "rsi_mr", "boll_mr"];
+export const FAMILIES = ["tsmom", "donchian", "ema_cross", "rsi_mr", "boll_mr", "trendline"];

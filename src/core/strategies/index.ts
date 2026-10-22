@@ -1,4 +1,5 @@
 import type { Candle, Position, Signal, Strategy, StrategyConfig, StrategyContext } from "../types";
+import { trendline } from "./trendline";
 import { atr, ema, lastHighestPrior, lastLowestPrior, lastStdev, rsi, sma } from "../indicators";
 
 // Familias de estrategias sistemáticas con evidencia publicada:
@@ -164,6 +165,7 @@ export const STRATEGIES: Record<string, Strategy<P>> = {
   ema_cross: emaCross,
   rsi_mr: rsiMr,
   boll_mr: bollMr,
+  trendline,
 };
 
 export function getStrategy(cfg: StrategyConfig): Strategy<P> {
