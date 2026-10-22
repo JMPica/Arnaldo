@@ -1,6 +1,6 @@
 {
  "coinbase_futures_products": 100,
- "kraken_instruments": 8,
+ "kraken_instruments": 231,
  "BTC_kraken_pf_1h": {
   "rows": 40167,
   "from": 1648029600,
@@ -22,39 +22,44 @@
   "to": 1792537200
  },
  "BTC_oanda_1h": {
-  "rows": 1,
-  "from": 1,
-  "to": 1
+  "rows": 70878,
+  "from": 1451628000,
+  "to": 1792551600
  },
  "GOLD_oanda_1h": {
-  "rows": 1,
-  "from": 1,
-  "to": 1
+  "rows": 125297,
+  "from": 1142798400,
+  "to": 1792555200
  },
  "SILVER_oanda_1h": {
-  "rows": 1,
-  "from": 1,
-  "to": 1
+  "rows": 124964,
+  "from": 1142802000,
+  "to": 1792558800
  },
  "COPPER_oanda_1h": {
-  "rows": 1,
-  "from": 1,
-  "to": 1
+  "rows": 127073,
+  "from": 1048856400,
+  "to": 1792555200
  },
  "PLATINUM_oanda_1h": {
-  "rows": 1,
-  "from": 1,
-  "to": 1
+  "rows": 125732,
+  "from": 1104717600,
+  "to": 1792558800
  },
  "OIL_oanda_1h": {
-  "rows": 1,
-  "from": 1,
-  "to": 1
+  "rows": 139876,
+  "from": 1043247600,
+  "to": 1792551600
  },
  "NATGAS_oanda_1h": {
-  "rows": 1,
-  "from": 1,
-  "to": 1
+  "rows": 136274,
+  "from": 1043938800,
+  "to": 1792555200
  },
- "fetched_at": "2026-10-22T00:09:00.236192+00:00"
+ "fetched_at": "2026-10-22T00:37:04.863005+00:00",
+ "EURUSD_oanda_1h": {
+  "rows": 139156,
+  "from": 1020715200,
+  "to": 1792558800
+ }
 }
