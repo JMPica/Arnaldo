@@ -1,0 +1,61 @@
+# APEX — programador de tareas.
+# GitHub solo ejecuta tareas programadas desde la rama por defecto. El código de
+# APEX vive en la rama claude/apex-trading; este fichero solo lo invoca.
+name: apex-scheduler
+on:
+  schedule:
+    - cron: "17 3 * * 0"    # aprendizaje semanal: domingo 03:17 UTC
+    - cron: "41 */6 * * *"  # vigilante del motor cada 6 horas
+  workflow_dispatch:
+    inputs:
+      task:
+        description: Tarea
+        type: choice
+        options: [deploy, learn, watchdog, data]
+        default: deploy
+permissions:
+  contents: write
+jobs:
+  deploy:
+    if: github.event_name == 'workflow_dispatch' && inputs.task == 'deploy'
+    uses: JMPica/Arnaldo/.github/workflows/deploy.yml@claude/apex-trading
+    secrets: inherit
+
+  learn:
+    if: github.event.schedule == '17 3 * * 0' || (github.event_name == 'workflow_dispatch' && inputs.task == 'learn')
+    uses: JMPica/Arnaldo/.github/workflows/learn.yml@claude/apex-trading
+    secrets: inherit
+
+  data:
+    if: github.event_name == 'workflow_dispatch' && inputs.task == 'data'
+    uses: JMPica/Arnaldo/.github/workflows/data.yml@claude/apex-trading
+
+  watchdog:
+    if: github.event.schedule == '41 */6 * * *' || (github.event_name == 'workflow_dispatch' && inputs.task == 'watchdog')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+    steps:
+      - name: ¿Está desplegado?
+        id: check
+        run: echo "ready=$([ -n "$CLOUDFLARE_API_TOKEN" ] && [ -n "$CLOUDFLARE_ACCOUNT_ID" ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+      - uses: actions/checkout@v4
+        if: steps.check.outputs.ready == 'true'
+        with: { ref: claude/apex-trading }
+      - if: steps.check.outputs.ready == 'true'
+        run: node scripts/cf-setup.mjs
+      - name: Comprobar el latido del motor
+        if: steps.check.outputs.ready == 'true'
+        run: |
+          body=$(curl -s --max-time 20 "$APEX_URL/api/health" || echo '{}')
+          echo "$body"
+          if echo "$body" | grep -q '"ok":true'; then exit 0; fi
+          if [ -n "$TELEGRAM_BOT_TOKEN" ] && [ -n "$TELEGRAM_CHAT_ID" ]; then
+            curl -s -X POST "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" -d chat_id="$TELEGRAM_CHAT_ID" -d text="APEX: el motor no responde. Revisa el panel." > /dev/null
+          fi
+          echo "::error::El motor de APEX no responde"
+          exit 1
