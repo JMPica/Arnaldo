@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-22T00:16:18.296Z",
+ "generatedAt": "2026-10-22T00:37:40.324Z",
  "quick": false,
  "capital": {
   "eur": 200,
@@ -251,6 +251,16 @@
       "oosDailyCount": 2196
      },
      "stressSharpe": 0.2631994488939906,
+     "gateInput": {
+      "oosSharpe": 0.4827418572048323,
+      "oosPsr": 0.8806890456072186,
+      "positiveFolds": 0.75,
+      "probDD20": 0,
+      "oosTrades": 109,
+      "neighborPositive": 1,
+      "oosMaxDD": 0.07285355932535742,
+      "stressSharpe": 0.2631994488939906
+     },
      "gates": {
       "passed": false,
       "checks": [
@@ -305,11 +315,11 @@
       ]
      },
      "latestConfig": {
-      "id": "tsmom:1d:allowShort=1,lookback=90,stopAtr=3,threshold=0,trail=0",
+      "id": "tsmom:1d:allowShort=1,lookback=60,stopAtr=3,threshold=0,trail=0",
       "family": "tsmom",
       "timeframe": "1d",
       "params": {
-       "lookback": 90,
+       "lookback": 60,
        "allowShort": 1,
        "stopAtr": 3,
        "threshold": 0,
@@ -508,6 +518,16 @@
       "oosDailyCount": 2196
      },
      "stressSharpe": 0.7400061920325889,
+     "gateInput": {
+      "oosSharpe": 0.9402727070307163,
+      "oosPsr": 0.9925312302668691,
+      "positiveFolds": 0.5833333333333334,
+      "probDD20": 0.0005,
+      "oosTrades": 41,
+      "neighborPositive": 1,
+      "oosMaxDD": 0.11591701197932458,
+      "stressSharpe": 0.7400061920325889
+     },
      "gates": {
       "passed": true,
       "checks": [
@@ -562,13 +582,13 @@
       ]
      },
      "latestConfig": {
-      "id": "donchian:1d:allowShort=0,entry=20,exit=10,stopAtr=2,trail=0",
+      "id": "donchian:1d:allowShort=1,entry=20,exit=10,stopAtr=2,trail=0",
       "family": "donchian",
       "timeframe": "1d",
       "params": {
        "entry": 20,
        "exit": 10,
-       "allowShort": 0,
+       "allowShort": 1,
        "stopAtr": 2,
        "trail": 0
       }
@@ -765,6 +785,16 @@
       "oosDailyCount": 2196
      },
      "stressSharpe": 0.6137747936492186,
+     "gateInput": {
+      "oosSharpe": 0.8153522281939543,
+      "oosPsr": 0.9815892243037649,
+      "positiveFolds": 0.5833333333333334,
+      "probDD20": 0,
+      "oosTrades": 47,
+      "neighborPositive": 1,
+      "oosMaxDD": 0.08593530580749598,
+      "stressSharpe": 0.6137747936492186
+     },
      "gates": {
       "passed": true,
       "checks": [
@@ -819,14 +849,14 @@
       ]
      },
      "latestConfig": {
-      "id": "ema_cross:1d:allowShort=1,fast=20,slow=100,stopAtr=5,trail=0",
+      "id": "ema_cross:1d:allowShort=1,fast=10,slow=40,stopAtr=3,trail=0",
       "family": "ema_cross",
       "timeframe": "1d",
       "params": {
-       "fast": 20,
-       "slow": 100,
+       "fast": 10,
+       "slow": 40,
        "allowShort": 1,
-       "stopAtr": 5,
+       "stopAtr": 3,
        "trail": 0
       }
      }
@@ -1022,6 +1052,16 @@
       "oosDailyCount": 2196
      },
      "stressSharpe": -1.7408551358060813,
+     "gateInput": {
+      "oosSharpe": -1.2838890555726095,
+      "oosPsr": 0.0002793504072509428,
+      "positiveFolds": 0.16666666666666666,
+      "probDD20": 0,
+      "oosTrades": 509,
+      "neighborPositive": 0,
+      "oosMaxDD": 0.3141132115020602,
+      "stressSharpe": -1.7408551358060813
+     },
      "gates": {
       "passed": false,
       "checks": [
@@ -1281,6 +1321,16 @@
       "oosDailyCount": 2196
      },
      "stressSharpe": -0.7295879148021835,
+     "gateInput": {
+      "oosSharpe": -0.5399292895360546,
+      "oosPsr": 0.08960883224843658,
+      "positiveFolds": 0.3333333333333333,
+      "probDD20": 0,
+      "oosTrades": 75,
+      "neighborPositive": 0,
+      "oosMaxDD": 0.1241721565547319,
+      "stressSharpe": -0.7295879148021835
+     },
      "gates": {
       "passed": false,
       "checks": [
@@ -1335,13 +1385,13 @@
       ]
      },
      "latestConfig": {
-      "id": "boll_mr:4h:allowShort=0,k=2.5,len=40,maxBars=18,stopAtr=2,trend=0",
+      "id": "boll_mr:4h:allowShort=0,k=2,len=40,maxBars=18,stopAtr=2,trend=200",
       "family": "boll_mr",
       "timeframe": "4h",
       "params": {
        "len": 40,
-       "k": 2.5,
-       "trend": 0,
+       "k": 2,
+       "trend": 200,
        "maxBars": 18,
        "stopAtr": 2,
        "allowShort": 0
@@ -1354,13 +1404,13 @@
  "champion": {
   "family": "donchian",
   "config": {
-   "id": "donchian:1d:allowShort=0,entry=20,exit=10,stopAtr=2,trail=0",
+   "id": "donchian:1d:allowShort=1,entry=20,exit=10,stopAtr=2,trail=0",
    "family": "donchian",
    "timeframe": "1d",
    "params": {
     "entry": 20,
     "exit": 10,
-    "allowShort": 0,
+    "allowShort": 1,
     "stopAtr": 2,
     "trail": 0
    }
@@ -1368,37 +1418,37 @@
   "oosSharpe": 0.9402727070307163
  },
  "reality200": {
-  "config": "donchian:1d:allowShort=0,entry=20,exit=10,stopAtr=2,trail=0",
+  "config": "donchian:1d:allowShort=1,entry=20,exit=10,stopAtr=2,trail=0",
   "period": "2024-10-20 → 2026-10-20",
   "capitalUsd": 231.99999999999997,
-  "finalUsd": 243.22083328794446,
-  "pnlEur": 9.67313214477973,
-  "feesEur": 0.3561703468121153,
-  "fundingEur": 2.3294267641892143,
-  "trades": 11,
+  "finalUsd": 245.8020752992167,
+  "pnlEur": 11.898340775186844,
+  "feesEur": 0.626043366907166,
+  "fundingEur": 2.005917944220201,
+  "trades": 20,
   "rejectedTooSmallOrOther": 0,
-  "avgNotionalUsd": 36.90813993942727,
-  "avgLeverage": 0.15908681008373826,
+  "avgNotionalUsd": 36.060676143100004,
+  "avgLeverage": 0.15543394889267245,
   "metrics": {
-   "totalReturn": 0.048490498781450286,
-   "cagr": 0.023974855425558106,
-   "annVol": 0.04501442656558392,
-   "sharpe": 0.5487869147724622,
-   "sortino": 0.8457404821813256,
-   "maxDrawdown": 0.050146359938362806,
-   "calmar": 0.47809762174217035,
-   "trades": 11,
-   "winRate": 0.45454545454545453,
-   "profitFactor": 2.0044472707810623,
-   "avgTradeReturn": 0.004466843390099573,
-   "avgR": 0.5041306943168302,
+   "totalReturn": 0.0596178668086389,
+   "cagr": 0.029397831514591077,
+   "annVol": 0.05499596427505935,
+   "sharpe": 0.5542872585036538,
+   "sortino": 0.8494153339815154,
+   "maxDrawdown": 0.06887376756873897,
+   "calmar": 0.4268364074210225,
+   "trades": 20,
+   "winRate": 0.45,
+   "profitFactor": 1.622986588060975,
+   "avgTradeReturn": 0.0030219200951009636,
+   "avgR": 0.37126290172233906,
    "years": 1.998631074606434
   }
  },
  "contractCheck": [
   {
    "asset": "BTC",
-   "contract": "nano Bitcoin (BIT), 1/100 BTC",
+   "contract": "nano Bitcoin BIT/BIP, 0,01 BTC",
    "price": 84355,
    "notionalUsd": 843.5500000000001,
    "leverageNeeded": 3.6359913793103456,
@@ -1406,7 +1456,7 @@
   },
   {
    "asset": "GOLD",
-   "contract": "Gold futures CDE, 1 onza troy",
+   "contract": "Gold GOL, 1 onza troy",
    "price": 4141.6,
    "notionalUsd": 4141.6,
    "leverageNeeded": 17.85172413793104,
@@ -1414,7 +1464,7 @@
   },
   {
    "asset": "SILVER",
-   "contract": "Silver futures CDE, 50 onzas",
+   "contract": "Silver SLR, 50 onzas",
    "price": 57.665,
    "notionalUsd": 2883.25,
    "leverageNeeded": 12.427801724137932,
@@ -1422,15 +1472,15 @@
   },
   {
    "asset": "COPPER",
-   "contract": "nano Copper CDE, 500 libras",
+   "contract": "Copper CU, 2.000 libras",
    "price": 6.55,
-   "notionalUsd": 3275,
-   "leverageNeeded": 14.11637931034483,
+   "notionalUsd": 13100,
+   "leverageNeeded": 56.46551724137932,
    "fitsWithin2x": false
   },
   {
    "asset": "PLATINUM",
-   "contract": "Platinum futures CDE, 10 onzas",
+   "contract": "Platinum PT, 10 onzas",
    "price": 1627.9,
    "notionalUsd": 16279,
    "leverageNeeded": 70.16810344827587,
@@ -1438,7 +1488,7 @@
   },
   {
    "asset": "OIL",
-   "contract": "nano Crude Oil CDE, 10 barriles",
+   "contract": "Oil NOL, 10 barriles",
    "price": 97.92,
    "notionalUsd": 979.2,
    "leverageNeeded": 4.220689655172414,
@@ -1446,12 +1496,12 @@
   },
   {
    "asset": "NATGAS",
-   "contract": "Natural Gas CDE, 1.000 MMBtu",
+   "contract": "Natural Gas NGS, 1.000 MMBtu",
    "price": 2.778,
    "notionalUsd": 2778,
    "leverageNeeded": 11.974137931034484,
    "fitsWithin2x": false
   }
  ],
- "runtimeSec": 160.606
+ "runtimeSec": 164.57
 }

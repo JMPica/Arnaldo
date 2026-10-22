@@ -114,7 +114,10 @@ export async function runTick(env: Env, fetcher: Fetcher = (u, i) => fetch(u, i)
         const span = TF_SECONDS[cfg.timeframe];
         const bucket = Math.floor(h.ts / span) * span;
         strategyBars = cfg.timeframe === "1h" ? recent1h.slice(-windowSize(cfg)) : await ensureBars(env, mk, cfg.timeframe, bucket, windowSize(cfg), t);
-        if (strategyBars && (!strategyBars.length || strategyBars.at(-1)!.ts !== bucket)) strategyBars = null;
+        if (strategyBars && (!strategyBars.length || strategyBars.at(-1)!.ts !== bucket)) {
+          strategyBars = null;
+          stmts.push(event(env.DB, "warn", "missing_bars", `No hay vela ${cfg.timeframe} cerrada de las ${new Date(bucket * 1000).toISOString()} en Kraken: decisión omitida`));
+        }
       }
       const dataAge = t - (h.ts + 3600);
       const fresh = dataAge <= limits.maxDataAgeSec;

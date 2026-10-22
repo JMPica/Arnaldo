@@ -124,6 +124,13 @@ def kraken():
         t += 2000 * 3600
     if rows:
         write_rows("BTC_kraken_pf_1h", rows)
+    # Comprobación de alineación de las velas 4h/1d que usa el motor en vivo.
+    for tf, span in (("4h", 14400), ("1d", 86400)):
+        b = get(f"{base}/api/charts/v1/trade/PF_XBTUSD/{tf}?from={end - 400 * span}&to={end}")
+        if b:
+            cs = json.loads(b).get("candles", [])
+            ts = [int(c["time"]) // 1000 for c in cs]
+            REPORT[f"kraken_{tf}_alignment"] = {"candles": len(ts), "aligned_utc": all(t % span == 0 for t in ts), "first": ts[:2], "last": ts[-2:]}
     fr = get(f"{base}/derivatives/api/v4/historicalfundingrates?symbol=PF_XBTUSD")
     if fr:
         rates = json.loads(fr).get("rates", [])

@@ -22,12 +22,12 @@ mkdirSync(OUT, { recursive: true });
 
 const ASSETS = [
   { key: "BTC", file: "BTC_binance_1h", label: "Bitcoin (BTCUSDT, Binance spot como proxy del perpetuo)", funding: "BTC_binance_funding" },
-  { key: "GOLD", file: "GOLD_oanda_1d", label: "Oro (XAU/USD, OANDA, velas diarias)", daily: true },
-  { key: "SILVER", file: "SILVER_oanda_1d", label: "Plata (XAG/USD, OANDA, velas diarias)", daily: true },
-  { key: "COPPER", file: "COPPER_oanda_1d", label: "Cobre (XCU/USD, OANDA, velas diarias)", daily: true },
-  { key: "PLATINUM", file: "PLATINUM_oanda_1d", label: "Platino (XPT/USD, OANDA, velas diarias)", daily: true },
-  { key: "OIL", file: "OIL_oanda_1d", label: "Petróleo WTI (OANDA, velas diarias)", daily: true },
-  { key: "NATGAS", file: "NATGAS_oanda_1d", label: "Gas natural (OANDA, velas diarias)", daily: true },
+  { key: "GOLD", file: "GOLD_oanda_1h", label: "Oro (XAU/USD, OANDA)", daily: false },
+  { key: "SILVER", file: "SILVER_oanda_1h", label: "Plata (XAG/USD, OANDA)", daily: false },
+  { key: "COPPER", file: "COPPER_oanda_1h", label: "Cobre (XCU/USD, OANDA)", daily: false },
+  { key: "PLATINUM", file: "PLATINUM_oanda_1h", label: "Platino (XPT/USD, OANDA)", daily: false },
+  { key: "OIL", file: "OIL_oanda_1h", label: "Petróleo WTI (OANDA)", daily: false },
+  { key: "NATGAS", file: "NATGAS_oanda_1h", label: "Gas natural (OANDA)", daily: false },
 ].filter((a) => !assetArg || assetArg.includes(a.key));
 
 const eurusdSeries = loadCandles("EURUSD_oanda_1h");

@@ -7,6 +7,7 @@ import { event, kvGet, kvPut, loadControls, loadLimits, loadStrategy, now, type 
 import { emergencyStop, runTick } from "./engine";
 import { exportForResearch, ingestResearch, seedStrategy, type ResearchPayload } from "./learning";
 import { previousMonth, saveMonthlyReport } from "./reports";
+import { notify } from "./notify";
 import type { Ticker } from "./market";
 
 const SECURITY_HEADERS: Record<string, string> = {
@@ -279,7 +280,10 @@ export default {
   async scheduled(controller: ScheduledController, env: Env, ctx: ExecutionContext): Promise<void> {
     await seedStrategy(env);
     if (controller.cron === "7 6 1 * *") {
-      await saveMonthlyReport(env, previousMonth());
+      const r = await saveMonthlyReport(env, previousMonth());
+      const fx = r.eurusd || 1.16;
+      const e = (v: number | null) => (v === null ? "—" : `${(v / fx).toFixed(2)} €`);
+      await notify(env, `APEX · informe de ${r.month}: capital ${e(r.startEquity)} → ${e(r.endEquity)} (${r.pnlPct === null ? "—" : (r.pnlPct * 100).toFixed(2) + " %"}), ${r.trades} operaciones, comisiones ${e(r.fees)}, disponibilidad ${(r.uptimePct * 100).toFixed(1)} %. Detalle en el panel.`);
       return;
     }
     await runTick(env);

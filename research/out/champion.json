@@ -1,13 +1,13 @@
 {
  "approved": true,
  "config": {
-  "id": "donchian:1d:allowShort=0,entry=20,exit=10,stopAtr=2,trail=0",
+  "id": "donchian:1d:allowShort=1,entry=20,exit=10,stopAtr=2,trail=0",
   "family": "donchian",
   "timeframe": "1d",
   "params": {
    "entry": 20,
    "exit": 10,
-   "allowShort": 0,
+   "allowShort": 1,
    "stopAtr": 2,
    "trail": 0
   }
@@ -67,5 +67,5 @@
   ]
  },
  "oosSharpe": 0.9402727070307163,
- "generatedAt": "2026-10-22T00:16:18.296Z"
+ "generatedAt": "2026-10-22T00:37:40.324Z"
 }
