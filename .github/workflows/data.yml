@@ -6,6 +6,7 @@ on:
         description: funciones a ejecutar (vacío = todas)
         required: false
         default: ""
+  workflow_call:
   push:
     branches: [claude/apex-trading]
     paths: [research/fetch/**]
@@ -18,15 +19,16 @@ jobs:
     timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
+        with: { ref: claude/apex-trading }
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
       - run: pip install pandas pyarrow huggingface_hub
       - run: python research/fetch/fetch_data.py ${{ github.event.inputs.only }}
-      - name: Commit data
+      - name: Guardar datos en la rama de APEX
         run: |
           git config user.name "apex-bot"
           git config user.email "apex-bot@users.noreply.github.com"
           git add research/data
           git commit -m "Datos históricos actualizados" || exit 0
-          git pull --rebase origin ${GITHUB_REF_NAME}
-          git push origin HEAD:${GITHUB_REF_NAME}
+          git pull --rebase origin claude/apex-trading
+          git push origin HEAD:claude/apex-trading
