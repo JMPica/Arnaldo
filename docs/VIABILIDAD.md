@@ -24,7 +24,9 @@ Tamaños verificados en la API pública de Coinbase y precios de tus capturas:
 | Petróleo | 10 barriles | ≈ 979 US$ | 4,2x |
 | Gas natural | 1.000 MMBtu | ≈ 2.778 US$ | 12x |
 
-Ninguno cabe en 2x con 200 €. Por eso no se pueden usar en APEX con tus reglas, aunque el análisis estadístico de estos activos está en el informe de investigación.
+Ninguno cabe en 2x con 200 €. Por eso no se pueden usar en APEX con tus reglas a través de Coinbase, aunque el análisis estadístico de estos activos está en el informe de investigación.
+
+**Alternativa para materias primas:** la lista pública de instrumentos de Kraken Futures incluye perpetuos de oro (`PF_XAUUSD`, mínimo 0,001 onzas ≈ 4 US$), plata (`PF_XAGUSD`, mínimo 0,1 onzas ≈ 6 US$) y petróleo WTI y Brent (`PF_WTIOILUSD`, `PF_BRENTOILUSD`, mínimo 0,1 barriles ≈ 10 US$). Esos tamaños sí caben en 2x con 200 €. Falta confirmar que estén disponibles para clientes del EEE (la lista se descargó desde un servidor de EE. UU.). Ver el informe de investigación para saber si alguna estrategia supera los criterios en estos activos antes de plantear añadirlos.
 
 ## 2. Alternativa elegida: Kraken Futures (perpetuo PF_XBTUSD)
 
