@@ -124,7 +124,8 @@ async function loadStatus() {
        <div class="row"><span>Precio actual</span><span>${usd(p.markPrice, 1)}</span></div>
        <div class="row"><span>Stop de protección</span><span>${usd(p.stop, 1)}</span></div>
        <div class="row"><span>Nocional · apalancamiento</span><span>${usd(p.notional)} · ${num(p.leverage, 2)}x</span></div>
-       <div class="row"><span>Riesgo hasta el stop</span><span>${eur(p.riskToStop)} (${pct(p.riskToStopPct)})</span></div>
+       <div class="row"><span>Pérdida si salta el stop (desde la entrada)</span><span>${eur(p.riskFromEntry)} (${pct(p.riskFromEntryPct)})</span></div>
+       <div class="row"><span>Hasta el stop desde el precio actual</span><span>${eur(p.riskToStop)}</span></div>
        <div class="row"><span>Abierta</span><span>${when(p.entryTs)}</span></div>
        <div class="row"><span>Motivo</span><span>${esc(p.entryReason || "")}</span></div>`
     : `<span class="muted">Sin posición abierta.</span>`;
@@ -176,7 +177,9 @@ function drawSpark(rows, initial) {
   const ys = rows.map((r) => r.equity);
   if (initial) ys.push(initial);
   const min = Math.min(...ys), max = Math.max(...ys);
-  const pad = (max - min) * 0.1 || max * 0.01 || 1;
+  // Escala mínima de ±1 % del capital para no exagerar movimientos de céntimos.
+  const ref = initial || max;
+  const pad = Math.max((max - min) * 0.1, ref * 0.01);
   const lo = min - pad, hi = max + pad;
   const W = 320, H = 64;
   const x = (i) => (i / (rows.length - 1)) * W;
@@ -274,7 +277,7 @@ async function loadStrategy() {
     ? `<div class="row"><span>Estado</span><span class="${s.strategy.approved ? "ok" : "ko"}">${s.strategy.approved ? "Activa y aprobada" : "No aprobada (observación)"}</span></div>
        <div class="row"><span>Familia</span><span>${esc(cfg.family)}</span></div>
        <div class="row"><span>Marco temporal</span><span>${esc(cfg.timeframe)}</span></div>
-       ${Object.entries(cfg.params).map(([k, v]) => `<div class="row"><span>${esc(k)}</span><span>${esc(v)}</span></div>`).join("")}
+       ${Object.entries(cfg.params).map(([k, v]) => `<div class="row"><span>${esc(PARAM_LABELS[k] || k)}</span><span>${esc(paramValue(k, v))}</span></div>`).join("")}
        <div class="row"><span>Sharpe fuera de muestra</span><span>${active?.oos_sharpe != null ? num(active.oos_sharpe, 2) : "—"}</span></div>
        <div class="row"><span>Resultado en paper</span><span>${perf[cfg.id] ? `${perf[cfg.id].n} ops · ${eur(perf[cfg.id].net)}` : "sin operaciones aún"}</span></div>
        ${gatesHtml(active?.gates)}`
@@ -294,6 +297,13 @@ async function loadStrategy() {
     ? st.strategies.map((x) => `<li><span class="t"><code>${esc(x.id)}</code></span><span class="r ${x.status === "active" || x.status === "approved" ? "ok" : x.status === "rejected" ? "ko" : "muted"}">${statusLabel(x.status)}</span><span class="d">Sharpe OOS ${x.oos_sharpe != null ? num(x.oos_sharpe, 2) : "—"}${perf[x.id] ? ` · paper: ${perf[x.id].n} ops, ${eur(perf[x.id].net)}` : ""}</span></li>`).join("")
     : `<li><span class="empty">Sin candidatas registradas todavía.</span></li>`;
 }
+const PARAM_LABELS = {
+  entry: "Canal de entrada (velas)", exit: "Canal de salida (velas)", allowShort: "Permite cortos", stopAtr: "Stop (múltiplos de ATR)",
+  trail: "Stop dinámico (ATR, 0 = no)", lookback: "Periodo de momentum (velas)", threshold: "Umbral de momentum", fast: "Media rápida (velas)",
+  slow: "Media lenta (velas)", rsiLen: "Periodo RSI", oversold: "Nivel de sobreventa", trend: "Media de tendencia (velas)", exitMa: "Media de salida (velas)",
+  maxBars: "Duración máxima (velas)", len: "Periodo de las bandas", k: "Anchura (desviaciones)",
+};
+function paramValue(k, v) { return k === "allowShort" ? (Number(v) ? "sí" : "no") : v; }
 function statusLabel(s) {
   return { active: "activa", approved: "aprobada", rejected: "rechazada", retired: "retirada", candidate: "candidata" }[s] || s;
 }

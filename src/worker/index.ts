@@ -79,6 +79,8 @@ async function status(env: Env) {
             notional: pos.qty * price,
             leverage: (pos.qty * price) / eq,
             riskToStop: pos.qty * lossPerUnit(price, pos.stop, DEFAULT_COSTS),
+            riskFromEntry: Math.max(0, pos.qty * (pos.side === "long" ? pos.entryPrice - pos.stop : pos.stop - pos.entryPrice) + pos.entryFee + pos.qty * pos.stop * (DEFAULT_COSTS.takerFee + DEFAULT_COSTS.slippage)),
+            riskFromEntryPct: Math.max(0, pos.qty * (pos.side === "long" ? pos.entryPrice - pos.stop : pos.stop - pos.entryPrice) + pos.entryFee + pos.qty * pos.stop * (DEFAULT_COSTS.takerFee + DEFAULT_COSTS.slippage)) / Math.max(account!.initialCapital, 1e-9),
             riskToStopPct: (pos.qty * Math.max(0, pos.side === "long" ? price - pos.stop : pos.stop - price)) / eq,
           }
         : null,
