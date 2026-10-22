@@ -32,6 +32,8 @@
 6. Ejecuta una parada de emergencia pendiente, si la hay.
 7. Guarda **todo en una única transacción** (estado, órdenes, operaciones, decisiones, eventos, latido). Si algo falla, no se guarda nada a medias y el siguiente ciclo lo reintenta.
 
+Las velas de 4 h y 1 día de Kraken están alineadas a medianoche UTC, igual que la agregación del backtest (comprobado contra la API real el 22/10/2026; ver `kraken_1d_alignment` en `research/data/fetch_report.json`). Si alguna vez faltara la vela del día, el motor omite la decisión y lo registra como aviso.
+
 ## Controles de riesgo independientes
 
 `src/core/risk.ts` vuelve a calcular cada orden desde cero y la rechaza si:

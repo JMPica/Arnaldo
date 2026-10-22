@@ -51,7 +51,11 @@ Con datos horarios reales de 2017 a octubre de 2026, costes reales y prueba fuer
 - **No los superan:** momentum puro (0,48, se queda justo por debajo) y las dos de reversión a la media (pierden dinero tras costes).
 - **Comparación pasiva:** comprar y mantener BTC dio más rentabilidad (36,9 % anual en el mismo periodo) pero con una caída máxima del 76,6 %. La estrategia elegida tuvo una caída máxima fuera de muestra del 11,6 %.
 
-**Lo que esto significa en euros.** Con 1 % de riesgo por operación y stops anchos, la posición media es pequeña (≈ 0,16x del capital). En la prueba con 200 € reales de los últimos dos años la estrategia habría ganado **≈ 9,7 €** (≈ 2,4 % anual), pagando ≈ 0,36 € en comisiones y ≈ 2,3 € en funding. Los resultados pasados no garantizan nada: es una referencia de orden de magnitud, no una previsión.
+- **Materias primas** (datos horarios de OANDA desde 2003-2006): en **oro** superan los criterios el momentum (Sharpe 0,66) y Donchian (0,53), con rentabilidades pequeñas; en plata, cobre, platino, petróleo y gas natural **ninguna estrategia los supera**.
+
+**Estrategia que usará APEX:** ruptura de Donchian diaria (entrada al superar el máximo de 20 días, salida al perder el mínimo de 10, stop a 2 ATR, largos y cortos), elegida con la misma regla walk-forward sobre los dos últimos años.
+
+**Lo que esto significa en euros.** Con 1 % de riesgo por operación y stops anchos, la posición media es pequeña (≈ 0,16x del capital). En la prueba con 200 € de los dos últimos años (20/10/2024 → 20/10/2026) la estrategia habría ganado **≈ 13,3 €** (≈ 3,3 % anual) en 20 operaciones, con una caída máxima del 6,9 %, pagando ≈ 0,63 € en comisiones y ≈ 2,1 € en funding. Los resultados pasados no garantizan nada: es una referencia de orden de magnitud, no una previsión.
 
 ## 4. Costes de infraestructura
 
@@ -67,7 +71,7 @@ Con datos horarios reales de 2017 a octubre de 2026, costes reales y prueba fuer
 
 Uso estimado: 288 ciclos al día del motor más las visitas al panel, muy por debajo de los límites gratuitos.
 
-**¿Comprometen los costes la viabilidad?** Cualquier coste fijo la rompería. Un servidor de 4 €/mes son 48 € al año, el 24 % del capital, frente a una ganancia histórica de ≈ 5 €/año. Por eso todo el sistema está diseñado para el plan gratuito. Con 200 € el proyecto es viable como **fase de validación** (comprobar que el sistema funciona y que los resultados en simulación se parecen a los del backtest), no como fuente de ingresos.
+**¿Comprometen los costes la viabilidad?** Cualquier coste fijo la rompería. Un servidor de 4 €/mes son 48 € al año, el 24 % del capital, frente a una ganancia histórica de ≈ 6-7 €/año. Por eso todo el sistema está diseñado para el plan gratuito. Con 200 € el proyecto es viable como **fase de validación** (comprobar que el sistema funciona y que los resultados en simulación se parecen a los del backtest), no como fuente de ingresos.
 
 ## 5. Riesgos y limitaciones conocidas
 
