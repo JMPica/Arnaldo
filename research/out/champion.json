@@ -18,13 +18,13 @@
   "checks": [
    {
     "name": "Sharpe OOS",
-    "value": 0.9402727070307163,
+    "value": 0.9270543464569148,
     "threshold": 0.5,
     "ok": true
    },
    {
     "name": "PSR OOS",
-    "value": 0.9925312302668691,
+    "value": 0.9912628874351291,
     "threshold": 0.9,
     "ok": true
    },
@@ -36,7 +36,7 @@
    },
    {
     "name": "P(caída ≥20 %) Monte Carlo",
-    "value": 0.0005,
+    "value": 0.028,
     "threshold": 0.1,
     "ok": true
    },
@@ -54,18 +54,18 @@
    },
    {
     "name": "Caída máxima OOS",
-    "value": 0.11591701197932458,
+    "value": 0.18062927356000424,
     "threshold": 0.2,
     "ok": true
    },
    {
     "name": "Sharpe OOS con costes ×2",
-    "value": 0.7400061920325889,
+    "value": 0.5642326634686404,
     "threshold": 0,
     "ok": true
    }
   ]
  },
- "oosSharpe": 0.9402727070307163,
- "generatedAt": "2026-10-22T01:53:11.193Z"
+ "oosSharpe": 0.9270543464569148,
+ "generatedAt": "2026-10-22T11:01:49.295Z"
 }

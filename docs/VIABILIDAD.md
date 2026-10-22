@@ -8,7 +8,7 @@ Resumen para el propietario. Las cifras de estrategia salen de `docs/INVESTIGACI
 
 - Coinbase empezó a ofrecer futuros a usuarios de Coinbase Advanced en 26 países europeos en marzo de 2026, a través de su entidad regulada MiFID (Chipre), con verificación de experiencia y KYC. Tus capturas confirman que los ves en la app (lugar: Coinbase Derivatives Exchange, contrato de 1/100 BTC, fondos en USD/USDC). No hay documentación pública que confirme que la API de Coinbase permita operar esos contratos desde la UE; lo de la API internacional (INTX) no aplica a residentes en la UE.
 - El problema decisivo es el tamaño del contrato. Según la API pública de Coinbase, el contrato más pequeño de BTC es de **0,01 BTC ≈ 844 US$** de nocional. Con 200 € (≈ 232 US$) eso exige **3,6x** de apalancamiento con un solo contrato. Tu límite es 2x.
-- Además, con un riesgo del 1 % por operación (≈ 2,3 US$), un solo contrato obligaría a poner el stop a ≈ 230 US$ del precio (≈ 0,28 %). BTC se mueve más que eso en una hora normal: el stop saltaría casi siempre por ruido.
+- Además, con un riesgo del 2 % por operación (≈ 4,5 US$), un solo contrato obligaría a poner el stop a ≈ 450 US$ del precio (≈ 0,5 %). BTC se mueve más que eso casi cualquier día: el stop saltaría casi siempre por ruido.
 
 ### Las materias primas de tus capturas (Coinbase Derivatives)
 
@@ -34,7 +34,7 @@ Ninguno cabe en 2x con 200 €. Por eso no se pueden usar en APEX con tus reglas
 |---|---|---|
 | Regulación | MiFID II, Payward Europe Digital Solutions (CY) Ltd; disponible en España | MiFID II, Coinbase (Chipre) |
 | Tamaño mínimo | **0,0001 BTC ≈ 8 US$** (verificado en la API de Kraken) | 0,01 BTC ≈ 844 US$ |
-| ¿Cabe en 2x y 1 % de riesgo con 200 €? | **Sí**, con margen | No |
+| ¿Cabe en 2x y 2 % de riesgo con 200 €? | **Sí**, con margen | No |
 | API para operar | Sí, documentada, con entorno de pruebas (demo-futures.kraken.com) | No confirmada para la UE |
 | Comisiones (nivel inicial) | 0,02 % maker / 0,05 % taker | desde 0,02 % por contrato |
 | Diferencial observado | 1 US$ sobre 84.110 (≈ 0,1 pb) | — |
@@ -55,7 +55,9 @@ Con datos horarios reales de 2017 a octubre de 2026, costes reales y prueba fuer
 
 **Estrategia que usará APEX:** ruptura de Donchian diaria (entrada al superar el máximo de 20 días, salida al perder el mínimo de 10, stop a 2 ATR, largos y cortos), elegida con la misma regla walk-forward sobre los dos últimos años.
 
-**Lo que esto significa en euros.** Con 1 % de riesgo por operación y stops anchos, la posición media es pequeña (≈ 0,16x del capital). En la prueba con 200 € de los dos últimos años (20/10/2024 → 20/10/2026) la estrategia habría ganado **≈ 13,3 €** (≈ 3,3 % anual) en 20 operaciones, con una caída máxima del 6,9 %, pagando ≈ 0,63 € en comisiones y ≈ 2,1 € en funding. Los resultados pasados no garantizan nada: es una referencia de orden de magnitud, no una previsión.
+**Riesgo elegido: 2 % por operación** (decisión del propietario del 22/10/2026; antes 1 %). Fuera de muestra, la estrategia rindió un 13,2 % anual con una caída máxima del 18 %, y sigue superando todos los criterios. Las ganancias se reinvierten automáticamente: cada operación se dimensiona sobre el capital del momento.
+
+**Lo que esto significa en euros.** Con 2 % de riesgo y stops anchos, la posición media es de ≈ 0,34x del capital. En la prueba con 200 € de los dos últimos años (20/10/2024 → 20/10/2026) la estrategia habría ganado **≈ 25,9 €** (≈ 6,3 % anual) en 20 operaciones, con una caída máxima del 13,7 %, pagando ≈ 1,4 € en comisiones y ≈ 4,2 € en funding. Los resultados pasados no garantizan nada: es una referencia de orden de magnitud, no una previsión.
 
 ## 4. Costes de infraestructura
 
@@ -71,7 +73,7 @@ Con datos horarios reales de 2017 a octubre de 2026, costes reales y prueba fuer
 
 Uso estimado: 288 ciclos al día del motor más las visitas al panel, muy por debajo de los límites gratuitos.
 
-**¿Comprometen los costes la viabilidad?** Cualquier coste fijo la rompería. Un servidor de 4 €/mes son 48 € al año, el 24 % del capital, frente a una ganancia histórica de ≈ 6-7 €/año. Por eso todo el sistema está diseñado para el plan gratuito. Con 200 € el proyecto es viable como **fase de validación** (comprobar que el sistema funciona y que los resultados en simulación se parecen a los del backtest), no como fuente de ingresos.
+**¿Comprometen los costes la viabilidad?** Cualquier coste fijo la rompería. Un servidor de 4 €/mes son 48 € al año, el 24 % del capital, frente a una ganancia histórica de ≈ 13 €/año. Por eso todo el sistema está diseñado para el plan gratuito. Con 200 € el proyecto es viable como **fase de validación** (comprobar que el sistema funciona y que los resultados en simulación se parecen a los del backtest), no como fuente de ingresos.
 
 ## 5. Riesgos y limitaciones conocidas
 

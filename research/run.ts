@@ -235,6 +235,6 @@ function renderMarkdown(r: typeof results): string {
   L.push(`## Viabilidad de los contratos de Coinbase con ${r.capital.eur} € y apalancamiento máximo 2x`, ``);
   L.push(`| Activo | Contrato | Precio (captura) | Nocional por contrato | Apalancamiento necesario | ¿Cabe en 2x? |`, `|---|---|---|---|---|---|`);
   for (const c of r.contractCheck) L.push(`| ${c.asset} | ${c.contract} | ${c.price.toLocaleString("es-ES")} | ${fmt(c.notionalUsd, 0)} USD | ${fmt(c.leverageNeeded, 1)}x | ${c.fitsWithin2x ? "Sí" : "**No**"} |`);
-  L.push(``, `Ningún contrato de Coinbase Derivatives cabe en el límite de 2x con ${r.capital.eur} €: un solo contrato ya supera el apalancamiento permitido. Además, con un riesgo del 1 % (≈ ${fmt(r.capital.usd * 0.01)} USD) y un contrato nano de BTC (0,01 BTC), el stop tendría que estar a ≈ ${fmt((r.capital.usd * 0.01) / 0.01, 0)} USD del precio (≈ ${fmtPct((r.capital.usd * 0.01) / 0.01 / 84355, 2)}), muy por debajo del ruido horario de BTC.`, ``);
+  L.push(``, `Ningún contrato de Coinbase Derivatives cabe en el límite de 2x con ${r.capital.eur} €: un solo contrato ya supera el apalancamiento permitido. Además, con un riesgo del ${fmtPct(r.limits.riskPerTrade, 0)} (≈ ${fmt(r.capital.usd * r.limits.riskPerTrade)} USD) y un contrato nano de BTC (0,01 BTC), el stop tendría que estar a ≈ ${fmt((r.capital.usd * r.limits.riskPerTrade) / 0.01, 0)} USD del precio (≈ ${fmtPct((r.capital.usd * r.limits.riskPerTrade) / 0.01 / 84355, 2)}), por debajo del ruido diario de BTC.`, ``);
   return L.join("\n");
 }

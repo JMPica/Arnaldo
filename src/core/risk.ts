@@ -6,10 +6,12 @@ import type { CostModel, RiskLimits, Side } from "./types";
 // de los datos crudos y rechaza cualquier orden que incumpla un límite duro.
 // Los límites máximos absolutos (HARD_CAPS) no se pueden superar ni siquiera
 // cambiando la configuración.
+// Interés compuesto: el tamaño se calcula siempre sobre el capital vigente, de
+// modo que las ganancias se reinvierten solas (y tras pérdidas el tamaño baja).
 
 export const HARD_CAPS = Object.freeze({
   maxLeverage: 2,
-  riskPerTrade: 0.01,
+  riskPerTrade: 0.02,
   maxPositions: 1,
   maxDrawdown: 0.2,
 });

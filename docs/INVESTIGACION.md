@@ -1,6 +1,6 @@
 # APEX — Informe de investigación cuantitativa
 
-Generado automáticamente por `research/run.ts` el 2026-10-22 01:53 UTC. No editar a mano.
+Generado automáticamente por `research/run.ts` el 2026-10-22 11:01 UTC. No editar a mano.
 
 ## Metodología
 
@@ -8,7 +8,7 @@ Generado automáticamente por `research/run.ts` el 2026-10-22 01:53 UTC. No edit
 - **Mismo código que en producción.** El backtest usa la misma función `processHour()` que ejecuta el motor real: mismas señales, mismo dimensionado, mismo motor de riesgo.
 - **Sin mirar al futuro.** Las señales se calculan con velas cerradas y se ejecutan en la apertura de la vela siguiente. Los stops se evalúan contra el máximo/mínimo de cada hora; si hay hueco, se ejecutan al precio de apertura.
 - **Costes:** comisión taker 0.05 % por lado + deslizamiento 0.03 % por lado + funding real. Prueba de estrés con costes ×2.
-- **Riesgo:** 1 % del capital hasta el stop, apalancamiento máximo 2x, una posición, suspensión con caída del 20 %.
+- **Riesgo:** 2 % del capital hasta el stop, apalancamiento máximo 2x, una posición, suspensión con caída del 20 %.
 - **Walk-forward:** optimiza en 730 días, evalúa los 182 siguientes fuera de muestra (OOS) y avanza. Solo cuenta el tramo OOS encadenado.
 - **Sobreajuste:** ratio de Sharpe deflactado (Bailey y López de Prado) con el número total de configuraciones probadas; estabilidad = fracción de configuraciones de la familia con Sharpe > 0.
 - **Monte Carlo:** 2.000 remuestreos por bloques de 10 días de los rendimientos OOS, horizonte de 1 año.
@@ -34,17 +34,16 @@ Datos: 2017-08-17 → 2026-10-20 (80.317 velas de 1 h).
 
 | Familia | Sharpe OOS | CAGR OOS | Caída máx. OOS | Ops OOS | Ventanas + | PSR | P(DD≥20 %) | Sharpe costes×2 | DSR muestra completa | Estabilidad | ¿Aprobada? |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| tsmom | 0.48 | 2.2 % | 7.3 % | 109 | 75 % | 0.88 | 0 % | 0.26 | 0.89 | 100 % | No |
-| donchian | 0.94 | 7.9 % | 11.6 % | 41 | 58 % | 0.99 | 0 % | 0.74 | 0.90 | 100 % | **Sí** |
-| ema_cross | 0.82 | 5.1 % | 8.6 % | 47 | 58 % | 0.98 | 0 % | 0.61 | 0.88 | 100 % | **Sí** |
-| rsi_mr | -1.28 | -5.7 % | 31.4 % | 509 | 17 % | 0.00 | 0 % | -1.74 | 0.01 | 0 % | No |
-| boll_mr | -0.54 | -1.8 % | 12.4 % | 75 | 33 % | 0.09 | 0 % | -0.73 | 0.01 | 0 % | No |
+| tsmom | 0.53 | 4.6 % | 14.0 % | 106 | 83 % | 0.90 | 0 % | 0.58 | 0.79 | 100 % | **Sí** |
+| donchian | 0.93 | 13.2 % | 18.1 % | 41 | 58 % | 0.99 | 3 % | 0.56 | 0.88 | 100 % | **Sí** |
+| ema_cross | 0.82 | 9.2 % | 14.2 % | 47 | 58 % | 0.98 | 1 % | 0.63 | 0.65 | 94 % | **Sí** |
+| rsi_mr | -1.34 | -13.2 % | 59.4 % | 598 | 17 % | 0.00 | 32 % | -2.15 | 0.07 | 0 % | No |
+| boll_mr | -0.54 | -3.6 % | 23.7 % | 75 | 33 % | 0.09 | 0 % | -0.73 | 0.01 | 0 % | No |
 
 <details><summary>Motivos de rechazo</summary>
 
-- **tsmom**: Sharpe OOS = 0.48 (umbral 0.50); PSR OOS = 0.88 (umbral 0.90)
-- **rsi_mr**: Sharpe OOS = -1.28 (umbral 0.50); PSR OOS = 0.00 (umbral 0.90); Ventanas OOS positivas = 0.17 (umbral 0.55); Estabilidad de parámetros = 0.00 (umbral 0.60); Caída máxima OOS = 0.31 (umbral 0.20); Sharpe OOS con costes ×2 = -1.74 (umbral 0.00)
-- **boll_mr**: Sharpe OOS = -0.54 (umbral 0.50); PSR OOS = 0.09 (umbral 0.90); Ventanas OOS positivas = 0.33 (umbral 0.55); Estabilidad de parámetros = 0.00 (umbral 0.60); Sharpe OOS con costes ×2 = -0.73 (umbral 0.00)
+- **rsi_mr**: Sharpe OOS = -1.34 (umbral 0.50); PSR OOS = 0.00 (umbral 0.90); Ventanas OOS positivas = 0.17 (umbral 0.55); P(caída ≥20 %) Monte Carlo = 0.32 (umbral 0.10); Estabilidad de parámetros = 0.00 (umbral 0.60); Caída máxima OOS = 0.59 (umbral 0.20); Sharpe OOS con costes ×2 = -2.15 (umbral 0.00)
+- **boll_mr**: Sharpe OOS = -0.54 (umbral 0.50); PSR OOS = 0.09 (umbral 0.90); Ventanas OOS positivas = 0.33 (umbral 0.55); Estabilidad de parámetros = 0.00 (umbral 0.60); Caída máxima OOS = 0.24 (umbral 0.20); Sharpe OOS con costes ×2 = -0.73 (umbral 0.00)
 
 </details>
 
@@ -56,17 +55,17 @@ Datos: 2006-03-19 → 2026-10-21 (125.297 velas de 1 h).
 
 | Familia | Sharpe OOS | CAGR OOS | Caída máx. OOS | Ops OOS | Ventanas + | PSR | P(DD≥20 %) | Sharpe costes×2 | DSR muestra completa | Estabilidad | ¿Aprobada? |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| tsmom | 0.66 | 2.4 % | 9.5 % | 186 | 63 % | 1.00 | 0 % | 0.50 | 0.83 | 100 % | **Sí** |
-| donchian | 0.53 | 2.4 % | 10.1 % | 76 | 60 % | 0.98 | 0 % | 0.46 | 0.91 | 100 % | **Sí** |
-| ema_cross | 0.47 | 1.7 % | 9.9 % | 94 | 63 % | 0.97 | 0 % | 0.49 | 0.91 | 100 % | No |
-| rsi_mr | -1.32 | -3.9 % | 50.3 % | 679 | 23 % | 0.00 | 0 % | -2.92 | 0.00 | 0 % | No |
-| boll_mr | -0.23 | -0.6 % | 16.5 % | 159 | 46 % | 0.16 | 0 % | -0.58 | 0.04 | 25 % | No |
+| tsmom | 0.66 | 4.5 % | 18.1 % | 187 | 63 % | 1.00 | 0 % | 0.54 | 0.72 | 95 % | **Sí** |
+| donchian | 0.55 | 4.5 % | 19.2 % | 76 | 60 % | 0.99 | 0 % | 0.47 | 0.75 | 94 % | **Sí** |
+| ema_cross | 0.50 | 3.5 % | 20.4 % | 94 | 60 % | 0.98 | 0 % | 0.41 | 0.76 | 100 % | No |
+| rsi_mr | -1.63 | -10.8 % | 86.6 % | 823 | 14 % | 0.00 | 13 % | -3.26 | 0.01 | 0 % | No |
+| boll_mr | -0.17 | -1.0 % | 26.8 % | 154 | 49 % | 0.24 | 0 % | -0.60 | 0.09 | 25 % | No |
 
 <details><summary>Motivos de rechazo</summary>
 
-- **ema_cross**: Sharpe OOS = 0.47 (umbral 0.50)
-- **rsi_mr**: Sharpe OOS = -1.32 (umbral 0.50); PSR OOS = 0.00 (umbral 0.90); Ventanas OOS positivas = 0.23 (umbral 0.55); Estabilidad de parámetros = 0.00 (umbral 0.60); Caída máxima OOS = 0.50 (umbral 0.20); Sharpe OOS con costes ×2 = -2.92 (umbral 0.00)
-- **boll_mr**: Sharpe OOS = -0.23 (umbral 0.50); PSR OOS = 0.16 (umbral 0.90); Ventanas OOS positivas = 0.46 (umbral 0.55); Estabilidad de parámetros = 0.25 (umbral 0.60); Sharpe OOS con costes ×2 = -0.58 (umbral 0.00)
+- **ema_cross**: Caída máxima OOS = 0.20 (umbral 0.20)
+- **rsi_mr**: Sharpe OOS = -1.63 (umbral 0.50); PSR OOS = 0.00 (umbral 0.90); Ventanas OOS positivas = 0.14 (umbral 0.55); P(caída ≥20 %) Monte Carlo = 0.13 (umbral 0.10); Estabilidad de parámetros = 0.00 (umbral 0.60); Caída máxima OOS = 0.87 (umbral 0.20); Sharpe OOS con costes ×2 = -3.26 (umbral 0.00)
+- **boll_mr**: Sharpe OOS = -0.17 (umbral 0.50); PSR OOS = 0.24 (umbral 0.90); Ventanas OOS positivas = 0.49 (umbral 0.55); Estabilidad de parámetros = 0.25 (umbral 0.60); Caída máxima OOS = 0.27 (umbral 0.20); Sharpe OOS con costes ×2 = -0.60 (umbral 0.00)
 
 </details>
 
@@ -78,19 +77,19 @@ Datos: 2006-03-19 → 2026-10-21 (124.964 velas de 1 h).
 
 | Familia | Sharpe OOS | CAGR OOS | Caída máx. OOS | Ops OOS | Ventanas + | PSR | P(DD≥20 %) | Sharpe costes×2 | DSR muestra completa | Estabilidad | ¿Aprobada? |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| tsmom | 0.27 | 1.4 % | 17.6 % | 208 | 46 % | 0.85 | 0 % | 0.21 | 0.57 | 90 % | No |
-| donchian | 0.13 | 0.4 % | 15.7 % | 98 | 34 % | 0.70 | 0 % | 0.17 | 0.63 | 94 % | No |
-| ema_cross | 0.18 | 0.8 % | 21.6 % | 109 | 37 % | 0.76 | 1 % | 0.20 | 0.56 | 88 % | No |
-| rsi_mr | -0.89 | -3.3 % | 44.2 % | 838 | 29 % | 0.00 | 0 % | -1.37 | 0.00 | 0 % | No |
-| boll_mr | -0.04 | -0.1 % | 10.8 % | 136 | 51 % | 0.43 | 0 % | -0.08 | 0.08 | 19 % | No |
+| tsmom | 0.29 | 2.4 % | 29.8 % | 209 | 46 % | 0.87 | 5 % | 0.23 | 0.54 | 90 % | No |
+| donchian | 0.13 | 0.7 % | 29.2 % | 98 | 34 % | 0.70 | 1 % | 0.19 | 0.49 | 81 % | No |
+| ema_cross | 0.17 | 1.2 % | 40.0 % | 111 | 37 % | 0.76 | 6 % | 0.20 | 0.64 | 100 % | No |
+| rsi_mr | -0.98 | -7.3 % | 73.5 % | 877 | 26 % | 0.00 | 8 % | -1.67 | 0.02 | 0 % | No |
+| boll_mr | -0.04 | -0.3 % | 20.9 % | 136 | 51 % | 0.43 | 0 % | -0.08 | 0.10 | 19 % | No |
 
 <details><summary>Motivos de rechazo</summary>
 
-- **tsmom**: Sharpe OOS = 0.27 (umbral 0.50); PSR OOS = 0.85 (umbral 0.90); Ventanas OOS positivas = 0.46 (umbral 0.55)
-- **donchian**: Sharpe OOS = 0.13 (umbral 0.50); PSR OOS = 0.70 (umbral 0.90); Ventanas OOS positivas = 0.34 (umbral 0.55)
-- **ema_cross**: Sharpe OOS = 0.18 (umbral 0.50); PSR OOS = 0.76 (umbral 0.90); Ventanas OOS positivas = 0.37 (umbral 0.55); Caída máxima OOS = 0.22 (umbral 0.20)
-- **rsi_mr**: Sharpe OOS = -0.89 (umbral 0.50); PSR OOS = 0.00 (umbral 0.90); Ventanas OOS positivas = 0.29 (umbral 0.55); Estabilidad de parámetros = 0.00 (umbral 0.60); Caída máxima OOS = 0.44 (umbral 0.20); Sharpe OOS con costes ×2 = -1.37 (umbral 0.00)
-- **boll_mr**: Sharpe OOS = -0.04 (umbral 0.50); PSR OOS = 0.43 (umbral 0.90); Ventanas OOS positivas = 0.51 (umbral 0.55); Estabilidad de parámetros = 0.19 (umbral 0.60); Sharpe OOS con costes ×2 = -0.08 (umbral 0.00)
+- **tsmom**: Sharpe OOS = 0.29 (umbral 0.50); PSR OOS = 0.87 (umbral 0.90); Ventanas OOS positivas = 0.46 (umbral 0.55); Caída máxima OOS = 0.30 (umbral 0.20)
+- **donchian**: Sharpe OOS = 0.13 (umbral 0.50); PSR OOS = 0.70 (umbral 0.90); Ventanas OOS positivas = 0.34 (umbral 0.55); Caída máxima OOS = 0.29 (umbral 0.20)
+- **ema_cross**: Sharpe OOS = 0.17 (umbral 0.50); PSR OOS = 0.76 (umbral 0.90); Ventanas OOS positivas = 0.37 (umbral 0.55); Caída máxima OOS = 0.40 (umbral 0.20)
+- **rsi_mr**: Sharpe OOS = -0.98 (umbral 0.50); PSR OOS = 0.00 (umbral 0.90); Ventanas OOS positivas = 0.26 (umbral 0.55); Estabilidad de parámetros = 0.00 (umbral 0.60); Caída máxima OOS = 0.73 (umbral 0.20); Sharpe OOS con costes ×2 = -1.67 (umbral 0.00)
+- **boll_mr**: Sharpe OOS = -0.04 (umbral 0.50); PSR OOS = 0.43 (umbral 0.90); Ventanas OOS positivas = 0.51 (umbral 0.55); Estabilidad de parámetros = 0.19 (umbral 0.60); Caída máxima OOS = 0.21 (umbral 0.20); Sharpe OOS con costes ×2 = -0.08 (umbral 0.00)
 
 </details>
 
@@ -102,19 +101,19 @@ Datos: 2003-03-28 → 2026-10-21 (127.073 velas de 1 h).
 
 | Familia | Sharpe OOS | CAGR OOS | Caída máx. OOS | Ops OOS | Ventanas + | PSR | P(DD≥20 %) | Sharpe costes×2 | DSR muestra completa | Estabilidad | ¿Aprobada? |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| tsmom | -0.09 | -0.3 % | 15.2 % | 206 | 44 % | 0.34 | 0 % | -0.13 | 0.44 | 80 % | No |
-| donchian | 0.25 | 0.9 % | 9.8 % | 81 | 46 % | 0.87 | 0 % | 0.20 | 0.69 | 100 % | No |
-| ema_cross | -0.07 | -0.2 % | 12.5 % | 101 | 34 % | 0.38 | 0 % | -0.10 | 0.63 | 88 % | No |
-| rsi_mr | -0.76 | -2.5 % | 44.0 % | 856 | 29 % | 0.00 | 0 % | -1.69 | 0.02 | 0 % | No |
-| boll_mr | 0.09 | 0.2 % | 11.6 % | 264 | 56 % | 0.66 | 0 % | 0.04 | 0.27 | 50 % | No |
+| tsmom | -0.09 | -0.7 % | 28.6 % | 206 | 44 % | 0.34 | 0 % | -0.13 | 0.69 | 90 % | No |
+| donchian | 0.26 | 1.7 % | 18.2 % | 81 | 46 % | 0.88 | 1 % | 0.20 | 0.74 | 100 % | No |
+| ema_cross | -0.05 | -0.4 % | 23.1 % | 101 | 34 % | 0.41 | 0 % | -0.10 | 0.51 | 75 % | No |
+| rsi_mr | -0.87 | -5.8 % | 73.7 % | 855 | 29 % | 0.00 | 3 % | -1.82 | 0.07 | 0 % | No |
+| boll_mr | 0.09 | 0.4 % | 21.9 % | 264 | 56 % | 0.66 | 0 % | 0.04 | 0.44 | 56 % | No |
 
 <details><summary>Motivos de rechazo</summary>
 
-- **tsmom**: Sharpe OOS = -0.09 (umbral 0.50); PSR OOS = 0.34 (umbral 0.90); Ventanas OOS positivas = 0.44 (umbral 0.55); Sharpe OOS con costes ×2 = -0.13 (umbral 0.00)
-- **donchian**: Sharpe OOS = 0.25 (umbral 0.50); PSR OOS = 0.87 (umbral 0.90); Ventanas OOS positivas = 0.46 (umbral 0.55)
-- **ema_cross**: Sharpe OOS = -0.07 (umbral 0.50); PSR OOS = 0.38 (umbral 0.90); Ventanas OOS positivas = 0.34 (umbral 0.55); Sharpe OOS con costes ×2 = -0.10 (umbral 0.00)
-- **rsi_mr**: Sharpe OOS = -0.76 (umbral 0.50); PSR OOS = 0.00 (umbral 0.90); Ventanas OOS positivas = 0.29 (umbral 0.55); Estabilidad de parámetros = 0.00 (umbral 0.60); Caída máxima OOS = 0.44 (umbral 0.20); Sharpe OOS con costes ×2 = -1.69 (umbral 0.00)
-- **boll_mr**: Sharpe OOS = 0.09 (umbral 0.50); PSR OOS = 0.66 (umbral 0.90); Estabilidad de parámetros = 0.50 (umbral 0.60)
+- **tsmom**: Sharpe OOS = -0.09 (umbral 0.50); PSR OOS = 0.34 (umbral 0.90); Ventanas OOS positivas = 0.44 (umbral 0.55); Caída máxima OOS = 0.29 (umbral 0.20); Sharpe OOS con costes ×2 = -0.13 (umbral 0.00)
+- **donchian**: Sharpe OOS = 0.26 (umbral 0.50); PSR OOS = 0.88 (umbral 0.90); Ventanas OOS positivas = 0.46 (umbral 0.55)
+- **ema_cross**: Sharpe OOS = -0.05 (umbral 0.50); PSR OOS = 0.41 (umbral 0.90); Ventanas OOS positivas = 0.34 (umbral 0.55); Caída máxima OOS = 0.23 (umbral 0.20); Sharpe OOS con costes ×2 = -0.10 (umbral 0.00)
+- **rsi_mr**: Sharpe OOS = -0.87 (umbral 0.50); PSR OOS = 0.00 (umbral 0.90); Ventanas OOS positivas = 0.29 (umbral 0.55); Estabilidad de parámetros = 0.00 (umbral 0.60); Caída máxima OOS = 0.74 (umbral 0.20); Sharpe OOS con costes ×2 = -1.82 (umbral 0.00)
+- **boll_mr**: Sharpe OOS = 0.09 (umbral 0.50); PSR OOS = 0.66 (umbral 0.90); Estabilidad de parámetros = 0.56 (umbral 0.60); Caída máxima OOS = 0.22 (umbral 0.20)
 
 </details>
 
@@ -126,19 +125,19 @@ Datos: 2005-01-03 → 2026-10-21 (125.732 velas de 1 h).
 
 | Familia | Sharpe OOS | CAGR OOS | Caída máx. OOS | Ops OOS | Ventanas + | PSR | P(DD≥20 %) | Sharpe costes×2 | DSR muestra completa | Estabilidad | ¿Aprobada? |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| tsmom | 0.01 | -0.0 % | 18.3 % | 204 | 38 % | 0.52 | 0 % | -0.11 | 0.61 | 90 % | No |
-| donchian | -0.07 | -0.4 % | 24.7 % | 108 | 49 % | 0.38 | 0 % | -0.04 | 0.43 | 69 % | No |
-| ema_cross | -0.22 | -0.8 % | 27.6 % | 112 | 43 % | 0.17 | 0 % | -0.22 | 0.19 | 75 % | No |
-| rsi_mr | -1.14 | -3.4 % | 48.5 % | 698 | 22 % | 0.00 | 0 % | -1.83 | 0.01 | 0 % | No |
-| boll_mr | -0.54 | -1.7 % | 28.9 % | 207 | 32 % | 0.01 | 0 % | -0.67 | 0.02 | 0 % | No |
+| tsmom | 0.01 | -0.2 % | 34.6 % | 205 | 35 % | 0.51 | 1 % | -0.11 | 0.70 | 95 % | No |
+| donchian | -0.06 | -0.8 % | 42.4 % | 108 | 49 % | 0.39 | 2 % | -0.07 | 0.60 | 81 % | No |
+| ema_cross | -0.18 | -1.5 % | 46.6 % | 107 | 43 % | 0.22 | 1 % | -0.22 | 0.23 | 75 % | No |
+| rsi_mr | -1.23 | -8.1 % | 80.2 % | 828 | 16 % | 0.00 | 7 % | -2.22 | 0.11 | 0 % | No |
+| boll_mr | -0.63 | -3.9 % | 54.8 % | 210 | 32 % | 0.00 | 1 % | -0.84 | 0.04 | 0 % | No |
 
 <details><summary>Motivos de rechazo</summary>
 
-- **tsmom**: Sharpe OOS = 0.01 (umbral 0.50); PSR OOS = 0.52 (umbral 0.90); Ventanas OOS positivas = 0.38 (umbral 0.55); Sharpe OOS con costes ×2 = -0.11 (umbral 0.00)
-- **donchian**: Sharpe OOS = -0.07 (umbral 0.50); PSR OOS = 0.38 (umbral 0.90); Ventanas OOS positivas = 0.49 (umbral 0.55); Caída máxima OOS = 0.25 (umbral 0.20); Sharpe OOS con costes ×2 = -0.04 (umbral 0.00)
-- **ema_cross**: Sharpe OOS = -0.22 (umbral 0.50); PSR OOS = 0.17 (umbral 0.90); Ventanas OOS positivas = 0.43 (umbral 0.55); Caída máxima OOS = 0.28 (umbral 0.20); Sharpe OOS con costes ×2 = -0.22 (umbral 0.00)
-- **rsi_mr**: Sharpe OOS = -1.14 (umbral 0.50); PSR OOS = 0.00 (umbral 0.90); Ventanas OOS positivas = 0.22 (umbral 0.55); Estabilidad de parámetros = 0.00 (umbral 0.60); Caída máxima OOS = 0.48 (umbral 0.20); Sharpe OOS con costes ×2 = -1.83 (umbral 0.00)
-- **boll_mr**: Sharpe OOS = -0.54 (umbral 0.50); PSR OOS = 0.01 (umbral 0.90); Ventanas OOS positivas = 0.32 (umbral 0.55); Estabilidad de parámetros = 0.00 (umbral 0.60); Caída máxima OOS = 0.29 (umbral 0.20); Sharpe OOS con costes ×2 = -0.67 (umbral 0.00)
+- **tsmom**: Sharpe OOS = 0.01 (umbral 0.50); PSR OOS = 0.51 (umbral 0.90); Ventanas OOS positivas = 0.35 (umbral 0.55); Caída máxima OOS = 0.35 (umbral 0.20); Sharpe OOS con costes ×2 = -0.11 (umbral 0.00)
+- **donchian**: Sharpe OOS = -0.06 (umbral 0.50); PSR OOS = 0.39 (umbral 0.90); Ventanas OOS positivas = 0.49 (umbral 0.55); Caída máxima OOS = 0.42 (umbral 0.20); Sharpe OOS con costes ×2 = -0.07 (umbral 0.00)
+- **ema_cross**: Sharpe OOS = -0.18 (umbral 0.50); PSR OOS = 0.22 (umbral 0.90); Ventanas OOS positivas = 0.43 (umbral 0.55); Caída máxima OOS = 0.47 (umbral 0.20); Sharpe OOS con costes ×2 = -0.22 (umbral 0.00)
+- **rsi_mr**: Sharpe OOS = -1.23 (umbral 0.50); PSR OOS = 0.00 (umbral 0.90); Ventanas OOS positivas = 0.16 (umbral 0.55); Estabilidad de parámetros = 0.00 (umbral 0.60); Caída máxima OOS = 0.80 (umbral 0.20); Sharpe OOS con costes ×2 = -2.22 (umbral 0.00)
+- **boll_mr**: Sharpe OOS = -0.63 (umbral 0.50); PSR OOS = 0.00 (umbral 0.90); Ventanas OOS positivas = 0.32 (umbral 0.55); Estabilidad de parámetros = 0.00 (umbral 0.60); Caída máxima OOS = 0.55 (umbral 0.20); Sharpe OOS con costes ×2 = -0.84 (umbral 0.00)
 
 </details>
 
@@ -150,19 +149,19 @@ Datos: 2003-01-22 → 2026-10-21 (139.876 velas de 1 h).
 
 | Familia | Sharpe OOS | CAGR OOS | Caída máx. OOS | Ops OOS | Ventanas + | PSR | P(DD≥20 %) | Sharpe costes×2 | DSR muestra completa | Estabilidad | ¿Aprobada? |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| tsmom | 0.06 | 0.2 % | 23.0 % | 280 | 44 % | 0.61 | 0 % | 0.01 | 0.76 | 100 % | No |
-| donchian | 0.31 | 1.0 % | 10.7 % | 80 | 39 % | 0.92 | 0 % | 0.28 | 0.89 | 100 % | No |
-| ema_cross | -0.07 | -0.3 % | 22.2 % | 110 | 41 % | 0.38 | 0 % | -0.13 | 0.68 | 94 % | No |
-| rsi_mr | -1.16 | -4.3 % | 59.1 % | 1051 | 22 % | 0.00 | 0 % | -1.82 | 0.01 | 0 % | No |
-| boll_mr | -0.36 | -1.2 % | 29.4 % | 269 | 44 % | 0.05 | 0 % | -0.37 | 0.11 | 25 % | No |
+| tsmom | 0.04 | 0.1 % | 40.9 % | 280 | 44 % | 0.57 | 0 % | 0.01 | 0.57 | 95 % | No |
+| donchian | 0.34 | 2.1 % | 19.8 % | 80 | 41 % | 0.94 | 0 % | 0.29 | 0.80 | 94 % | No |
+| ema_cross | -0.05 | -0.5 % | 39.7 % | 107 | 44 % | 0.40 | 0 % | -0.08 | 0.69 | 94 % | No |
+| rsi_mr | -1.22 | -9.3 % | 86.2 % | 1099 | 15 % | 0.00 | 15 % | -2.13 | 0.05 | 0 % | No |
+| boll_mr | -0.33 | -2.3 % | 48.0 % | 256 | 44 % | 0.06 | 3 % | -0.46 | 0.30 | 31 % | No |
 
 <details><summary>Motivos de rechazo</summary>
 
-- **tsmom**: Sharpe OOS = 0.06 (umbral 0.50); PSR OOS = 0.61 (umbral 0.90); Ventanas OOS positivas = 0.44 (umbral 0.55); Caída máxima OOS = 0.23 (umbral 0.20)
-- **donchian**: Sharpe OOS = 0.31 (umbral 0.50); Ventanas OOS positivas = 0.39 (umbral 0.55)
-- **ema_cross**: Sharpe OOS = -0.07 (umbral 0.50); PSR OOS = 0.38 (umbral 0.90); Ventanas OOS positivas = 0.41 (umbral 0.55); Caída máxima OOS = 0.22 (umbral 0.20); Sharpe OOS con costes ×2 = -0.13 (umbral 0.00)
-- **rsi_mr**: Sharpe OOS = -1.16 (umbral 0.50); PSR OOS = 0.00 (umbral 0.90); Ventanas OOS positivas = 0.22 (umbral 0.55); Estabilidad de parámetros = 0.00 (umbral 0.60); Caída máxima OOS = 0.59 (umbral 0.20); Sharpe OOS con costes ×2 = -1.82 (umbral 0.00)
-- **boll_mr**: Sharpe OOS = -0.36 (umbral 0.50); PSR OOS = 0.05 (umbral 0.90); Ventanas OOS positivas = 0.44 (umbral 0.55); Estabilidad de parámetros = 0.25 (umbral 0.60); Caída máxima OOS = 0.29 (umbral 0.20); Sharpe OOS con costes ×2 = -0.37 (umbral 0.00)
+- **tsmom**: Sharpe OOS = 0.04 (umbral 0.50); PSR OOS = 0.57 (umbral 0.90); Ventanas OOS positivas = 0.44 (umbral 0.55); Caída máxima OOS = 0.41 (umbral 0.20)
+- **donchian**: Sharpe OOS = 0.34 (umbral 0.50); Ventanas OOS positivas = 0.41 (umbral 0.55)
+- **ema_cross**: Sharpe OOS = -0.05 (umbral 0.50); PSR OOS = 0.40 (umbral 0.90); Ventanas OOS positivas = 0.44 (umbral 0.55); Caída máxima OOS = 0.40 (umbral 0.20); Sharpe OOS con costes ×2 = -0.08 (umbral 0.00)
+- **rsi_mr**: Sharpe OOS = -1.22 (umbral 0.50); PSR OOS = 0.00 (umbral 0.90); Ventanas OOS positivas = 0.15 (umbral 0.55); P(caída ≥20 %) Monte Carlo = 0.15 (umbral 0.10); Estabilidad de parámetros = 0.00 (umbral 0.60); Caída máxima OOS = 0.86 (umbral 0.20); Sharpe OOS con costes ×2 = -2.13 (umbral 0.00)
+- **boll_mr**: Sharpe OOS = -0.33 (umbral 0.50); PSR OOS = 0.06 (umbral 0.90); Ventanas OOS positivas = 0.44 (umbral 0.55); Estabilidad de parámetros = 0.31 (umbral 0.60); Caída máxima OOS = 0.48 (umbral 0.20); Sharpe OOS con costes ×2 = -0.46 (umbral 0.00)
 
 </details>
 
@@ -174,25 +173,25 @@ Datos: 2003-01-30 → 2026-10-21 (136.274 velas de 1 h).
 
 | Familia | Sharpe OOS | CAGR OOS | Caída máx. OOS | Ops OOS | Ventanas + | PSR | P(DD≥20 %) | Sharpe costes×2 | DSR muestra completa | Estabilidad | ¿Aprobada? |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| tsmom | 0.13 | 0.4 % | 7.7 % | 222 | 59 % | 0.72 | 0 % | 0.09 | 0.51 | 55 % | No |
-| donchian | 0.15 | 0.6 % | 11.7 % | 104 | 56 % | 0.76 | 0 % | 0.11 | 0.48 | 75 % | No |
-| ema_cross | -0.08 | -0.3 % | 13.1 % | 113 | 29 % | 0.35 | 0 % | -0.05 | 0.24 | 25 % | No |
-| rsi_mr | -0.86 | -3.0 % | 47.2 % | 901 | 22 % | 0.00 | 0 % | -1.39 | 0.00 | 0 % | No |
-| boll_mr | -0.17 | -0.5 % | 11.7 % | 198 | 37 % | 0.23 | 0 % | -0.33 | 0.05 | 0 % | No |
+| tsmom | 0.14 | 0.7 % | 14.9 % | 222 | 56 % | 0.73 | 0 % | 0.09 | 0.50 | 40 % | No |
+| donchian | 0.15 | 0.9 % | 22.3 % | 104 | 56 % | 0.74 | 1 % | 0.10 | 0.44 | 44 % | No |
+| ema_cross | -0.08 | -0.8 % | 25.3 % | 113 | 29 % | 0.36 | 0 % | -0.04 | 0.19 | 25 % | No |
+| rsi_mr | -0.85 | -6.6 % | 76.3 % | 1002 | 22 % | 0.00 | 9 % | -1.47 | 0.03 | 0 % | No |
+| boll_mr | -0.17 | -1.0 % | 22.5 % | 198 | 37 % | 0.23 | 0 % | -0.33 | 0.09 | 0 % | No |
 
 <details><summary>Motivos de rechazo</summary>
 
-- **tsmom**: Sharpe OOS = 0.13 (umbral 0.50); PSR OOS = 0.72 (umbral 0.90); Estabilidad de parámetros = 0.55 (umbral 0.60)
-- **donchian**: Sharpe OOS = 0.15 (umbral 0.50); PSR OOS = 0.76 (umbral 0.90)
-- **ema_cross**: Sharpe OOS = -0.08 (umbral 0.50); PSR OOS = 0.35 (umbral 0.90); Ventanas OOS positivas = 0.29 (umbral 0.55); Estabilidad de parámetros = 0.25 (umbral 0.60); Sharpe OOS con costes ×2 = -0.05 (umbral 0.00)
-- **rsi_mr**: Sharpe OOS = -0.86 (umbral 0.50); PSR OOS = 0.00 (umbral 0.90); Ventanas OOS positivas = 0.22 (umbral 0.55); Estabilidad de parámetros = 0.00 (umbral 0.60); Caída máxima OOS = 0.47 (umbral 0.20); Sharpe OOS con costes ×2 = -1.39 (umbral 0.00)
-- **boll_mr**: Sharpe OOS = -0.17 (umbral 0.50); PSR OOS = 0.23 (umbral 0.90); Ventanas OOS positivas = 0.37 (umbral 0.55); Estabilidad de parámetros = 0.00 (umbral 0.60); Sharpe OOS con costes ×2 = -0.33 (umbral 0.00)
+- **tsmom**: Sharpe OOS = 0.14 (umbral 0.50); PSR OOS = 0.73 (umbral 0.90); Estabilidad de parámetros = 0.40 (umbral 0.60)
+- **donchian**: Sharpe OOS = 0.15 (umbral 0.50); PSR OOS = 0.74 (umbral 0.90); Estabilidad de parámetros = 0.44 (umbral 0.60); Caída máxima OOS = 0.22 (umbral 0.20)
+- **ema_cross**: Sharpe OOS = -0.08 (umbral 0.50); PSR OOS = 0.36 (umbral 0.90); Ventanas OOS positivas = 0.29 (umbral 0.55); Estabilidad de parámetros = 0.25 (umbral 0.60); Caída máxima OOS = 0.25 (umbral 0.20); Sharpe OOS con costes ×2 = -0.04 (umbral 0.00)
+- **rsi_mr**: Sharpe OOS = -0.85 (umbral 0.50); PSR OOS = 0.00 (umbral 0.90); Ventanas OOS positivas = 0.22 (umbral 0.55); Estabilidad de parámetros = 0.00 (umbral 0.60); Caída máxima OOS = 0.76 (umbral 0.20); Sharpe OOS con costes ×2 = -1.47 (umbral 0.00)
+- **boll_mr**: Sharpe OOS = -0.17 (umbral 0.50); PSR OOS = 0.23 (umbral 0.90); Ventanas OOS positivas = 0.37 (umbral 0.55); Estabilidad de parámetros = 0.00 (umbral 0.60); Caída máxima OOS = 0.23 (umbral 0.20); Sharpe OOS con costes ×2 = -0.33 (umbral 0.00)
 
 </details>
 
 ## Resultado
 
-**Estrategia aprobada para paper trading:** `donchian:1d:allowShort=1,entry=20,exit=10,stopAtr=2,trail=0` (familia donchian, Sharpe OOS 0.94).
+**Estrategia aprobada para paper trading:** `donchian:1d:allowShort=1,entry=20,exit=10,stopAtr=2,trail=0` (familia donchian, Sharpe OOS 0.93).
 
 ### Prueba de realidad con 200 € (2024-10-20 → 2026-10-20)
 
@@ -200,15 +199,15 @@ Configuración: `donchian:1d:allowShort=1,entry=20,exit=10,stopAtr=2,trail=0`. C
 
 | Métrica | Valor |
 |---|---|
-| Resultado neto | 13.29 € |
-| Comisiones pagadas | 0.63 € |
-| Funding pagado | 2.06 € |
+| Resultado neto | 25.85 € |
+| Comisiones pagadas | 1.37 € |
+| Funding pagado | 4.20 € |
 | Operaciones | 20 |
 | Órdenes rechazadas por riesgo/tamaño | 0 |
-| Nocional medio por operación | 35.12 USD |
-| Apalancamiento medio | 0.16x |
-| CAGR | 3.3 % |
-| Caída máxima | 6.9 % |
+| Nocional medio por operación | 76.40 USD |
+| Apalancamiento medio | 0.34x |
+| CAGR | 6.3 % |
+| Caída máxima | 13.7 % |
 
 ## Viabilidad de los contratos de Coinbase con 200 € y apalancamiento máximo 2x
 
@@ -222,4 +221,4 @@ Configuración: `donchian:1d:allowShort=1,entry=20,exit=10,stopAtr=2,trail=0`. C
 | OIL | Oil NOL, 10 barriles | 97,92 | 979 USD | 4.4x | **No** |
 | NATGAS | Natural Gas NGS, 1.000 MMBtu | 2,778 | 2778 USD | 12.4x | **No** |
 
-Ningún contrato de Coinbase Derivatives cabe en el límite de 2x con 200 €: un solo contrato ya supera el apalancamiento permitido. Además, con un riesgo del 1 % (≈ 2.24 USD) y un contrato nano de BTC (0,01 BTC), el stop tendría que estar a ≈ 224 USD del precio (≈ 0.27 %), muy por debajo del ruido horario de BTC.
+Ningún contrato de Coinbase Derivatives cabe en el límite de 2x con 200 €: un solo contrato ya supera el apalancamiento permitido. Además, con un riesgo del 2 % (≈ 4.49 USD) y un contrato nano de BTC (0,01 BTC), el stop tendría que estar a ≈ 449 USD del precio (≈ 0.53 %), por debajo del ruido diario de BTC.

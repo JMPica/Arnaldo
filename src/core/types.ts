@@ -65,7 +65,7 @@ export interface StrategyConfig {
 
 export interface RiskLimits {
   maxLeverage: number; // 2
-  riskPerTrade: number; // 0.01
+  riskPerTrade: number; // 0.02 (decidido por el propietario el 22/10/2026)
   maxPositions: number; // 1
   maxDrawdown: number; // 0.20 → suspende nuevas entradas
   minLot: number; // tamaño mínimo de orden (BTC)
@@ -83,7 +83,7 @@ export interface CostModel {
 
 export const DEFAULT_LIMITS: RiskLimits = {
   maxLeverage: 2,
-  riskPerTrade: 0.01,
+  riskPerTrade: 0.02,
   maxPositions: 1,
   maxDrawdown: 0.2,
   minLot: 0.0001,

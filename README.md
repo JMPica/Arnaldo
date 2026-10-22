@@ -30,7 +30,7 @@ Ver **[docs/INTERVENCIONES.md](docs/INTERVENCIONES.md)**: crear una cuenta gratu
 ```bash
 npm ci
 npx tsc --noEmit -p .        # tipos
-npx vitest run               # 44 pruebas (núcleo + extremo a extremo)
+npx vitest run               # 45 pruebas (núcleo + extremo a extremo)
 npx tsx research/run.ts      # investigación completa → docs/INVESTIGACION.md y research/out/champion.json
 npx tsx research/learn.ts --dry   # ciclo de aprendizaje sin enviar resultados
 ```

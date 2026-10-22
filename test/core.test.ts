@@ -60,14 +60,20 @@ describe("motor de riesgo", () => {
     liveApproved: false,
   };
 
-  it("el dimensionado respeta 1 % de riesgo y 2x", () => {
+  it("el dimensionado respeta 2 % de riesgo y 2x", () => {
     const s = positionSize(230, 80000, 76000, DEFAULT_LIMITS, DEFAULT_COSTS);
-    expect(s.riskAmount).toBeLessThanOrEqual(2.3 + 1e-9);
+    expect(s.riskAmount).toBeLessThanOrEqual(4.6 + 1e-9);
     expect(s.leverage).toBeLessThanOrEqual(2);
     expect(s.qty * 1e4).toBeCloseTo(Math.round(s.qty * 1e4)); // múltiplo del lote mínimo
     const tight = positionSize(230, 80000, 79990, DEFAULT_LIMITS, DEFAULT_COSTS);
     expect(tight.limitedBy).toBe("leverage");
     expect(tight.leverage).toBeLessThanOrEqual(2);
+  });
+
+  it("interés compuesto: el tamaño crece con el capital y baja tras pérdidas (sin martingala)", () => {
+    const base = positionSize(230, 80000, 76000, DEFAULT_LIMITS, DEFAULT_COSTS).qty;
+    expect(positionSize(460, 80000, 76000, DEFAULT_LIMITS, DEFAULT_COSTS).qty).toBeCloseTo(base * 2, 3);
+    expect(positionSize(184, 80000, 76000, DEFAULT_LIMITS, DEFAULT_COSTS).qty).toBeLessThan(base);
   });
 
   it("acepta una orden válida", () => {
@@ -95,7 +101,7 @@ describe("motor de riesgo", () => {
     expect(v.reasons.join(" ")).toContain(word);
   });
 
-  it("rechaza riesgo > 1 % aunque el apalancamiento sea bajo", () => {
+  it("rechaza riesgo > 2 % aunque el apalancamiento sea bajo", () => {
     const v = checkEntry({ ...base, qty: 0.002, stop: 70000 }, DEFAULT_LIMITS, DEFAULT_COSTS);
     expect(v.reasons.join(" ")).toContain("riesgo");
   });
@@ -103,7 +109,7 @@ describe("motor de riesgo", () => {
   it("los topes duros no se pueden superar por configuración", () => {
     const L = effectiveLimits({ ...DEFAULT_LIMITS, maxLeverage: 20, riskPerTrade: 0.1, maxPositions: 5, maxDrawdown: 0.9 });
     expect(L.maxLeverage).toBe(2);
-    expect(L.riskPerTrade).toBe(0.01);
+    expect(L.riskPerTrade).toBe(0.02);
     expect(L.maxPositions).toBe(1);
     expect(L.maxDrawdown).toBe(0.2);
   });
@@ -207,7 +213,7 @@ describe("backtest", () => {
     expect(r.trades.every((t) => t.fees > 0)).toBe(true);
   });
 
-  it("todas las operaciones respetan 2x y 1 % de riesgo inicial", () => {
+  it("todas las operaciones respetan 2x y 2 % de riesgo inicial", () => {
     const c = makeConfig("tsmom", "1d", { lookback: 20, allowShort: 1, stopAtr: 3, threshold: 0, trail: 0 });
     const r = backtest(walk, c, { initialCapital: 230, limits: DEFAULT_LIMITS, costs: DEFAULT_COSTS });
     for (const t of r.trades) {

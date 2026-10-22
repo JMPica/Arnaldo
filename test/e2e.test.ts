@@ -222,7 +222,7 @@ describe("APEX de extremo a extremo", () => {
     expect(strategies.find((x: any) => x.family === "rsi_mr").status).toBe("rejected");
   });
 
-  it("abre una operación simulada respetando 2x y 1 % y sin duplicados", async () => {
+  it("abre una operación simulada respetando 2x y 2 % y sin duplicados", async () => {
     // Fuerza el reproceso de la última hora (el motor la procesó antes de activar la estrategia)
     let s = (await call("/api/status")).json;
     if (!s.position) {
@@ -238,7 +238,7 @@ describe("APEX de extremo a extremo", () => {
     expect(s.position.leverage).toBeLessThanOrEqual(2);
     expect(s.position.stop).toBeLessThan(s.position.entryPrice);
     const risk = (s.position.qty * (s.position.entryPrice - s.position.stop)) / s.account.initialCapital;
-    expect(risk).toBeLessThanOrEqual(0.0101);
+    expect(risk).toBeLessThanOrEqual(0.0201);
     await tick();
     await tick();
     const ev = (await call("/api/events")).json.filter((e: any) => e.type === "entry");

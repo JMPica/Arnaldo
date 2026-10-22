@@ -41,7 +41,7 @@ Las velas de 4 h y 1 día de Kraken están alineadas a medianoche UTC, igual que
 | Regla | Valor |
 |---|---|
 | Apalancamiento tras la orden | ≤ 2x (tope duro, no configurable al alza) |
-| Pérdida hasta el stop, con comisiones y deslizamiento | ≤ 1 % del capital |
+| Pérdida hasta el stop, con comisiones y deslizamiento | ≤ 2 % del capital vigente (decisión del propietario del 22/10/2026; antes 1 %) |
 | Posiciones simultáneas | 1 |
 | Caída acumulada (desde el inicial o desde el máximo) | 20 % → suspende nuevas entradas hasta que el propietario lo revise |
 | Stop de protección | obligatorio y en el lado correcto |
@@ -50,7 +50,7 @@ Las velas de 4 h y 1 día de Kraken están alineadas a medianoche UTC, igual que
 | Órdenes por día | ≤ 12 |
 | Modo real | bloqueado salvo secreto de despliegue `LIVE_TRADING_APPROVED`; el panel no puede activarlo |
 
-- **Sin martingala:** el tamaño solo depende del capital vigente y de la distancia al stop; tras pérdidas, el tamaño baja.
+- **Interés compuesto sin martingala:** el tamaño solo depende del capital vigente y de la distancia al stop. Todo lo ganado se reinvierte automáticamente (las posiciones crecen con el capital) y tras pérdidas el tamaño baja. No hay retiradas.
 - **Sin cambios durante una operación:** los límites de riesgo y la estrategia no se pueden cambiar con una posición abierta.
 - **Sin retiradas:** el código no contiene ninguna función de retirada ni de transferencia de fondos.
 - **Órdenes sin duplicados:** cada orden tiene un identificador determinista (`T<hora>-<n>-entry/exit`) con clave única en la base de datos; las velas se procesan una sola vez; un bloqueo impide ciclos concurrentes.
@@ -86,10 +86,10 @@ Cada domingo GitHub Actions descarga datos nuevos y, con el mismo núcleo:
 
 ## Pruebas
 
-`npx vitest run` ejecuta 44 pruebas:
+`npx vitest run` ejecuta 45 pruebas:
 
-- 32 del núcleo: indicadores, agregación de velas, dimensionado, cada regla del motor de riesgo, stops con hueco, funding, suspensión por caída, idempotencia, **ausencia de sesgo de futuro** (alterar velas futuras no cambia operaciones pasadas), contabilidad exacta y topes duros.
-- 12 de extremo a extremo: arrancan el Worker real (workerd + D1) contra un Kraken simulado y comprueban por HTTP el acceso, los controles, el ciclo del motor, el aprendizaje, la apertura de una operación respetando 2x y 1 %, la ausencia de duplicados, la persistencia tras reiniciar, la parada de emergencia, el informe mensual y el cierre de sesión.
+- 33 del núcleo: indicadores, agregación de velas, dimensionado, interés compuesto, cada regla del motor de riesgo, stops con hueco, funding, suspensión por caída, idempotencia, **ausencia de sesgo de futuro** (alterar velas futuras no cambia operaciones pasadas), contabilidad exacta y topes duros.
+- 12 de extremo a extremo: arrancan el Worker real (workerd + D1) contra un Kraken simulado y comprueban por HTTP el acceso, los controles, el ciclo del motor, el aprendizaje, la apertura de una operación respetando 2x y 2 %, la ausencia de duplicados, la persistencia tras reiniciar, la parada de emergencia, el informe mensual y el cierre de sesión.
 
 ## Pendiente para dinero real (fase 2, requiere tu autorización)
 
