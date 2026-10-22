@@ -1,0 +1,1457 @@
+{
+ "generatedAt": "2026-10-22T00:16:18.296Z",
+ "quick": false,
+ "capital": {
+  "eur": 200,
+  "eurusd": 1.16,
+  "usd": 231.99999999999997
+ },
+ "costs": {
+  "takerFee": 0.0005,
+  "slippage": 0.0003,
+  "fundingPerHour": null
+ },
+ "limits": {
+  "maxLeverage": 2,
+  "riskPerTrade": 0.01,
+  "maxPositions": 1,
+  "maxDrawdown": 0.2,
+  "minLot": 0.0001,
+  "lotStep": 0.0001,
+  "maxOrdersPerDay": 12,
+  "maxPriceDeviation": 0.03,
+  "maxDataAgeSec": 7800
+ },
+ "walkForward": {
+  "trainDays": 730,
+  "testDays": 182,
+  "minTrainTrades": 6
+ },
+ "gates": {
+  "minOosSharpe": 0.5,
+  "minOosPsr": 0.9,
+  "minPositiveFolds": 0.55,
+  "maxProbDD20": 0.1,
+  "minOosTrades": 30,
+  "minNeighborPositive": 0.6,
+  "maxOosDrawdown": 0.2,
+  "minStressSharpe": 0
+ },
+ "reports": [
+  {
+   "asset": "BTC",
+   "label": "Bitcoin (BTCUSDT, Binance spot como proxy del perpetuo)",
+   "from": "2017-08-17",
+   "to": "2026-10-20",
+   "hours": 80317,
+   "buyHold": {
+    "totalReturn": 5.970711946939803,
+    "cagr": 0.36939240261147344,
+    "annVol": 0.569892498927951,
+    "sharpe": 0.8362586463177469,
+    "sortino": 1.2479064117353957,
+    "maxDrawdown": 0.7662925431645935,
+    "calmar": 0.48205141222695014,
+    "trades": 0,
+    "winRate": 0,
+    "profitFactor": 0,
+    "avgTradeReturn": 0,
+    "avgR": 0,
+    "years": 6.176591375770021
+   },
+   "families": [
+    {
+     "family": "tsmom",
+     "fullSample": {
+      "best": "tsmom:1d:allowShort=1,lookback=40,stopAtr=3,threshold=0,trail=0",
+      "metrics": {
+       "totalReturn": 0.9529307998876384,
+       "cagr": 0.08531812910052694,
+       "annVol": 0.08431228425314247,
+       "sharpe": 1.013223149888236,
+       "sortino": 1.5726573280834935,
+       "maxDrawdown": 0.08723707329920805,
+       "calmar": 0.9780031112219978,
+       "trades": 150,
+       "winRate": 0.43333333333333335,
+       "profitFactor": 2.653410639845736,
+       "avgTradeReturn": 0.004604503705834131,
+       "avgR": 0.4677427482968891,
+       "years": 8.175222450376454
+      },
+      "dsr": 0.8869209718027511,
+      "neighborPositive": 1,
+      "trials": 100
+     },
+     "wf": {
+      "family": "tsmom",
+      "folds": [
+       {
+        "trainStart": 1534478400,
+        "trainEnd": 1597550400,
+        "testStart": 1597550400,
+        "testEnd": 1613275200,
+        "chosen": "tsmom:1d:allowShort=1,lookback=20,stopAtr=3,threshold=0,trail=0",
+        "trainSharpe": 1.4415227860979216,
+        "testReturn": 0.08114085021316497,
+        "testSharpe": 2.048017550898857,
+        "testTrades": 13
+       },
+       {
+        "trainStart": 1550203200,
+        "trainEnd": 1613275200,
+        "testStart": 1613275200,
+        "testEnd": 1629000000,
+        "chosen": "tsmom:1d:allowShort=0,lookback=20,stopAtr=3,threshold=0,trail=0",
+        "trainSharpe": 1.9528993072349858,
+        "testReturn": 0.0020565476883409595,
+        "testSharpe": 0.1590352375914301,
+        "testTrades": 11
+       },
+       {
+        "trainStart": 1565928000,
+        "trainEnd": 1629000000,
+        "testStart": 1629000000,
+        "testEnd": 1644724800,
+        "chosen": "tsmom:1d:allowShort=0,lookback=20,stopAtr=3,threshold=0,trail=0",
+        "trainSharpe": 1.45767895254607,
+        "testReturn": -0.004043577289624123,
+        "testSharpe": -0.2619763642297697,
+        "testTrades": 8
+       },
+       {
+        "trainStart": 1581652800,
+        "trainEnd": 1644724800,
+        "testStart": 1644724800,
+        "testEnd": 1660449600,
+        "chosen": "tsmom:1d:allowShort=1,lookback=40,stopAtr=3,threshold=0,trail=0",
+        "trainSharpe": 1.3235556849925059,
+        "testReturn": 0.006010636226888355,
+        "testSharpe": 0.34193586381243496,
+        "testTrades": 13
+       },
+       {
+        "trainStart": 1597377600,
+        "trainEnd": 1660449600,
+        "testStart": 1660449600,
+        "testEnd": 1676174400,
+        "chosen": "tsmom:1d:allowShort=1,lookback=40,stopAtr=3,threshold=0,trail=0",
+        "trainSharpe": 1.2841606304683462,
+        "testReturn": 0.015070736395618178,
+        "testSharpe": 0.632105356402618,
+        "testTrades": 12
+       },
+       {
+        "trainStart": 1613102400,
+        "trainEnd": 1676174400,
+        "testStart": 1676174400,
+        "testEnd": 1691899200,
+        "chosen": "tsmom:1d:allowShort=1,lookback=40,stopAtr=3,threshold=0,trail=0",
+        "trainSharpe": 0.7408969219267693,
+        "testReturn": 0.0002421369805796214,
+        "testSharpe": 0.03216269676922575,
+        "testTrades": 5
+       },
+       {
+        "trainStart": 1628827200,
+        "trainEnd": 1691899200,
+        "testStart": 1691899200,
+        "testEnd": 1707624000,
+        "chosen": "tsmom:1d:allowShort=1,lookback=120,stopAtr=3,threshold=0,trail=0",
+        "trainSharpe": 0.7147848328564113,
+        "testReturn": 0.044422077444499886,
+        "testSharpe": 1.5516495318170282,
+        "testTrades": 7
+       },
+       {
+        "trainStart": 1644552000,
+        "trainEnd": 1707624000,
+        "testStart": 1707624000,
+        "testEnd": 1723348800,
+        "chosen": "tsmom:1d:allowShort=1,lookback=120,stopAtr=3,threshold=0,trail=0",
+        "trainSharpe": 1.1449199700009363,
+        "testReturn": 0.01511403143961454,
+        "testSharpe": 0.45677294131925167,
+        "testTrades": 5
+       },
+       {
+        "trainStart": 1660276800,
+        "trainEnd": 1723348800,
+        "testStart": 1723348800,
+        "testEnd": 1739073600,
+        "chosen": "tsmom:1d:allowShort=0,lookback=20,stopAtr=3,threshold=0,trail=0",
+        "trainSharpe": 1.2946319516614384,
+        "testReturn": 0.024222119527750552,
+        "testSharpe": 1.1035902064089735,
+        "testTrades": 7
+       },
+       {
+        "trainStart": 1676001600,
+        "trainEnd": 1739073600,
+        "testStart": 1739073600,
+        "testEnd": 1754798400,
+        "chosen": "tsmom:1d:allowShort=0,lookback=20,stopAtr=3,threshold=0,trail=0",
+        "trainSharpe": 1.3626915120159429,
+        "testReturn": 0.011934179014815305,
+        "testSharpe": 0.9748484761237116,
+        "testTrades": 13
+       },
+       {
+        "trainStart": 1691726400,
+        "trainEnd": 1754798400,
+        "testStart": 1754798400,
+        "testEnd": 1770523200,
+        "chosen": "tsmom:1d:allowShort=0,lookback=20,stopAtr=3,threshold=0,trail=0",
+        "trainSharpe": 1.4560374710277124,
+        "testReturn": -0.03580918903651342,
+        "testSharpe": -1.813111226484515,
+        "testTrades": 11
+       },
+       {
+        "trainStart": 1707451200,
+        "trainEnd": 1770523200,
+        "testStart": 1770523200,
+        "testEnd": 1786248000,
+        "chosen": "tsmom:1d:allowShort=1,lookback=90,stopAtr=3,threshold=0,trail=0",
+        "trainSharpe": 1.0523518130380742,
+        "testReturn": -0.02532908351438723,
+        "testSharpe": -1.7356727414910058,
+        "testTrades": 4
+       }
+      ],
+      "oosMetrics": {
+       "totalReturn": 0.13809143649557365,
+       "cagr": 0.02186850019820885,
+       "annVol": 0.04711162189479551,
+       "sharpe": 0.4827418572048323,
+       "sortino": 0.7089776488379236,
+       "maxDrawdown": 0.07285355932535742,
+       "calmar": 0.30017064918607617,
+       "trades": 0,
+       "winRate": 0,
+       "profitFactor": 0,
+       "avgTradeReturn": 0,
+       "avgR": 0,
+       "years": 5.979466119096509
+      },
+      "oosPsr": 0.8806890456072186,
+      "positiveFolds": 0.75,
+      "oosTrades": 109,
+      "monteCarlo": {
+       "runs": 2000,
+       "medianReturn": 0.019846407794489762,
+       "p5Return": -0.05204246356863529,
+       "p95Return": 0.10263794164883522,
+       "medianMaxDD": 0.03967330753444498,
+       "p95MaxDD": 0.07750376897210742,
+       "probLoss": 0.335,
+       "probDD20": 0
+      },
+      "configsTested": 20,
+      "oosDailyCount": 2196
+     },
+     "stressSharpe": 0.2631994488939906,
+     "gates": {
+      "passed": false,
+      "checks": [
+       {
+        "name": "Sharpe OOS",
+        "value": 0.4827418572048323,
+        "threshold": 0.5,
+        "ok": false
+       },
+       {
+        "name": "PSR OOS",
+        "value": 0.8806890456072186,
+        "threshold": 0.9,
+        "ok": false
+       },
+       {
+        "name": "Ventanas OOS positivas",
+        "value": 0.75,
+        "threshold": 0.55,
+        "ok": true
+       },
+       {
+        "name": "P(caída ≥20 %) Monte Carlo",
+        "value": 0,
+        "threshold": 0.1,
+        "ok": true
+       },
+       {
+        "name": "Operaciones OOS",
+        "value": 109,
+        "threshold": 30,
+        "ok": true
+       },
+       {
+        "name": "Estabilidad de parámetros",
+        "value": 1,
+        "threshold": 0.6,
+        "ok": true
+       },
+       {
+        "name": "Caída máxima OOS",
+        "value": 0.07285355932535742,
+        "threshold": 0.2,
+        "ok": true
+       },
+       {
+        "name": "Sharpe OOS con costes ×2",
+        "value": 0.2631994488939906,
+        "threshold": 0,
+        "ok": true
+       }
+      ]
+     },
+     "latestConfig": {
+      "id": "tsmom:1d:allowShort=1,lookback=90,stopAtr=3,threshold=0,trail=0",
+      "family": "tsmom",
+      "timeframe": "1d",
+      "params": {
+       "lookback": 90,
+       "allowShort": 1,
+       "stopAtr": 3,
+       "threshold": 0,
+       "trail": 0
+      }
+     }
+    },
+    {
+     "family": "donchian",
+     "fullSample": {
+      "best": "donchian:1d:allowShort=0,entry=20,exit=10,stopAtr=2,trail=0",
+      "metrics": {
+       "totalReturn": 0.9507071802158489,
+       "cagr": 0.08516689552016699,
+       "annVol": 0.0917408109646967,
+       "sharpe": 0.9366000334978951,
+       "sortino": 1.523149471954264,
+       "maxDrawdown": 0.12740217065518833,
+       "calmar": 0.6684885750547347,
+       "trades": 42,
+       "winRate": 0.42857142857142855,
+       "profitFactor": 3.7913459016822086,
+       "avgTradeReturn": 0.01837253744457055,
+       "avgR": 1.8795865990658003,
+       "years": 8.175222450376454
+      },
+      "dsr": 0.9024492259367712,
+      "neighborPositive": 1,
+      "trials": 80
+     },
+     "wf": {
+      "family": "donchian",
+      "folds": [
+       {
+        "trainStart": 1534478400,
+        "trainEnd": 1597550400,
+        "testStart": 1597550400,
+        "testEnd": 1613275200,
+        "chosen": "donchian:1d:allowShort=1,entry=20,exit=10,stopAtr=2,trail=0",
+        "trainSharpe": 1.2217837125777529,
+        "testReturn": 0.4314166313063108,
+        "testSharpe": 3.206812707402157,
+        "testTrades": 2
+       },
+       {
+        "trainStart": 1550203200,
+        "trainEnd": 1613275200,
+        "testStart": 1613275200,
+        "testEnd": 1629000000,
+        "chosen": "donchian:1d:allowShort=0,entry=20,exit=10,stopAtr=2,trail=0",
+        "trainSharpe": 2.0382357609877673,
+        "testReturn": -0.006516512828816157,
+        "testSharpe": -0.362211620347405,
+        "testTrades": 3
+       },
+       {
+        "trainStart": 1565928000,
+        "trainEnd": 1629000000,
+        "testStart": 1629000000,
+        "testEnd": 1644724800,
+        "chosen": "donchian:1d:allowShort=0,entry=20,exit=10,stopAtr=2,trail=0",
+        "trainSharpe": 1.5260585734088605,
+        "testReturn": -0.01443879128881842,
+        "testSharpe": -0.726251610276748,
+        "testTrades": 3
+       },
+       {
+        "trainStart": 1581652800,
+        "trainEnd": 1644724800,
+        "testStart": 1644724800,
+        "testEnd": 1660449600,
+        "chosen": "donchian:1d:allowShort=1,entry=20,exit=10,stopAtr=2,trail=0",
+        "trainSharpe": 1.4491167010137334,
+        "testReturn": 0.03681602472797785,
+        "testSharpe": 1.6658299016664744,
+        "testTrades": 3
+       },
+       {
+        "trainStart": 1597377600,
+        "trainEnd": 1660449600,
+        "testStart": 1660449600,
+        "testEnd": 1676174400,
+        "chosen": "donchian:1d:allowShort=1,entry=20,exit=10,stopAtr=2,trail=0",
+        "trainSharpe": 1.404559355909972,
+        "testReturn": 0.033593061071786945,
+        "testSharpe": 0.9350792287556936,
+        "testTrades": 6
+       },
+       {
+        "trainStart": 1613102400,
+        "trainEnd": 1676174400,
+        "testStart": 1676174400,
+        "testEnd": 1691899200,
+        "chosen": "donchian:1d:allowShort=1,entry=20,exit=10,stopAtr=2,trail=0",
+        "trainSharpe": 0.2943425127300626,
+        "testReturn": -0.012398742072353808,
+        "testSharpe": -0.4799600097584442,
+        "testTrades": 5
+       },
+       {
+        "trainStart": 1628827200,
+        "trainEnd": 1691899200,
+        "testStart": 1691899200,
+        "testEnd": 1707624000,
+        "chosen": "donchian:1d:allowShort=1,entry=20,exit=10,stopAtr=2,trail=0",
+        "trainSharpe": 0.17994501175624872,
+        "testReturn": 0.005622832713032988,
+        "testSharpe": 0.19391296281995427,
+        "testTrades": 5
+       },
+       {
+        "trainStart": 1644552000,
+        "trainEnd": 1707624000,
+        "testStart": 1707624000,
+        "testEnd": 1723348800,
+        "chosen": "donchian:1d:allowShort=0,entry=20,exit=10,stopAtr=2,trail=0",
+        "trainSharpe": 0.5630220903483267,
+        "testReturn": 0.028299349283413155,
+        "testSharpe": 0.8831829467709035,
+        "testTrades": 3
+       },
+       {
+        "trainStart": 1660276800,
+        "trainEnd": 1723348800,
+        "testStart": 1723348800,
+        "testEnd": 1739073600,
+        "chosen": "donchian:1d:allowShort=0,entry=20,exit=10,stopAtr=2,trail=0",
+        "trainSharpe": 0.827480720333321,
+        "testReturn": 0.046965488225879426,
+        "testSharpe": 1.2895437756090098,
+        "testTrades": 3
+       },
+       {
+        "trainStart": 1676001600,
+        "trainEnd": 1739073600,
+        "testStart": 1739073600,
+        "testEnd": 1754798400,
+        "chosen": "donchian:1d:allowShort=0,entry=20,exit=10,stopAtr=2,trail=0",
+        "trainSharpe": 0.9352041101722219,
+        "testReturn": 0.015910040866847774,
+        "testSharpe": 1.0959083441342197,
+        "testTrades": 2
+       },
+       {
+        "trainStart": 1691726400,
+        "trainEnd": 1754798400,
+        "testStart": 1754798400,
+        "testEnd": 1770523200,
+        "chosen": "donchian:1d:allowShort=0,entry=20,exit=10,stopAtr=2,trail=0",
+        "trainSharpe": 1.0575541176041479,
+        "testReturn": -0.03450636360490489,
+        "testSharpe": -1.9435220591050573,
+        "testTrades": 4
+       },
+       {
+        "trainStart": 1707451200,
+        "trainEnd": 1770523200,
+        "testStart": 1770523200,
+        "testEnd": 1786248000,
+        "chosen": "donchian:1d:allowShort=0,entry=20,exit=10,stopAtr=2,trail=0",
+        "trainSharpe": 0.5567491671508317,
+        "testReturn": -0.0011650159347531552,
+        "testSharpe": -0.08003103998651744,
+        "testTrades": 2
+       }
+      ],
+      "oosMetrics": {
+       "totalReturn": 0.573362155414419,
+       "cagr": 0.07874162515616479,
+       "annVol": 0.08436919226528113,
+       "sharpe": 0.9402727070307163,
+       "sortino": 1.5939081835314948,
+       "maxDrawdown": 0.11591701197932458,
+       "calmar": 0.6792930891818489,
+       "trades": 0,
+       "winRate": 0,
+       "profitFactor": 0,
+       "avgTradeReturn": 0,
+       "avgR": 0,
+       "years": 5.979466119096509
+      },
+      "oosPsr": 0.9925312302668691,
+      "positiveFolds": 0.5833333333333334,
+      "oosTrades": 41,
+      "monteCarlo": {
+       "runs": 2000,
+       "medianReturn": 0.06893076930635034,
+       "p5Return": -0.05425659591466481,
+       "p95Return": 0.2785127397502698,
+       "medianMaxDD": 0.05157526503464882,
+       "p95MaxDD": 0.10764913352078198,
+       "probLoss": 0.207,
+       "probDD20": 0.0005
+      },
+      "configsTested": 16,
+      "oosDailyCount": 2196
+     },
+     "stressSharpe": 0.7400061920325889,
+     "gates": {
+      "passed": true,
+      "checks": [
+       {
+        "name": "Sharpe OOS",
+        "value": 0.9402727070307163,
+        "threshold": 0.5,
+        "ok": true
+       },
+       {
+        "name": "PSR OOS",
+        "value": 0.9925312302668691,
+        "threshold": 0.9,
+        "ok": true
+       },
+       {
+        "name": "Ventanas OOS positivas",
+        "value": 0.5833333333333334,
+        "threshold": 0.55,
+        "ok": true
+       },
+       {
+        "name": "P(caída ≥20 %) Monte Carlo",
+        "value": 0.0005,
+        "threshold": 0.1,
+        "ok": true
+       },
+       {
+        "name": "Operaciones OOS",
+        "value": 41,
+        "threshold": 30,
+        "ok": true
+       },
+       {
+        "name": "Estabilidad de parámetros",
+        "value": 1,
+        "threshold": 0.6,
+        "ok": true
+       },
+       {
+        "name": "Caída máxima OOS",
+        "value": 0.11591701197932458,
+        "threshold": 0.2,
+        "ok": true
+       },
+       {
+        "name": "Sharpe OOS con costes ×2",
+        "value": 0.7400061920325889,
+        "threshold": 0,
+        "ok": true
+       }
+      ]
+     },
+     "latestConfig": {
+      "id": "donchian:1d:allowShort=0,entry=20,exit=10,stopAtr=2,trail=0",
+      "family": "donchian",
+      "timeframe": "1d",
+      "params": {
+       "entry": 20,
+       "exit": 10,
+       "allowShort": 0,
+       "stopAtr": 2,
+       "trail": 0
+      }
+     }
+    },
+    {
+     "family": "ema_cross",
+     "fullSample": {
+      "best": "ema_cross:1d:allowShort=1,fast=10,slow=40,stopAtr=3,trail=0",
+      "metrics": {
+       "totalReturn": 0.7000604273315276,
+       "cagr": 0.06706430355741233,
+       "annVol": 0.0837816629404048,
+       "sharpe": 0.8166160859163608,
+       "sortino": 1.252204563735931,
+       "maxDrawdown": 0.11052144198016589,
+       "calmar": 0.6067990279157564,
+       "trades": 74,
+       "winRate": 0.36486486486486486,
+       "profitFactor": 2.7520039395342444,
+       "avgTradeReturn": 0.007497397889939517,
+       "avgR": 0.7615996765136246,
+       "years": 8.175222450376454
+      },
+      "dsr": 0.8762080728551355,
+      "neighborPositive": 1,
+      "trials": 80
+     },
+     "wf": {
+      "family": "ema_cross",
+      "folds": [
+       {
+        "trainStart": 1534478400,
+        "trainEnd": 1597550400,
+        "testStart": 1597550400,
+        "testEnd": 1613275200,
+        "chosen": "ema_cross:1d:allowShort=1,fast=10,slow=40,stopAtr=3,trail=0",
+        "trainSharpe": 1.1133649541936834,
+        "testReturn": 0.28667972433749034,
+        "testSharpe": 3.070683343587158,
+        "testTrades": 3
+       },
+       {
+        "trainStart": 1550203200,
+        "trainEnd": 1613275200,
+        "testStart": 1613275200,
+        "testEnd": 1629000000,
+        "chosen": "ema_cross:1d:allowShort=0,fast=10,slow=40,stopAtr=3,trail=0",
+        "trainSharpe": 1.8029306340317954,
+        "testReturn": -0.005805872153300973,
+        "testSharpe": -0.3742263296351243,
+        "testTrades": 3
+       },
+       {
+        "trainStart": 1565928000,
+        "trainEnd": 1629000000,
+        "testStart": 1629000000,
+        "testEnd": 1644724800,
+        "chosen": "ema_cross:1d:allowShort=1,fast=10,slow=40,stopAtr=3,trail=0",
+        "trainSharpe": 1.1195218859870664,
+        "testReturn": 0.002370461334787022,
+        "testSharpe": 0.13713928697700725,
+        "testTrades": 5
+       },
+       {
+        "trainStart": 1581652800,
+        "trainEnd": 1644724800,
+        "testStart": 1644724800,
+        "testEnd": 1660449600,
+        "chosen": "ema_cross:1d:allowShort=1,fast=10,slow=40,stopAtr=3,trail=0",
+        "trainSharpe": 1.0691547420786744,
+        "testReturn": 0.012391302967110773,
+        "testSharpe": 0.6821565489752107,
+        "testTrades": 6
+       },
+       {
+        "trainStart": 1597377600,
+        "trainEnd": 1660449600,
+        "testStart": 1660449600,
+        "testEnd": 1676174400,
+        "chosen": "ema_cross:1d:allowShort=1,fast=10,slow=40,stopAtr=3,trail=0",
+        "trainSharpe": 1.0886919000661919,
+        "testReturn": -0.0005464590179032891,
+        "testSharpe": 0.004870982098581083,
+        "testTrades": 6
+       },
+       {
+        "trainStart": 1613102400,
+        "trainEnd": 1676174400,
+        "testStart": 1676174400,
+        "testEnd": 1691899200,
+        "chosen": "ema_cross:1d:allowShort=1,fast=10,slow=40,stopAtr=5,trail=0",
+        "trainSharpe": 0.2726779716421694,
+        "testReturn": -0.014104194982523466,
+        "testSharpe": -1.1451449001332654,
+        "testTrades": 5
+       },
+       {
+        "trainStart": 1628827200,
+        "trainEnd": 1691899200,
+        "testStart": 1691899200,
+        "testEnd": 1707624000,
+        "chosen": "ema_cross:1d:allowShort=1,fast=20,slow=100,stopAtr=3,trail=0",
+        "trainSharpe": 0.3957611676788159,
+        "testReturn": 0.04774722204433424,
+        "testSharpe": 1.35103673035591,
+        "testTrades": 5
+       },
+       {
+        "trainStart": 1644552000,
+        "trainEnd": 1707624000,
+        "testStart": 1707624000,
+        "testEnd": 1723348800,
+        "chosen": "ema_cross:1d:allowShort=1,fast=20,slow=100,stopAtr=5,trail=0",
+        "trainSharpe": 0.796744874791504,
+        "testReturn": -0.008294937146189119,
+        "testSharpe": -0.3638239430358414,
+        "testTrades": 3
+       },
+       {
+        "trainStart": 1660276800,
+        "trainEnd": 1723348800,
+        "testStart": 1723348800,
+        "testEnd": 1739073600,
+        "chosen": "ema_cross:1d:allowShort=0,fast=10,slow=40,stopAtr=3,trail=0",
+        "trainSharpe": 0.7994214107656111,
+        "testReturn": 0.030716811228982177,
+        "testSharpe": 1.3903741058388557,
+        "testTrades": 3
+       },
+       {
+        "trainStart": 1676001600,
+        "trainEnd": 1739073600,
+        "testStart": 1739073600,
+        "testEnd": 1754798400,
+        "chosen": "ema_cross:1d:allowShort=1,fast=50,slow=200,stopAtr=3,trail=0",
+        "trainSharpe": 1.0869539520732492,
+        "testReturn": 0.01809988667778284,
+        "testSharpe": 1.0317275922191076,
+        "testTrades": 1
+       },
+       {
+        "trainStart": 1691726400,
+        "trainEnd": 1754798400,
+        "testStart": 1754798400,
+        "testEnd": 1770523200,
+        "chosen": "ema_cross:1d:allowShort=0,fast=10,slow=40,stopAtr=3,trail=0",
+        "trainSharpe": 1.294502439641736,
+        "testReturn": -0.03629054174704749,
+        "testSharpe": -2.2748362371312614,
+        "testTrades": 5
+       },
+       {
+        "trainStart": 1707451200,
+        "trainEnd": 1770523200,
+        "testStart": 1770523200,
+        "testEnd": 1786248000,
+        "chosen": "ema_cross:1d:allowShort=1,fast=20,slow=100,stopAtr=5,trail=0",
+        "trainSharpe": 0.4666361553723433,
+        "testReturn": 0.000822843728795597,
+        "testSharpe": 0.09722618119741176,
+        "testTrades": 2
+       }
+      ],
+      "oosMetrics": {
+       "totalReturn": 0.3451913759930132,
+       "cagr": 0.050842723263630374,
+       "annVol": 0.06326646568051002,
+       "sharpe": 0.8153522281939543,
+       "sortino": 1.3436652658544026,
+       "maxDrawdown": 0.08593530580749598,
+       "calmar": 0.5916395221484795,
+       "trades": 0,
+       "winRate": 0,
+       "profitFactor": 0,
+       "avgTradeReturn": 0,
+       "avgR": 0,
+       "years": 5.979466119096509
+      },
+      "oosPsr": 0.9815892243037649,
+      "positiveFolds": 0.5833333333333334,
+      "oosTrades": 47,
+      "monteCarlo": {
+       "runs": 2000,
+       "medianReturn": 0.042342942612542345,
+       "p5Return": -0.05011586107904498,
+       "p95Return": 0.18753657829428394,
+       "medianMaxDD": 0.04443688157041126,
+       "p95MaxDD": 0.08840245571770255,
+       "probLoss": 0.227,
+       "probDD20": 0
+      },
+      "configsTested": 16,
+      "oosDailyCount": 2196
+     },
+     "stressSharpe": 0.6137747936492186,
+     "gates": {
+      "passed": true,
+      "checks": [
+       {
+        "name": "Sharpe OOS",
+        "value": 0.8153522281939543,
+        "threshold": 0.5,
+        "ok": true
+       },
+       {
+        "name": "PSR OOS",
+        "value": 0.9815892243037649,
+        "threshold": 0.9,
+        "ok": true
+       },
+       {
+        "name": "Ventanas OOS positivas",
+        "value": 0.5833333333333334,
+        "threshold": 0.55,
+        "ok": true
+       },
+       {
+        "name": "P(caída ≥20 %) Monte Carlo",
+        "value": 0,
+        "threshold": 0.1,
+        "ok": true
+       },
+       {
+        "name": "Operaciones OOS",
+        "value": 47,
+        "threshold": 30,
+        "ok": true
+       },
+       {
+        "name": "Estabilidad de parámetros",
+        "value": 1,
+        "threshold": 0.6,
+        "ok": true
+       },
+       {
+        "name": "Caída máxima OOS",
+        "value": 0.08593530580749598,
+        "threshold": 0.2,
+        "ok": true
+       },
+       {
+        "name": "Sharpe OOS con costes ×2",
+        "value": 0.6137747936492186,
+        "threshold": 0,
+        "ok": true
+       }
+      ]
+     },
+     "latestConfig": {
+      "id": "ema_cross:1d:allowShort=1,fast=20,slow=100,stopAtr=5,trail=0",
+      "family": "ema_cross",
+      "timeframe": "1d",
+      "params": {
+       "fast": 20,
+       "slow": 100,
+       "allowShort": 1,
+       "stopAtr": 5,
+       "trail": 0
+      }
+     }
+    },
+    {
+     "family": "rsi_mr",
+     "fullSample": {
+      "best": "rsi_mr:4h:allowShort=0,exitMa=5,maxBars=12,oversold=30,rsiLen=2,stopAtr=2,trend=200",
+      "metrics": {
+       "totalReturn": -0.15779885993261067,
+       "cagr": -0.020787831435205906,
+       "annVol": 0.045036485719614675,
+       "sharpe": -0.44383457654622693,
+       "sortino": -0.541742348718861,
+       "maxDrawdown": 0.19795418517024754,
+       "calmar": -0.10501334648382221,
+       "trades": 617,
+       "winRate": 0.6661264181523501,
+       "profitFactor": 0.8662647094895588,
+       "avgTradeReturn": -0.0002649944567171168,
+       "avgR": -0.027770623829720585,
+       "years": 8.175222450376454
+      },
+      "dsr": 0.010786446991258318,
+      "neighborPositive": 0,
+      "trials": 60
+     },
+     "wf": {
+      "family": "rsi_mr",
+      "folds": [
+       {
+        "trainStart": 1534478400,
+        "trainEnd": 1597550400,
+        "testStart": 1597550400,
+        "testEnd": 1613275200,
+        "chosen": "rsi_mr:4h:allowShort=0,exitMa=5,maxBars=12,oversold=30,rsiLen=2,stopAtr=2,trend=100",
+        "trainSharpe": 0.08007118931565953,
+        "testReturn": -0.0007853542136497804,
+        "testSharpe": 0.006841412565713482,
+        "testTrades": 86
+       },
+       {
+        "trainStart": 1550203200,
+        "trainEnd": 1613275200,
+        "testStart": 1613275200,
+        "testEnd": 1629000000,
+        "chosen": "rsi_mr:4h:allowShort=0,exitMa=5,maxBars=12,oversold=30,rsiLen=2,stopAtr=2,trend=100",
+        "trainSharpe": 0.2979155792454461,
+        "testReturn": -0.07909192898472783,
+        "testSharpe": -2.3268780495305426,
+        "testTrades": 66
+       },
+       {
+        "trainStart": 1565928000,
+        "trainEnd": 1629000000,
+        "testStart": 1629000000,
+        "testEnd": 1644724800,
+        "chosen": "rsi_mr:4h:allowShort=0,exitMa=5,maxBars=12,oversold=10,rsiLen=2,stopAtr=3,trend=200",
+        "trainSharpe": -0.21256220291671224,
+        "testReturn": -0.010305728619853127,
+        "testSharpe": -0.7543564351578887,
+        "testTrades": 24
+       },
+       {
+        "trainStart": 1581652800,
+        "trainEnd": 1644724800,
+        "testStart": 1644724800,
+        "testEnd": 1660449600,
+        "chosen": "rsi_mr:4h:allowShort=0,exitMa=5,maxBars=12,oversold=30,rsiLen=2,stopAtr=3,trend=200",
+        "trainSharpe": -0.19555738022845803,
+        "testReturn": -0.02702185397879031,
+        "testSharpe": -1.4552824450359514,
+        "testTrades": 42
+       },
+       {
+        "trainStart": 1597377600,
+        "trainEnd": 1660449600,
+        "testStart": 1660449600,
+        "testEnd": 1676174400,
+        "chosen": "rsi_mr:4h:allowShort=0,exitMa=5,maxBars=12,oversold=30,rsiLen=2,stopAtr=3,trend=200",
+        "trainSharpe": -0.18535771109016552,
+        "testReturn": -0.04247850989040469,
+        "testSharpe": -2.2924931934897153,
+        "testTrades": 42
+       },
+       {
+        "trainStart": 1613102400,
+        "trainEnd": 1676174400,
+        "testStart": 1676174400,
+        "testEnd": 1691899200,
+        "chosen": "rsi_mr:4h:allowShort=0,exitMa=5,maxBars=12,oversold=30,rsiLen=2,stopAtr=3,trend=200",
+        "trainSharpe": -0.9125016575793684,
+        "testReturn": -0.033237806437535045,
+        "testSharpe": -1.7301502077932298,
+        "testTrades": 58
+       },
+       {
+        "trainStart": 1628827200,
+        "trainEnd": 1691899200,
+        "testStart": 1691899200,
+        "testEnd": 1707624000,
+        "chosen": "rsi_mr:4h:allowShort=0,exitMa=5,maxBars=12,oversold=20,rsiLen=2,stopAtr=3,trend=200",
+        "trainSharpe": -0.773394242281818,
+        "testReturn": -0.01993404538136878,
+        "testSharpe": -1.0301073043078266,
+        "testTrades": 54
+       },
+       {
+        "trainStart": 1644552000,
+        "trainEnd": 1707624000,
+        "testStart": 1707624000,
+        "testEnd": 1723348800,
+        "chosen": "rsi_mr:4h:allowShort=0,exitMa=5,maxBars=12,oversold=10,rsiLen=2,stopAtr=2,trend=200",
+        "trainSharpe": -1.24197576600722,
+        "testReturn": 0.011664322014994344,
+        "testSharpe": 0.4651225902272405,
+        "testTrades": 32
+       },
+       {
+        "trainStart": 1660276800,
+        "trainEnd": 1723348800,
+        "testStart": 1723348800,
+        "testEnd": 1739073600,
+        "chosen": "rsi_mr:4h:allowShort=0,exitMa=5,maxBars=12,oversold=10,rsiLen=2,stopAtr=2,trend=100",
+        "trainSharpe": -0.22911905691219225,
+        "testReturn": -0.07561941921823612,
+        "testSharpe": -2.913691627117756,
+        "testTrades": 29
+       },
+       {
+        "trainStart": 1676001600,
+        "trainEnd": 1739073600,
+        "testStart": 1739073600,
+        "testEnd": 1754798400,
+        "chosen": "rsi_mr:4h:allowShort=0,exitMa=5,maxBars=12,oversold=10,rsiLen=2,stopAtr=3,trend=200",
+        "trainSharpe": -0.6707120705360371,
+        "testReturn": 0.0008313525345629014,
+        "testSharpe": 0.09032718479142066,
+        "testTrades": 24
+       },
+       {
+        "trainStart": 1691726400,
+        "trainEnd": 1754798400,
+        "testStart": 1754798400,
+        "testEnd": 1770523200,
+        "chosen": "rsi_mr:4h:allowShort=0,exitMa=5,maxBars=12,oversold=30,rsiLen=2,stopAtr=3,trend=200",
+        "trainSharpe": -0.4944924285952922,
+        "testReturn": -0.05511416979023731,
+        "testSharpe": -2.533594960834953,
+        "testTrades": 36
+       },
+       {
+        "trainStart": 1707451200,
+        "trainEnd": 1770523200,
+        "testStart": 1770523200,
+        "testEnd": 1786248000,
+        "chosen": "rsi_mr:4h:allowShort=0,exitMa=5,maxBars=12,oversold=10,rsiLen=2,stopAtr=3,trend=100",
+        "trainSharpe": -0.6039078671914528,
+        "testReturn": -0.007221157501280828,
+        "testSharpe": -0.8234273588884494,
+        "testTrades": 16
+       }
+      ],
+      "oosMetrics": {
+       "totalReturn": -0.2941982962405537,
+       "cagr": -0.056604403394027836,
+       "annVol": 0.044603436215264324,
+       "sharpe": -1.2838890555726095,
+       "sortino": -1.4689530860652915,
+       "maxDrawdown": 0.3141132115020602,
+       "calmar": -0.18020382881493854,
+       "trades": 0,
+       "winRate": 0,
+       "profitFactor": 0,
+       "avgTradeReturn": 0,
+       "avgR": 0,
+       "years": 5.979466119096509
+      },
+      "oosPsr": 0.0002793504072509428,
+      "positiveFolds": 0.16666666666666666,
+      "oosTrades": 509,
+      "monteCarlo": {
+       "runs": 2000,
+       "medianReturn": -0.05565117987569612,
+       "p5Return": -0.125816800414016,
+       "p95Return": 0.017395833516921755,
+       "medianMaxDD": 0.07255221481435026,
+       "p95MaxDD": 0.13359340440989642,
+       "probLoss": 0.9005,
+       "probDD20": 0
+      },
+      "configsTested": 12,
+      "oosDailyCount": 2196
+     },
+     "stressSharpe": -1.7408551358060813,
+     "gates": {
+      "passed": false,
+      "checks": [
+       {
+        "name": "Sharpe OOS",
+        "value": -1.2838890555726095,
+        "threshold": 0.5,
+        "ok": false
+       },
+       {
+        "name": "PSR OOS",
+        "value": 0.0002793504072509428,
+        "threshold": 0.9,
+        "ok": false
+       },
+       {
+        "name": "Ventanas OOS positivas",
+        "value": 0.16666666666666666,
+        "threshold": 0.55,
+        "ok": false
+       },
+       {
+        "name": "P(caída ≥20 %) Monte Carlo",
+        "value": 0,
+        "threshold": 0.1,
+        "ok": true
+       },
+       {
+        "name": "Operaciones OOS",
+        "value": 509,
+        "threshold": 30,
+        "ok": true
+       },
+       {
+        "name": "Estabilidad de parámetros",
+        "value": 0,
+        "threshold": 0.6,
+        "ok": false
+       },
+       {
+        "name": "Caída máxima OOS",
+        "value": 0.3141132115020602,
+        "threshold": 0.2,
+        "ok": false
+       },
+       {
+        "name": "Sharpe OOS con costes ×2",
+        "value": -1.7408551358060813,
+        "threshold": 0,
+        "ok": false
+       }
+      ]
+     },
+     "latestConfig": {
+      "id": "rsi_mr:4h:allowShort=0,exitMa=5,maxBars=12,oversold=10,rsiLen=2,stopAtr=3,trend=100",
+      "family": "rsi_mr",
+      "timeframe": "4h",
+      "params": {
+       "rsiLen": 2,
+       "oversold": 10,
+       "trend": 100,
+       "exitMa": 5,
+       "maxBars": 12,
+       "stopAtr": 3,
+       "allowShort": 0
+      }
+     }
+    },
+    {
+     "family": "boll_mr",
+     "fullSample": {
+      "best": "boll_mr:4h:allowShort=0,k=2,len=40,maxBars=18,stopAtr=2,trend=200",
+      "metrics": {
+       "totalReturn": -0.02164645936091114,
+       "cagr": -0.0026733114897474763,
+       "annVol": 0.030822056137155107,
+       "sharpe": -0.071419421773932,
+       "sortino": -0.09600676209027023,
+       "maxDrawdown": 0.08221947249554473,
+       "calmar": -0.0325143352128942,
+       "trades": 79,
+       "winRate": 0.4810126582278481,
+       "profitFactor": 0.938835510101458,
+       "avgTradeReturn": -0.00023141849650819464,
+       "avgR": -0.024023216006781128,
+       "years": 8.175222450376454
+      },
+      "dsr": 0.011785907177870772,
+      "neighborPositive": 0,
+      "trials": 80
+     },
+     "wf": {
+      "family": "boll_mr",
+      "folds": [
+       {
+        "trainStart": 1534478400,
+        "trainEnd": 1597550400,
+        "testStart": 1597550400,
+        "testEnd": 1613275200,
+        "chosen": "boll_mr:4h:allowShort=0,k=2,len=40,maxBars=18,stopAtr=2,trend=200",
+        "trainSharpe": -0.07294996375426775,
+        "testReturn": -0.02902774401348318,
+        "testSharpe": -2.145041390807204,
+        "testTrades": 6
+       },
+       {
+        "trainStart": 1550203200,
+        "trainEnd": 1613275200,
+        "testStart": 1613275200,
+        "testEnd": 1629000000,
+        "chosen": "boll_mr:4h:allowShort=0,k=2,len=40,maxBars=18,stopAtr=3,trend=200",
+        "trainSharpe": -0.0555844386878486,
+        "testReturn": -0.002473524747651501,
+        "testSharpe": -0.34559982659089666,
+        "testTrades": 3
+       },
+       {
+        "trainStart": 1565928000,
+        "trainEnd": 1629000000,
+        "testStart": 1629000000,
+        "testEnd": 1644724800,
+        "chosen": "boll_mr:4h:allowShort=0,k=2.5,len=40,maxBars=18,stopAtr=3,trend=200",
+        "trainSharpe": 0.08905774791568491,
+        "testReturn": 0,
+        "testSharpe": 0,
+        "testTrades": 0
+       },
+       {
+        "trainStart": 1581652800,
+        "trainEnd": 1644724800,
+        "testStart": 1644724800,
+        "testEnd": 1660449600,
+        "chosen": "boll_mr:4h:allowShort=0,k=2.5,len=40,maxBars=18,stopAtr=3,trend=200",
+        "trainSharpe": 0.4213757037999013,
+        "testReturn": -0.016761495602263365,
+        "testSharpe": -2.4851060221475216,
+        "testTrades": 2
+       },
+       {
+        "trainStart": 1597377600,
+        "trainEnd": 1660449600,
+        "testStart": 1660449600,
+        "testEnd": 1676174400,
+        "chosen": "boll_mr:4h:allowShort=0,k=2,len=40,maxBars=18,stopAtr=3,trend=200",
+        "trainSharpe": 0.028558198540451406,
+        "testReturn": -0.021621240330517044,
+        "testSharpe": -2.3588927203710686,
+        "testTrades": 2
+       },
+       {
+        "trainStart": 1613102400,
+        "trainEnd": 1676174400,
+        "testStart": 1676174400,
+        "testEnd": 1691899200,
+        "chosen": "boll_mr:4h:allowShort=0,k=2.5,len=20,maxBars=18,stopAtr=2,trend=200",
+        "trainSharpe": 0.35590763953610755,
+        "testReturn": 0.03705261139113203,
+        "testSharpe": 2.630430360429496,
+        "testTrades": 3
+       },
+       {
+        "trainStart": 1628827200,
+        "trainEnd": 1691899200,
+        "testStart": 1691899200,
+        "testEnd": 1707624000,
+        "chosen": "boll_mr:4h:allowShort=0,k=2.5,len=20,maxBars=18,stopAtr=2,trend=200",
+        "trainSharpe": 0.5067684863419045,
+        "testReturn": 0.006188826030130379,
+        "testSharpe": 0.288601498587746,
+        "testTrades": 12
+       },
+       {
+        "trainStart": 1644552000,
+        "trainEnd": 1707624000,
+        "testStart": 1707624000,
+        "testEnd": 1723348800,
+        "chosen": "boll_mr:4h:allowShort=0,k=2.5,len=20,maxBars=18,stopAtr=2,trend=200",
+        "trainSharpe": 0.4037800519635702,
+        "testReturn": -0.019736943259885398,
+        "testSharpe": -0.8622801201345353,
+        "testTrades": 8
+       },
+       {
+        "trainStart": 1660276800,
+        "trainEnd": 1723348800,
+        "testStart": 1723348800,
+        "testEnd": 1739073600,
+        "chosen": "boll_mr:4h:allowShort=0,k=2.5,len=20,maxBars=18,stopAtr=2,trend=200",
+        "trainSharpe": 0.29912341142309523,
+        "testReturn": -0.04838325064175353,
+        "testSharpe": -2.7037642489208054,
+        "testTrades": 10
+       },
+       {
+        "trainStart": 1676001600,
+        "trainEnd": 1739073600,
+        "testStart": 1739073600,
+        "testEnd": 1754798400,
+        "chosen": "boll_mr:4h:allowShort=0,k=2.5,len=20,maxBars=18,stopAtr=3,trend=0",
+        "trainSharpe": 0.5977141320884765,
+        "testReturn": 0.0015892869106317598,
+        "testSharpe": 0.09784029688396025,
+        "testTrades": 13
+       },
+       {
+        "trainStart": 1691726400,
+        "trainEnd": 1754798400,
+        "testStart": 1754798400,
+        "testEnd": 1770523200,
+        "chosen": "boll_mr:4h:allowShort=0,k=2,len=40,maxBars=18,stopAtr=2,trend=200",
+        "trainSharpe": 0.4911671686496162,
+        "testReturn": -0.0296962914136496,
+        "testSharpe": -1.9055298007431025,
+        "testTrades": 3
+       },
+       {
+        "trainStart": 1707451200,
+        "trainEnd": 1770523200,
+        "testStart": 1770523200,
+        "testEnd": 1786248000,
+        "chosen": "boll_mr:4h:allowShort=0,k=2.5,len=40,maxBars=18,stopAtr=2,trend=0",
+        "trainSharpe": 0.014291329083111814,
+        "testReturn": 0.019396769372377554,
+        "testSharpe": 0.900297554279659,
+        "testTrades": 13
+       }
+      ],
+      "oosMetrics": {
+       "totalReturn": -0.10149033604512925,
+       "cagr": -0.01773834392067064,
+       "annVol": 0.03218643622562212,
+       "sharpe": -0.5399292895360546,
+       "sortino": -0.6962978562604167,
+       "maxDrawdown": 0.1241721565547319,
+       "calmar": -0.14285282959430629,
+       "trades": 0,
+       "winRate": 0,
+       "profitFactor": 0,
+       "avgTradeReturn": 0,
+       "avgR": 0,
+       "years": 5.979466119096509
+      },
+      "oosPsr": 0.08960883224843658,
+      "positiveFolds": 0.3333333333333333,
+      "oosTrades": 75,
+      "monteCarlo": {
+       "runs": 2000,
+       "medianReturn": -0.017280621142836794,
+       "p5Return": -0.06615016308237387,
+       "p95Return": 0.03199064914038763,
+       "medianMaxDD": 0.03574201083115036,
+       "p95MaxDD": 0.07403554612384966,
+       "probLoss": 0.726,
+       "probDD20": 0
+      },
+      "configsTested": 16,
+      "oosDailyCount": 2196
+     },
+     "stressSharpe": -0.7295879148021835,
+     "gates": {
+      "passed": false,
+      "checks": [
+       {
+        "name": "Sharpe OOS",
+        "value": -0.5399292895360546,
+        "threshold": 0.5,
+        "ok": false
+       },
+       {
+        "name": "PSR OOS",
+        "value": 0.08960883224843658,
+        "threshold": 0.9,
+        "ok": false
+       },
+       {
+        "name": "Ventanas OOS positivas",
+        "value": 0.3333333333333333,
+        "threshold": 0.55,
+        "ok": false
+       },
+       {
+        "name": "P(caída ≥20 %) Monte Carlo",
+        "value": 0,
+        "threshold": 0.1,
+        "ok": true
+       },
+       {
+        "name": "Operaciones OOS",
+        "value": 75,
+        "threshold": 30,
+        "ok": true
+       },
+       {
+        "name": "Estabilidad de parámetros",
+        "value": 0,
+        "threshold": 0.6,
+        "ok": false
+       },
+       {
+        "name": "Caída máxima OOS",
+        "value": 0.1241721565547319,
+        "threshold": 0.2,
+        "ok": true
+       },
+       {
+        "name": "Sharpe OOS con costes ×2",
+        "value": -0.7295879148021835,
+        "threshold": 0,
+        "ok": false
+       }
+      ]
+     },
+     "latestConfig": {
+      "id": "boll_mr:4h:allowShort=0,k=2.5,len=40,maxBars=18,stopAtr=2,trend=0",
+      "family": "boll_mr",
+      "timeframe": "4h",
+      "params": {
+       "len": 40,
+       "k": 2.5,
+       "trend": 0,
+       "maxBars": 18,
+       "stopAtr": 2,
+       "allowShort": 0
+      }
+     }
+    }
+   ]
+  }
+ ],
+ "champion": {
+  "family": "donchian",
+  "config": {
+   "id": "donchian:1d:allowShort=0,entry=20,exit=10,stopAtr=2,trail=0",
+   "family": "donchian",
+   "timeframe": "1d",
+   "params": {
+    "entry": 20,
+    "exit": 10,
+    "allowShort": 0,
+    "stopAtr": 2,
+    "trail": 0
+   }
+  },
+  "oosSharpe": 0.9402727070307163
+ },
+ "reality200": {
+  "config": "donchian:1d:allowShort=0,entry=20,exit=10,stopAtr=2,trail=0",
+  "period": "2024-10-20 → 2026-10-20",
+  "capitalUsd": 231.99999999999997,
+  "finalUsd": 243.22083328794446,
+  "pnlEur": 9.67313214477973,
+  "feesEur": 0.3561703468121153,
+  "fundingEur": 2.3294267641892143,
+  "trades": 11,
+  "rejectedTooSmallOrOther": 0,
+  "avgNotionalUsd": 36.90813993942727,
+  "avgLeverage": 0.15908681008373826,
+  "metrics": {
+   "totalReturn": 0.048490498781450286,
+   "cagr": 0.023974855425558106,
+   "annVol": 0.04501442656558392,
+   "sharpe": 0.5487869147724622,
+   "sortino": 0.8457404821813256,
+   "maxDrawdown": 0.050146359938362806,
+   "calmar": 0.47809762174217035,
+   "trades": 11,
+   "winRate": 0.45454545454545453,
+   "profitFactor": 2.0044472707810623,
+   "avgTradeReturn": 0.004466843390099573,
+   "avgR": 0.5041306943168302,
+   "years": 1.998631074606434
+  }
+ },
+ "contractCheck": [
+  {
+   "asset": "BTC",
+   "contract": "nano Bitcoin (BIT), 1/100 BTC",
+   "price": 84355,
+   "notionalUsd": 843.5500000000001,
+   "leverageNeeded": 3.6359913793103456,
+   "fitsWithin2x": false
+  },
+  {
+   "asset": "GOLD",
+   "contract": "Gold futures CDE, 1 onza troy",
+   "price": 4141.6,
+   "notionalUsd": 4141.6,
+   "leverageNeeded": 17.85172413793104,
+   "fitsWithin2x": false
+  },
+  {
+   "asset": "SILVER",
+   "contract": "Silver futures CDE, 50 onzas",
+   "price": 57.665,
+   "notionalUsd": 2883.25,
+   "leverageNeeded": 12.427801724137932,
+   "fitsWithin2x": false
+  },
+  {
+   "asset": "COPPER",
+   "contract": "nano Copper CDE, 500 libras",
+   "price": 6.55,
+   "notionalUsd": 3275,
+   "leverageNeeded": 14.11637931034483,
+   "fitsWithin2x": false
+  },
+  {
+   "asset": "PLATINUM",
+   "contract": "Platinum futures CDE, 10 onzas",
+   "price": 1627.9,
+   "notionalUsd": 16279,
+   "leverageNeeded": 70.16810344827587,
+   "fitsWithin2x": false
+  },
+  {
+   "asset": "OIL",
+   "contract": "nano Crude Oil CDE, 10 barriles",
+   "price": 97.92,
+   "notionalUsd": 979.2,
+   "leverageNeeded": 4.220689655172414,
+   "fitsWithin2x": false
+  },
+  {
+   "asset": "NATGAS",
+   "contract": "Natural Gas CDE, 1.000 MMBtu",
+   "price": 2.778,
+   "notionalUsd": 2778,
+   "leverageNeeded": 11.974137931034484,
+   "fitsWithin2x": false
+  }
+ ],
+ "runtimeSec": 160.606
+}

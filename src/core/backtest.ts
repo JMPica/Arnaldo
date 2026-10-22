@@ -24,6 +24,7 @@ export interface BacktestResult {
   haltTs: number | null;
   exposure: number; // fracción de horas con posición
   rejects: number;
+  finalState: AccountState;
 }
 
 const ALWAYS_ON: Controls = { running: true, paused: false, mode: "paper", liveApproved: false };
@@ -102,5 +103,6 @@ export function backtest(hourly: Candle[], cfg: StrategyConfig, opt: BacktestOpt
     haltTs,
     exposure: hoursIn ? hoursPos / hoursIn : 0,
     rejects,
+    finalState: state,
   };
 }

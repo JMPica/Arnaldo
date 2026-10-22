@@ -1,0 +1,71 @@
+{
+ "approved": true,
+ "config": {
+  "id": "donchian:1d:allowShort=0,entry=20,exit=10,stopAtr=2,trail=0",
+  "family": "donchian",
+  "timeframe": "1d",
+  "params": {
+   "entry": 20,
+   "exit": 10,
+   "allowShort": 0,
+   "stopAtr": 2,
+   "trail": 0
+  }
+ },
+ "family": "donchian",
+ "gates": {
+  "passed": true,
+  "checks": [
+   {
+    "name": "Sharpe OOS",
+    "value": 0.9402727070307163,
+    "threshold": 0.5,
+    "ok": true
+   },
+   {
+    "name": "PSR OOS",
+    "value": 0.9925312302668691,
+    "threshold": 0.9,
+    "ok": true
+   },
+   {
+    "name": "Ventanas OOS positivas",
+    "value": 0.5833333333333334,
+    "threshold": 0.55,
+    "ok": true
+   },
+   {
+    "name": "P(caída ≥20 %) Monte Carlo",
+    "value": 0.0005,
+    "threshold": 0.1,
+    "ok": true
+   },
+   {
+    "name": "Operaciones OOS",
+    "value": 41,
+    "threshold": 30,
+    "ok": true
+   },
+   {
+    "name": "Estabilidad de parámetros",
+    "value": 1,
+    "threshold": 0.6,
+    "ok": true
+   },
+   {
+    "name": "Caída máxima OOS",
+    "value": 0.11591701197932458,
+    "threshold": 0.2,
+    "ok": true
+   },
+   {
+    "name": "Sharpe OOS con costes ×2",
+    "value": 0.7400061920325889,
+    "threshold": 0,
+    "ok": true
+   }
+  ]
+ },
+ "oosSharpe": 0.9402727070307163,
+ "generatedAt": "2026-10-22T00:16:18.296Z"
+}

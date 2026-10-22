@@ -1,0 +1,27 @@
+# APEX — Cloudflare Worker (plan gratuito)
+name = "apex"
+main = "src/worker/index.ts"
+compatibility_date = "2026-09-01"
+workers_dev = true
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+run_worker_first = ["/api/*"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "apex"
+database_id = "00000000-0000-0000-0000-000000000000" # lo sustituye el workflow de despliegue
+migrations_dir = "migrations"
+
+[triggers]
+# Ciclo del motor cada 5 minutos + informe mensual el día 1 a las 06:07 UTC
+crons = ["*/5 * * * *", "7 6 1 * *"]
+
+[vars]
+SYMBOL = "PF_XBTUSD"
+INITIAL_CAPITAL_EUR = "200"
+
+[observability]
+enabled = true
