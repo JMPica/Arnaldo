@@ -1,0 +1,165 @@
+{
+  "metadata": {
+    "version": 1,
+    "purpose": "decimal math expected values, no real client data",
+    "currency": "EUR",
+    "price_basis": "net_of_vat",
+    "all_quantities": "canonical g/ml/ud"
+  },
+  "cases": [
+    {
+      "id": "ingredient_merma_20",
+      "formula": "pack_price / (pack_qty*(1-waste_pct/100))",
+      "inputs": {
+        "pack_price": "2.40",
+        "pack_qty": "1000",
+        "waste_pct": "20"
+      },
+      "expected": "0.003"
+    },
+    {
+      "id": "ingredient_zero_waste",
+      "formula": "pack_price / (pack_qty*(1-waste_pct/100))",
+      "inputs": {
+        "pack_price": "4.20",
+        "pack_qty": "1000",
+        "waste_pct": "0"
+      },
+      "expected": "0.0042"
+    },
+    {
+      "id": "recipe_lot_example",
+      "formula": "qty1*unit_price1 + qty2*unit_price2",
+      "inputs": {
+        "qty1": "500",
+        "unit_price1": "0.003",
+        "qty2": "180",
+        "unit_price2": "0.0042"
+      },
+      "expected": "2.256"
+    },
+    {
+      "id": "recipe_serving_example",
+      "formula": "lot_cost / servings",
+      "inputs": {
+        "lot_cost": "2.256",
+        "servings": "4"
+      },
+      "expected": "0.564"
+    },
+    {
+      "id": "menu_guest_example",
+      "formula": "recipe_serving_cost*servings_per_guest",
+      "inputs": {
+        "recipe_serving_cost": "0.564",
+        "servings_per_guest": "2"
+      },
+      "expected": "1.128"
+    },
+    {
+      "id": "event_food_example",
+      "formula": "cost_per_guest*guest_count",
+      "inputs": {
+        "cost_per_guest": "1.128",
+        "guest_count": "10"
+      },
+      "expected": "11.28"
+    },
+    {
+      "id": "event_profit_example",
+      "formula": "revenue-food-staff-travel",
+      "inputs": {
+        "revenue": "500.00",
+        "food": "11.28",
+        "staff": "25.00",
+        "travel": "15.00"
+      },
+      "expected": "448.72"
+    },
+    {
+      "id": "event_margin_example",
+      "formula": "profit/revenue*100",
+      "inputs": {
+        "profit": "448.72",
+        "revenue": "500.00"
+      },
+      "expected": "89.744"
+    },
+    {
+      "id": "target_revenue_40pct",
+      "formula": "total_cost/(1-margin_pct/100)",
+      "inputs": {
+        "total_cost": "51.28",
+        "margin_pct": "40"
+      },
+      "expected": "85.46666666666666666666666667",
+      "compare": "decimal_tolerance_1e-20"
+    },
+    {
+      "id": "subrecipe_200g",
+      "formula": "subrecipe_cost*used_qty/yield_qty",
+      "inputs": {
+        "subrecipe_cost": "16.00",
+        "used_qty": "200",
+        "yield_qty": "800"
+      },
+      "expected": "4.00"
+    },
+    {
+      "id": "shopping_consolidation",
+      "formula": "ceil(max(0,(event_1_net+event_2_net)/(1-waste_pct/100)-stock_gross)/pack_qty)",
+      "inputs": {
+        "event_1_net": "400",
+        "event_2_net": "350",
+        "waste_pct": "25",
+        "stock_gross": "100",
+        "pack_qty": "500"
+      },
+      "expected": "2"
+    },
+    {
+      "id": "shopping_pack_cost",
+      "formula": "pack_count*pack_price",
+      "inputs": {
+        "pack_count": "2",
+        "pack_price": "3.00"
+      },
+      "expected": "6.00"
+    },
+    {
+      "id": "zero_revenue_margin",
+      "formula": "undefined_if_zero_revenue",
+      "inputs": {
+        "revenue": "0",
+        "profit": "-25"
+      },
+      "expected": null
+    }
+  ],
+  "negative_tests": [
+    {
+      "id": "waste_100",
+      "reason": "division by zero, reject"
+    },
+    {
+      "id": "negative_qty",
+      "reason": "negative ingredient use rejected"
+    },
+    {
+      "id": "unit_g_to_ml_no_density",
+      "reason": "incompatible dimensions"
+    },
+    {
+      "id": "recipe_cycle",
+      "reason": "direct and indirect cycles prohibited"
+    },
+    {
+      "id": "client_pdf_leak",
+      "reason": "never include internal costs or profit"
+    },
+    {
+      "id": "history_rewrite",
+      "reason": "confirmed event must be immutable"
+    }
+  ]
+}

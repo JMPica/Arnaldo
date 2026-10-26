@@ -1,0 +1,11 @@
+{
+  "package": "MISE-PRIVATE-CHEF-CLAUDE-CODE-HANDOFF",
+  "created_date": "2026-10-26",
+  "source_description": "MISE v1 original preserved verbatim; development handoff is a specification/reference bundle, NOT an implementation of production web app",
+  "source_sha256": "327818fa977e560471e1a4ed4c265df5bd0fd81005a841d0bd9a6149a0c9bce1",
+  "original_zip_sha256": "31d071f446c1e36a4788c93ca1f3d53ee0c5b5d7db8ec8766b3dc7c57f9d96c9",
+  "generated_documents_count": 28,
+  "secrets_present": false,
+  "production_deployed": false,
+  "test_status": "only bundle self-check and reference SQLite validation"
+}

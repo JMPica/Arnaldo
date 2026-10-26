@@ -1,0 +1,43 @@
+MISE — PRIVATE CHEF OS · Versión local 1.0
+
+QUÉ ES
+Aplicación web privada, independiente de Haddock, para chefs privados.
+Funciona sin servidor ni suscripción. Está hecha en HTML/CSS/JavaScript.
+
+CÓMO PROBARLA
+1. Descomprime el ZIP, si lo has descargado comprimido.
+2. Abre index.html en Chrome, Edge o Safari de escritorio.
+3. Explora el ejemplo ficticio inicial. Pulsa «Empezar de cero» para usar tus propios datos.
+4. Exporta copias desde Configuración y consérvalas fuera del navegador.
+
+PARA EL MÓVIL Y VARIOS DISPOSITIVOS
+El archivo se puede publicar en un alojamiento web estático, pero los datos
+permanecen guardados por separado en el navegador de cada dispositivo.
+Un HTML abierto como archivo local en iPhone puede tener limitaciones.
+Si necesitas acceso sincronizado y realmente privado desde el móvil,
+hará falta una segunda fase con alojamiento, inicio de sesión y base de datos.
+No publiques información real de clientes en un sitio sin un control de acceso.
+
+CÁLCULO DE COSTES
+- Precio introducido: coste SIN IVA del envase.
+- Coste por unidad ÚTIL = precio / [cantidad del envase × (1 - merma / 100)].
+- Cantidad en una receta: unidades útiles necesarias para el lote completo.
+- Coste por ración = suma de consumos / raciones producidas.
+- Coste menú/comensal = suma(costes de ración × raciones por comensal).
+- Coste de comida por evento = coste menú/comensal × comensales.
+- Beneficio estimado = ingresos - materia prima - personal - transporte - alquiler - otros.
+- Compra bruta = necesidad neta / (1 - merma / 100).
+- Envases para comprar = redondeo al alza[(compra bruta - stock bruto) / formato].
+
+IMPORTANTE
+Las cifras de la demo son ficticias. Comprueba ingredientes, unidades,
+rendimientos, mermas y alérgenos antes de presupuestar o cocinar.
+La aplicación no realiza OCR de facturas, no sincroniza dispositivos,
+no emite facturas legales ni lleva contabilidad oficial.
+Si borras datos del navegador perderás los registros, salvo copia JSON.
+
+FUENTES DE INSPIRACIÓN FUNCIONAL
+https://haddock.app/funcionalidades
+https://haddock.app/escandallos
+
+MISE es una herramienta independiente. No reproduce código ni marca de Haddock.

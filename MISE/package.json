@@ -1,0 +1,56 @@
+{
+  "name": "mise-private-chef-os",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "MISE — Private Chef OS: aplicación privada para chef privado (Cloudflare Workers + D1 + Access).",
+  "scripts": {
+    "dev": "npm run build:web && wrangler dev --local --port 8787",
+    "dev:web": "vite",
+    "build": "npm run build:web",
+    "build:web": "node scripts/copy-ocr-assets.mjs && vite build",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run test:unit && npm run test:integration",
+    "test:unit": "vitest run --config vitest.config.ts",
+    "test:integration": "vitest run --config vitest.workers.config.ts",
+    "test:e2e": "playwright test",
+    "check": "npm run typecheck && npm run test && npm run build",
+    "db:migrate:local": "wrangler d1 migrations apply mise-db --local",
+    "db:migrate:staging": "wrangler d1 migrations apply mise-db-staging --remote --env staging",
+    "db:migrate:production": "wrangler d1 migrations apply mise-db --remote --env production",
+    "deploy:staging": "npm run check && wrangler deploy --env staging",
+    "deploy:production": "npm run check && wrangler deploy --env production",
+    "smoke": "node scripts/smoke-http.mjs",
+    "verify:package": "python3 scripts/verificar_paquete.py"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "5.105.0",
+    "decimal.js": "10.6.0",
+    "hono": "4.13.14",
+    "jose": "6.2.13",
+    "pdf-lib": "1.17.1",
+    "pdfjs-dist": "6.4.299",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "react-router": "8.5.0",
+    "tesseract.js": "7.0.0",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "vite": "8.3.5",
+    "@vitejs/plugin-react": "6.1.2",
+    "typescript": "5.9.3",
+    "vitest": "4.1.12",
+    "wrangler": "4.153.0",
+    "@cloudflare/workers-types": "5.20261026.1",
+    "@playwright/test": "1.63.0",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@types/node": "22.20.5",
+    "@tesseract.js-data/spa": "1.0.0",
+    "@cloudflare/vitest-plugin": "1.4.8"
+  }
+}

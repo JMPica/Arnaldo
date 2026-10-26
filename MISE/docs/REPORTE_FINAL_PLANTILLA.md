@@ -1,0 +1,22 @@
+# Informe de entrega final (Claude Code debe completar con evidencia)
+
+- Fecha y commit: PENDIENTE
+- URL privada verificada: PENDIENTE (no inventar)
+- Acceso no autorizado: PASS / FAIL / NOT RUN — comando/evidencia:
+- Acceso autorizado: PASS / FAIL / NOT RUN — evidencia:
+- DB D1 y migraciones: PASS / FAIL / NOT RUN — evidencia:
+- CRUD ingredientes, proveedores y precios: PASS / FAIL / NOT RUN
+- Recetas y subrecetas: PASS / FAIL / NOT RUN
+- Menús y eventos: PASS / FAIL / NOT RUN
+- Compras e inventario: PASS / FAIL / NOT RUN
+- Importación v1 y restauración: PASS / FAIL / NOT RUN
+- Documentos (P1): PASS / FAIL / DEFERRED
+- Automatizaciones IA (P1/P2): PASS / FAIL / DISABLED BY DESIGN
+- Tests unitarios (números): PENDIENTE
+- Tests integración (números): PENDIENTE
+- Tests E2E (números): PENDIENTE
+- Prueba de seguridad: PENDIENTE
+- Prueba responsive iPhone: PENDIENTE
+- Coste mensual estimado y límites verificados: PENDIENTE
+- Intervenciones del propietario pendientes: PENDIENTE
+- Manual de uso: PENDIENTE

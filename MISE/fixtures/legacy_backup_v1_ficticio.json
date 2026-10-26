@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "brand": "MISE",
+  "demo": false,
+  "ingredients": [
+    {
+      "id": "i-calabaza",
+      "name": "Calabaza demo sintética",
+      "category": "Verduras",
+      "unit": "g",
+      "packQty": 1000,
+      "packPrice": 2.4,
+      "waste": 20,
+      "stockQty": 300,
+      "supplier": "Proveedor ficticio",
+      "allergens": ""
+    },
+    {
+      "id": "i-nata",
+      "name": "Nata demo sintética",
+      "category": "Lácteos",
+      "unit": "ml",
+      "packQty": 1000,
+      "packPrice": 4.2,
+      "waste": 0,
+      "stockQty": 100,
+      "supplier": "Proveedor ficticio",
+      "allergens": "Lácteos"
+    }
+  ],
+  "recipes": [
+    {
+      "id": "r-crema",
+      "name": "Crema de calabaza demo",
+      "category": "Entrante",
+      "portions": 4,
+      "minutes": 35,
+      "notes": "Ficticia para importar",
+      "allergens": "Lácteos",
+      "lines": [
+        {
+          "ingredientId": "i-calabaza",
+          "qty": 500
+        },
+        {
+          "ingredientId": "i-nata",
+          "qty": 180
+        }
+      ]
+    }
+  ],
+  "menus": [
+    {
+      "id": "m-menu",
+      "name": "Menú demo",
+      "description": "Ficticio",
+      "lines": [
+        {
+          "recipeId": "r-crema",
+          "servings": 1
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "e-event",
+      "client": "Cliente DEMO sintético",
+      "date": "2026-12-20",
+      "location": "Localización ficticia",
+      "guests": 10,
+      "menuId": "m-menu",
+      "pricePerGuest": 50,
+      "extraIncome": 0,
+      "staffCost": 25,
+      "travelCost": 15,
+      "rentalCost": 0,
+      "otherCost": 0,
+      "targetMargin": 35,
+      "status": "confirmed",
+      "notes": "No es un cliente real."
+    }
+  ],
+  "purchases": [
+    {
+      "id": "p-purchase",
+      "ingredientId": "i-calabaza",
+      "date": "2026-10-01",
+      "reference": "FAC-DEMO-1",
+      "packQty": 1000,
+      "packPrice": 2.4,
+      "supplier": "Proveedor ficticio",
+      "previousPerBase": 0.0024,
+      "createdAt": 1790800000000
+    }
+  ]
+}
