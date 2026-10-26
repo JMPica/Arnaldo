@@ -33,3 +33,6 @@ public/ocr/
 # Modo local: datos y copias del usuario (nunca a git)
 datos-locales/
 copias-locales/
+
+# Publicación en Cloudflare (configuración propia generada por scripts/publicar.mjs)
+wrangler.publicacion.json

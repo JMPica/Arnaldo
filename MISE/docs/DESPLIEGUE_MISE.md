@@ -1,5 +1,7 @@
 # Despliegue privado de MISE en Cloudflare — pasos exactos
 
+> **Forma recomendada para el propietario:** [`PUBLICAR_INTERNET.md`](PUBLICAR_INTERNET.md) — un doble clic (`scripts/publicar.mjs`) hace los pasos 1.2, 2, 3 y 4 de abajo (solo producción) y verifica la privacidad. Este documento queda como referencia técnica manual.
+
 > Estado a 2026-10-26: **todo preparado y probado en local; despliegue BLOQUEADO** porque el entorno de desarrollo no tiene cuenta de Cloudflare autorizada (`wrangler whoami` → *You are not authenticated*). No se usó `wrangler deploy --temporary` porque publicaría la app **sin Cloudflare Access**.
 
 Solo tú puedes hacer los pasos marcados 👤 (cuenta, MFA, autorización OAuth, email autorizado). El resto lo ejecuta Claude Code o el script.

@@ -3,6 +3,7 @@
 Aplicación privada para chef privado: **cliente → menú → recetas → escandallos → presupuesto → compras → producción → evento → rentabilidad final**, usable desde iPhone y ordenador.
 
 - **Estado y continuidad:** [`docs/PROGRESO.md`](docs/PROGRESO.md) · decisiones: [`docs/DECISIONES.md`](docs/DECISIONES.md)
+- **Publicar en internet (iPhone sin ordenador encendido, privado y gratis):** [`docs/PUBLICAR_INTERNET.md`](docs/PUBLICAR_INTERNET.md) — doble clic en `Publicar MISE en internet (Mac).command` / `(Windows).bat`
 - **Modo local (Windows · Mac · iPhone por wifi, sin nube):** [`docs/MODO_LOCAL.md`](docs/MODO_LOCAL.md) — doble clic en `Iniciar MISE (Windows).bat` o `Iniciar MISE (Mac).command`
 - **Guía de uso (1 página):** [`docs/GUIA_USO.md`](docs/GUIA_USO.md)
 - **Despliegue privado paso a paso:** [`docs/DESPLIEGUE_MISE.md`](docs/DESPLIEGUE_MISE.md) · costes: [`docs/COSTES.md`](docs/COSTES.md)
@@ -23,7 +24,7 @@ tests        unit (Node) + integration (workerd + D1 local)   e2e/  Playwright (
 
 ## Dos formas de funcionar
 
-| | Modo local (en uso) | Cloudflare (preparado) |
+| | Modo local | Cloudflare (elegido por el propietario) |
 |---|---|---|
 | Dónde están los datos | Tu ordenador principal (`datos-locales/`) | D1 en tu cuenta Cloudflare |
 | Acceso | Dispositivos emparejados por QR en tu wifi (`AUTH_MODE=local`) | Cloudflare Access con tu email (`AUTH_MODE=access`) |
@@ -46,6 +47,7 @@ npm run test:integration         # 39 tests HTTP contra el Worker real con D1 lo
 npm run test:e2e                 # 17 E2E Playwright (levanta su propio servidor con D1 limpia)
 npm run smoke:local-access       # 53 comprobaciones de privacidad en modo producción (Access)
 npm run build
+npm run publicar                 # publicación guiada en Cloudflare (lo que hace el lanzador «Publicar»)
 npm run deploy:staging           # requiere `npx wrangler login` del propietario (ver DESPLIEGUE_MISE.md)
 npm run deploy:production
 node scripts/smoke-http.mjs https://<tu-url>   # privacidad de la URL real sin sesión
