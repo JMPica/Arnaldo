@@ -92,15 +92,15 @@ export default function RecipeEditor() {
       for (const k of ['id', 'owner_id', 'lines_count', 'cost', 'error', 'allergen_review', 'used_in', 'allergens_declared_json', 'allergen_review_hash', 'allergens_reviewed_at', 'version', 'archived_at', 'created_at', 'updated_at']) delete payload[k];
       return isNew ? api.post('/recipes', payload) : api.put(`/recipes/${id}`, payload);
     },
-    onSuccess: (r) => { qc.invalidateQueries(); toast(t('Receta guardada')); setErrors({}); if (isNew) nav(`/recetas/${r.id}`, { replace: true }); else setF(null); },
+    onSuccess: async (r) => { await qc.invalidateQueries(); toast(t('Receta guardada')); setErrors({}); setF(null); if (isNew) nav(`/recetas/${r.id}`, { replace: true }); },
     onError: (e) => { setErrors(fieldErrors(e)); toast(errText(e), 'error'); },
   });
   const review = useMutation({ mutationFn: () => api.post(`/recipes/${id}/allergen-review`), onSuccess: () => { qc.invalidateQueries(); toast(t('Alérgenos revisados y aprobados')); }, onError: (e) => toast(errText(e), 'error') });
-  const dup = useMutation({ mutationFn: () => api.post(`/recipes/${id}/duplicate`), onSuccess: (r) => { qc.invalidateQueries(); nav(`/recetas/${r.id}`); setF(null); } });
+  const dup = useMutation({ mutationFn: () => api.post(`/recipes/${id}/duplicate`), onSuccess: (r) => { qc.invalidateQueries(); setF(null); nav(`/recetas/${r.id}`); } });
   const archive = useMutation({ mutationFn: () => api.del(`/recipes/${id}`), onSuccess: () => { qc.invalidateQueries(); nav('/recetas'); } });
 
   if (detail.isError) return <ErrorBox error={detail.error} />;
-  if (!f || !ings.data || !recs.data) return <Loading />;
+  if (!f || !ings.data || !recs.data || (!isNew && !detail.data)) return <Loading />;
   const set = (k: string) => (v: any) => setF((x: any) => ({ ...x, [k]: v }));
   const options: [string, string][] = [['', t('— Elegir ingrediente o subreceta —')],
     ...((ings.data as any[]).map((i) => [`i:${i.id}`, `${i.name} (${i.base_unit})`] as [string, string])),

@@ -92,7 +92,7 @@ export default function DocumentReview() {
       await api.put(`/documents/${id}/extraction`, { method, supplier_id: x.supplier_id_guess, doc_date: x.date, doc_reference: x.reference, text_excerpt: text.slice(0, 15000), data: { ...x, review } });
       return { x, review };
     },
-    onSuccess: ({ x, review }) => { setExt(x); setLines(review); setHeader({ supplier_id: x.supplier_id_guess ?? '', doc_date: x.date ?? new Date().toISOString().slice(0, 10), doc_reference: x.reference ?? '' }); setStage(null); qc.invalidateQueries({ queryKey: ['documents'] }); toast(t('Propuesta extraída: revísala antes de confirmar')); },
+    onSuccess: ({ x, review }) => { setExt(x); setLines(review); setHeader({ supplier_id: x.supplier_id_guess ?? '', doc_date: x.date ?? new Date().toISOString().slice(0, 10), doc_reference: x.reference ?? '' }); setStage(null); qc.invalidateQueries({ queryKey: ['documents'] }); qc.invalidateQueries({ queryKey: ['document', id] }); toast(t('Propuesta extraída: revísala antes de confirmar')); },
     onError: (e) => { setStage(null); toast((e as Error).message === 'heic' ? t('Este navegador no puede leer HEIC: usa Safari en iPhone o sube JPG.') : t('No se pudo extraer el texto. Puedes introducir las líneas a mano.'), 'error'); },
   });
   const confirm = useMutation({

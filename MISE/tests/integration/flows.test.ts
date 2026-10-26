@@ -96,6 +96,7 @@ describe('E2E-01 (API) flujo completo: catálogo → receta+subreceta → menú 
     expect(done.status).toBe(200);
     expect(done.data.status).toBe('completed');
     expect(done.data.closing.actual_total_cost).toBe('330');
+    expect(done.data.closing.snapshot_version).toBe(2);
     expect(done.data.closing.actual_profit).toBe('870');
     expect(done.data.closing.actual_margin_pct).toBe('72.5');
     // snapshot confirmado intacto

@@ -289,7 +289,7 @@ function ProductionTab({ e }: { e: any }) {
 }
 
 function ClosingTab({ e, onComplete, pending }: { e: any; onComplete: () => void; pending: boolean }) {
-  const { t, money, pct } = useI18n();
+  const { t, money, pct, date } = useI18n();
   const labels = useCostLabels();
   const { ask, node } = useConfirm();
   const c = e.closing;
@@ -315,7 +315,7 @@ function ClosingTab({ e, onComplete, pending }: { e: any; onComplete: () => void
             </div>
             {!c.has_actual_food && e.status === 'confirmed' && <div className="notice warn" style={{ marginTop: 10 }}>{t('Aún no has registrado el coste real de comida.')}</div>}
             {e.status === 'confirmed' && <button className="btn block" style={{ marginTop: 14 }} disabled={pending} onClick={async () => { if (await ask(t('¿Cerrar el evento? Se congelará el resultado real y no podrá editarse.'), false)) onComplete(); }}>{t('Cerrar y archivar resultado')}</button>}
-            {e.status === 'completed' && <div className="notice" style={{ marginTop: 10 }}>{t('Cerrado el {d}.', { d: String(e.completed_at).slice(0, 10) })}</div>}
+            {e.status === 'completed' && <div className="notice" style={{ marginTop: 10 }}>{t('Cerrado el {d}.', { d: date(String(e.completed_at).slice(0, 10)) })}</div>}
           </section>
         </div>
       )}

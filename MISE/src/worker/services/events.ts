@@ -175,7 +175,7 @@ export function confirmRequirements(b: EventBundle, cat: Catalog): string[] {
 }
 
 /** Comparación previsto (snapshot confirmado/re-presupuestado) vs real, sin reescribir el snapshot. */
-export function closingComparison(snapshot: Record<string, any> | null, b: EventBundle, fin: Financials) {
+export function closingComparison(snapshot: Record<string, any> | null, b: EventBundle, fin: Financials, snapshotVersion: number | null = null) {
   const estimated = snapshot?.financials ?? serializeDecimals(fin);
   const revenue = dec(estimated.revenue_net);
   const actual = actualFinancials(revenue, b.costs);
@@ -186,7 +186,7 @@ export function closingComparison(snapshot: Record<string, any> | null, b: Event
     return { category: cat, estimated: est, actual: act, variance: act.minus(est) };
   });
   return serializeDecimals({
-    snapshot_version: snapshot?.version ?? null,
+    snapshot_version: snapshotVersion,
     revenue_net: revenue,
     estimated_total_cost: dec(estimated.total_cost),
     estimated_profit: dec(estimated.profit),

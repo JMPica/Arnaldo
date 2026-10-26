@@ -129,7 +129,7 @@ export function extractFromText(text: string, suppliers: { id: string; name: str
   const lines = clean.split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
   const dateLine = lines.find((l) => /fecha/i.test(l) && parseDate(l)) ?? lines.find((l) => parseDate(l));
   const date = dateLine ? parseDate(dateLine) : null;
-  const refMatch = clean.match(/(?:factura|fra\.?|albar[aá]n|n[º°o]\.?\s*(?:de\s*)?(?:factura|documento|doc\.?)?|n[uú]mero)\s*[:#]?\s*([A-Z]{0,4}[-/ ]?\d[\w\-/]{1,24})/i);
+  const refMatch = [...clean.matchAll(/(?:factura|fra\.?|albar[aá]n|ticket|n[º°o]\.?\s*(?:de\s*)?(?:factura|documento|doc\.?))\s*(?:n[º°o]\.?|n[uú]m(?:ero)?\.?)?\s*[:#]?\s*(?=[\w\-/.]*\d)([A-Z0-9][\w\-/.]{2,24})/gi)].find((m) => !/total|importe/i.test(clean.slice(Math.max(0, (m.index ?? 0) - 12), m.index ?? 0)));
   const taxMatch = clean.match(/\b([A-HJ-NP-SUVW]\d{7}[0-9A-J]|\d{8}[A-Z])\b/);
   let supplier_id_guess: string | null = null;
   let supplier_guess: string | null = null;

@@ -27,3 +27,4 @@ uploads/private/
 
 # Recursos OCR generados en build (scripts/copy-ocr-assets.mjs)
 public/ocr/
+.dev.vars.staging

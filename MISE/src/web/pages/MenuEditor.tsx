@@ -57,7 +57,7 @@ export default function MenuEditor() {
       const payload = { ...f, lines };
       return isNew ? api.post('/menus', payload) : api.put(`/menus/${id}`, payload);
     },
-    onSuccess: (r) => { qc.invalidateQueries(); toast(t('Menú guardado')); if (isNew) nav(`/menus/${r.id}`, { replace: true }); else setF(null); },
+    onSuccess: async (r) => { await qc.invalidateQueries(); toast(t('Menú guardado')); setF(null); if (isNew) nav(`/menus/${r.id}`, { replace: true }); },
     onError: (e) => toast(errText(e), 'error'),
   });
   const review = useMutation({ mutationFn: () => api.post(`/menus/${id}/allergen-review`), onSuccess: () => { qc.invalidateQueries(); toast(t('Menú revisado: listo para propuestas')); }, onError: (e) => toast(errText(e), 'error') });
@@ -65,7 +65,7 @@ export default function MenuEditor() {
   const archive = useMutation({ mutationFn: () => api.del(`/menus/${id}`), onSuccess: () => { qc.invalidateQueries(); nav('/menus'); } });
 
   if (detail.isError) return <ErrorBox error={detail.error} />;
-  if (!f || !recs.data) return <Loading />;
+  if (!f || !recs.data || (!isNew && !detail.data)) return <Loading />;
   const recOptions: [string, string][] = [['', t('— Elegir receta —')], ...(recs.data as any[]).map((r) => [r.id, `${r.name} · ${money(r.portion_cost)}/${t('ración')}`] as [string, string])];
   const upd = (i: number, c: Partial<Course>) => setCourses(courses.map((x, j) => (j === i ? { ...x, ...c } : x)));
   const move = (i: number, d: number) => { const n = [...courses]; const [x] = n.splice(i, 1); n.splice(i + d, 0, x!); setCourses(n); };

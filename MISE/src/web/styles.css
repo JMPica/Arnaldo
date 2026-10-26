@@ -243,3 +243,7 @@ input[aria-invalid=true], select[aria-invalid=true] { border-color: var(--danger
   body { background: #fff; }
   .card { box-shadow: none; }
 }
+
+/* Los hijos de rejillas no deben ensanchar la página (tablas anchas hacen scroll dentro de .table-wrap) */
+.grid > *, .split > *, .stack > *, .metrics > *, .cards > *, .fields > * { min-width: 0; }
+.main, .content { max-width: 100vw; }

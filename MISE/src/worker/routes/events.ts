@@ -140,7 +140,7 @@ async function eventView(db: Db, id: string) {
     changed_since_snapshot: snap ? snap.data.inputs_fingerprint !== fp : false,
     menu_allergen_review: menuReviewState(b, cat),
     confirm_missing: confirmRequirements(b, cat),
-    closing: completed ? completed.data.closing : (b.event.status === 'confirmed' || b.event.status === 'completed') && financials ? closingComparison(snap?.data ?? null, b, computeFinancials(b, cat)) : null,
+    closing: completed ? completed.data.closing : (b.event.status === 'confirmed' || b.event.status === 'completed') && financials ? closingComparison(snap?.data ?? null, b, computeFinancials(b, cat), snap?.version ?? null) : null,
     linked_purchases_total: (await linkedPurchasesTotal(db, id)).toFixed(),
   };
 }
@@ -255,7 +255,7 @@ events.post('/events/:id/complete', async (c) => {
   if (!b.costs.some((x) => x.cost_kind === 'actual')) throw new ApiError(422, 'actual_costs_required');
   const cat = await loadCatalog(db);
   const prev = await latestSnapshot(db, id, ['confirmed', 'requoted']);
-  const closing = closingComparison(prev?.data ?? null, b, computeFinancials(b, cat));
+  const closing = closingComparison(prev?.data ?? null, b, computeFinancials(b, cat), prev?.version ?? null);
   const snap = await buildSnapshot(db, b, cat, 'completed', { closing, closed_against_version: prev?.version ?? null });
   // Libera reservas pendientes del evento
   const releases = await reservationReleases(db, id, 'complete');
