@@ -1,0 +1,42 @@
+{
+  // MISE — Private Chef OS. Cloudflare Workers + D1 + Access.
+  // Los identificadores reales (database_id, ACCESS_AUD, OWNER_EMAILS) se fijan al aprovisionar; ver docs/DESPLIEGUE_MISE.md.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mise-local",
+  "main": "src/worker/index.ts",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": false,
+  "preview_urls": false,
+  "assets": {
+    "directory": "./dist/client",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": true
+  },
+  "d1_databases": [
+    { "binding": "DB", "database_name": "mise-db", "database_id": "00000000-0000-0000-0000-000000000000", "migrations_dir": "migrations" }
+  ],
+  "vars": { "APP_ENV": "local", "MAX_UPLOAD_BYTES": "10485760" },
+  "observability": { "enabled": true, "head_sampling_rate": 1 },
+  "env": {
+    "staging": {
+      "name": "mise-staging",
+      "workers_dev": true,
+      "preview_urls": false,
+      "vars": { "APP_ENV": "staging", "AUTH_MODE": "access", "MAX_UPLOAD_BYTES": "10485760", "ACCESS_TEAM_DOMAIN": "https://REPLACE-TEAM.cloudflareaccess.com", "ACCESS_AUD": "REPLACE_AUD_STAGING", "OWNER_EMAILS": "REPLACE_OWNER_EMAIL" },
+      "d1_databases": [
+        { "binding": "DB", "database_name": "mise-db-staging", "database_id": "REPLACE_STAGING_DATABASE_ID", "migrations_dir": "migrations" }
+      ]
+    },
+    "production": {
+      "name": "mise",
+      "workers_dev": true,
+      "preview_urls": false,
+      "vars": { "APP_ENV": "production", "AUTH_MODE": "access", "MAX_UPLOAD_BYTES": "10485760", "ACCESS_TEAM_DOMAIN": "https://REPLACE-TEAM.cloudflareaccess.com", "ACCESS_AUD": "REPLACE_AUD_PRODUCTION", "OWNER_EMAILS": "REPLACE_OWNER_EMAIL" },
+      "d1_databases": [
+        { "binding": "DB", "database_name": "mise-db", "database_id": "REPLACE_PRODUCTION_DATABASE_ID", "migrations_dir": "migrations" }
+      ]
+    }
+  }
+}

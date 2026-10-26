@@ -16,7 +16,8 @@ export class DomainError extends Error {
   }
 }
 
-const DECIMAL_RE = /^-?\d{1,15}(\.\d{1,12})?$/;
+// Validación de entrada de usuario la hacen los esquemas zod; aquí se aceptan también resultados internos de alta precisión.
+const DECIMAL_RE = /^-?\d{1,20}(\.\d{1,45})?$/;
 
 /** Acepta "12,5", "12.5", 12.5 y devuelve Decimal; lanza DomainError si no es un número finito válido. */
 export function dec(value: string | number | Decimal | null | undefined, field = 'value'): Decimal {

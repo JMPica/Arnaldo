@@ -1,12 +1,19 @@
 # Registro de decisiones técnicas
 
-| ID | Decisión provisional | Motivo | Cuándo revisarla |
-|---|---|---|---|
-| ADR-001 | App privada, un propietario; preparada para roles | Evitar complejidad innecesaria | Incorporación colaboradores |
-| ADR-002 | TypeScript + React + Vite para UI y Hono para API Cloudflare Workers | Stack portable, pequeño, mismo despliegue viable | Restricción real de bundler/plataforma |
-| ADR-003 | Cloudflare D1 para persistencia; R2 cuando haya adjuntos | Coste contenido y base SQL | Si límites o RGPD aconsejan otra opción |
-| ADR-004 | Cloudflare Access para proteger Worker entero | Login sin desarrollar gestión de contraseñas propia | Si falta autorización/capacidad Access |
-| ADR-005 | OCR/IA detrás de proveedor intercambiable y opt-in | Evitar coste, filtrado accidental de datos | Al autorizarlo |
-| ADR-006 | Importación segura desde JSON v1, no usar localStorage de producción | Mantener portabilidad | Al probar importación |
-
-Claude: confirma cada decisión tras comprobar documentación y herramientas reales. Registra cambios con razones y consecuencias. No repitas análisis desde cero en cada sesión.
+| ID | Decisión | Motivo / evidencia | Coste | Seguridad | Rollback | Revisar cuando |
+|---|---|---|---|---|---|---|
+| ADR-001 | App privada, un propietario; `app_users.owner_id` + rol `collaborator` preparado | Primer email de `OWNER_EMAILS` = propietario; otros de la allowlist = colaboradores del mismo propietario (test `security.test.ts`) | 0 | owner_id nunca viene del cliente | — | Al incorporar colaboradores (permisos por rol) |
+| ADR-002 | **Confirmado**: React 19 + TS + Vite 8 (SPA) y Hono 4 en un único Cloudflare Worker con Static Assets (`run_worker_first: true`) | Un solo despliegue; el Worker autentica antes de servir HTML, JS, API y ficheros | 0 € (plan Free) | Ninguna ruta sirve contenido sin identidad verificada | `wrangler rollback` | Si se necesita SSR |
+| ADR-003 | **Confirmado**: D1 (SQLite) con migraciones versionadas en `migrations/` | Probado con Miniflare/workerd en tests de integración | Free: 5 GB, 5 M lecturas/día | SQL parametrizado; triggers de propietario e inmutabilidad | D1 Time Travel + backup JSON | Si se superan límites |
+| ADR-004 | **Confirmado**: Cloudflare Access delante de todo el Worker + verificación del JWT en el Worker (`jose`, RS256, issuer, aud, exp) + allowlist | Doble barrera; cabeceras sin firma ignoradas (tests SEC-01/02/05) | Access Free hasta 50 usuarios | Sin pantalla de contraseña propia | — | — |
+| ADR-005 | IA externa **desactivada por diseño** (`ai_provider` solo admite `'none'` en el esquema) | Ninguna llamada facturable posible sin cambio de código y autorización (DOC-04) | 0 € | Sin transferencia de datos | — | Al autorizar coste y tratamiento |
+| ADR-006 | Importación v1 con dry-run, confirmación explícita, backup previo, transacción y conciliación de costes | `IMPORT-01/02/03` | 0 | Zod con límites; demo requiere aceptación | Backup `pre_import` en servidor | — |
+| ADR-007 | Importes y cantidades como **TEXT decimal canónico** + `decimal.js` (40 dígitos), redondeo HALF_UP a 2 decimales solo al presentar | Facturas mayoristas con 3–4 decimales; céntimos enteros perderían precisión en €/g | 0 | — | — | — |
+| ADR-008 | Escrituras múltiples con **una sola sentencia `INSERT … SELECT … FROM json_each(?)`** y cargas de eventos con número fijo de consultas | Límite de consultas por invocación del plan Free de Workers/D1; sigue siendo SQL parametrizado | 0 | Columnas en lista blanca, owner_id forzado | — | Plan Paid |
+| ADR-009 | Adjuntos privados en **D1 troceado (`blob_chunks`, 1,5 MB/fila)** en lugar de R2 | R2 exige activar facturación en la cuenta; D1 basta para facturas/fotos (≤10 MB, imágenes comprimidas en el móvil). Interfaz `storage` preparada para `r2` | 0 € | Sin URL pública; descarga autenticada, `nosniff`, CSP | Migrar a R2 cambiando `storage` | Si los adjuntos superan ~1 GB |
+| ADR-010 | Extracción documental **en el navegador**: pdf.js (texto embebido) y Tesseract.js (OCR local, español) auto-alojados | CPU del Worker Free (10 ms) insuficiente para OCR/PDF; sin datos a terceros; 0 € | 0 € | Texto tratado como no confiable; solo propone | — | Si se autoriza IA |
+| ADR-011 | PDF (propuesta cliente, informe interno, ficha técnica, lista de compra) generados **en el navegador con pdf-lib** desde DTOs filtrados en servidor | La separación cliente/interno se garantiza en el servidor (`/proposal` no contiene costes; test E2E-05); evita CPU del Worker | 0 € | — | — | — |
+| ADR-012 | CSRF: cabecera `X-MISE-CSRF: 1` obligatoria en mutaciones + comprobación de `Origin`; sin CORS | Fuerza preflight cross-origin que no se concede | 0 | — | — | — |
+| ADR-013 | Alérgenos: derivados de ingredientes (etiquetado manual) + declarados; aprobación humana por **huella** (receta y menú); propuesta y confirmación bloqueadas si no está revisado | Regla CLAUDE.md; E2E-07 | 0 | — | — | — |
+| ADR-014 | Coste de comida previsto solo desde el menú (no se admite partida manual `food` prevista) | Evita doble cómputo; `food` real sí se registra al cierre | 0 | — | — | — |
+| ADR-015 | Vitest 4 + `@cloudflare/vitest-plugin` (sucesor de `vitest-pool-workers`, renombrado) para integración | Paquete antiguo marcado como obsoleto | 0 | — | — | — |
