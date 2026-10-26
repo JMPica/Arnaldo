@@ -1,6 +1,7 @@
 {
   // MISE — Private Chef OS. Cloudflare Workers + D1 + Access.
-  // Los identificadores reales (database_id, ACCESS_AUD, OWNER_EMAILS) se fijan al aprovisionar; ver docs/DESPLIEGUE_MISE.md.
+  // Los identificadores reales (database_id, ACCESS_TEAM_DOMAIN, ACCESS_AUD) se fijan al aprovisionar; ver docs/DESPLIEGUE_MISE.md.
+  // OWNER_EMAILS NO se versiona: `wrangler secret put OWNER_EMAILS --env <entorno>`. Sin él, la app responde 500 (nunca abre acceso).
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "mise-local",
   "main": "src/worker/index.ts",
@@ -24,7 +25,7 @@
       "name": "mise-staging",
       "workers_dev": true,
       "preview_urls": false,
-      "vars": { "APP_ENV": "staging", "AUTH_MODE": "access", "MAX_UPLOAD_BYTES": "10485760", "ACCESS_TEAM_DOMAIN": "https://REPLACE-TEAM.cloudflareaccess.com", "ACCESS_AUD": "REPLACE_AUD_STAGING", "OWNER_EMAILS": "REPLACE_OWNER_EMAIL" },
+      "vars": { "APP_ENV": "staging", "AUTH_MODE": "access", "MAX_UPLOAD_BYTES": "10485760", "ACCESS_TEAM_DOMAIN": "https://REPLACE-TEAM.cloudflareaccess.com", "ACCESS_AUD": "REPLACE_AUD_STAGING" },
       "d1_databases": [
         { "binding": "DB", "database_name": "mise-db-staging", "database_id": "REPLACE_STAGING_DATABASE_ID", "migrations_dir": "migrations" }
       ]
@@ -33,7 +34,7 @@
       "name": "mise",
       "workers_dev": true,
       "preview_urls": false,
-      "vars": { "APP_ENV": "production", "AUTH_MODE": "access", "MAX_UPLOAD_BYTES": "10485760", "ACCESS_TEAM_DOMAIN": "https://REPLACE-TEAM.cloudflareaccess.com", "ACCESS_AUD": "REPLACE_AUD_PRODUCTION", "OWNER_EMAILS": "REPLACE_OWNER_EMAIL" },
+      "vars": { "APP_ENV": "production", "AUTH_MODE": "access", "MAX_UPLOAD_BYTES": "10485760", "ACCESS_TEAM_DOMAIN": "https://REPLACE-TEAM.cloudflareaccess.com", "ACCESS_AUD": "REPLACE_AUD_PRODUCTION" },
       "d1_databases": [
         { "binding": "DB", "database_name": "mise-db", "database_id": "REPLACE_PRODUCTION_DATABASE_ID", "migrations_dir": "migrations" }
       ]

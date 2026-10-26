@@ -23,3 +23,7 @@ python3 build_dossier.py                # 01_BRAND/ARNALDO VALLÉS Brand Dossier
 Les xifres dels documents s'injecten des dels models (`metrics.json`), de manera que canviar un supòsit i regenerar manté la coherència.
 
 Treball preparat amb fonts públiques; requereix revisió jurídica i fiscal professional abans de qualsevol decisió, signatura o comunicació externa.
+
+## MISE — Private Chef OS
+
+Aplicación privada para chef privado (proyecto independiente) en [`MISE/`](MISE/README.md): estado en `MISE/docs/PROGRESO.md`, guía de uso en `MISE/docs/GUIA_USO.md`.

@@ -17,3 +17,6 @@
 | ADR-013 | Alérgenos: derivados de ingredientes (etiquetado manual) + declarados; aprobación humana por **huella** (receta y menú); propuesta y confirmación bloqueadas si no está revisado | Regla CLAUDE.md; E2E-07 | 0 | — | — | — |
 | ADR-014 | Coste de comida previsto solo desde el menú (no se admite partida manual `food` prevista) | Evita doble cómputo; `food` real sí se registra al cierre | 0 | — | — | — |
 | ADR-015 | Vitest 4 + `@cloudflare/vitest-plugin` (sucesor de `vitest-pool-workers`, renombrado) para integración | Paquete antiguo marcado como obsoleto | 0 | — | — | — |
+| ADR-016 | `OWNER_EMAILS` como **secreto de Worker** (no en git); `ACCESS_TEAM_DOMAIN`/`ACCESS_AUD` como vars con placeholders que fallan cerrado (500) | Evita datos personales en el repositorio; configuración incompleta nunca abre acceso | 0 | — | `wrangler secret put` | — |
+| ADR-017 | Despliegue **no** realizado con `wrangler deploy --temporary` | Publicaría en cuenta temporal sin Access → viola SEGURIDAD.md | 0 | — | — | Al autorizar cuenta |
+| ADR-018 | Pantallas de detalle remontadas por `:id` + `ErrorBoundary` | Fallos reales detectados por E2E (estado arrastrado, pantalla en blanco) | 0 | — | — | — |

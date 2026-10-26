@@ -16,12 +16,11 @@
     "test:e2e": "playwright test",
     "check": "npm run typecheck && npm run test && npm run build",
     "db:migrate:local": "wrangler d1 migrations apply mise-db --local",
-    "db:migrate:staging": "wrangler d1 migrations apply mise-db-staging --remote --env staging",
-    "db:migrate:production": "wrangler d1 migrations apply mise-db --remote --env production",
-    "deploy:staging": "npm run check && wrangler deploy --env staging",
-    "deploy:production": "npm run check && wrangler deploy --env production",
+    "deploy:staging": "bash scripts/deploy.sh staging",
+    "deploy:production": "bash scripts/deploy.sh production",
     "smoke": "node scripts/smoke-http.mjs",
-    "verify:package": "python3 scripts/verificar_paquete.py"
+    "verify:package": "python3 scripts/verificar_paquete.py",
+    "smoke:local-access": "bash scripts/smoke-local-access.sh"
   },
   "engines": {
     "node": ">=20"
