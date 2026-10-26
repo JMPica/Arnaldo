@@ -40,3 +40,16 @@ export async function noHorizontalOverflow(page: Page) {
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 1);
   expect(overflow, 'sin scroll horizontal').toBe(false);
 }
+
+/** Texto de un PDF con pdf.js (dependencia del proyecto): sin utilidades del sistema como pdftotext. */
+export async function pdfToText(path: string): Promise<string> {
+  const { readFileSync } = await import('node:fs');
+  const pdfjs = await import('pdfjs-dist/legacy/build/pdf.mjs');
+  const doc = await pdfjs.getDocument({ data: new Uint8Array(readFileSync(path)), useSystemFonts: false, disableFontFace: true, verbosity: 0 }).promise;
+  const pages: string[] = [];
+  for (let p = 1; p <= doc.numPages; p++) {
+    const content = await (await doc.getPage(p)).getTextContent();
+    pages.push((content.items as { str?: string }[]).map((i) => i.str ?? '').join('\n'));
+  }
+  return pages.join('\n');
+}

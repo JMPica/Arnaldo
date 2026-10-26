@@ -1,6 +1,5 @@
-import { execFileSync } from 'node:child_process';
 import { expect, test } from '@playwright/test';
-import { apiGet, confirmDialog, expectToast, goSection, noHorizontalOverflow, uid } from './helpers';
+import { apiGet, confirmDialog, expectToast, goSection, noHorizontalOverflow, pdfToText, uid } from './helpers';
 
 /**
  * E2E-01: catálogo → receta + subreceta → menú de 8 pases → cliente → evento 10 comensales → propuesta PDF →
@@ -109,7 +108,7 @@ test('E2E-01 evento completo desde la interfaz', async ({ page }, info) => {
   const [dl] = await Promise.all([page.waitForEvent('download'), page.getByRole('button', { name: 'Propuesta PDF (ES)' }).click()]);
   const pdfPath = info.outputPath('propuesta.pdf');
   await dl.saveAs(pdfPath);
-  const text = execFileSync('pdftotext', ['-layout', pdfPath, '-']).toString();
+  const text = await pdfToText(pdfPath);
   expect(text).toContain(`Cena ${u}`);
   expect(text).toContain(`Crema ${u}`);
   expect(text).toMatch(/1\.?320,00/); // 1.200 € + IVA 10 % (es-ES no agrupa 4 cifras)
@@ -118,7 +117,7 @@ test('E2E-01 evento completo desde la interfaz', async ({ page }, info) => {
   // Informe interno sí lleva márgenes
   const [dl2] = await Promise.all([page.waitForEvent('download'), page.getByRole('button', { name: 'Informe interno PDF' }).click()]);
   await dl2.saveAs(info.outputPath('interno.pdf'));
-  const internal = execFileSync('pdftotext', [info.outputPath('interno.pdf'), '-']).toString();
+  const internal = await pdfToText(info.outputPath('interno.pdf'));
   expect(internal).toContain('CONFIDENCIAL');
   expect(internal).toContain('Beneficio');
 
