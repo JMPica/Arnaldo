@@ -1,0 +1,4 @@
+# Copia a .dev.vars (ignorado por git). SOLO desarrollo local en localhost.
+AUTH_MODE=dev
+DEV_USER_EMAIL=chef@example.com
+OWNER_EMAILS=chef@example.com
