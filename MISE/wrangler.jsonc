@@ -21,6 +21,15 @@
   "vars": { "APP_ENV": "local", "MAX_UPLOAD_BYTES": "10485760" },
   "observability": { "enabled": true, "head_sampling_rate": 1 },
   "env": {
+    // Modo local (ordenador propio + iPhone por wifi). Lo arranca scripts/local.mjs; el secreto va en datos-locales/entorno.env.
+    "local": {
+      "name": "mise-local-app",
+      "workers_dev": false,
+      "vars": { "APP_ENV": "local-app", "AUTH_MODE": "local", "MAX_UPLOAD_BYTES": "10485760" },
+      "d1_databases": [
+        { "binding": "DB", "database_name": "mise-db-local", "database_id": "00000000-0000-0000-0000-000000000001", "migrations_dir": "migrations" }
+      ]
+    },
     "staging": {
       "name": "mise-staging",
       "workers_dev": true,

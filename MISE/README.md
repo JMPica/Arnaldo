@@ -3,6 +3,7 @@
 Aplicación privada para chef privado: **cliente → menú → recetas → escandallos → presupuesto → compras → producción → evento → rentabilidad final**, usable desde iPhone y ordenador.
 
 - **Estado y continuidad:** [`docs/PROGRESO.md`](docs/PROGRESO.md) · decisiones: [`docs/DECISIONES.md`](docs/DECISIONES.md)
+- **Modo local (Windows · Mac · iPhone por wifi, sin nube):** [`docs/MODO_LOCAL.md`](docs/MODO_LOCAL.md) — doble clic en `Iniciar MISE (Windows).bat` o `Iniciar MISE (Mac).command`
 - **Guía de uso (1 página):** [`docs/GUIA_USO.md`](docs/GUIA_USO.md)
 - **Despliegue privado paso a paso:** [`docs/DESPLIEGUE_MISE.md`](docs/DESPLIEGUE_MISE.md) · costes: [`docs/COSTES.md`](docs/COSTES.md)
 - **Informe de entrega y evidencias:** [`docs/REPORTE_FINAL.md`](docs/REPORTE_FINAL.md) · [`docs/EVIDENCIAS_PRUEBAS.md`](docs/EVIDENCIAS_PRUEBAS.md)
@@ -20,6 +21,17 @@ migrations   esquema D1 versionado
 tests        unit (Node) + integration (workerd + D1 local)   e2e/  Playwright (iPhone 390 px y escritorio 1440 px)
 ```
 
+## Dos formas de funcionar
+
+| | Modo local (en uso) | Cloudflare (preparado) |
+|---|---|---|
+| Dónde están los datos | Tu ordenador principal (`datos-locales/`) | D1 en tu cuenta Cloudflare |
+| Acceso | Dispositivos emparejados por QR en tu wifi (`AUTH_MODE=local`) | Cloudflare Access con tu email (`AUTH_MODE=access`) |
+| Desde fuera de casa | No | Sí |
+| Coste | 0 € | 0 € (plan Free) |
+
+Mismo código, misma base de datos SQLite y mismas migraciones; se pasa de uno a otro con una copia JSON.
+
 ## Comandos
 
 ```bash
@@ -27,9 +39,10 @@ npm install                      # Node ≥ 20 (.npmrc incluye legacy-peer-deps)
 cp .dev.vars.example .dev.vars   # identidad simulada SOLO en localhost
 npm run db:migrate:local         # migraciones en D1 local
 npm run dev                      # build + wrangler dev → http://127.0.0.1:8787
+npm run local                    # modo local real (lo que hacen los lanzadores de doble clic)
 npm run typecheck
 npm run test:unit                # 31 tests de dominio, fixtures, i18n
-npm run test:integration         # 35 tests HTTP contra el Worker real con D1 local
+npm run test:integration         # 39 tests HTTP contra el Worker real con D1 local
 npm run test:e2e                 # 17 E2E Playwright (levanta su propio servidor con D1 limpia)
 npm run smoke:local-access       # 53 comprobaciones de privacidad en modo producción (Access)
 npm run build

@@ -1,6 +1,6 @@
 # Registro de progreso (actualizar en cada sesión)
 
-**Estado a 2026-10-26:** aplicación v2 implementada y probada de extremo a extremo en local con el runtime real de Cloudflare (workerd + D1). **Despliegue privado BLOQUEADO por falta de cuenta Cloudflare autorizada.** No se declara completado al 100 %.
+**Estado a 2026-10-26 (sesión 2):** el propietario eligió **modo local** (Windows, Mac, iPhone por wifi). Implementado y verificado: lanzadores de doble clic, emparejamiento por QR, revocación, copias automáticas, restauración en instalación nueva. CI de GitHub en verde (runs 3 y 4). El despliegue en Cloudflare sigue preparado pero ya **no es necesario** para usar MISE; queda pendiente solo la verificación en el hardware real del propietario (Windows/Mac/Safari iPhone).
 
 | Paso | Estado | Evidencia |
 |---|---|---|
@@ -14,12 +14,14 @@
 | Importación v1 y backups | ✅ | IMPORT-01..03, BACKUP-01/02, SEC-04 |
 | Documentos / IA opcional | ✅ (IA desactivada por diseño) | DOC-01..04, OCR local E2E |
 | Seguridad, responsive, accesibilidad | ✅ (Safari real no probado) | E2E iPhone 390 px y 1440 px, E2E-06 |
-| Despliegue privado | ⛔ **BLOCKED** | `wrangler whoami` → no autenticado. Ver acciones externas |
+| Modo local privado (elegido) | ✅ en contenedor Linux · ⏳ en tu Windows/Mac/iPhone | `smoke-local-mode.mjs` 11/11, `local-mode.test.ts` 5/5, Playwright iPhone 390 px emparejado por IP de red. [`MODO_LOCAL.md`](MODO_LOCAL.md) |
+| Despliegue Cloudflare (opcional) | ⛔ BLOCKED (no necesario en modo local) | `wrangler whoami` → no autenticado |
+| CI GitHub | ✅ | runs 40379738550 y 40380600672 en verde |
 
 Detalle de pruebas y fallos corregidos: [`EVIDENCIAS_PRUEBAS.md`](EVIDENCIAS_PRUEBAS.md). Informe: [`REPORTE_FINAL.md`](REPORTE_FINAL.md).
 
 ## Comandos efectivos (desde `MISE/`)
-`npm install` · `npm run db:migrate:local` · `npm run dev` · `npm run typecheck` · `npm run test:unit` · `npm run test:integration` · `npm run test:e2e` · `npm run smoke:local-access` · `npm run build` · `npm run deploy:staging|production` · `node scripts/smoke-http.mjs <url>`
+`npm install` · `npm run db:migrate:local` · `npm run dev` · `npm run typecheck` · `npm run test:unit` · `npm run test:integration` · `npm run test:e2e` · `npm run smoke:local-access` · `npm run smoke:local-mode` · `npm run local` · `npm run build` · `npm run deploy:staging|production` · `node scripts/smoke-http.mjs <url>`
 
 ## Último trabajo realmente ejecutado (sesión 1)
 1. Auditoría v1 con navegador (merma topada al 95 %: 200 €/kg en vez de 1000 €/kg; margen 0 % con ingreso 0; datos corruptos → demo).
@@ -28,13 +30,19 @@ Detalle de pruebas y fallos corregidos: [`EVIDENCIAS_PRUEBAS.md`](EVIDENCIAS_PRU
 4. 17 E2E Playwright; 7 fallos reales encontrados y corregidos.
 5. Smoke de privacidad, CI, scripts de despliegue con comprobaciones, documentación de entrega.
 
+## Sesión 2 (modo local)
+1. `AUTH_MODE=local`: emparejamiento por token HMAC de 10 min y un solo uso → cookie firmada `HttpOnly` por dispositivo (tabla `paired_devices`, migración 0002), revocación inmediata, Ajustes → Seguridad con QR (`qrcode`).
+2. `scripts/local.mjs` + `Iniciar MISE (Windows).bat` / `Iniciar MISE (Mac).command`: instala, compila si hace falta, migra, arranca en la wifi, copia al arrancar y cada 24 h (30 últimas), abre el navegador ya emparejado. Detecta instancia duplicada, cierra limpio al cerrar la ventana (SIGHUP), rutas con espacios en Windows, sin consultas a internet tras instalar.
+3. **Fallo real encontrado y corregido:** una copia no se podía restaurar en *otra* instalación (otro ordenador o local ↔ Cloudflare): `audit_log.actor_user_id` apuntaba a un usuario inexistente → FK → restauración revertida. Ahora el autor desconocido pasa a null. Test BACKUP-03 (falla sin la corrección) y prueba real: borrar `datos-locales` → restaurar copia automática → datos de vuelta.
+
 ## Acciones externas solicitadas al propietario
-1. **Cuenta Cloudflare con MFA y `npx wrangler login`** (👤) — imprescindible para desplegar.
-2. **Zero Trust → equipo + política Access con tu email** (👤), copiar AUD a `wrangler.jsonc`.
+1. **Modo local:** instalar Node LTS, descomprimir, doble clic en el lanzador, permitir el firewall en redes privadas, emparejar el iPhone por QR y elegir carpeta de copias en iCloud/OneDrive (`datos-locales/config.json`). Avisar si algo falla en tu Windows/Mac.
+2. *(Solo si quieres usarlo fuera de casa)* cuenta Cloudflare + `npx wrangler login` + política Access ([`DESPLIEGUE_MISE.md`](DESPLIEGUE_MISE.md)).
 3. Confirmar con asesoría el **tipo de IVA** de tus servicios (configurable en Ajustes).
 Pasos exactos: [`DESPLIEGUE_MISE.md`](DESPLIEGUE_MISE.md).
 
 ## Próximo paso al reanudar
+Modo local: recoger el resultado de la primera instalación del propietario en Windows/Mac y Safari iPhone; corregir lo que aparezca. Cloudflare solo si el propietario lo pide:
 Si `npx wrangler whoami` ya muestra sesión: crear D1 (`d1 create`), rellenar `database_id` y `ACCESS_TEAM_DOMAIN` en `wrangler.jsonc`, `wrangler secret put OWNER_EMAILS --env staging`, activar Access en workers.dev, copiar AUD, `npm run deploy:staging`, revisar smoke y acceso real desde iPhone; repetir en producción. Después marcar OPS-02/OPS-03 y actualizar `REPORTE_FINAL.md`.
 No repetir auditoría ni reconstruir módulos: todo P0/P1 está implementado y cubierto por pruebas.
 

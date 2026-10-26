@@ -29,3 +29,7 @@ uploads/private/
 # Recursos OCR generados en build (scripts/copy-ocr-assets.mjs)
 public/ocr/
 .dev.vars.staging
+
+# Modo local: datos y copias del usuario (nunca a git)
+datos-locales/
+copias-locales/

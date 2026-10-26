@@ -1,6 +1,6 @@
 # MISE · guía de uso en una página
 
-**Entrar:** abre tu URL privada (o el icono MISE en tu iPhone) → Cloudflare te pide tu email → código → dentro. Nadie más puede entrar. En iPhone usa la barra inferior (Resumen · Eventos · Recetas · Compras · Más). Idioma ES/CA en **Ajustes**. Todos los importes son **sin IVA** salvo donde dice «con IVA».
+**Entrar (modo local):** arranca MISE en el ordenador principal con doble clic; en el iPhone abre el icono MISE estando en la misma wifi (emparejado una vez por QR, ver [`MODO_LOCAL.md`](MODO_LOCAL.md)). **(Cloudflare):** abre tu URL privada → email → código. Nadie más puede entrar. En iPhone usa la barra inferior (Resumen · Eventos · Recetas · Compras · Más). Idioma ES/CA en **Ajustes**. Todos los importes son **sin IVA** salvo donde dice «con IVA».
 
 **1. Catálogo (una vez, luego mantenimiento)**
 - **Proveedores:** nombre y, si quieres, NIF (ayuda a reconocer sus facturas).

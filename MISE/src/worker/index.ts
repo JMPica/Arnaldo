@@ -1,5 +1,7 @@
 import { Hono } from 'hono';
 import { resolveUser, verifyIdentity } from './auth';
+import { LOCAL_OWNER, handlePairing, unpairedPage, verifyDeviceSession } from './local-auth';
+import { devices } from './routes/devices';
 import type { AppEnv } from './env';
 import { ApiError, errorResponse } from './http';
 import { catalog } from './routes/catalog';
@@ -43,8 +45,25 @@ app.use('*', async (c, next) => {
 
 app.onError((err) => errorResponse(err));
 
+/** Modo local: emparejamiento de dispositivos (única ruta accesible sin sesión, no revela datos). */
+app.get('/emparejar', async (c, next) => {
+  if (c.env.AUTH_MODE !== 'local') return next();
+  return handlePairing(c.req.raw, c.env);
+});
+
 /** Autenticación obligatoria para TODO (API, ficheros privados y la propia SPA). */
 app.use('*', async (c, next) => {
+  if (c.env.AUTH_MODE === 'local') {
+    try {
+      c.set('deviceId', await verifyDeviceSession(c.req.raw, c.env));
+    } catch (e) {
+      // Fuera de la API se muestra una página sin datos con instrucciones de emparejamiento
+      if (!new URL(c.req.url).pathname.startsWith('/api/') && !(e instanceof ApiError && e.status === 500)) return unpairedPage('device_not_paired');
+      throw e;
+    }
+    c.set('user', await resolveUser(c.env.DB, { ...c.env, OWNER_EMAILS: LOCAL_OWNER.email }, LOCAL_OWNER));
+    return next();
+  }
   const identity = await verifyIdentity(c.req.raw, c.env);
   const user = await resolveUser(c.env.DB, c.env, identity);
   c.set('user', user);
@@ -75,6 +94,7 @@ v1.route('/', events);
 v1.route('/', purchasing);
 v1.route('/', data);
 v1.route('/', documents);
+v1.route('/', devices);
 v1.all('*', () => { throw new ApiError(404, 'not_found'); });
 app.route('/api/v1', v1);
 app.all('/api/*', () => { throw new ApiError(404, 'not_found'); });

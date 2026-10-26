@@ -154,14 +154,19 @@ export async function validateBackup(raw: unknown): Promise<BackupValidation> {
 }
 
 /** Sustituye TODOS los datos del propietario por los del backup en una única transacción (batch). */
-export function restoreStatements(db: Db, b: Record<string, any>): D1PreparedStatement[] {
+/**
+ * `knownUsers`: usuarios de esta instalación. Una copia hecha en otra instalación (otro ordenador, o local → Cloudflare)
+ * trae ids de usuario que aquí no existen: owner_id lo fuerza bulkInsert y el autor de la auditoría pasa a null.
+ */
+export function restoreStatements(db: Db, b: Record<string, any>, knownUsers: ReadonlySet<string>): D1PreparedStatement[] {
   const order = Object.keys(BACKUP_TABLES);
   const stmts: D1PreparedStatement[] = [];
   // borrado en orden inverso de dependencias
   stmts.push(db.prepare("DELETE FROM blob_chunks WHERE owner_id = ? AND blob_key NOT LIKE 'backup/%'", db.owner));
   for (const t of [...order].reverse()) stmts.push(db.prepare(`DELETE FROM ${t} WHERE owner_id = ?`, db.owner));
   for (const t of order) {
-    const rows = (b.tables[t] ?? []) as Row[];
+    let rows = (b.tables[t] ?? []) as Row[];
+    if (t === 'audit_log') rows = rows.map((r) => (r.actor_user_id && !knownUsers.has(String(r.actor_user_id)) ? { ...r, actor_user_id: null } : r));
     stmts.push(...db.bulkInsert(t as never, BACKUP_TABLES[t]!, rows));
   }
   if (b.settings && typeof b.settings === 'object') {

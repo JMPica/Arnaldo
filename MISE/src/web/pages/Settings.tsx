@@ -1,6 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
-import { ErrorBox, Loading, NumField, PageHead, SelectField, Tabs, TextArea, TextField, useErrorText, useToast } from '../components/ui';
+import QRCode from 'qrcode';
+import { ErrorBox, Loading, NumField, PageHead, SelectField, Tabs, TextArea, TextField, useConfirm, useErrorText, useToast } from '../components/ui';
 import { api, download } from '../lib/api';
 import { useI18n } from '../lib/i18n';
 
@@ -152,17 +153,95 @@ function Security() {
         {me.isError ? <ErrorBox error={me.error} /> : me.data && <div className="kv" style={{ marginTop: 10 }}>
           <span className="k">{t('Usuario')}</span><span className="v">{me.data.email}</span>
           <span className="k">{t('Rol')}</span><span className="v">{me.data.role === 'owner' ? t('Propietario') : t('Colaborador')}</span>
-          <span className="k">{t('Autenticación')}</span><span className="v">{me.data.auth_mode === 'cloudflare_access' ? 'Cloudflare Access' : t('Desarrollo local')}</span>
+          <span className="k">{t('Autenticación')}</span><span className="v">{me.data.auth_mode === 'cloudflare_access' ? 'Cloudflare Access' : me.data.auth_mode === 'local_device' ? t('Dispositivo emparejado') : t('Desarrollo local')}</span>
           <span className="k">{t('Entorno')}</span><span className="v">{me.data.app_env}</span>
         </div>}
-        <p className="footnote">{t('Para cerrar sesión o revocar accesos usa el panel de Cloudflare Zero Trust (o /cdn-cgi/access/logout).')}</p>
+        <p className="footnote">{me.data?.auth_mode === 'local_device'
+          ? t('Modo local: los datos están en el ordenador principal. Para quitar el acceso a un dispositivo, revócalo en la lista de dispositivos.')
+          : t('Para cerrar sesión o revocar accesos usa el panel de Cloudflare Zero Trust (o /cdn-cgi/access/logout).')}</p>
         <h3 style={{ marginTop: 16 }}>{t('IA externa')}</h3>
         <p className="muted2">{ai.data?.enabled ? '—' : t('Desactivada por diseño. Presupuesto mensual: 0 €. Requiere tu autorización expresa de costes y tratamiento de datos.')}</p>
       </section>
+      {me.data?.auth_mode === 'local_device' && <Devices />}
       <section className="card panel">
         <h3>{t('Actividad reciente (auditoría)')}</h3>
         {audit.data ? <ul className="list">{(audit.data as any[]).slice(0, 60).map((a, i) => <li key={i} className="row"><span>{a.action} · {a.entity_type}</span><span className="muted">{a.created_at.slice(0, 16).replace('T', ' ')}</span></li>)}</ul> : <Loading />}
       </section>
     </div>
+  );
+}
+
+type Device = { id: string; name: string; created_at: string; last_seen_at: string | null; revoked_at: string | null };
+
+/** Modo local: dispositivos emparejados y código QR para conectar el iPhone u otro ordenador por wifi. */
+function Devices() {
+  const { t } = useI18n();
+  const qc = useQueryClient();
+  const toast = useToast();
+  const errText = useErrorText();
+  const confirm = useConfirm();
+  const list = useQuery({ queryKey: ['devices'], queryFn: () => api.get<{ current: string | null; devices: Device[] }>('/devices') });
+  const [name, setName] = useState('iPhone');
+  const [pairing, setPairing] = useState<{ expires_at: string; lan: boolean; links: { url: string; qr: string }[] } | null>(null);
+  const create = useMutation({
+    mutationFn: async () => {
+      const r = await api.post<{ expires_at: string; path: string; urls: string[] }>('/devices/pairing', { name });
+      const urls = r.urls.length ? r.urls : [`${location.origin}${r.path}`];
+      return { expires_at: r.expires_at, lan: r.urls.length > 0, links: await Promise.all(urls.map(async (url) => ({ url, qr: await QRCode.toDataURL(url, { margin: 1, width: 240 }) }))) };
+    },
+    onSuccess: (p) => { setPairing(p); qc.invalidateQueries({ queryKey: ['devices'] }); },
+    onError: (e) => toast(errText(e), 'error'),
+  });
+  const revoke = useMutation({
+    mutationFn: (id: string) => api.del<{ was_current: boolean }>(`/devices/${id}`),
+    onSuccess: async (r) => {
+      if (r.was_current) return location.reload();
+      await qc.invalidateQueries({ queryKey: ['devices'] });
+      toast(t('Acceso revocado'));
+    },
+    onError: (e) => toast(errText(e), 'error'),
+  });
+  const devices = list.data?.devices ?? [];
+  const fmt = (d: string | null) => (d ? d.slice(0, 16).replace('T', ' ') : '—');
+  return (
+    <section className="card panel">
+      <h3>{t('Dispositivos conectados')}</h3>
+      <p className="muted2">{t('Solo los dispositivos emparejados pueden abrir MISE. Para conectar el iPhone, debe estar en la misma wifi que este ordenador.')}</p>
+      <div className="fields" style={{ marginTop: 10 }}>
+        <TextField label={t('Nombre del dispositivo')} value={name} onChange={setName} maxLength={60} />
+      </div>
+      <button className="btn" style={{ marginTop: 10 }} disabled={create.isPending} onClick={() => create.mutate()}>{t('Conectar un dispositivo')}</button>
+      {pairing && (
+        <div className="notice info" style={{ marginTop: 12 }}>
+          <p><strong>{t('Escanea el código con la cámara del dispositivo')}</strong></p>
+          {!pairing.lan && <p className="notice warn">{t('No se ha detectado la wifi de este ordenador: el código solo funcionará aquí. Conecta el ordenador a la wifi y reinicia MISE.')}</p>}
+          {pairing.links.map((l) => (
+            <div key={l.url} style={{ marginTop: 8 }}>
+              <img src={l.qr} width={200} height={200} alt={t('Código QR de emparejamiento')} />
+              <p className="footnote" style={{ wordBreak: 'break-all' }}>{l.url}</p>
+            </div>
+          ))}
+          <p className="footnote">{t('Válido 10 minutos y un solo uso (hasta las {h}). No lo compartas.', { h: new Date(pairing.expires_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) })}</p>
+          <button className="btn light" onClick={() => setPairing(null)}>{t('Ocultar código')}</button>
+        </div>
+      )}
+      {list.isError ? <ErrorBox error={list.error} /> : !list.data ? <Loading /> : (
+        <ul className="list" style={{ marginTop: 12 }}>
+          {devices.map((d) => (
+            <li key={d.id} className="row">
+              <span>
+                <strong>{d.name}</strong>{d.id === list.data.current && <> · <em>{t('este dispositivo')}</em></>}
+                <br /><span className="muted">{d.revoked_at ? t('Revocado {d}', { d: fmt(d.revoked_at) }) : t('Último uso {d}', { d: fmt(d.last_seen_at ?? d.created_at) })}</span>
+              </span>
+              {!d.revoked_at && <button className="btn danger sm" onClick={async () => {
+                const msg = d.id === list.data.current ? t('Vas a revocar el acceso de este mismo dispositivo. Tendrás que emparejarlo de nuevo.') : t('¿Revocar el acceso de «{n}»?', { n: d.name });
+                if (await confirm.ask(msg)) revoke.mutate(d.id);
+              }}>{t('Revocar')}</button>}
+            </li>
+          ))}
+        </ul>
+      )}
+      {confirm.node}
+    </section>
   );
 }

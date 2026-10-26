@@ -13,7 +13,7 @@ export const insights = new Hono<AppEnv>();
 
 insights.get('/me', (c) => {
   const u = c.get('user');
-  return c.json({ email: u.email, role: u.role, auth_mode: c.env.AUTH_MODE === 'access' ? 'cloudflare_access' : 'dev_loopback', app_env: c.env.APP_ENV ?? 'local' });
+  return c.json({ email: u.email, role: u.role, auth_mode: c.env.AUTH_MODE === 'access' ? 'cloudflare_access' : c.env.AUTH_MODE === 'local' ? 'local_device' : 'dev_loopback', app_env: c.env.APP_ENV ?? 'local', device_id: c.get('deviceId') ?? null });
 });
 
 insights.get('/settings', async (c) => {

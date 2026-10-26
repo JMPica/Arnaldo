@@ -62,7 +62,8 @@ data.post('/restore/commit', async (c) => {
   const v = await validateBackup(raw.backup);
   if (!v.ok) throw new ApiError(422, 'invalid_backup', v.errors);
   const pre = await storeBackup(db, 'pre_restore');
-  const stmts = restoreStatements(db, raw.backup as Record<string, any>);
+  const users = await db.all<{ id: string }>('SELECT id FROM app_users WHERE owner_id = ?', db.owner);
+  const stmts = restoreStatements(db, raw.backup as Record<string, any>, new Set(users.map((u) => u.id)));
   try {
     await db.batch([...stmts, db.audit('restore', 'backup', pre.id, { counts: v.counts })]);
   } catch (e) {

@@ -12,6 +12,10 @@ export interface Env {
   /** Solo AUTH_MODE=dev: identidad simulada para desarrollo en localhost */
   DEV_USER_EMAIL?: string;
   APP_ENV?: string;
+  /** Solo AUTH_MODE=local: secreto HMAC (≥32 caracteres) generado por el lanzador en datos-locales/ */
+  LOCAL_SECRET?: string;
+  /** Solo AUTH_MODE=local: URLs de la red local (wifi) para los códigos QR, separadas por comas */
+  LOCAL_LAN_URLS?: string;
   /** Límite de subida de documentos en bytes (por defecto 10 MB) */
   MAX_UPLOAD_BYTES?: string;
 }
@@ -23,4 +27,4 @@ export interface AuthUser {
   role: 'owner' | 'collaborator';
 }
 
-export type AppEnv = { Bindings: Env; Variables: { user: AuthUser } };
+export type AppEnv = { Bindings: Env; Variables: { user: AuthUser; deviceId?: string } };
