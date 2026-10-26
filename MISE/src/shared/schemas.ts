@@ -30,6 +30,8 @@ const id = z.string().min(1).max(64).regex(/^[\w-]+$/, 'invalid_id');
 const optId = z.union([id, z.null(), z.literal('')]).optional().transform((v) => (v === '' ? null : v));
 const optEmail = z.union([z.string().trim().email().max(200), z.literal(''), z.null()]).optional().transform((v) => (v === '' ? null : v));
 const allergenList = z.array(z.enum(ALLERGENS)).max(14);
+/** Claves de idempotencia: solo [A-Za-z0-9_-] (se usan en comparaciones LIKE). */
+const idemKey = z.string().regex(/^[\w-]{8,100}$/, 'invalid_idempotency_key');
 
 export const SettingsSchema = z.object({
   locale: z.enum(['es', 'ca']),
@@ -199,7 +201,7 @@ export const PurchaseSchema = z.object({
 });
 
 export const ReceiveSchema = z.object({
-  idempotency_key: z.string().min(8).max(100),
+  idempotency_key: idemKey,
   received_at: isoDate,
   lines: z.array(z.object({ line_id: id, packs: positiveDecimal(4) })).min(1).max(300),
 });
@@ -210,11 +212,11 @@ export const StockMovementSchema = z.object({
   quantity_base: signedDecimal,
   occurred_at: isoDate,
   notes: optText(300),
-  idempotency_key: z.string().min(8).max(100),
+  idempotency_key: idemKey,
 });
 
 export const EventStockSchema = z.object({
-  idempotency_key: z.string().min(8).max(100),
+  idempotency_key: idemKey,
   lines: z.array(z.object({ ingredient_id: id, quantity_base: positiveDecimal(4) })).max(500).optional(),
 });
 

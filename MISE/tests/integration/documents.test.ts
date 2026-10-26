@@ -4,7 +4,7 @@ import { call, installAccessMock, seedBasic, TEAM } from './helpers';
 beforeAll(installAccessMock);
 
 const pdfBytes = (marker: string) => new TextEncoder().encode(`%PDF-1.4\n% ${marker}\n1 0 obj<<>>endobj\ntrailer<<>>\n%%EOF`);
-const form = (bytes: Uint8Array, name: string, type = 'application/pdf') => { const f = new FormData(); f.append('file', new File([bytes], name, { type })); f.append('source_type', 'invoice'); return f; };
+const form = (bytes: Uint8Array, name: string, type = 'application/pdf') => { const f = new FormData(); f.append('file', new File([bytes as Uint8Array<ArrayBuffer>], name, { type })); f.append('source_type', 'invoice'); return f; };
 
 describe('Documentos (P1): subida segura, extracción sin efectos, revisión humana, duplicados', () => {
   it('DOC-01 subir PDF/imagen; acceso solo autenticado; tipos falsificados rechazados', async () => {

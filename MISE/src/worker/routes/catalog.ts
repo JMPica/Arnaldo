@@ -120,7 +120,10 @@ catalog.get('/ingredients/:id', async (c) => {
   ]);
   const cat = await loadCatalog(db);
   const cur = cat.current.get(id);
+  const all = await db.all<{ kind: string; quantity_base: string }>('SELECT kind, quantity_base FROM stock_movements WHERE ingredient_id = ? AND owner_id = ?', id, db.owner);
+  const stock = all.reduce((a, m) => (['reservation', 'reservation_release'].includes(m.kind) ? a : a.plus(['consumption', 'waste'].includes(m.kind) ? dec(m.quantity_base).negated() : dec(m.quantity_base))), dec(0));
   return c.json({
+    stock_on_hand: stock.toFixed(),
     ...ing,
     allergens: JSON.parse(String(ing.allergens_json)),
     formats: formats!.results,
@@ -191,6 +194,14 @@ catalog.post('/purchase-formats', async (c) => {
   if (!hasPref?.preferred_format_id) stmts.push(db.prepare('UPDATE ingredients SET preferred_format_id = ? WHERE id = ? AND owner_id = ?', id, d.ingredient_id, db.owner));
   await db.batch(stmts);
   return c.json(await db.owned('purchase_formats', id), 201);
+});
+
+catalog.get('/purchase-formats', async (c) => {
+  const db = getDb(c);
+  const rows = await db.all(`SELECT f.id, f.ingredient_id, f.supplier_id, f.label, f.supplier_ref, f.pack_quantity_base, f.whole_packs_only, f.is_active, s.name AS supplier_name,
+      (SELECT ph.pack_price FROM price_history ph WHERE ph.format_id = f.id ORDER BY ph.effective_at DESC, ph.recorded_at DESC LIMIT 1) AS last_price
+    FROM purchase_formats f LEFT JOIN suppliers s ON s.id = f.supplier_id WHERE f.owner_id = ? AND f.is_active = 1 ORDER BY f.label`, db.owner);
+  return c.json(rows);
 });
 
 catalog.patch('/purchase-formats/:id', async (c) => {

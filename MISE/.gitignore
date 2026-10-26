@@ -24,3 +24,6 @@ CLAUDE.local.md
 secrets/
 backups/private/
 uploads/private/
+
+# Recursos OCR generados en build (scripts/copy-ocr-assets.mjs)
+public/ocr/
