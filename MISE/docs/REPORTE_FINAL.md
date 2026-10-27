@@ -1,11 +1,11 @@
 # Informe de entrega (2026-10-26)
 
 - **Rama / commits:** `claude/mise-private-chef-os-c8s53u` (ver `git log -- MISE`).
-- **Forma de uso elegida por el propietario: modo local** (ordenador principal Windows/Mac + iPhone por wifi, dispositivos emparejados por QR, copias automáticas): implementado y verificado en Linux — [`MODO_LOCAL.md`](MODO_LOCAL.md). Pendiente solo la primera instalación en tu hardware.
-- **URL privada en Cloudflare (opcional):** BLOCKED — sin cuenta autorizada. Pasos: [`DESPLIEGUE_MISE.md`](DESPLIEGUE_MISE.md).
-- **Acceso no autorizado:** PASS (local, modo producción) — `npm run smoke:local-access` 53/53 + `security.test.ts` 23/23. En URL real: NOT RUN (BLOCKED).
-- **Acceso autorizado:** PASS (integración con JWT RS256 firmado y JWKS simulado; dev loopback en E2E). Con Access real: NOT RUN (BLOCKED).
-- **DB D1 y migraciones:** PASS en D1 local (wrangler 58 comandos; Miniflare en tests). D1 remota: NOT RUN (BLOCKED).
+- **Forma de uso elegida por el propietario (2026-10-27): Cloudflare**, publicado desde GitHub Actions sin instalar nada ([`PUBLICAR_DESDE_GITHUB.md`](PUBLICAR_DESDE_GITHUB.md)). El modo local ([`MODO_LOCAL.md`](MODO_LOCAL.md)) queda como alternativa.
+- **URL privada en Cloudflare:** PASS — desplegada el 2026-10-27 (job `publicar`, run 40479004409); la URL figura en el resumen del job.
+- **Acceso no autorizado:** PASS — en la URL real, `smoke-http.mjs` **53/53** sin sesión (redirección al login de Access o 401; ningún dato); en local `smoke:local-access` 53/53 + `security.test.ts` 23/23.
+- **Acceso autorizado:** PASS en integración (JWT RS256 firmado y JWKS simulado). Con Access real: **pendiente del primer acceso del propietario** desde el iPhone.
+- **DB D1 y migraciones:** PASS en D1 local y en **D1 remota** (migraciones 0001+0002 aplicadas por el job `publicar`).
 - **CRUD ingredientes, proveedores y precios:** PASS · **Recetas y subrecetas:** PASS · **Menús y eventos:** PASS · **Compras e inventario:** PASS · **Importación v1 y restauración:** PASS
 - **Documentos (P1):** PASS (PDF texto + OCR local + revisión humana + duplicados) · **IA externa:** DISABLED BY DESIGN
 - **Tests:** unitarios 31 · integración 40 · E2E 17 (+1 omitido por diseño) · smoke de privacidad 53 · smoke modo local 11 — todos en verde; CI de GitHub en verde.
