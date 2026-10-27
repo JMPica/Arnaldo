@@ -3,7 +3,8 @@
 Aplicación privada para chef privado: **cliente → menú → recetas → escandallos → presupuesto → compras → producción → evento → rentabilidad final**, usable desde iPhone y ordenador.
 
 - **Estado y continuidad:** [`docs/PROGRESO.md`](docs/PROGRESO.md) · decisiones: [`docs/DECISIONES.md`](docs/DECISIONES.md)
-- **Publicar en internet (iPhone sin ordenador encendido, privado y gratis):** [`docs/PUBLICAR_INTERNET.md`](docs/PUBLICAR_INTERNET.md) — doble clic en `Publicar MISE en internet (Mac).command` / `(Windows).bat`
+- **Publicar sin instalar nada (solo navegador; GitHub publica en tu Cloudflare):** [`docs/PUBLICAR_DESDE_GITHUB.md`](docs/PUBLICAR_DESDE_GITHUB.md)
+- **Publicar en internet desde tu ordenador (alternativa con Node.js):** [`docs/PUBLICAR_INTERNET.md`](docs/PUBLICAR_INTERNET.md) — doble clic en `Publicar MISE en internet (Mac).command` / `(Windows).bat`
 - **Modo local (Windows · Mac · iPhone por wifi, sin nube):** [`docs/MODO_LOCAL.md`](docs/MODO_LOCAL.md) — doble clic en `Iniciar MISE (Windows).bat` o `Iniciar MISE (Mac).command`
 - **Guía de uso (1 página):** [`docs/GUIA_USO.md`](docs/GUIA_USO.md)
 - **Despliegue privado paso a paso:** [`docs/DESPLIEGUE_MISE.md`](docs/DESPLIEGUE_MISE.md) · costes: [`docs/COSTES.md`](docs/COSTES.md)

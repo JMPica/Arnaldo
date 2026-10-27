@@ -38,3 +38,31 @@ jobs:
           name: playwright-report
           path: MISE/playwright-report
           retention-days: 7
+
+  # Publicación privada en Cloudflare (solo rama de MISE, tras pasar todas las pruebas).
+  # Sin el secreto CLOUDFLARE_API_TOKEN no hace nada. Ver MISE/docs/PUBLICAR_DESDE_GITHUB.md.
+  publicar:
+    needs: test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/claude/mise-private-chef-os-c8s53u'
+    runs-on: ubuntu-latest
+    concurrency:
+      group: mise-publicar
+      cancel-in-progress: false
+    defaults:
+      run:
+        working-directory: MISE
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: MISE/package-lock.json
+      - run: npm ci
+      - run: npm run build
+      - run: node scripts/publicar-ci.mjs
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          MISE_OWNER_EMAIL: ${{ secrets.MISE_OWNER_EMAIL }}
+          MISE_SUBDOMAIN: ${{ vars.MISE_SUBDOMAIN }}

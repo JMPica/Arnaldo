@@ -30,6 +30,9 @@ Detalle de pruebas y fallos corregidos: [`EVIDENCIAS_PRUEBAS.md`](EVIDENCIAS_PRU
 4. 17 E2E Playwright; 7 fallos reales encontrados y corregidos.
 5. Smoke de privacidad, CI, scripts de despliegue con comprobaciones, documentación de entrega.
 
+## Sesión 3 — publicación sin instalar nada (2026-10-27)
+El propietario no puede instalar Node.js en el PC del trabajo → **publicación desde GitHub Actions** (`publicar-ci.mjs`, job `publicar` en `mise-ci.yml`). El propietario solo usa el navegador: cuenta Cloudflare, Zero Trust Free, token de permisos mínimos y 2 secretos en GitHub ([`PUBLICAR_DESDE_GITHUB.md`](PUBLICAR_DESDE_GITHUB.md)). Probado aquí contra una API de Cloudflare simulada: cuenta nueva (crea subdominio, D1, organización, app y política de Access **antes** de desplegar) y cuenta sin Zero Trust (configuración cerrada + instrucciones); sin token → se omite. **Pendiente: secretos del propietario → relanzar el job → verificar URL real y smoke (OPS-02/OPS-03).**
+
 ## Sesión 2 (cont.) — el propietario quiere el iPhone como dispositivo principal
 El iPhone no puede ser servidor → elegida la **publicación en Cloudflare** (respuesta del propietario: «En internet»). Este entorno no llega a `api.cloudflare.com` (proxy 403) y no debe recibir tokens → `scripts/publicar.mjs` + lanzadores «Publicar MISE en internet» que ejecuta el propietario: login OAuth, D1, migraciones, despliegue, secreto, Access (1 clic en el panel + pegar AUD), smoke de privacidad obligatorio. Probado aquí: sintaxis, configuración generada (`wrangler deploy --dry-run` con bindings correctos), ejecución hasta el login OAuth. **Pendiente: ejecución real por el propietario** (guía [`PUBLICAR_INTERNET.md`](PUBLICAR_INTERNET.md)).
 
@@ -45,6 +48,7 @@ El iPhone no puede ser servidor → elegida la **publicación en Cloudflare** (r
 Pasos exactos: [`DESPLIEGUE_MISE.md`](DESPLIEGUE_MISE.md).
 
 ## Próximo paso al reanudar
+Cuando el propietario diga que añadió los secretos en GitHub: relanzar el último run de «MISE CI» de la rama (`rerun_workflow_run`), leer el resumen del job `publicar` y darle la URL; si falla, leer el registro y corregir.
 Si el propietario ya ejecutó «Publicar»: pedirle la URL y el resultado del smoke (o captura del error), corregir y marcar OPS-02/OPS-03. Si falló en el paso de Access, revisar el texto real del panel y ajustar `publicar.mjs`/la guía.
 Modo local: recoger el resultado de la primera instalación del propietario en Windows/Mac y Safari iPhone; corregir lo que aparezca. Cloudflare solo si el propietario lo pide:
 Si `npx wrangler whoami` ya muestra sesión: crear D1 (`d1 create`), rellenar `database_id` y `ACCESS_TEAM_DOMAIN` en `wrangler.jsonc`, `wrangler secret put OWNER_EMAILS --env staging`, activar Access en workers.dev, copiar AUD, `npm run deploy:staging`, revisar smoke y acceso real desde iPhone; repetir en producción. Después marcar OPS-02/OPS-03 y actualizar `REPORTE_FINAL.md`.
